@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primaryColor: Colors.green[600],
           accentColor: Colors.teal[400]),
-      // home: PlantPage(title: 'Plantô'),
-      home: DetailsPage(),
+      home: PlantPage(title: 'Plantô'),
+      // home: DetailsPage(),
     );
   }
 }
