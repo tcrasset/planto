@@ -1,3 +1,4 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class LastWateredField extends StatefulWidget {
@@ -24,6 +25,7 @@ class LastWateredFieldState extends State<LastWateredField> {
     super.dispose();
   }
 
+  // ignore: avoid_void_async
   void _selectDate(BuildContext context) async {
     final DateTime newSelectedDate = await showDatePicker(
         context: context,

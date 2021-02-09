@@ -1,9 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
 import 'components/plant_list_item.dart';
 
 class PlantPage extends StatefulWidget {
-  PlantPage({Key key, this.title}) : super(key: key);
+  const PlantPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -17,7 +19,7 @@ class _PlantPageState extends State<PlantPage> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: PlantList(),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: const FloatingActionButton(
         onPressed: null,
         tooltip: 'Add plant',
         child: Icon(Icons.add),
@@ -37,7 +39,7 @@ class _PlantListState extends State<PlantList> {
     return GridView.count(
       crossAxisCount: 2,
       children: List.generate(10, (index) {
-        return PlantListItem();
+        return const PlantListItem();
       }),
     );
   }

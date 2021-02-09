@@ -1,5 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:planto/details_page/details_page.dart';
+
+// Project imports:
 import 'package:planto/plant_page/plant_page.dart';
 
 void main() {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primaryColor: Colors.green[600],
           accentColor: Colors.teal[400]),
-      home: PlantPage(title: 'Plantô'),
+      home: const PlantPage(title: 'Plantô'),
       // home: DetailsPage(),
     );
   }
