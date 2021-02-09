@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:planto/plant_page/plant_page.dart';
+import 'presentation/pages/plant_page/plant_page.dart';
 
 void main() {
   runApp(MyApp());

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import '../../core/plant_card.dart';
 import 'buttons.dart';
-import 'plant_card.dart';
 
 class PlantListItem extends StatelessWidget {
   const PlantListItem({

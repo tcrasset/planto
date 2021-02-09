@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../plant_page/components/plant_card.dart';
+import '../core/plant_card.dart';
 import 'components/last_watered_field.dart';
 import 'components/notes_field.dart';
 import 'components/watering_days_field.dart';
