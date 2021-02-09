@@ -1,8 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:planto/details_page/components/last_watered_field.dart';
-import 'package:planto/details_page/components/notes_field.dart';
-import 'package:planto/details_page/components/watering_days_field.dart';
-import 'package:planto/plant_page/components/plant_card.dart';
+
+// Project imports:
+import '../plant_page/components/plant_card.dart';
+import 'components/last_watered_field.dart';
+import 'components/notes_field.dart';
+import 'components/watering_days_field.dart';
 
 class DetailsPage extends StatefulWidget {
   @override

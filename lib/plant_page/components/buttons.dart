@@ -1,5 +1,8 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:planto/details_page/details_page.dart';
+
+// Project imports:
+import '../../details_page/details_page.dart';
 
 class WaterButton extends StatelessWidget {
   const WaterButton({
