@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:planto/details_page/components/last_watered_field.dart';
 import 'package:planto/details_page/components/notes_field.dart';
 import 'package:planto/details_page/components/watering_days_field.dart';
@@ -15,14 +14,14 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     const double size = 300;
     return Scaffold(
-      appBar: AppBar(title: Text("Details")),
+      appBar: AppBar(title: const Text("Details")),
       body: CustomScrollView(slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
             children: [
-              SizedBox(height: 8),
-              Center(child: PlantCard(size: size)),
+              const SizedBox(height: 8),
+              const Center(child: PlantCard(size: size)),
               LastWateredField(),
               WateringDaysField(),
               Expanded(child: NotesField()),

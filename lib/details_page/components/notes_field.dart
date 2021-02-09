@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class NotesField extends StatefulWidget {
@@ -7,21 +6,35 @@ class NotesField extends StatefulWidget {
 }
 
 class _NotesFieldState extends State<NotesField> {
+  TextEditingController _notesController;
+
+  @override
+  void initState() {
+    _notesController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _notesController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: 280,
         child: TextField(
           maxLines: null,
           expands: true,
           keyboardType: TextInputType.multiline,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             helperText: 'Notes',
-            border: const OutlineInputBorder(
+            border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
           ),
+          controller: _notesController,
         ));
   }
 }
-

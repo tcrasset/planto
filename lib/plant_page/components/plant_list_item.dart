@@ -15,9 +15,9 @@ class PlantListItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Stack(children: [
-          PlantCard(size: size),
-          WaterButton(buttonSize: buttonSize),
-          MoreInfoButton(buttonSize: buttonSize),
+          const PlantCard(size: size),
+          const WaterButton(buttonSize: buttonSize),
+          const MoreInfoButton(buttonSize: buttonSize),
         ]),
       ),
     );

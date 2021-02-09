@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LastWateredField extends StatefulWidget {
@@ -14,7 +13,7 @@ class LastWateredFieldState extends State<LastWateredField> {
   void initState() {
     _selectedDate = DateTime.now();
     _dateTextEditingController = TextEditingController();
-    _dateTextEditingController..text = _selectedDate.toString();
+    _dateTextEditingController.text = _selectedDate.toString();
 
     super.initState();
   }
@@ -26,22 +25,14 @@ class LastWateredFieldState extends State<LastWateredField> {
   }
 
   void _selectDate(BuildContext context) async {
-    DateTime newSelectedDate = await showDatePicker(
+    final DateTime newSelectedDate = await showDatePicker(
         context: context,
-        initialDate: _selectedDate != null ? _selectedDate : DateTime.now(),
+        initialDate: _selectedDate ?? DateTime.now(),
         firstDate: DateTime(2000),
         lastDate: DateTime(2040),
         builder: (BuildContext context, Widget child) {
           return Theme(
-            data: ThemeData.dark().copyWith(
-              colorScheme: ColorScheme.dark(
-                primary: Colors.deepPurple,
-                onPrimary: Colors.white,
-                surface: Colors.blueGrey,
-                onSurface: Colors.yellow,
-              ),
-              dialogBackgroundColor: Colors.blue[500],
-            ),
+            data: ThemeData.light(),
             child: child,
           );
         });
@@ -51,19 +42,20 @@ class LastWateredFieldState extends State<LastWateredField> {
       _dateTextEditingController
         ..text = _selectedDate.toString()
         ..selection = TextSelection.fromPosition(TextPosition(
-            offset: _dateTextEditingController.text.length, affinity: TextAffinity.upstream));
+            offset: _dateTextEditingController.text.length,
+            affinity: TextAffinity.upstream));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
       child: TextField(
         readOnly: true,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           helperText: 'Last watered',
-          border: const OutlineInputBorder(
+          border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
         ),

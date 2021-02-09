@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class WateringDaysField extends StatefulWidget {
@@ -23,13 +22,13 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
       child: TextField(
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           helperText: 'Watering interval (days)',
-          border: const OutlineInputBorder(
+          border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
         ),

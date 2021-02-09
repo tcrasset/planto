@@ -18,24 +18,24 @@ class PlantCard extends StatelessWidget {
         // color: Colors.lightGreen[100],
       ),
       child: Column(children: [
-        Text(
+        const Text(
           "Succulent",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
-        Text("Succulento planto", style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic)),
+        const Text("Succulento planto",
+            style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic)),
         Expanded(
           child: Card(
-            semanticContainer: true,
             clipBehavior: Clip.antiAliasWithSaveLayer,
-            child: Image.asset(
-              'images/succulent.jpg',
-              fit: BoxFit.fill,
-            ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
             elevation: 10,
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
+            child: Image.asset(
+              'images/succulent.jpg',
+              fit: BoxFit.fill,
+            ),
           ),
         ),
       ]),
