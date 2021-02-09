@@ -7,8 +7,7 @@ import 'package:planto/domain/details_page/watering_days.dart';
 
 // Project imports:
 
-// ignore: type_annotate_public_apis, always_declare_return_types
-main() {
+void main() {
   test('verify that the constructor adds the value', () {
     //!Arrange
     const int tDays = 5;
@@ -20,18 +19,21 @@ main() {
     expect(wateringDaysValue, tDays);
   });
 
-  test('verify that a non-positive value returns a InvalidWateringDays', () {
+  test(
+      'verify that a non-positive value returns a InvalidWateringDays ValueFailure',
+      () {
     //!Arrange
     const int tDays = 0;
-    const ValueFailure tFailure =
-        ValueFailure.invalidWateringDays(failedValue: tDays);
+    const InvalidWateringDays<int> tFailure =
+        ValueFailure<int>.invalidWateringDays(failedValue: tDays)
+            as InvalidWateringDays<int>;
     //!Act
     final WateringDays result = WateringDays(tDays);
     //!Assert
 
     result.value.fold(
       (failure) => expect(failure, tFailure),
-      (correct) => null,
+      (correct) => throw TestFailure("Should have executed `failed`"),
     );
   });
 }
