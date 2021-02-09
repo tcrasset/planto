@@ -2,7 +2,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
-import 'package:planto/domain/watering_days.dart';
+import 'package:planto/domain/core/value_failure.dart';
+import 'package:planto/domain/details_page/watering_days.dart';
+
+// Project imports:
 
 // ignore: type_annotate_public_apis, always_declare_return_types
 main() {
@@ -20,15 +23,15 @@ main() {
   test('verify that a non-positive value returns a InvalidWateringDays', () {
     //!Arrange
     const int tDays = 0;
+    const ValueFailure tFailure =
+        ValueFailure.invalidWateringDays(failedValue: tDays);
     //!Act
     final WateringDays result = WateringDays(tDays);
     //!Assert
 
     result.value.fold(
-        (failure) => expect(
-            failure,
-            predicate(
-                (e) => e is InvalidWateringDays && e.failedValue == tDays)),
-        (correct) => throw Exception);
+      (failure) => expect(failure, tFailure),
+      (correct) => null,
+    );
   });
 }

@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'watering_days.dart';
+part of 'value_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -113,9 +113,7 @@ class _$InvalidWateringDaysCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$InvalidWateringDays<T>
-    with DiagnosticableTreeMixin
-    implements InvalidWateringDays<T> {
+class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
   const _$InvalidWateringDays({@required this.failedValue})
       : assert(failedValue != null);
 
@@ -123,16 +121,8 @@ class _$InvalidWateringDays<T>
   final int failedValue;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ValueFailure<$T>.invalidWateringDays(failedValue: $failedValue)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.invalidWateringDays'))
-      ..add(DiagnosticsProperty('failedValue', failedValue));
   }
 
   @override
