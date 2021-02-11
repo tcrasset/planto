@@ -31,9 +31,8 @@ class LastWateredFieldState extends State<LastWateredField> {
     super.dispose();
   }
 
-  // ignore: avoid_void_async
-  void _selectDate(BuildContext context) async {
-    final DateTime newSelectedDate = await showDatePicker(
+  Future<DateTime> _selectDate(BuildContext context) async {
+    return showDatePicker(
         context: context,
         initialDate: _selectedDate ?? DateTime.now(),
         firstDate: DateTime(2000),
@@ -44,10 +43,6 @@ class LastWateredFieldState extends State<LastWateredField> {
             child: child,
           );
         });
-
-    context
-        .read<DetailsPageBloc>()
-        .add(DetailsPageEvent.lastWateredChanged(newSelectedDate));
   }
 
   @override
@@ -56,9 +51,7 @@ class LastWateredFieldState extends State<LastWateredField> {
       listener: (context, state) {
         _dateTextEditingController.text = state.lastWatered.toString();
       },
-      builder: (context, state) {
-        // _dateTextEditingController.text = state.lastWatered.toString();
-
+      builder: (context, _) {
         return SizedBox(
           width: 200,
           child: TextField(
@@ -70,7 +63,11 @@ class LastWateredFieldState extends State<LastWateredField> {
               ),
             ),
             controller: _dateTextEditingController,
-            onTap: () => _selectDate(context),
+            onTap: () async => context
+                .read<DetailsPageBloc>()
+                .add(DetailsPageEvent.lastWateredChanged(
+                  await _selectDate(context),
+                )),
           ),
         );
       },
