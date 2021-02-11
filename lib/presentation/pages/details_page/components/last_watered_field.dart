@@ -1,6 +1,12 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
+import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+
 class LastWateredField extends StatefulWidget {
   @override
   LastWateredFieldState createState() => LastWateredFieldState();
@@ -39,33 +45,35 @@ class LastWateredFieldState extends State<LastWateredField> {
           );
         });
 
-    if (newSelectedDate != null) {
-      _selectedDate = newSelectedDate;
-      _dateTextEditingController
-        ..text = _selectedDate.toString()
-        ..selection = TextSelection.fromPosition(TextPosition(
-            offset: _dateTextEditingController.text.length,
-            affinity: TextAffinity.upstream));
-    }
+    context
+        .read<DetailsPageBloc>()
+        .add(DetailsPageEvent.lastWateredChanged(newSelectedDate));
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      child: TextField(
-        readOnly: true,
-        decoration: const InputDecoration(
-          helperText: 'Last watered',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+      listener: (context, state) {
+        _dateTextEditingController.text = state.lastWatered.toString();
+      },
+      builder: (context, state) {
+        // _dateTextEditingController.text = state.lastWatered.toString();
+
+        return SizedBox(
+          width: 200,
+          child: TextField(
+            readOnly: true,
+            decoration: const InputDecoration(
+              helperText: 'Last watered',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+              ),
+            ),
+            controller: _dateTextEditingController,
+            onTap: () => _selectDate(context),
           ),
-        ),
-        controller: _dateTextEditingController,
-        onTap: () {
-          _selectDate(context);
-        },
-      ),
+        );
+      },
     );
   }
 }

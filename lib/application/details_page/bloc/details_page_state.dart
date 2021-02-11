@@ -8,8 +8,9 @@ abstract class DetailsPageState with _$DetailsPageState {
     @required WateringDays wateringDays,
     @required Note note,
   }) = _DetailsPageState;
+
   factory DetailsPageState.initial() => DetailsPageState(
-        image: null,
+        image: DefaultImage(),
         lastWatered: DateTime.now(),
         wateringDays: WateringDays(1),
         note: Note(""),

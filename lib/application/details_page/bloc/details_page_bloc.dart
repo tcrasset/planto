@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import 'package:planto/domain/details_page/note.dart';
 import 'package:planto/domain/details_page/watering_days.dart';
+import 'package:planto/presentation/pages/details_page/components/default_image.dart';
 
 part 'details_page_event.dart';
 part 'details_page_state.dart';
@@ -25,6 +26,21 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
   Stream<DetailsPageState> mapEventToState(
     DetailsPageEvent event,
   ) async* {
-    // TODO: implement mapEventToState
+    yield* event.map(
+      imageChanged: (ImageChanged value) async* {
+        yield null;
+      },
+      lastWateredChanged: (LastWateredChanged e) async* {
+        if (e != null) {
+          yield initialState.copyWith(lastWatered: e.datetime);
+        }
+      },
+      noteChanged: (NoteChanged value) async* {
+        yield null;
+      },
+      wateringDaysChanged: (WateringDaysChanged value) async* {
+        yield null;
+      },
+    );
   }
 }
