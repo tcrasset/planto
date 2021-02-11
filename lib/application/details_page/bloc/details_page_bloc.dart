@@ -38,8 +38,8 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       noteChanged: (NoteChanged value) async* {
         yield null;
       },
-      wateringDaysChanged: (WateringDaysChanged value) async* {
-        yield null;
+      wateringDaysChanged: (WateringDaysChanged e) async* {
+        yield initialState.copyWith(wateringDays: WateringDays(e.days));
       },
     );
   }
