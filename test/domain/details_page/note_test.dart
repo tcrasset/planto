@@ -21,7 +21,8 @@ void main() {
       'verify that a too long text returns value returns a LongNote ValueFailure',
       () {
     //!Arrange
-    final String tText = List.generate(1000, (index) => 'a').join();
+    final String tText =
+        List.generate(Note.maxLength + 1, (index) => 'a').join();
     final LongNote<String> tFailure =
         ValueFailure<String>.longNote(failedValue: tText) as LongNote<String>;
     //!Act
