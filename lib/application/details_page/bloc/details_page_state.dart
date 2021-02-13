@@ -12,7 +12,7 @@ abstract class DetailsPageState with _$DetailsPageState {
   factory DetailsPageState.initial() => DetailsPageState(
         image: DefaultImage(),
         lastWatered: DateTime.now(),
-        wateringDays: WateringDays(1),
+        wateringDays: WateringDays("1"),
         note: Note(""),
       );
 }

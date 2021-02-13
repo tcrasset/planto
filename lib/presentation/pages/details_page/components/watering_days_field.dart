@@ -13,34 +13,14 @@ class WateringDaysField extends StatefulWidget {
 }
 
 class _WateringDaysFieldState extends State<WateringDaysField> {
-  TextEditingController _wateringDaysController;
-
-  @override
-  void initState() {
-    _wateringDaysController = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _wateringDaysController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
-      //TODO: Auto-validate text input
-      listener: (context, state) {
-        _wateringDaysController.text = state.wateringDays.value.fold(
-          (f) => "Error",
-          (r) => r.toString(),
-        );
-      },
+    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
       builder: (context, state) {
         return SizedBox(
           width: 200,
-          child: TextField(
+          child: TextFormField(
+            validator: (_) => validateWateringDays(context),
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               helperText: 'Watering interval (days)',
@@ -49,15 +29,27 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
               ),
             ),
             textAlign: TextAlign.center,
-            controller: _wateringDaysController,
-            onSubmitted: (value) => context
-                .read<DetailsPageBloc>()
-                .add(DetailsPageEvent.wateringDaysChanged(
-                  int.parse(value),
-                )),
+            onChanged: (value) => handleOnChangedEvent(context, value),
           ),
         );
       },
     );
+  }
+
+  void handleOnChangedEvent(BuildContext context, String value) {
+    return context
+        .read<DetailsPageBloc>()
+        .add(DetailsPageEvent.wateringDaysChanged(
+          value,
+        ));
+  }
+
+  String validateWateringDays(BuildContext context) {
+    return context.read<DetailsPageBloc>().state.wateringDays.value.fold(
+          (f) => f.maybeMap(
+              invalidWateringDays: (_) => "Must be positive",
+              orElse: () => null),
+          (_) => null,
+        );
   }
 }

@@ -14,7 +14,8 @@ class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
 
 // ignore: unused_element
-  InvalidWateringDays<T> invalidWateringDays<T>({@required int failedValue}) {
+  InvalidWateringDays<T> invalidWateringDays<T>(
+      {@required String failedValue}) {
     return InvalidWateringDays<T>(
       failedValue: failedValue,
     );
@@ -34,14 +35,16 @@ const $ValueFailure = _$ValueFailureTearOff();
 
 /// @nodoc
 mixin _$ValueFailure<T> {
+  String get failedValue;
+
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult invalidWateringDays(int failedValue),
+    @required TResult invalidWateringDays(String failedValue),
     @required TResult longNote(String failedValue),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult invalidWateringDays(int failedValue),
+    TResult invalidWateringDays(String failedValue),
     TResult longNote(String failedValue),
     @required TResult orElse(),
   });
@@ -56,6 +59,9 @@ mixin _$ValueFailure<T> {
     TResult longNote(LongNote<T> value),
     @required TResult orElse(),
   });
+
+  @JsonKey(ignore: true)
+  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
 }
 
 /// @nodoc
@@ -63,6 +69,7 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
+  $Res call({String failedValue});
 }
 
 /// @nodoc
@@ -73,14 +80,26 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   final ValueFailure<T> _value;
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_value.copyWith(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $InvalidWateringDaysCopyWith<T, $Res> {
+abstract class $InvalidWateringDaysCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
   factory $InvalidWateringDaysCopyWith(InvalidWateringDays<T> value,
           $Res Function(InvalidWateringDays<T>) then) =
       _$InvalidWateringDaysCopyWithImpl<T, $Res>;
-  $Res call({int failedValue});
+  @override
+  $Res call({String failedValue});
 }
 
 /// @nodoc
@@ -100,7 +119,7 @@ class _$InvalidWateringDaysCopyWithImpl<T, $Res>
   }) {
     return _then(InvalidWateringDays<T>(
       failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as int,
+          failedValue == freezed ? _value.failedValue : failedValue as String,
     ));
   }
 }
@@ -111,7 +130,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
       : assert(failedValue != null);
 
   @override
-  final int failedValue;
+  final String failedValue;
 
   @override
   String toString() {
@@ -140,7 +159,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult invalidWateringDays(int failedValue),
+    @required TResult invalidWateringDays(String failedValue),
     @required TResult longNote(String failedValue),
   }) {
     assert(invalidWateringDays != null);
@@ -151,7 +170,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult invalidWateringDays(int failedValue),
+    TResult invalidWateringDays(String failedValue),
     TResult longNote(String failedValue),
     @required TResult orElse(),
   }) {
@@ -189,19 +208,23 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
 }
 
 abstract class InvalidWateringDays<T> implements ValueFailure<T> {
-  const factory InvalidWateringDays({@required int failedValue}) =
+  const factory InvalidWateringDays({@required String failedValue}) =
       _$InvalidWateringDays<T>;
 
-  int get failedValue;
+  @override
+  String get failedValue;
+  @override
   @JsonKey(ignore: true)
   $InvalidWateringDaysCopyWith<T, InvalidWateringDays<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $LongNoteCopyWith<T, $Res> {
+abstract class $LongNoteCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
   factory $LongNoteCopyWith(
           LongNote<T> value, $Res Function(LongNote<T>) then) =
       _$LongNoteCopyWithImpl<T, $Res>;
+  @override
   $Res call({String failedValue});
 }
 
@@ -259,7 +282,7 @@ class _$LongNote<T> implements LongNote<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult invalidWateringDays(int failedValue),
+    @required TResult invalidWateringDays(String failedValue),
     @required TResult longNote(String failedValue),
   }) {
     assert(invalidWateringDays != null);
@@ -270,7 +293,7 @@ class _$LongNote<T> implements LongNote<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult invalidWateringDays(int failedValue),
+    TResult invalidWateringDays(String failedValue),
     TResult longNote(String failedValue),
     @required TResult orElse(),
   }) {
@@ -310,7 +333,9 @@ class _$LongNote<T> implements LongNote<T> {
 abstract class LongNote<T> implements ValueFailure<T> {
   const factory LongNote({@required String failedValue}) = _$LongNote<T>;
 
+  @override
   String get failedValue;
+  @override
   @JsonKey(ignore: true)
   $LongNoteCopyWith<T, LongNote<T>> get copyWith;
 }

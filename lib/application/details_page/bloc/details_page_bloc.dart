@@ -9,6 +9,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import 'package:planto/domain/core/plant.dart';
 import 'package:planto/domain/details_page/note.dart';
 import 'package:planto/domain/details_page/watering_days.dart';
 import 'package:planto/presentation/pages/details_page/components/default_image.dart';
@@ -18,7 +19,7 @@ part 'details_page_state.dart';
 part 'details_page_bloc.freezed.dart';
 
 class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
-  DetailsPageBloc() : super(null);
+  DetailsPageBloc() : super(DetailsPageState.initial());
 
   DetailsPageState get initialState => DetailsPageState.initial();
 
@@ -40,6 +41,9 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       },
       wateringDaysChanged: (WateringDaysChanged e) async* {
         yield initialState.copyWith(wateringDays: WateringDays(e.days));
+      },
+      newPlantSubmitted: (NewPlantSubmitted value) async* {
+        yield null;
       },
     );
   }

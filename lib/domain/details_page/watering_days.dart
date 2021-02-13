@@ -9,19 +9,22 @@ import 'package:planto/domain/core/value_object.dart';
 
 class WateringDays extends ValueObject<int> {
   @override
-  final Either<ValueFailure<int>, int> value;
+  final Either<ValueFailure<String>, int> value;
 
-  factory WateringDays(int input) {
+  factory WateringDays(String input) {
     return WateringDays._(_validateWateringDays(input));
   }
 
   const WateringDays._(this.value) : assert(value != null);
 }
 
-Either<ValueFailure<int>, int> _validateWateringDays(int input) {
-  if (input > 0) {
-    return right(input);
+Either<ValueFailure<String>, int> _validateWateringDays(String input) {
+  final int days = int.tryParse(input);
+  if (days == null) {
+    return left(ValueFailure<String>.invalidWateringDays(failedValue: input));
+  } else if (days > 0) {
+    return right(days);
   } else {
-    return left(ValueFailure<int>.invalidWateringDays(failedValue: input));
+    return left(ValueFailure<String>.invalidWateringDays(failedValue: input));
   }
 }

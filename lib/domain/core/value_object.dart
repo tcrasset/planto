@@ -6,7 +6,7 @@ import 'package:planto/domain/core/value_failure.dart';
 
 abstract class ValueObject<T> {
   const ValueObject();
-  Either<ValueFailure<T>, T> get value;
+  Either<ValueFailure<dynamic>, T> get value;
 
   @override
   bool operator ==(Object o) {
