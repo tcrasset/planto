@@ -1,0 +1,16 @@
+/// Creates a datetime object using only the year, month, and date from [datetime].
+DateTime getDateYMD(DateTime datetime) {
+  return DateTime(datetime.year, datetime.month, datetime.day);
+}
+
+/// Verfies that dateBefore is before dateAfter, only accounting for the date
+/// component and not the time one. Returns true if both dates are the same.
+bool customIsBefore(DateTime dateBefore, DateTime dateAfter) {
+  final DateTime dateOnlyBefore = getDateYMD(dateBefore);
+  final DateTime dateOnlyAfter = getDateYMD(dateAfter);
+
+  if(dateOnlyAfter.isAtSameMomentAs(dateOnlyBefore)) {
+    return true;
+  }
+  return dateOnlyBefore.isBefore(dateOnlyAfter);
+}

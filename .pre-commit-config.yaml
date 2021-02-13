@@ -25,10 +25,12 @@ repos:
     hooks:
       - id: flutter-format
 
-  - repo: https://github.com/dluksza/flutter-analyze-pre-commit
-    rev: "0bfdb7415bb2d02794a884bf2b763a92772001eb"
+  - repo: local
     hooks:
       - id: flutter-analyze
+        name: Flutter Code Analyze
+        entry: bash -c "flutter analyze"
+        language: system
 
   - repo: https://github.com/fluttercommunity/import_sorter
     rev: "aeb361d1d89bf9ddf253c632574922523a75aa96"
