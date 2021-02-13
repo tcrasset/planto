@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
@@ -13,15 +14,15 @@ class LastWateredField extends StatefulWidget {
 }
 
 class LastWateredFieldState extends State<LastWateredField> {
+  String _selectedDateString;
   DateTime _selectedDate;
   TextEditingController _dateTextEditingController;
 
   @override
   void initState() {
-    _selectedDate = DateTime.now();
+    _selectedDateString = DateTime.now().toString();
     _dateTextEditingController = TextEditingController();
-    _dateTextEditingController.text = _selectedDate.toString();
-
+    _dateTextEditingController.text = _formatDateString(_selectedDateString);
     super.initState();
   }
 
@@ -45,17 +46,50 @@ class LastWateredFieldState extends State<LastWateredField> {
         });
   }
 
+  String _formatDate(DateTime date) {
+    return DateFormat("d MMMM y").format(date);
+  }
+
+  String _formatDateString(String dateString) {
+    return DateFormat("d MMMM y").format(DateTime.parse(dateString));
+  }
+
+  Future<void> handleSelectDate(BuildContext context) async {
+    _selectedDate = await _selectDate(context);
+    _selectedDateString = _formatDate(_selectedDate);
+    return context
+        .read<DetailsPageBloc>()
+        .add(DetailsPageEvent.lastWateredChanged(
+          _selectedDate.toString(),
+        ));
+  }
+
+  String validateLastWateredDate(BuildContext context) {
+    return context.read<DetailsPageBloc>().state.lastWatered.value.fold(
+          (f) => f.maybeMap(
+              invalidLastWateredDate: (_) => "Must be a date",
+              futureLastWateredDate: (_) => "Must not be in the future",
+              orElse: () => null),
+          (_) => null,
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<DetailsPageBloc, DetailsPageState>(
       listener: (context, state) {
-        _dateTextEditingController.text = state.lastWatered.toString();
+        _dateTextEditingController.text = state.lastWatered.value.fold(
+          (f) => _selectedDateString,
+          (v) => _formatDate(v),
+        );
       },
       builder: (context, _) {
         return SizedBox(
           width: 200,
-          child: TextField(
+          child: TextFormField(
+            validator: (_) => validateLastWateredDate(context),
             readOnly: true,
+            textAlign: TextAlign.center,
             decoration: const InputDecoration(
               helperText: 'Last watered',
               border: OutlineInputBorder(
@@ -63,11 +97,7 @@ class LastWateredFieldState extends State<LastWateredField> {
               ),
             ),
             controller: _dateTextEditingController,
-            onTap: () async => context
-                .read<DetailsPageBloc>()
-                .add(DetailsPageEvent.lastWateredChanged(
-                  await _selectDate(context),
-                )),
+            onTap: () => handleSelectDate(context),
           ),
         );
       },

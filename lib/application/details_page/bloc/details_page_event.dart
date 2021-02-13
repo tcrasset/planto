@@ -2,7 +2,7 @@ part of 'details_page_bloc.dart';
 
 @freezed
 abstract class DetailsPageEvent with _$DetailsPageEvent {
-  const factory DetailsPageEvent.lastWateredChanged(DateTime datetime) =
+  const factory DetailsPageEvent.lastWateredChanged(String date) =
       LastWateredChanged;
   const factory DetailsPageEvent.wateringDaysChanged(String days) =
       WateringDaysChanged;

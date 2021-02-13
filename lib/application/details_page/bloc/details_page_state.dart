@@ -4,14 +4,14 @@ part of 'details_page_bloc.dart';
 abstract class DetailsPageState with _$DetailsPageState {
   const factory DetailsPageState({
     @required Image image,
-    @required DateTime lastWatered,
+    @required LastWatered lastWatered,
     @required WateringDays wateringDays,
     @required Note note,
   }) = _DetailsPageState;
 
   factory DetailsPageState.initial() => DetailsPageState(
         image: DefaultImage(),
-        lastWatered: DateTime.now(),
+        lastWatered: LastWatered(DateTime.now().toString()),
         wateringDays: WateringDays("1"),
         note: Note(""),
       );

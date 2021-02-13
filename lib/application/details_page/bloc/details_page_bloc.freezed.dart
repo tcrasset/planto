@@ -14,9 +14,9 @@ class _$DetailsPageEventTearOff {
   const _$DetailsPageEventTearOff();
 
 // ignore: unused_element
-  LastWateredChanged lastWateredChanged(DateTime datetime) {
+  LastWateredChanged lastWateredChanged(String date) {
     return LastWateredChanged(
-      datetime,
+      date,
     );
   }
 
@@ -57,7 +57,7 @@ const $DetailsPageEvent = _$DetailsPageEventTearOff();
 mixin _$DetailsPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult lastWateredChanged(DateTime datetime),
+    @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
@@ -65,7 +65,7 @@ mixin _$DetailsPageEvent {
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult lastWateredChanged(DateTime datetime),
+    TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
@@ -113,7 +113,7 @@ abstract class $LastWateredChangedCopyWith<$Res> {
   factory $LastWateredChangedCopyWith(
           LastWateredChanged value, $Res Function(LastWateredChanged) then) =
       _$LastWateredChangedCopyWithImpl<$Res>;
-  $Res call({DateTime datetime});
+  $Res call({String date});
 }
 
 /// @nodoc
@@ -129,38 +129,37 @@ class _$LastWateredChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object datetime = freezed,
+    Object date = freezed,
   }) {
     return _then(LastWateredChanged(
-      datetime == freezed ? _value.datetime : datetime as DateTime,
+      date == freezed ? _value.date : date as String,
     ));
   }
 }
 
 /// @nodoc
 class _$LastWateredChanged implements LastWateredChanged {
-  const _$LastWateredChanged(this.datetime) : assert(datetime != null);
+  const _$LastWateredChanged(this.date) : assert(date != null);
 
   @override
-  final DateTime datetime;
+  final String date;
 
   @override
   String toString() {
-    return 'DetailsPageEvent.lastWateredChanged(datetime: $datetime)';
+    return 'DetailsPageEvent.lastWateredChanged(date: $date)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is LastWateredChanged &&
-            (identical(other.datetime, datetime) ||
-                const DeepCollectionEquality()
-                    .equals(other.datetime, datetime)));
+            (identical(other.date, date) ||
+                const DeepCollectionEquality().equals(other.date, date)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(datetime);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +169,7 @@ class _$LastWateredChanged implements LastWateredChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult lastWateredChanged(DateTime datetime),
+    @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
@@ -181,13 +180,13 @@ class _$LastWateredChanged implements LastWateredChanged {
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
-    return lastWateredChanged(datetime);
+    return lastWateredChanged(date);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult lastWateredChanged(DateTime datetime),
+    TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
@@ -196,7 +195,7 @@ class _$LastWateredChanged implements LastWateredChanged {
   }) {
     assert(orElse != null);
     if (lastWateredChanged != null) {
-      return lastWateredChanged(datetime);
+      return lastWateredChanged(date);
     }
     return orElse();
   }
@@ -237,9 +236,9 @@ class _$LastWateredChanged implements LastWateredChanged {
 }
 
 abstract class LastWateredChanged implements DetailsPageEvent {
-  const factory LastWateredChanged(DateTime datetime) = _$LastWateredChanged;
+  const factory LastWateredChanged(String date) = _$LastWateredChanged;
 
-  DateTime get datetime;
+  String get date;
   @JsonKey(ignore: true)
   $LastWateredChangedCopyWith<LastWateredChanged> get copyWith;
 }
@@ -305,7 +304,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult lastWateredChanged(DateTime datetime),
+    @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
@@ -322,7 +321,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult lastWateredChanged(DateTime datetime),
+    TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
@@ -441,7 +440,7 @@ class _$NoteChanged implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult lastWateredChanged(DateTime datetime),
+    @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
@@ -458,7 +457,7 @@ class _$NoteChanged implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult lastWateredChanged(DateTime datetime),
+    TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
@@ -576,7 +575,7 @@ class _$ImageChanged implements ImageChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult lastWateredChanged(DateTime datetime),
+    @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
@@ -593,7 +592,7 @@ class _$ImageChanged implements ImageChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult lastWateredChanged(DateTime datetime),
+    TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
@@ -711,7 +710,7 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult lastWateredChanged(DateTime datetime),
+    @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
@@ -728,7 +727,7 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult lastWateredChanged(DateTime datetime),
+    TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
@@ -792,7 +791,7 @@ class _$DetailsPageStateTearOff {
 // ignore: unused_element
   _DetailsPageState call(
       {@required Image image,
-      @required DateTime lastWatered,
+      @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) {
     return _DetailsPageState(
@@ -811,7 +810,7 @@ const $DetailsPageState = _$DetailsPageStateTearOff();
 /// @nodoc
 mixin _$DetailsPageState {
   Image get image;
-  DateTime get lastWatered;
+  LastWatered get lastWatered;
   WateringDays get wateringDays;
   Note get note;
 
@@ -826,7 +825,7 @@ abstract class $DetailsPageStateCopyWith<$Res> {
       _$DetailsPageStateCopyWithImpl<$Res>;
   $Res call(
       {Image image,
-      DateTime lastWatered,
+      LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
 }
@@ -849,8 +848,9 @@ class _$DetailsPageStateCopyWithImpl<$Res>
   }) {
     return _then(_value.copyWith(
       image: image == freezed ? _value.image : image as Image,
-      lastWatered:
-          lastWatered == freezed ? _value.lastWatered : lastWatered as DateTime,
+      lastWatered: lastWatered == freezed
+          ? _value.lastWatered
+          : lastWatered as LastWatered,
       wateringDays: wateringDays == freezed
           ? _value.wateringDays
           : wateringDays as WateringDays,
@@ -868,7 +868,7 @@ abstract class _$DetailsPageStateCopyWith<$Res>
   @override
   $Res call(
       {Image image,
-      DateTime lastWatered,
+      LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
 }
@@ -893,8 +893,9 @@ class __$DetailsPageStateCopyWithImpl<$Res>
   }) {
     return _then(_DetailsPageState(
       image: image == freezed ? _value.image : image as Image,
-      lastWatered:
-          lastWatered == freezed ? _value.lastWatered : lastWatered as DateTime,
+      lastWatered: lastWatered == freezed
+          ? _value.lastWatered
+          : lastWatered as LastWatered,
       wateringDays: wateringDays == freezed
           ? _value.wateringDays
           : wateringDays as WateringDays,
@@ -918,7 +919,7 @@ class _$_DetailsPageState implements _DetailsPageState {
   @override
   final Image image;
   @override
-  final DateTime lastWatered;
+  final LastWatered lastWatered;
   @override
   final WateringDays wateringDays;
   @override
@@ -962,14 +963,14 @@ class _$_DetailsPageState implements _DetailsPageState {
 abstract class _DetailsPageState implements DetailsPageState {
   const factory _DetailsPageState(
       {@required Image image,
-      @required DateTime lastWatered,
+      @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) = _$_DetailsPageState;
 
   @override
   Image get image;
   @override
-  DateTime get lastWatered;
+  LastWatered get lastWatered;
   @override
   WateringDays get wateringDays;
   @override

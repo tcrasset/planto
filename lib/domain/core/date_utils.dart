@@ -4,13 +4,12 @@ DateTime getDateYMD(DateTime datetime) {
 }
 
 /// Verfies that dateBefore is before dateAfter, only accounting for the date
-/// component and not the time one. Returns true if both dates are the same.
+/// component and not the time one. Returns false if both dates are the same.
 bool customIsBefore(DateTime dateBefore, DateTime dateAfter) {
   final DateTime dateOnlyBefore = getDateYMD(dateBefore);
   final DateTime dateOnlyAfter = getDateYMD(dateAfter);
-
-  if(dateOnlyAfter.isAtSameMomentAs(dateOnlyBefore)) {
-    return true;
+  if (dateOnlyAfter.isAtSameMomentAs(dateOnlyBefore)) {
+    return false;
   }
   return dateOnlyBefore.isBefore(dateOnlyAfter);
 }

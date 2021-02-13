@@ -10,6 +10,16 @@ repos:
         language: system
         pass_filenames: false
 
+  - repo: https://github.com/fluttercommunity/import_sorter
+    rev: "aeb361d1d89bf9ddf253c632574922523a75aa96"
+    hooks:
+      - id: flutter-import-sorter # use `flutter-import-sorter` for a Flutter project
+
+  - repo: https://github.com/Cretezy/flutter-format-pre-commit
+    rev: "4a1df675bb74dea371c17934933e257e46f8dd98"
+    hooks:
+      - id: flutter-format
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.4.0
     hooks:
@@ -19,20 +29,3 @@ repos:
       - id: check-added-large-files
       - id: check-merge-conflict
       - id: double-quote-string-fixer
-
-  - repo: https://github.com/Cretezy/flutter-format-pre-commit
-    rev: "4a1df675bb74dea371c17934933e257e46f8dd98"
-    hooks:
-      - id: flutter-format
-
-  - repo: local
-    hooks:
-      - id: flutter-analyze
-        name: Flutter Code Analyze
-        entry: bash -c "flutter analyze"
-        language: system
-
-  - repo: https://github.com/fluttercommunity/import_sorter
-    rev: "aeb361d1d89bf9ddf253c632574922523a75aa96"
-    hooks:
-      - id: flutter-import-sorter # use `flutter-import-sorter` for a Flutter project
