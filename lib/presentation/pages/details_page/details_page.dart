@@ -1,10 +1,16 @@
+// Dart imports:
+import 'dart:io';
+
 // Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:camera/camera.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 // Project imports:
+import 'package:planto/application/core/my_camera.dart';
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
 import 'package:planto/domain/core/plant.dart';
 import 'package:planto/presentation/pages/details_page/components/plant_name_field.dart';
@@ -19,10 +25,47 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  void handleSubmitForm(BuildContext context) {
+  CameraController _cameraController;
+  Future<void> _initializeControllerFuture;
+  Image newImage;
+
+  Future<void> handleSubmitForm(BuildContext context) async {
     context
         .read<DetailsPageBloc>()
         .add(DetailsPageEvent.newPlantSubmitted(Plant()));
+  }
+
+  Future<void> takePicture() async {
+    try {
+      await _initializeControllerFuture; // Ensure that the camera is initialized.
+
+      final XFile image = await _cameraController.takePicture();
+
+      if (image != null) {
+        setState(() {
+          newImage = Image.file(File(image.path), fit: BoxFit.fill);
+        });
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _cameraController = CameraController(
+      Provider.of<MyCamera>(context, listen: false).description,
+      ResolutionPreset.medium,
+    );
+    // Next, initialize the controller. This returns a Future.
+    _initializeControllerFuture = _cameraController.initialize();
+  }
+
+  @override
+  void dispose() {
+    _cameraController.dispose();
+    super.dispose();
   }
 
   @override
@@ -63,14 +106,25 @@ class _DetailsPageState extends State<DetailsPage> {
                         onNameChange: latinNameChange,
                         validateName: validateLatinName,
                       ),
-                      SizedBox(
-                        width: size,
-                        height: size,
-                        child: PlantCard(
-                            image: Image.asset(
-                          'images/succulent.jpg',
-                          fit: BoxFit.fill,
-                        )),
+                      Stack(
+                        children: [
+                          SizedBox(
+                            width: size,
+                            height: size,
+                            child: PlantCard(
+                                image: newImage ??
+                                    Image.asset(
+                                      'images/succulent.jpg',
+                                      fit: BoxFit.fill,
+                                    )),
+                          ),
+                          Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: FloatingActionButton(
+                                  onPressed: takePicture,
+                                  child: const Icon(Icons.camera_alt_rounded))),
+                        ],
                       ),
                       LastWateredField(),
                       WateringDaysField(),
