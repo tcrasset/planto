@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:planto/application/core/bloc_observer.dart';
 import 'application/details_page/bloc/details_page_bloc.dart';
 import 'presentation/pages/plant_page/plant_page.dart';
+
+//import 'package:planto/application/core/bloc_observer.dart';
 
 void main() {
   // Bloc.observer = SimpleBlocObserver();

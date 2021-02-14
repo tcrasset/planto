@@ -82,15 +82,12 @@ class _DetailsPageState extends State<DetailsPage> {
 }
 
 void standardNameChange(BuildContext context, String value) {
-  print("Standard name = $value");
-
   context.read<DetailsPageBloc>().add(DetailsPageEvent.standardNameChanged(
         value,
       ));
 }
 
 void latinNameChange(BuildContext context, String value) {
-  print("Latin name = $value");
   context.read<DetailsPageBloc>().add(DetailsPageEvent.latinNameChanged(
         value,
       ));
@@ -98,12 +95,8 @@ void latinNameChange(BuildContext context, String value) {
 
 String failNameClosure(dynamic f) {
   final result = f.maybeMap(
-    longName: (value) {
-      return "Name is too long";
-    },
-    emptyName: (value) {
-      return "Must not be empty";
-    },
+    longName: (value) => "Name is too long",
+    emptyName: (value) => "Must not be empty",
     orElse: () => null,
   );
 
