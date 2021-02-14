@@ -76,7 +76,7 @@ class _DetailsPageState extends State<DetailsPage> {
         title: const Text("Details"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.add_alert),
+            icon: const Icon(Icons.done),
             tooltip: 'Submit plant',
             onPressed: () => handleSubmitForm(context),
           ),
@@ -123,7 +123,8 @@ class _DetailsPageState extends State<DetailsPage> {
                               right: 0,
                               child: FloatingActionButton(
                                   onPressed: takePicture,
-                                  child: const Icon(Icons.camera_alt_rounded))),
+                                  child:
+                                      const Icon(Icons.add_a_photo_outlined))),
                         ],
                       ),
                       LastWateredField(),

@@ -30,7 +30,7 @@ class _PlantPageState extends State<PlantPage> {
         actions: [
           IconButton(
             icon: const Icon(
-              Icons.add_a_photo_outlined,
+              Icons.add,
               color: Colors.white,
             ),
             onPressed: () => navigateToPlantPage(context),
