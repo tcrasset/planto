@@ -55,13 +55,15 @@ class LastWateredFieldState extends State<LastWateredField> {
   }
 
   Future<void> handleSelectDate(BuildContext context) async {
-    _selectedDate = await _selectDate(context);
-    _selectedDateString = _formatDate(_selectedDate);
-    return context
-        .read<DetailsPageBloc>()
-        .add(DetailsPageEvent.lastWateredChanged(
-          _selectedDate.toString(),
-        ));
+    _selectedDate = await _selectDate(context) ?? _selectedDate;
+    if (_selectedDate != null) {
+      _selectedDateString = _formatDate(_selectedDate);
+      return context.read<DetailsPageBloc>().add(
+            DetailsPageEvent.lastWateredChanged(
+              _selectedDate.toString(),
+            ),
+          );
+    }
   }
 
   String validateLastWateredDate(BuildContext context) {
