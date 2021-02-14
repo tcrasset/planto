@@ -10,4 +10,10 @@ abstract class DetailsPageEvent with _$DetailsPageEvent {
   const factory DetailsPageEvent.imageChanged(Image image) = ImageChanged;
   const factory DetailsPageEvent.newPlantSubmitted(Plant plant) =
       NewPlantSubmitted;
+
+  const factory DetailsPageEvent.latinNameChanged(String name) =
+      LatinNameChanged;
+
+  const factory DetailsPageEvent.standardNameChanged(String name) =
+      StandardNameChanged;
 }

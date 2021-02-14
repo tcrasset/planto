@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import 'package:planto/domain/core/plant.dart';
 import 'package:planto/domain/details_page/last_watered.dart';
+import 'package:planto/domain/details_page/name.dart';
 import 'package:planto/domain/details_page/note.dart';
 import 'package:planto/domain/details_page/watering_days.dart';
 import 'package:planto/presentation/pages/details_page/components/default_image.dart';
@@ -23,16 +24,26 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
   DetailsPageBloc() : super(DetailsPageState.initial());
 
   DetailsPageState get initialState => DetailsPageState.initial();
-
   @override
   Stream<DetailsPageState> mapEventToState(
     DetailsPageEvent event,
   ) async* {
     yield* event.map(
-      imageChanged: (ImageChanged value) async* {
+      standardNameChanged: (StandardNameChanged e) async* {
+        if (e != null) {
+          yield state.copyWith(standardName: Name(e.name));
+        }
+      },
+      latinNameChanged: (LatinNameChanged e) async* {
+        if (e != null) {
+          yield state.copyWith(latinName: Name(e.name));
+        }
+      },
+      imageChanged: (ImageChanged e) async* {
         yield null;
       },
       lastWateredChanged: (LastWateredChanged e) async* {
+        //TODO: CHange initialState to state for the next three events
         if (e != null) {
           yield initialState.copyWith(lastWatered: LastWatered(e.date));
         }
@@ -43,7 +54,7 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       wateringDaysChanged: (WateringDaysChanged e) async* {
         yield initialState.copyWith(wateringDays: WateringDays(e.days));
       },
-      newPlantSubmitted: (NewPlantSubmitted value) async* {
+      newPlantSubmitted: (NewPlantSubmitted e) async* {
         yield null;
       },
     );

@@ -16,4 +16,8 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
 
   const factory ValueFailure.longNote({@required String failedValue}) =
       LongNote<T>;
+  const factory ValueFailure.longName({@required String failedValue}) =
+      LongName<T>;
+  const factory ValueFailure.emptyName({@required String failedValue}) =
+      EmptyName<T>;
 }

@@ -47,6 +47,20 @@ class _$DetailsPageEventTearOff {
       plant,
     );
   }
+
+// ignore: unused_element
+  LatinNameChanged latinNameChanged(String name) {
+    return LatinNameChanged(
+      name,
+    );
+  }
+
+// ignore: unused_element
+  StandardNameChanged standardNameChanged(String name) {
+    return StandardNameChanged(
+      name,
+    );
+  }
 }
 
 /// @nodoc
@@ -62,6 +76,8 @@ mixin _$DetailsPageEvent {
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
     @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -70,6 +86,8 @@ mixin _$DetailsPageEvent {
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
     TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -79,6 +97,8 @@ mixin _$DetailsPageEvent {
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -87,6 +107,8 @@ mixin _$DetailsPageEvent {
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
     TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
     @required TResult orElse(),
   });
 }
@@ -174,12 +196,16 @@ class _$LastWateredChanged implements LastWateredChanged {
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
     @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return lastWateredChanged(date);
   }
 
@@ -191,6 +217,8 @@ class _$LastWateredChanged implements LastWateredChanged {
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
     TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -208,12 +236,16 @@ class _$LastWateredChanged implements LastWateredChanged {
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return lastWateredChanged(this);
   }
 
@@ -225,6 +257,8 @@ class _$LastWateredChanged implements LastWateredChanged {
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
     TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -309,12 +343,16 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
     @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return wateringDaysChanged(days);
   }
 
@@ -326,6 +364,8 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
     TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -343,12 +383,16 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return wateringDaysChanged(this);
   }
 
@@ -360,6 +404,8 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
     TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -445,12 +491,16 @@ class _$NoteChanged implements NoteChanged {
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
     @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return noteChanged(noteBody);
   }
 
@@ -462,6 +512,8 @@ class _$NoteChanged implements NoteChanged {
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
     TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -479,12 +531,16 @@ class _$NoteChanged implements NoteChanged {
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return noteChanged(this);
   }
 
@@ -496,6 +552,8 @@ class _$NoteChanged implements NoteChanged {
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
     TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -580,12 +638,16 @@ class _$ImageChanged implements ImageChanged {
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
     @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return imageChanged(image);
   }
 
@@ -597,6 +659,8 @@ class _$ImageChanged implements ImageChanged {
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
     TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -614,12 +678,16 @@ class _$ImageChanged implements ImageChanged {
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return imageChanged(this);
   }
 
@@ -631,6 +699,8 @@ class _$ImageChanged implements ImageChanged {
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
     TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -715,12 +785,16 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(Image image),
     @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return newPlantSubmitted(plant);
   }
 
@@ -732,6 +806,8 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     TResult noteChanged(String noteBody),
     TResult imageChanged(Image image),
     TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -749,12 +825,16 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
   }) {
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
     assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
     return newPlantSubmitted(this);
   }
 
@@ -766,6 +846,8 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
     TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -785,16 +867,314 @@ abstract class NewPlantSubmitted implements DetailsPageEvent {
 }
 
 /// @nodoc
+abstract class $LatinNameChangedCopyWith<$Res> {
+  factory $LatinNameChangedCopyWith(
+          LatinNameChanged value, $Res Function(LatinNameChanged) then) =
+      _$LatinNameChangedCopyWithImpl<$Res>;
+  $Res call({String name});
+}
+
+/// @nodoc
+class _$LatinNameChangedCopyWithImpl<$Res>
+    extends _$DetailsPageEventCopyWithImpl<$Res>
+    implements $LatinNameChangedCopyWith<$Res> {
+  _$LatinNameChangedCopyWithImpl(
+      LatinNameChanged _value, $Res Function(LatinNameChanged) _then)
+      : super(_value, (v) => _then(v as LatinNameChanged));
+
+  @override
+  LatinNameChanged get _value => super._value as LatinNameChanged;
+
+  @override
+  $Res call({
+    Object name = freezed,
+  }) {
+    return _then(LatinNameChanged(
+      name == freezed ? _value.name : name as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$LatinNameChanged implements LatinNameChanged {
+  const _$LatinNameChanged(this.name) : assert(name != null);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'DetailsPageEvent.latinNameChanged(name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is LatinNameChanged &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+
+  @JsonKey(ignore: true)
+  @override
+  $LatinNameChangedCopyWith<LatinNameChanged> get copyWith =>
+      _$LatinNameChangedCopyWithImpl<LatinNameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult lastWateredChanged(String date),
+    @required TResult wateringDaysChanged(String days),
+    @required TResult noteChanged(String noteBody),
+    @required TResult imageChanged(Image image),
+    @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
+  }) {
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    return latinNameChanged(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult lastWateredChanged(String date),
+    TResult wateringDaysChanged(String days),
+    TResult noteChanged(String noteBody),
+    TResult imageChanged(Image image),
+    TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (latinNameChanged != null) {
+      return latinNameChanged(name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult lastWateredChanged(LastWateredChanged value),
+    @required TResult wateringDaysChanged(WateringDaysChanged value),
+    @required TResult noteChanged(NoteChanged value),
+    @required TResult imageChanged(ImageChanged value),
+    @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
+  }) {
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    return latinNameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult lastWateredChanged(LastWateredChanged value),
+    TResult wateringDaysChanged(WateringDaysChanged value),
+    TResult noteChanged(NoteChanged value),
+    TResult imageChanged(ImageChanged value),
+    TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (latinNameChanged != null) {
+      return latinNameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LatinNameChanged implements DetailsPageEvent {
+  const factory LatinNameChanged(String name) = _$LatinNameChanged;
+
+  String get name;
+  @JsonKey(ignore: true)
+  $LatinNameChangedCopyWith<LatinNameChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class $StandardNameChangedCopyWith<$Res> {
+  factory $StandardNameChangedCopyWith(
+          StandardNameChanged value, $Res Function(StandardNameChanged) then) =
+      _$StandardNameChangedCopyWithImpl<$Res>;
+  $Res call({String name});
+}
+
+/// @nodoc
+class _$StandardNameChangedCopyWithImpl<$Res>
+    extends _$DetailsPageEventCopyWithImpl<$Res>
+    implements $StandardNameChangedCopyWith<$Res> {
+  _$StandardNameChangedCopyWithImpl(
+      StandardNameChanged _value, $Res Function(StandardNameChanged) _then)
+      : super(_value, (v) => _then(v as StandardNameChanged));
+
+  @override
+  StandardNameChanged get _value => super._value as StandardNameChanged;
+
+  @override
+  $Res call({
+    Object name = freezed,
+  }) {
+    return _then(StandardNameChanged(
+      name == freezed ? _value.name : name as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$StandardNameChanged implements StandardNameChanged {
+  const _$StandardNameChanged(this.name) : assert(name != null);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'DetailsPageEvent.standardNameChanged(name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is StandardNameChanged &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+
+  @JsonKey(ignore: true)
+  @override
+  $StandardNameChangedCopyWith<StandardNameChanged> get copyWith =>
+      _$StandardNameChangedCopyWithImpl<StandardNameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult lastWateredChanged(String date),
+    @required TResult wateringDaysChanged(String days),
+    @required TResult noteChanged(String noteBody),
+    @required TResult imageChanged(Image image),
+    @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
+  }) {
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    return standardNameChanged(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult lastWateredChanged(String date),
+    TResult wateringDaysChanged(String days),
+    TResult noteChanged(String noteBody),
+    TResult imageChanged(Image image),
+    TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (standardNameChanged != null) {
+      return standardNameChanged(name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult lastWateredChanged(LastWateredChanged value),
+    @required TResult wateringDaysChanged(WateringDaysChanged value),
+    @required TResult noteChanged(NoteChanged value),
+    @required TResult imageChanged(ImageChanged value),
+    @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
+  }) {
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    return standardNameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult lastWateredChanged(LastWateredChanged value),
+    TResult wateringDaysChanged(WateringDaysChanged value),
+    TResult noteChanged(NoteChanged value),
+    TResult imageChanged(ImageChanged value),
+    TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (standardNameChanged != null) {
+      return standardNameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StandardNameChanged implements DetailsPageEvent {
+  const factory StandardNameChanged(String name) = _$StandardNameChanged;
+
+  String get name;
+  @JsonKey(ignore: true)
+  $StandardNameChangedCopyWith<StandardNameChanged> get copyWith;
+}
+
+/// @nodoc
 class _$DetailsPageStateTearOff {
   const _$DetailsPageStateTearOff();
 
 // ignore: unused_element
   _DetailsPageState call(
-      {@required Image image,
+      {@required Name standardName,
+      @required Name latinName,
+      @required Image image,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) {
     return _DetailsPageState(
+      standardName: standardName,
+      latinName: latinName,
       image: image,
       lastWatered: lastWatered,
       wateringDays: wateringDays,
@@ -809,6 +1189,8 @@ const $DetailsPageState = _$DetailsPageStateTearOff();
 
 /// @nodoc
 mixin _$DetailsPageState {
+  Name get standardName;
+  Name get latinName;
   Image get image;
   LastWatered get lastWatered;
   WateringDays get wateringDays;
@@ -824,7 +1206,9 @@ abstract class $DetailsPageStateCopyWith<$Res> {
           DetailsPageState value, $Res Function(DetailsPageState) then) =
       _$DetailsPageStateCopyWithImpl<$Res>;
   $Res call(
-      {Image image,
+      {Name standardName,
+      Name latinName,
+      Image image,
       LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
@@ -841,12 +1225,17 @@ class _$DetailsPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object standardName = freezed,
+    Object latinName = freezed,
     Object image = freezed,
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
   }) {
     return _then(_value.copyWith(
+      standardName:
+          standardName == freezed ? _value.standardName : standardName as Name,
+      latinName: latinName == freezed ? _value.latinName : latinName as Name,
       image: image == freezed ? _value.image : image as Image,
       lastWatered: lastWatered == freezed
           ? _value.lastWatered
@@ -867,7 +1256,9 @@ abstract class _$DetailsPageStateCopyWith<$Res>
       __$DetailsPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Image image,
+      {Name standardName,
+      Name latinName,
+      Image image,
       LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
@@ -886,12 +1277,17 @@ class __$DetailsPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object standardName = freezed,
+    Object latinName = freezed,
     Object image = freezed,
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
   }) {
     return _then(_DetailsPageState(
+      standardName:
+          standardName == freezed ? _value.standardName : standardName as Name,
+      latinName: latinName == freezed ? _value.latinName : latinName as Name,
       image: image == freezed ? _value.image : image as Image,
       lastWatered: lastWatered == freezed
           ? _value.lastWatered
@@ -907,15 +1303,23 @@ class __$DetailsPageStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_DetailsPageState implements _DetailsPageState {
   const _$_DetailsPageState(
-      {@required this.image,
+      {@required this.standardName,
+      @required this.latinName,
+      @required this.image,
       @required this.lastWatered,
       @required this.wateringDays,
       @required this.note})
-      : assert(image != null),
+      : assert(standardName != null),
+        assert(latinName != null),
+        assert(image != null),
         assert(lastWatered != null),
         assert(wateringDays != null),
         assert(note != null);
 
+  @override
+  final Name standardName;
+  @override
+  final Name latinName;
   @override
   final Image image;
   @override
@@ -927,13 +1331,19 @@ class _$_DetailsPageState implements _DetailsPageState {
 
   @override
   String toString() {
-    return 'DetailsPageState(image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
+    return 'DetailsPageState(standardName: $standardName, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _DetailsPageState &&
+            (identical(other.standardName, standardName) ||
+                const DeepCollectionEquality()
+                    .equals(other.standardName, standardName)) &&
+            (identical(other.latinName, latinName) ||
+                const DeepCollectionEquality()
+                    .equals(other.latinName, latinName)) &&
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.lastWatered, lastWatered) ||
@@ -949,6 +1359,8 @@ class _$_DetailsPageState implements _DetailsPageState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(standardName) ^
+      const DeepCollectionEquality().hash(latinName) ^
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(lastWatered) ^
       const DeepCollectionEquality().hash(wateringDays) ^
@@ -962,11 +1374,17 @@ class _$_DetailsPageState implements _DetailsPageState {
 
 abstract class _DetailsPageState implements DetailsPageState {
   const factory _DetailsPageState(
-      {@required Image image,
+      {@required Name standardName,
+      @required Name latinName,
+      @required Image image,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) = _$_DetailsPageState;
 
+  @override
+  Name get standardName;
+  @override
+  Name get latinName;
   @override
   Image get image;
   @override

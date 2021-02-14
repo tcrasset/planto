@@ -51,6 +51,20 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+// ignore: unused_element
+  LongName<T> longName<T>({@required String failedValue}) {
+    return LongName<T>(
+      failedValue: failedValue,
+    );
+  }
+
+// ignore: unused_element
+  EmptyName<T> emptyName<T>({@required String failedValue}) {
+    return EmptyName<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 /// @nodoc
@@ -68,6 +82,8 @@ mixin _$ValueFailure<T> {
     @required TResult invalidLastWateredDate(String failedValue),
     @required TResult futureLastWateredDate(String failedValue),
     @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -76,6 +92,8 @@ mixin _$ValueFailure<T> {
     TResult invalidLastWateredDate(String failedValue),
     TResult futureLastWateredDate(String failedValue),
     TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -85,6 +103,8 @@ mixin _$ValueFailure<T> {
     @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -93,6 +113,8 @@ mixin _$ValueFailure<T> {
     TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
     @required TResult orElse(),
   });
 
@@ -200,12 +222,16 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     @required TResult invalidLastWateredDate(String failedValue),
     @required TResult futureLastWateredDate(String failedValue),
     @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return invalidWateringDays(failedValue);
   }
 
@@ -217,6 +243,8 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     TResult invalidLastWateredDate(String failedValue),
     TResult futureLastWateredDate(String failedValue),
     TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -234,12 +262,16 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return invalidWateringDays(this);
   }
 
@@ -251,6 +283,8 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -346,12 +380,16 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     @required TResult invalidLastWateredDate(String failedValue),
     @required TResult futureLastWateredDate(String failedValue),
     @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return nonPositiveWateringDays(failedValue);
   }
 
@@ -363,6 +401,8 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     TResult invalidLastWateredDate(String failedValue),
     TResult futureLastWateredDate(String failedValue),
     TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -380,12 +420,16 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return nonPositiveWateringDays(this);
   }
 
@@ -397,6 +441,8 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -491,12 +537,16 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     @required TResult invalidLastWateredDate(String failedValue),
     @required TResult futureLastWateredDate(String failedValue),
     @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return invalidLastWateredDate(failedValue);
   }
 
@@ -508,6 +558,8 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     TResult invalidLastWateredDate(String failedValue),
     TResult futureLastWateredDate(String failedValue),
     TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -525,12 +577,16 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return invalidLastWateredDate(this);
   }
 
@@ -542,6 +598,8 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -636,12 +694,16 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     @required TResult invalidLastWateredDate(String failedValue),
     @required TResult futureLastWateredDate(String failedValue),
     @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return futureLastWateredDate(failedValue);
   }
 
@@ -653,6 +715,8 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     TResult invalidLastWateredDate(String failedValue),
     TResult futureLastWateredDate(String failedValue),
     TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -670,12 +734,16 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return futureLastWateredDate(this);
   }
 
@@ -687,6 +755,8 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -777,12 +847,16 @@ class _$LongNote<T> implements LongNote<T> {
     @required TResult invalidLastWateredDate(String failedValue),
     @required TResult futureLastWateredDate(String failedValue),
     @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return longNote(failedValue);
   }
 
@@ -794,6 +868,8 @@ class _$LongNote<T> implements LongNote<T> {
     TResult invalidLastWateredDate(String failedValue),
     TResult futureLastWateredDate(String failedValue),
     TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -811,12 +887,16 @@ class _$LongNote<T> implements LongNote<T> {
     @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
     assert(invalidLastWateredDate != null);
     assert(futureLastWateredDate != null);
     assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
     return longNote(this);
   }
 
@@ -828,6 +908,8 @@ class _$LongNote<T> implements LongNote<T> {
     TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
     TResult futureLastWateredDate(FutureLastWateredDate<T> value),
     TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -846,4 +928,309 @@ abstract class LongNote<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   $LongNoteCopyWith<T, LongNote<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class $LongNameCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $LongNameCopyWith(
+          LongName<T> value, $Res Function(LongName<T>) then) =
+      _$LongNameCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String failedValue});
+}
+
+/// @nodoc
+class _$LongNameCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $LongNameCopyWith<T, $Res> {
+  _$LongNameCopyWithImpl(LongName<T> _value, $Res Function(LongName<T>) _then)
+      : super(_value, (v) => _then(v as LongName<T>));
+
+  @override
+  LongName<T> get _value => super._value as LongName<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(LongName<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$LongName<T> implements LongName<T> {
+  const _$LongName({@required this.failedValue}) : assert(failedValue != null);
+
+  @override
+  final String failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.longName(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is LongName<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  $LongNameCopyWith<T, LongName<T>> get copyWith =>
+      _$LongNameCopyWithImpl<T, LongName<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult invalidWateringDays(String failedValue),
+    @required TResult nonPositiveWateringDays(String failedValue),
+    @required TResult invalidLastWateredDate(String failedValue),
+    @required TResult futureLastWateredDate(String failedValue),
+    @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
+  }) {
+    assert(invalidWateringDays != null);
+    assert(nonPositiveWateringDays != null);
+    assert(invalidLastWateredDate != null);
+    assert(futureLastWateredDate != null);
+    assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
+    return longName(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidWateringDays(String failedValue),
+    TResult nonPositiveWateringDays(String failedValue),
+    TResult invalidLastWateredDate(String failedValue),
+    TResult futureLastWateredDate(String failedValue),
+    TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (longName != null) {
+      return longName(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult invalidWateringDays(InvalidWateringDays<T> value),
+    @required TResult nonPositiveWateringDays(NonPositiveWateringDays<T> value),
+    @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
+    @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
+    @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
+  }) {
+    assert(invalidWateringDays != null);
+    assert(nonPositiveWateringDays != null);
+    assert(invalidLastWateredDate != null);
+    assert(futureLastWateredDate != null);
+    assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
+    return longName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidWateringDays(InvalidWateringDays<T> value),
+    TResult nonPositiveWateringDays(NonPositiveWateringDays<T> value),
+    TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
+    TResult futureLastWateredDate(FutureLastWateredDate<T> value),
+    TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (longName != null) {
+      return longName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LongName<T> implements ValueFailure<T> {
+  const factory LongName({@required String failedValue}) = _$LongName<T>;
+
+  @override
+  String get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  $LongNameCopyWith<T, LongName<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class $EmptyNameCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $EmptyNameCopyWith(
+          EmptyName<T> value, $Res Function(EmptyName<T>) then) =
+      _$EmptyNameCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String failedValue});
+}
+
+/// @nodoc
+class _$EmptyNameCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $EmptyNameCopyWith<T, $Res> {
+  _$EmptyNameCopyWithImpl(
+      EmptyName<T> _value, $Res Function(EmptyName<T>) _then)
+      : super(_value, (v) => _then(v as EmptyName<T>));
+
+  @override
+  EmptyName<T> get _value => super._value as EmptyName<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(EmptyName<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$EmptyName<T> implements EmptyName<T> {
+  const _$EmptyName({@required this.failedValue}) : assert(failedValue != null);
+
+  @override
+  final String failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.emptyName(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is EmptyName<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  $EmptyNameCopyWith<T, EmptyName<T>> get copyWith =>
+      _$EmptyNameCopyWithImpl<T, EmptyName<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult invalidWateringDays(String failedValue),
+    @required TResult nonPositiveWateringDays(String failedValue),
+    @required TResult invalidLastWateredDate(String failedValue),
+    @required TResult futureLastWateredDate(String failedValue),
+    @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
+  }) {
+    assert(invalidWateringDays != null);
+    assert(nonPositiveWateringDays != null);
+    assert(invalidLastWateredDate != null);
+    assert(futureLastWateredDate != null);
+    assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
+    return emptyName(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidWateringDays(String failedValue),
+    TResult nonPositiveWateringDays(String failedValue),
+    TResult invalidLastWateredDate(String failedValue),
+    TResult futureLastWateredDate(String failedValue),
+    TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (emptyName != null) {
+      return emptyName(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult invalidWateringDays(InvalidWateringDays<T> value),
+    @required TResult nonPositiveWateringDays(NonPositiveWateringDays<T> value),
+    @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
+    @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
+    @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
+  }) {
+    assert(invalidWateringDays != null);
+    assert(nonPositiveWateringDays != null);
+    assert(invalidLastWateredDate != null);
+    assert(futureLastWateredDate != null);
+    assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
+    return emptyName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidWateringDays(InvalidWateringDays<T> value),
+    TResult nonPositiveWateringDays(NonPositiveWateringDays<T> value),
+    TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
+    TResult futureLastWateredDate(FutureLastWateredDate<T> value),
+    TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (emptyName != null) {
+      return emptyName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyName<T> implements ValueFailure<T> {
+  const factory EmptyName({@required String failedValue}) = _$EmptyName<T>;
+
+  @override
+  String get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  $EmptyNameCopyWith<T, EmptyName<T>> get copyWith;
 }
