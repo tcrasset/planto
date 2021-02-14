@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import 'package:planto/presentation/pages/details_page/details_page.dart';
 import 'components/plant_list_item.dart';
 
 class PlantPage extends StatefulWidget {
@@ -14,16 +15,29 @@ class PlantPage extends StatefulWidget {
 }
 
 class _PlantPageState extends State<PlantPage> {
+  void navigateToPlantPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => DetailsPage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
-      body: PlantList(),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Add plant',
-        child: Icon(Icons.add),
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.add_a_photo_outlined,
+              color: Colors.white,
+            ),
+            onPressed: () => navigateToPlantPage(context),
+          )
+        ],
       ),
+      body: PlantList(),
     );
   }
 }

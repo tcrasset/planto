@@ -25,6 +25,7 @@ Either<ValueFailure<String>, int> _validateWateringDays(String input) {
   } else if (days > 0) {
     return right(days);
   } else {
-    return left(ValueFailure<String>.invalidWateringDays(failedValue: input));
+    return left(
+        ValueFailure<String>.nonPositiveWateringDays(failedValue: input));
   }
 }

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../../core/plant_card.dart';
+import 'package:planto/presentation/pages/core/plant_card_with_name.dart';
 import 'buttons.dart';
 
 class PlantListItem extends StatelessWidget {
@@ -18,7 +18,13 @@ class PlantListItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Stack(children: [
-          const PlantCard(size: size),
+          PlantCardWithName(
+            size: size,
+            image: Image.asset(
+              'images/succulent.jpg',
+              fit: BoxFit.fill,
+            ),
+          ),
           const WaterButton(buttonSize: buttonSize),
           const MoreInfoButton(buttonSize: buttonSize),
         ]),
