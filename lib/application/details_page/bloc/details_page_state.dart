@@ -9,6 +9,7 @@ abstract class DetailsPageState with _$DetailsPageState {
     @required LastWatered lastWatered,
     @required WateringDays wateringDays,
     @required Note note,
+    @required bool showErrorMessages,
   }) = _DetailsPageState;
 
   factory DetailsPageState.initial() => DetailsPageState(
@@ -18,5 +19,6 @@ abstract class DetailsPageState with _$DetailsPageState {
         lastWatered: LastWatered(DateTime.now().toString()),
         wateringDays: WateringDays("1"),
         note: Note(""),
+        showErrorMessages: false,
       );
 }

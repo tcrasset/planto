@@ -34,7 +34,7 @@ class _DetailsPageState extends State<DetailsPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add_alert),
-            tooltip: 'Show Snackbar',
+            tooltip: 'Submit plant',
             onPressed: () => handleSubmitForm(context),
           ),
         ],
@@ -43,36 +43,42 @@ class _DetailsPageState extends State<DetailsPage> {
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
-            child: Form(
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-                  const PlantNameField(
-                    hintText: "Name",
-                    onNameChange: standardNameChange,
-                    validateName: validateStandardName,
+            child: BlocBuilder<DetailsPageBloc, DetailsPageState>(
+              builder: (context, state) {
+                return Form(
+                  autovalidateMode: state.showErrorMessages
+                      ? AutovalidateMode.always
+                      : AutovalidateMode.disabled,
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 8),
+                      const PlantNameField(
+                        hintText: "Name",
+                        onNameChange: standardNameChange,
+                        validateName: validateStandardName,
+                      ),
+                      const SizedBox(height: 8),
+                      const PlantNameField(
+                        hintText: "Latin name",
+                        onNameChange: latinNameChange,
+                        validateName: validateLatinName,
+                      ),
+                      SizedBox(
+                        width: size,
+                        height: size,
+                        child: PlantCard(
+                            image: Image.asset(
+                          'images/succulent.jpg',
+                          fit: BoxFit.fill,
+                        )),
+                      ),
+                      LastWateredField(),
+                      WateringDaysField(),
+                      Expanded(child: NotesField()),
+                    ],
                   ),
-                  const SizedBox(height: 8),
-                  const PlantNameField(
-                    hintText: "Latin name",
-                    onNameChange: latinNameChange,
-                    validateName: validateLatinName,
-                  ),
-                  SizedBox(
-                    width: size,
-                    height: size,
-                    child: PlantCard(
-                        image: Image.asset(
-                      'images/succulent.jpg',
-                      fit: BoxFit.fill,
-                    )),
-                  ),
-                  LastWateredField(),
-                  WateringDaysField(),
-                  Expanded(child: NotesField()),
-                ],
-              ),
+                );
+              },
             ),
           )
         ],

@@ -1171,7 +1171,8 @@ class _$DetailsPageStateTearOff {
       @required Image image,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
-      @required Note note}) {
+      @required Note note,
+      @required bool showErrorMessages}) {
     return _DetailsPageState(
       standardName: standardName,
       latinName: latinName,
@@ -1179,6 +1180,7 @@ class _$DetailsPageStateTearOff {
       lastWatered: lastWatered,
       wateringDays: wateringDays,
       note: note,
+      showErrorMessages: showErrorMessages,
     );
   }
 }
@@ -1195,6 +1197,7 @@ mixin _$DetailsPageState {
   LastWatered get lastWatered;
   WateringDays get wateringDays;
   Note get note;
+  bool get showErrorMessages;
 
   @JsonKey(ignore: true)
   $DetailsPageStateCopyWith<DetailsPageState> get copyWith;
@@ -1211,7 +1214,8 @@ abstract class $DetailsPageStateCopyWith<$Res> {
       Image image,
       LastWatered lastWatered,
       WateringDays wateringDays,
-      Note note});
+      Note note,
+      bool showErrorMessages});
 }
 
 /// @nodoc
@@ -1231,6 +1235,7 @@ class _$DetailsPageStateCopyWithImpl<$Res>
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
+    Object showErrorMessages = freezed,
   }) {
     return _then(_value.copyWith(
       standardName:
@@ -1244,6 +1249,9 @@ class _$DetailsPageStateCopyWithImpl<$Res>
           ? _value.wateringDays
           : wateringDays as WateringDays,
       note: note == freezed ? _value.note : note as Note,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages as bool,
     ));
   }
 }
@@ -1261,7 +1269,8 @@ abstract class _$DetailsPageStateCopyWith<$Res>
       Image image,
       LastWatered lastWatered,
       WateringDays wateringDays,
-      Note note});
+      Note note,
+      bool showErrorMessages});
 }
 
 /// @nodoc
@@ -1283,6 +1292,7 @@ class __$DetailsPageStateCopyWithImpl<$Res>
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
+    Object showErrorMessages = freezed,
   }) {
     return _then(_DetailsPageState(
       standardName:
@@ -1296,6 +1306,9 @@ class __$DetailsPageStateCopyWithImpl<$Res>
           ? _value.wateringDays
           : wateringDays as WateringDays,
       note: note == freezed ? _value.note : note as Note,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages as bool,
     ));
   }
 }
@@ -1308,13 +1321,15 @@ class _$_DetailsPageState implements _DetailsPageState {
       @required this.image,
       @required this.lastWatered,
       @required this.wateringDays,
-      @required this.note})
+      @required this.note,
+      @required this.showErrorMessages})
       : assert(standardName != null),
         assert(latinName != null),
         assert(image != null),
         assert(lastWatered != null),
         assert(wateringDays != null),
-        assert(note != null);
+        assert(note != null),
+        assert(showErrorMessages != null);
 
   @override
   final Name standardName;
@@ -1328,10 +1343,12 @@ class _$_DetailsPageState implements _DetailsPageState {
   final WateringDays wateringDays;
   @override
   final Note note;
+  @override
+  final bool showErrorMessages;
 
   @override
   String toString() {
-    return 'DetailsPageState(standardName: $standardName, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
+    return 'DetailsPageState(standardName: $standardName, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note, showErrorMessages: $showErrorMessages)';
   }
 
   @override
@@ -1353,7 +1370,10 @@ class _$_DetailsPageState implements _DetailsPageState {
                 const DeepCollectionEquality()
                     .equals(other.wateringDays, wateringDays)) &&
             (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)));
+                const DeepCollectionEquality().equals(other.note, note)) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                const DeepCollectionEquality()
+                    .equals(other.showErrorMessages, showErrorMessages)));
   }
 
   @override
@@ -1364,7 +1384,8 @@ class _$_DetailsPageState implements _DetailsPageState {
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(lastWatered) ^
       const DeepCollectionEquality().hash(wateringDays) ^
-      const DeepCollectionEquality().hash(note);
+      const DeepCollectionEquality().hash(note) ^
+      const DeepCollectionEquality().hash(showErrorMessages);
 
   @JsonKey(ignore: true)
   @override
@@ -1379,7 +1400,8 @@ abstract class _DetailsPageState implements DetailsPageState {
       @required Image image,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
-      @required Note note}) = _$_DetailsPageState;
+      @required Note note,
+      @required bool showErrorMessages}) = _$_DetailsPageState;
 
   @override
   Name get standardName;
@@ -1393,6 +1415,8 @@ abstract class _DetailsPageState implements DetailsPageState {
   WateringDays get wateringDays;
   @override
   Note get note;
+  @override
+  bool get showErrorMessages;
   @override
   @JsonKey(ignore: true)
   _$DetailsPageStateCopyWith<_DetailsPageState> get copyWith;

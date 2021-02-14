@@ -43,19 +43,19 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         yield null;
       },
       lastWateredChanged: (LastWateredChanged e) async* {
-        //TODO: CHange initialState to state for the next three events
         if (e != null) {
-          yield initialState.copyWith(lastWatered: LastWatered(e.date));
+          yield state.copyWith(lastWatered: LastWatered(e.date));
         }
       },
       noteChanged: (NoteChanged e) async* {
-        yield initialState.copyWith(note: Note(e.noteBody));
+        yield state.copyWith(note: Note(e.noteBody));
       },
       wateringDaysChanged: (WateringDaysChanged e) async* {
-        yield initialState.copyWith(wateringDays: WateringDays(e.days));
+        yield state.copyWith(
+            wateringDays: WateringDays(e.days), showErrorMessages: true);
       },
       newPlantSubmitted: (NewPlantSubmitted e) async* {
-        yield null;
+        yield state.copyWith(showErrorMessages: true);
       },
     );
   }
