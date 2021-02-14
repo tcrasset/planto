@@ -20,11 +20,22 @@ void main() {
   });
 
   test(
-      'verify that a non-positive value returns a InvalidWateringDays ValueFailure',
+      'verify that a non-positive value returns a nonPositiveWateringDays ValueFailure',
       () {
     //!Arrange
+    //!Arrange
     const String tDays = "0";
-    _verifyFailure(tDays);
+    const NonPositiveWateringDays<String> tFailure =
+        ValueFailure<String>.nonPositiveWateringDays(failedValue: tDays)
+            as NonPositiveWateringDays<String>;
+    //!Act
+    final WateringDays result = WateringDays(tDays);
+    //!Assert
+
+    result.value.fold(
+      (failure) => expect(failure, tFailure),
+      (correct) => throw TestFailure("Should have executed `failed`"),
+    );
   });
 
   test(
@@ -32,20 +43,16 @@ void main() {
       () {
     //!Arrange
     const String tDays = ".*-";
-    _verifyFailure(tDays);
+    const InvalidWateringDays<String> tFailure =
+        ValueFailure<String>.invalidWateringDays(failedValue: tDays)
+            as InvalidWateringDays<String>;
+    //!Act
+    final WateringDays result = WateringDays(tDays);
+    //!Assert
+
+    result.value.fold(
+      (failure) => expect(failure, tFailure),
+      (correct) => throw TestFailure("Should have executed `failed`"),
+    );
   });
-}
-
-void _verifyFailure(String tDays) {
-  final InvalidWateringDays<String> tFailure =
-      ValueFailure<String>.invalidWateringDays(failedValue: tDays)
-          as InvalidWateringDays<String>;
-  //!Act
-  final WateringDays result = WateringDays(tDays);
-  //!Assert
-
-  result.value.fold(
-    (failure) => expect(failure, tFailure),
-    (correct) => throw TestFailure("Should have executed `failed`"),
-  );
 }
