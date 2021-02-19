@@ -10,11 +10,11 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import 'package:planto/domain/core/plant.dart';
 import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
 import 'package:planto/domain/details_page/note.dart';
 import 'package:planto/domain/details_page/watering_days.dart';
+import 'package:planto/domain/plant/plant.dart';
 
 part 'details_page_event.dart';
 part 'details_page_state.dart';
@@ -73,7 +73,7 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         yield state.copyWith(isSaving: true);
 
         // if(state.plant.failureOption.isNone()) {
-        //   failureOrSuccess = state.isEditing
+        //   state.isEditing
         //     ? await _plantRepository.update(state.plant)
         //     : await _plantRepository.create(state.plant);
 
