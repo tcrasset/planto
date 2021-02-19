@@ -32,8 +32,8 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
     return BlocBuilder<DetailsPageBloc, DetailsPageState>(
       builder: (context, state) {
         _lastWateredController
-          ..text =
-              state.wateringDays.value.fold((_) => null, (v) => v.toString())
+          ..text = state.plant.wateringDays.value
+              .fold((_) => null, (v) => v.toString())
           ..selection = TextSelection.collapsed(
               offset: _lastWateredController.text.length);
 
@@ -66,7 +66,7 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
   }
 
   String validateWateringDays(BuildContext context) {
-    return context.read<DetailsPageBloc>().state.wateringDays.value.fold(
+    return context.read<DetailsPageBloc>().state.plant.wateringDays.value.fold(
           (f) => f.maybeMap(
               invalidWateringDays: (_) => "Invalid number of days",
               nonPositiveWateringDays: (_) => "Must be positive",

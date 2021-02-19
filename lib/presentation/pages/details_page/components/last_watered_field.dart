@@ -67,7 +67,7 @@ class LastWateredFieldState extends State<LastWateredField> {
   }
 
   String validateLastWateredDate(BuildContext context) {
-    return context.read<DetailsPageBloc>().state.lastWatered.value.fold(
+    return context.read<DetailsPageBloc>().state.plant.lastWatered.value.fold(
           (f) => f.maybeMap(
               invalidLastWateredDate: (_) => "Must be a date",
               futureLastWateredDate: (_) => "Must not be in the future",
@@ -80,7 +80,7 @@ class LastWateredFieldState extends State<LastWateredField> {
   Widget build(BuildContext context) {
     return BlocConsumer<DetailsPageBloc, DetailsPageState>(
       listener: (context, state) {
-        _dateTextEditingController.text = state.lastWatered.value.fold(
+        _dateTextEditingController.text = state.plant.lastWatered.value.fold(
           (f) => _selectedDateString,
           (v) => _formatDate(v),
         );

@@ -1576,20 +1576,9 @@ class _$DetailsPageStateTearOff {
 
 // ignore: unused_element
   _DetailsPageState call(
-      {@required Name standardName,
-      @required Name latinName,
-      @required Image image,
-      @required LastWatered lastWatered,
-      @required WateringDays wateringDays,
-      @required Note note,
-      @required bool showErrorMessages}) {
+      {@required Plant plant, @required bool showErrorMessages}) {
     return _DetailsPageState(
-      standardName: standardName,
-      latinName: latinName,
-      image: image,
-      lastWatered: lastWatered,
-      wateringDays: wateringDays,
-      note: note,
+      plant: plant,
       showErrorMessages: showErrorMessages,
     );
   }
@@ -1601,12 +1590,7 @@ const $DetailsPageState = _$DetailsPageStateTearOff();
 
 /// @nodoc
 mixin _$DetailsPageState {
-  Name get standardName;
-  Name get latinName;
-  Image get image;
-  LastWatered get lastWatered;
-  WateringDays get wateringDays;
-  Note get note;
+  Plant get plant;
   bool get showErrorMessages;
 
   @JsonKey(ignore: true)
@@ -1618,14 +1602,9 @@ abstract class $DetailsPageStateCopyWith<$Res> {
   factory $DetailsPageStateCopyWith(
           DetailsPageState value, $Res Function(DetailsPageState) then) =
       _$DetailsPageStateCopyWithImpl<$Res>;
-  $Res call(
-      {Name standardName,
-      Name latinName,
-      Image image,
-      LastWatered lastWatered,
-      WateringDays wateringDays,
-      Note note,
-      bool showErrorMessages});
+  $Res call({Plant plant, bool showErrorMessages});
+
+  $PlantCopyWith<$Res> get plant;
 }
 
 /// @nodoc
@@ -1639,30 +1618,25 @@ class _$DetailsPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object standardName = freezed,
-    Object latinName = freezed,
-    Object image = freezed,
-    Object lastWatered = freezed,
-    Object wateringDays = freezed,
-    Object note = freezed,
+    Object plant = freezed,
     Object showErrorMessages = freezed,
   }) {
     return _then(_value.copyWith(
-      standardName:
-          standardName == freezed ? _value.standardName : standardName as Name,
-      latinName: latinName == freezed ? _value.latinName : latinName as Name,
-      image: image == freezed ? _value.image : image as Image,
-      lastWatered: lastWatered == freezed
-          ? _value.lastWatered
-          : lastWatered as LastWatered,
-      wateringDays: wateringDays == freezed
-          ? _value.wateringDays
-          : wateringDays as WateringDays,
-      note: note == freezed ? _value.note : note as Note,
+      plant: plant == freezed ? _value.plant : plant as Plant,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
     ));
+  }
+
+  @override
+  $PlantCopyWith<$Res> get plant {
+    if (_value.plant == null) {
+      return null;
+    }
+    return $PlantCopyWith<$Res>(_value.plant, (value) {
+      return _then(_value.copyWith(plant: value));
+    });
   }
 }
 
@@ -1673,14 +1647,10 @@ abstract class _$DetailsPageStateCopyWith<$Res>
           _DetailsPageState value, $Res Function(_DetailsPageState) then) =
       __$DetailsPageStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {Name standardName,
-      Name latinName,
-      Image image,
-      LastWatered lastWatered,
-      WateringDays wateringDays,
-      Note note,
-      bool showErrorMessages});
+  $Res call({Plant plant, bool showErrorMessages});
+
+  @override
+  $PlantCopyWith<$Res> get plant;
 }
 
 /// @nodoc
@@ -1696,26 +1666,11 @@ class __$DetailsPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object standardName = freezed,
-    Object latinName = freezed,
-    Object image = freezed,
-    Object lastWatered = freezed,
-    Object wateringDays = freezed,
-    Object note = freezed,
+    Object plant = freezed,
     Object showErrorMessages = freezed,
   }) {
     return _then(_DetailsPageState(
-      standardName:
-          standardName == freezed ? _value.standardName : standardName as Name,
-      latinName: latinName == freezed ? _value.latinName : latinName as Name,
-      image: image == freezed ? _value.image : image as Image,
-      lastWatered: lastWatered == freezed
-          ? _value.lastWatered
-          : lastWatered as LastWatered,
-      wateringDays: wateringDays == freezed
-          ? _value.wateringDays
-          : wateringDays as WateringDays,
-      note: note == freezed ? _value.note : note as Note,
+      plant: plant == freezed ? _value.plant : plant as Plant,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
@@ -1726,61 +1681,26 @@ class __$DetailsPageStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_DetailsPageState implements _DetailsPageState {
   const _$_DetailsPageState(
-      {@required this.standardName,
-      @required this.latinName,
-      @required this.image,
-      @required this.lastWatered,
-      @required this.wateringDays,
-      @required this.note,
-      @required this.showErrorMessages})
-      : assert(standardName != null),
-        assert(latinName != null),
-        assert(image != null),
-        assert(lastWatered != null),
-        assert(wateringDays != null),
-        assert(note != null),
+      {@required this.plant, @required this.showErrorMessages})
+      : assert(plant != null),
         assert(showErrorMessages != null);
 
   @override
-  final Name standardName;
-  @override
-  final Name latinName;
-  @override
-  final Image image;
-  @override
-  final LastWatered lastWatered;
-  @override
-  final WateringDays wateringDays;
-  @override
-  final Note note;
+  final Plant plant;
   @override
   final bool showErrorMessages;
 
   @override
   String toString() {
-    return 'DetailsPageState(standardName: $standardName, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note, showErrorMessages: $showErrorMessages)';
+    return 'DetailsPageState(plant: $plant, showErrorMessages: $showErrorMessages)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _DetailsPageState &&
-            (identical(other.standardName, standardName) ||
-                const DeepCollectionEquality()
-                    .equals(other.standardName, standardName)) &&
-            (identical(other.latinName, latinName) ||
-                const DeepCollectionEquality()
-                    .equals(other.latinName, latinName)) &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)) &&
-            (identical(other.lastWatered, lastWatered) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastWatered, lastWatered)) &&
-            (identical(other.wateringDays, wateringDays) ||
-                const DeepCollectionEquality()
-                    .equals(other.wateringDays, wateringDays)) &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)) &&
+            (identical(other.plant, plant) ||
+                const DeepCollectionEquality().equals(other.plant, plant)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)));
@@ -1789,12 +1709,7 @@ class _$_DetailsPageState implements _DetailsPageState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(standardName) ^
-      const DeepCollectionEquality().hash(latinName) ^
-      const DeepCollectionEquality().hash(image) ^
-      const DeepCollectionEquality().hash(lastWatered) ^
-      const DeepCollectionEquality().hash(wateringDays) ^
-      const DeepCollectionEquality().hash(note) ^
+      const DeepCollectionEquality().hash(plant) ^
       const DeepCollectionEquality().hash(showErrorMessages);
 
   @JsonKey(ignore: true)
@@ -1805,26 +1720,11 @@ class _$_DetailsPageState implements _DetailsPageState {
 
 abstract class _DetailsPageState implements DetailsPageState {
   const factory _DetailsPageState(
-      {@required Name standardName,
-      @required Name latinName,
-      @required Image image,
-      @required LastWatered lastWatered,
-      @required WateringDays wateringDays,
-      @required Note note,
+      {@required Plant plant,
       @required bool showErrorMessages}) = _$_DetailsPageState;
 
   @override
-  Name get standardName;
-  @override
-  Name get latinName;
-  @override
-  Image get image;
-  @override
-  LastWatered get lastWatered;
-  @override
-  WateringDays get wateringDays;
-  @override
-  Note get note;
+  Plant get plant;
   @override
   bool get showErrorMessages;
   @override

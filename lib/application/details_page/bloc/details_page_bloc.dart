@@ -15,7 +15,6 @@ import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
 import 'package:planto/domain/details_page/note.dart';
 import 'package:planto/domain/details_page/watering_days.dart';
-import 'package:planto/presentation/pages/details_page/components/default_image.dart';
 
 part 'details_page_event.dart';
 part 'details_page_state.dart';
@@ -35,12 +34,13 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       },
       standardNameChanged: (StandardNameChanged e) async* {
         if (e != null) {
-          yield state.copyWith(standardName: Name(e.name));
+          yield state.copyWith(plant: state.plant.copyWith(name: Name(e.name)));
         }
       },
       latinNameChanged: (LatinNameChanged e) async* {
         if (e != null) {
-          yield state.copyWith(latinName: Name(e.name));
+          yield state.copyWith(
+              plant: state.plant.copyWith(latinName: Name(e.name)));
         }
       },
       imageChanged: (ImageChanged e) async* {
@@ -48,21 +48,24 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       },
       lastWateredChanged: (LastWateredChanged e) async* {
         if (e != null) {
-          yield state.copyWith(lastWatered: LastWatered(e.date));
+          yield state.copyWith(
+              plant: state.plant.copyWith(lastWatered: LastWatered(e.date)));
         }
       },
       noteChanged: (NoteChanged e) async* {
-        yield state.copyWith(note: Note(e.noteBody));
+        yield state.copyWith(
+            plant: state.plant.copyWith(note: Note(e.noteBody)));
       },
       wateringDaysChanged: (WateringDaysChanged e) async* {
-        yield state.copyWith(
-            wateringDays: WateringDays(e.days), showErrorMessages: true);
+        state.copyWith(
+            plant: state.plant.copyWith(wateringDays: WateringDays(e.days)),
+            showErrorMessages: true);
       },
       newPlantSubmitted: (NewPlantSubmitted e) async* {
         yield state.copyWith(showErrorMessages: true);
       },
       saved: (Saved e) async* {
-        yield null;
+        yield state.copyWith(showErrorMessages: true);
       },
     );
   }

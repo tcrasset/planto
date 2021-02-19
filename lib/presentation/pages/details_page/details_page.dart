@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 // Project imports:
 import 'package:planto/application/core/my_camera.dart';
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
-import 'package:planto/domain/core/plant.dart';
 import 'package:planto/presentation/pages/details_page/components/plant_name_field.dart';
 import '../core/plant_card.dart';
 import 'components/last_watered_field.dart';
@@ -30,9 +29,7 @@ class _DetailsPageState extends State<DetailsPage> {
   Image newImage;
 
   Future<void> handleSubmitForm(BuildContext context) async {
-    context
-        .read<DetailsPageBloc>()
-        .add(DetailsPageEvent.newPlantSubmitted(Plant()));
+    context.read<DetailsPageBloc>().add(const DetailsPageEvent.saved());
   }
 
   Future<void> takePicture() async {
@@ -47,6 +44,7 @@ class _DetailsPageState extends State<DetailsPage> {
         });
       }
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }
@@ -165,14 +163,14 @@ String failNameClosure(dynamic f) {
 }
 
 String validateStandardName(BuildContext context) {
-  return context.read<DetailsPageBloc>().state.standardName.value.fold(
+  return context.read<DetailsPageBloc>().state.plant.name.value.fold(
         (f) => failNameClosure(f),
         (_) => null,
       );
 }
 
 String validateLatinName(BuildContext context) {
-  return context.read<DetailsPageBloc>().state.latinName.value.fold(
+  return context.read<DetailsPageBloc>().state.plant.latinName.value.fold(
         (f) => failNameClosure(f),
         (_) => null,
       );

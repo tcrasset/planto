@@ -21,7 +21,7 @@ class _NotesFieldState extends State<NotesField> {
   }
 
   String validateNote(BuildContext context) {
-    return context.read<DetailsPageBloc>().state.note.value.fold(
+    return context.read<DetailsPageBloc>().state.plant.note.value.fold(
           (f) => f.maybeMap(
             longNote: (_) => "Note is too long",
             orElse: () => null,
