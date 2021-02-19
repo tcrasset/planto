@@ -6,11 +6,13 @@ abstract class DetailsPageState with _$DetailsPageState {
     @required Plant plant,
     @required bool showErrorMessages,
     @required bool isSaving,
+    @required bool isEditing,
   }) = _DetailsPageState;
 
   factory DetailsPageState.initial() => DetailsPageState(
         plant: Plant.empty(),
         showErrorMessages: false,
         isSaving: false,
+        isEditing: false,
       );
 }

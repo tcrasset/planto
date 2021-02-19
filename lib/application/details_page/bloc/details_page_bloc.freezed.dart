@@ -1578,11 +1578,13 @@ class _$DetailsPageStateTearOff {
   _DetailsPageState call(
       {@required Plant plant,
       @required bool showErrorMessages,
-      @required bool isSaving}) {
+      @required bool isSaving,
+      @required bool isEditing}) {
     return _DetailsPageState(
       plant: plant,
       showErrorMessages: showErrorMessages,
       isSaving: isSaving,
+      isEditing: isEditing,
     );
   }
 }
@@ -1596,6 +1598,7 @@ mixin _$DetailsPageState {
   Plant get plant;
   bool get showErrorMessages;
   bool get isSaving;
+  bool get isEditing;
 
   @JsonKey(ignore: true)
   $DetailsPageStateCopyWith<DetailsPageState> get copyWith;
@@ -1606,7 +1609,8 @@ abstract class $DetailsPageStateCopyWith<$Res> {
   factory $DetailsPageStateCopyWith(
           DetailsPageState value, $Res Function(DetailsPageState) then) =
       _$DetailsPageStateCopyWithImpl<$Res>;
-  $Res call({Plant plant, bool showErrorMessages, bool isSaving});
+  $Res call(
+      {Plant plant, bool showErrorMessages, bool isSaving, bool isEditing});
 
   $PlantCopyWith<$Res> get plant;
 }
@@ -1625,6 +1629,7 @@ class _$DetailsPageStateCopyWithImpl<$Res>
     Object plant = freezed,
     Object showErrorMessages = freezed,
     Object isSaving = freezed,
+    Object isEditing = freezed,
   }) {
     return _then(_value.copyWith(
       plant: plant == freezed ? _value.plant : plant as Plant,
@@ -1632,6 +1637,7 @@ class _$DetailsPageStateCopyWithImpl<$Res>
           ? _value.showErrorMessages
           : showErrorMessages as bool,
       isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
+      isEditing: isEditing == freezed ? _value.isEditing : isEditing as bool,
     ));
   }
 
@@ -1653,7 +1659,8 @@ abstract class _$DetailsPageStateCopyWith<$Res>
           _DetailsPageState value, $Res Function(_DetailsPageState) then) =
       __$DetailsPageStateCopyWithImpl<$Res>;
   @override
-  $Res call({Plant plant, bool showErrorMessages, bool isSaving});
+  $Res call(
+      {Plant plant, bool showErrorMessages, bool isSaving, bool isEditing});
 
   @override
   $PlantCopyWith<$Res> get plant;
@@ -1675,6 +1682,7 @@ class __$DetailsPageStateCopyWithImpl<$Res>
     Object plant = freezed,
     Object showErrorMessages = freezed,
     Object isSaving = freezed,
+    Object isEditing = freezed,
   }) {
     return _then(_DetailsPageState(
       plant: plant == freezed ? _value.plant : plant as Plant,
@@ -1682,6 +1690,7 @@ class __$DetailsPageStateCopyWithImpl<$Res>
           ? _value.showErrorMessages
           : showErrorMessages as bool,
       isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
+      isEditing: isEditing == freezed ? _value.isEditing : isEditing as bool,
     ));
   }
 }
@@ -1691,10 +1700,12 @@ class _$_DetailsPageState implements _DetailsPageState {
   const _$_DetailsPageState(
       {@required this.plant,
       @required this.showErrorMessages,
-      @required this.isSaving})
+      @required this.isSaving,
+      @required this.isEditing})
       : assert(plant != null),
         assert(showErrorMessages != null),
-        assert(isSaving != null);
+        assert(isSaving != null),
+        assert(isEditing != null);
 
   @override
   final Plant plant;
@@ -1702,10 +1713,12 @@ class _$_DetailsPageState implements _DetailsPageState {
   final bool showErrorMessages;
   @override
   final bool isSaving;
+  @override
+  final bool isEditing;
 
   @override
   String toString() {
-    return 'DetailsPageState(plant: $plant, showErrorMessages: $showErrorMessages, isSaving: $isSaving)';
+    return 'DetailsPageState(plant: $plant, showErrorMessages: $showErrorMessages, isSaving: $isSaving, isEditing: $isEditing)';
   }
 
   @override
@@ -1719,7 +1732,10 @@ class _$_DetailsPageState implements _DetailsPageState {
                     .equals(other.showErrorMessages, showErrorMessages)) &&
             (identical(other.isSaving, isSaving) ||
                 const DeepCollectionEquality()
-                    .equals(other.isSaving, isSaving)));
+                    .equals(other.isSaving, isSaving)) &&
+            (identical(other.isEditing, isEditing) ||
+                const DeepCollectionEquality()
+                    .equals(other.isEditing, isEditing)));
   }
 
   @override
@@ -1727,7 +1743,8 @@ class _$_DetailsPageState implements _DetailsPageState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(plant) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(isSaving);
+      const DeepCollectionEquality().hash(isSaving) ^
+      const DeepCollectionEquality().hash(isEditing);
 
   @JsonKey(ignore: true)
   @override
@@ -1739,7 +1756,8 @@ abstract class _DetailsPageState implements DetailsPageState {
   const factory _DetailsPageState(
       {@required Plant plant,
       @required bool showErrorMessages,
-      @required bool isSaving}) = _$_DetailsPageState;
+      @required bool isSaving,
+      @required bool isEditing}) = _$_DetailsPageState;
 
   @override
   Plant get plant;
@@ -1747,6 +1765,8 @@ abstract class _DetailsPageState implements DetailsPageState {
   bool get showErrorMessages;
   @override
   bool get isSaving;
+  @override
+  bool get isEditing;
   @override
   @JsonKey(ignore: true)
   _$DetailsPageStateCopyWith<_DetailsPageState> get copyWith;
