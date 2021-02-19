@@ -14,6 +14,7 @@ import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
 import 'package:planto/domain/details_page/note.dart';
 import 'package:planto/domain/details_page/watering_days.dart';
+import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 
 part 'details_page_event.dart';
@@ -21,7 +22,9 @@ part 'details_page_state.dart';
 part 'details_page_bloc.freezed.dart';
 
 class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
-  DetailsPageBloc() : super(DetailsPageState.initial());
+  final IPlantRepository _plantRepository;
+
+  DetailsPageBloc(this._plantRepository) : super(DetailsPageState.initial());
 
   DetailsPageState get initialState => DetailsPageState.initial();
   @override
@@ -72,12 +75,11 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
 
         yield state.copyWith(isSaving: true);
 
-        // if(state.plant.failureOption.isNone()) {
-        //   state.isEditing
-        //     ? await _plantRepository.update(state.plant)
-        //     : await _plantRepository.create(state.plant);
-
-        // }
+        if (state.plant.failureOption.isNone()) {
+          state.isEditing
+              ? await _plantRepository.update(state.plant)
+              : await _plantRepository.create(state.plant);
+        }
 
         await Future.delayed(const Duration(seconds: 1));
         yield state.copyWith(isSaving: false, showErrorMessages: true);

@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:planto/application/core/my_camera.dart';
+import 'package:planto/infrastructure/plant/plant_repository.dart';
 import 'application/details_page/bloc/details_page_bloc.dart';
 import 'presentation/pages/plant_page/plant_page.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         BlocProvider(
-          create: (_) => DetailsPageBloc(),
+          create: (_) => DetailsPageBloc(PlantRepository()),
         ),
         Provider.value(value: camera),
       ],
