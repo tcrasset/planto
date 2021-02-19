@@ -15,13 +15,15 @@ class _$PlantTearOff {
 
 // ignore: unused_element
   _Plant call(
-      {@required Name name,
+      {@required String id,
+      @required Name name,
       @required Name latinName,
       @required Image image,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) {
     return _Plant(
+      id: id,
       name: name,
       latinName: latinName,
       image: image,
@@ -38,6 +40,7 @@ const $Plant = _$PlantTearOff();
 
 /// @nodoc
 mixin _$Plant {
+  String get id;
   Name get name;
   Name get latinName;
   Image get image;
@@ -54,7 +57,8 @@ abstract class $PlantCopyWith<$Res> {
   factory $PlantCopyWith(Plant value, $Res Function(Plant) then) =
       _$PlantCopyWithImpl<$Res>;
   $Res call(
-      {Name name,
+      {String id,
+      Name name,
       Name latinName,
       Image image,
       LastWatered lastWatered,
@@ -72,6 +76,7 @@ class _$PlantCopyWithImpl<$Res> implements $PlantCopyWith<$Res> {
 
   @override
   $Res call({
+    Object id = freezed,
     Object name = freezed,
     Object latinName = freezed,
     Object image = freezed,
@@ -80,6 +85,7 @@ class _$PlantCopyWithImpl<$Res> implements $PlantCopyWith<$Res> {
     Object note = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
       image: image == freezed ? _value.image : image as Image,
@@ -100,7 +106,8 @@ abstract class _$PlantCopyWith<$Res> implements $PlantCopyWith<$Res> {
       __$PlantCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Name name,
+      {String id,
+      Name name,
       Name latinName,
       Image image,
       LastWatered lastWatered,
@@ -119,6 +126,7 @@ class __$PlantCopyWithImpl<$Res> extends _$PlantCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object id = freezed,
     Object name = freezed,
     Object latinName = freezed,
     Object image = freezed,
@@ -127,6 +135,7 @@ class __$PlantCopyWithImpl<$Res> extends _$PlantCopyWithImpl<$Res>
     Object note = freezed,
   }) {
     return _then(_Plant(
+      id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
       image: image == freezed ? _value.image : image as Image,
@@ -144,13 +153,15 @@ class __$PlantCopyWithImpl<$Res> extends _$PlantCopyWithImpl<$Res>
 /// @nodoc
 class _$_Plant extends _Plant {
   const _$_Plant(
-      {@required this.name,
+      {@required this.id,
+      @required this.name,
       @required this.latinName,
       @required this.image,
       @required this.lastWatered,
       @required this.wateringDays,
       @required this.note})
-      : assert(name != null),
+      : assert(id != null),
+        assert(name != null),
         assert(latinName != null),
         assert(image != null),
         assert(lastWatered != null),
@@ -158,6 +169,8 @@ class _$_Plant extends _Plant {
         assert(note != null),
         super._();
 
+  @override
+  final String id;
   @override
   final Name name;
   @override
@@ -173,13 +186,15 @@ class _$_Plant extends _Plant {
 
   @override
   String toString() {
-    return 'Plant(name: $name, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
+    return 'Plant(id: $id, name: $name, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Plant &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.latinName, latinName) ||
@@ -200,6 +215,7 @@ class _$_Plant extends _Plant {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(latinName) ^
       const DeepCollectionEquality().hash(image) ^
@@ -216,13 +232,16 @@ class _$_Plant extends _Plant {
 abstract class _Plant extends Plant {
   const _Plant._() : super._();
   const factory _Plant(
-      {@required Name name,
+      {@required String id,
+      @required Name name,
       @required Name latinName,
       @required Image image,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) = _$_Plant;
 
+  @override
+  String get id;
   @override
   Name get name;
   @override
