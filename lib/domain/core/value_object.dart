@@ -2,11 +2,27 @@
 import 'package:dartz/dartz.dart';
 
 // Project imports:
+import 'package:planto/domain/core/errors.dart';
 import 'package:planto/domain/core/value_failure.dart';
 
 abstract class ValueObject<T> {
   const ValueObject();
   Either<ValueFailure<dynamic>, T> get value;
+
+  /// Throws [UnexpectedValueError] containing the [ValueFailure]
+  T getOrCrash() {
+    return value.fold(
+      (f) => throw UnexpectedValueError(f),
+      (right) => right,
+    );
+  }
+
+  Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
+    return value.fold(
+      (l) => left(l),
+      (r) => right(unit),
+    );
+  }
 
   @override
   bool operator ==(Object o) {

@@ -1576,10 +1576,13 @@ class _$DetailsPageStateTearOff {
 
 // ignore: unused_element
   _DetailsPageState call(
-      {@required Plant plant, @required bool showErrorMessages}) {
+      {@required Plant plant,
+      @required bool showErrorMessages,
+      @required bool isSaving}) {
     return _DetailsPageState(
       plant: plant,
       showErrorMessages: showErrorMessages,
+      isSaving: isSaving,
     );
   }
 }
@@ -1592,6 +1595,7 @@ const $DetailsPageState = _$DetailsPageStateTearOff();
 mixin _$DetailsPageState {
   Plant get plant;
   bool get showErrorMessages;
+  bool get isSaving;
 
   @JsonKey(ignore: true)
   $DetailsPageStateCopyWith<DetailsPageState> get copyWith;
@@ -1602,7 +1606,7 @@ abstract class $DetailsPageStateCopyWith<$Res> {
   factory $DetailsPageStateCopyWith(
           DetailsPageState value, $Res Function(DetailsPageState) then) =
       _$DetailsPageStateCopyWithImpl<$Res>;
-  $Res call({Plant plant, bool showErrorMessages});
+  $Res call({Plant plant, bool showErrorMessages, bool isSaving});
 
   $PlantCopyWith<$Res> get plant;
 }
@@ -1620,12 +1624,14 @@ class _$DetailsPageStateCopyWithImpl<$Res>
   $Res call({
     Object plant = freezed,
     Object showErrorMessages = freezed,
+    Object isSaving = freezed,
   }) {
     return _then(_value.copyWith(
       plant: plant == freezed ? _value.plant : plant as Plant,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
+      isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
     ));
   }
 
@@ -1647,7 +1653,7 @@ abstract class _$DetailsPageStateCopyWith<$Res>
           _DetailsPageState value, $Res Function(_DetailsPageState) then) =
       __$DetailsPageStateCopyWithImpl<$Res>;
   @override
-  $Res call({Plant plant, bool showErrorMessages});
+  $Res call({Plant plant, bool showErrorMessages, bool isSaving});
 
   @override
   $PlantCopyWith<$Res> get plant;
@@ -1668,12 +1674,14 @@ class __$DetailsPageStateCopyWithImpl<$Res>
   $Res call({
     Object plant = freezed,
     Object showErrorMessages = freezed,
+    Object isSaving = freezed,
   }) {
     return _then(_DetailsPageState(
       plant: plant == freezed ? _value.plant : plant as Plant,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
+      isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
     ));
   }
 }
@@ -1681,18 +1689,23 @@ class __$DetailsPageStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_DetailsPageState implements _DetailsPageState {
   const _$_DetailsPageState(
-      {@required this.plant, @required this.showErrorMessages})
+      {@required this.plant,
+      @required this.showErrorMessages,
+      @required this.isSaving})
       : assert(plant != null),
-        assert(showErrorMessages != null);
+        assert(showErrorMessages != null),
+        assert(isSaving != null);
 
   @override
   final Plant plant;
   @override
   final bool showErrorMessages;
+  @override
+  final bool isSaving;
 
   @override
   String toString() {
-    return 'DetailsPageState(plant: $plant, showErrorMessages: $showErrorMessages)';
+    return 'DetailsPageState(plant: $plant, showErrorMessages: $showErrorMessages, isSaving: $isSaving)';
   }
 
   @override
@@ -1703,14 +1716,18 @@ class _$_DetailsPageState implements _DetailsPageState {
                 const DeepCollectionEquality().equals(other.plant, plant)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)));
+                    .equals(other.showErrorMessages, showErrorMessages)) &&
+            (identical(other.isSaving, isSaving) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSaving, isSaving)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(plant) ^
-      const DeepCollectionEquality().hash(showErrorMessages);
+      const DeepCollectionEquality().hash(showErrorMessages) ^
+      const DeepCollectionEquality().hash(isSaving);
 
   @JsonKey(ignore: true)
   @override
@@ -1721,12 +1738,15 @@ class _$_DetailsPageState implements _DetailsPageState {
 abstract class _DetailsPageState implements DetailsPageState {
   const factory _DetailsPageState(
       {@required Plant plant,
-      @required bool showErrorMessages}) = _$_DetailsPageState;
+      @required bool showErrorMessages,
+      @required bool isSaving}) = _$_DetailsPageState;
 
   @override
   Plant get plant;
   @override
   bool get showErrorMessages;
+  @override
+  bool get isSaving;
   @override
   @JsonKey(ignore: true)
   _$DetailsPageStateCopyWith<_DetailsPageState> get copyWith;

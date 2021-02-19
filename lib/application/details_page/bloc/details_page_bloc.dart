@@ -30,7 +30,10 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
   ) async* {
     yield* event.map(
       initialized: (Initialized e) async* {
-        yield null;
+        yield e.initialPlantOption.fold(
+          () => state,
+          (initialPlant) => state.copyWith(plant: initialPlant),
+        );
       },
       standardNameChanged: (StandardNameChanged e) async* {
         if (e != null) {
@@ -65,7 +68,19 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         yield state.copyWith(showErrorMessages: true);
       },
       saved: (Saved e) async* {
-        yield state.copyWith(showErrorMessages: true);
+        // Either<PlantFailure, Unit> failureOrSuccess;
+
+        yield state.copyWith(isSaving: true);
+
+        // if(state.plant.failureOption.isNone()) {
+        //   failureOrSuccess = state.isEditing
+        //     ? await _plantRepository.update(state.plant)
+        //     : await _plantRepository.create(state.plant);
+
+        // }
+
+        await Future.delayed(const Duration(seconds: 1));
+        yield state.copyWith(isSaving: false, showErrorMessages: true);
       },
     );
   }
