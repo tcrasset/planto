@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/domain/details_page/note.dart';
 
 class NotesField extends StatefulWidget {
   @override
@@ -37,6 +38,7 @@ class _NotesFieldState extends State<NotesField> {
             width: 280,
             child: TextFormField(
               maxLines: null,
+              maxLength: Note.maxLength,
               expands: true,
               validator: (_) => validateNote(context),
               keyboardType: TextInputType.multiline,

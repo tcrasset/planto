@@ -14,6 +14,13 @@ class _$DetailsPageEventTearOff {
   const _$DetailsPageEventTearOff();
 
 // ignore: unused_element
+  Initialized initialized(Option<Plant> initialPlantOption) {
+    return Initialized(
+      initialPlantOption,
+    );
+  }
+
+// ignore: unused_element
   LastWateredChanged lastWateredChanged(String date) {
     return LastWateredChanged(
       date,
@@ -61,6 +68,11 @@ class _$DetailsPageEventTearOff {
       name,
     );
   }
+
+// ignore: unused_element
+  Saved saved() {
+    return const Saved();
+  }
 }
 
 /// @nodoc
@@ -71,6 +83,7 @@ const $DetailsPageEvent = _$DetailsPageEventTearOff();
 mixin _$DetailsPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -78,9 +91,11 @@ mixin _$DetailsPageEvent {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -88,10 +103,12 @@ mixin _$DetailsPageEvent {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -99,9 +116,11 @@ mixin _$DetailsPageEvent {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -109,6 +128,7 @@ mixin _$DetailsPageEvent {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   });
 }
@@ -128,6 +148,170 @@ class _$DetailsPageEventCopyWithImpl<$Res>
   final DetailsPageEvent _value;
   // ignore: unused_field
   final $Res Function(DetailsPageEvent) _then;
+}
+
+/// @nodoc
+abstract class $InitializedCopyWith<$Res> {
+  factory $InitializedCopyWith(
+          Initialized value, $Res Function(Initialized) then) =
+      _$InitializedCopyWithImpl<$Res>;
+  $Res call({Option<Plant> initialPlantOption});
+}
+
+/// @nodoc
+class _$InitializedCopyWithImpl<$Res>
+    extends _$DetailsPageEventCopyWithImpl<$Res>
+    implements $InitializedCopyWith<$Res> {
+  _$InitializedCopyWithImpl(
+      Initialized _value, $Res Function(Initialized) _then)
+      : super(_value, (v) => _then(v as Initialized));
+
+  @override
+  Initialized get _value => super._value as Initialized;
+
+  @override
+  $Res call({
+    Object initialPlantOption = freezed,
+  }) {
+    return _then(Initialized(
+      initialPlantOption == freezed
+          ? _value.initialPlantOption
+          : initialPlantOption as Option<Plant>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$Initialized implements Initialized {
+  const _$Initialized(this.initialPlantOption)
+      : assert(initialPlantOption != null);
+
+  @override
+  final Option<Plant> initialPlantOption;
+
+  @override
+  String toString() {
+    return 'DetailsPageEvent.initialized(initialPlantOption: $initialPlantOption)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Initialized &&
+            (identical(other.initialPlantOption, initialPlantOption) ||
+                const DeepCollectionEquality()
+                    .equals(other.initialPlantOption, initialPlantOption)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(initialPlantOption);
+
+  @JsonKey(ignore: true)
+  @override
+  $InitializedCopyWith<Initialized> get copyWith =>
+      _$InitializedCopyWithImpl<Initialized>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
+    @required TResult lastWateredChanged(String date),
+    @required TResult wateringDaysChanged(String days),
+    @required TResult noteChanged(String noteBody),
+    @required TResult imageChanged(Image image),
+    @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
+    @required TResult saved(),
+  }) {
+    assert(initialized != null);
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    assert(saved != null);
+    return initialized(initialPlantOption);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
+    TResult lastWateredChanged(String date),
+    TResult wateringDaysChanged(String days),
+    TResult noteChanged(String noteBody),
+    TResult imageChanged(Image image),
+    TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (initialized != null) {
+      return initialized(initialPlantOption);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
+    @required TResult lastWateredChanged(LastWateredChanged value),
+    @required TResult wateringDaysChanged(WateringDaysChanged value),
+    @required TResult noteChanged(NoteChanged value),
+    @required TResult imageChanged(ImageChanged value),
+    @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
+  }) {
+    assert(initialized != null);
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    assert(saved != null);
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
+    TResult lastWateredChanged(LastWateredChanged value),
+    TResult wateringDaysChanged(WateringDaysChanged value),
+    TResult noteChanged(NoteChanged value),
+    TResult imageChanged(ImageChanged value),
+    TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Initialized implements DetailsPageEvent {
+  const factory Initialized(Option<Plant> initialPlantOption) = _$Initialized;
+
+  Option<Plant> get initialPlantOption;
+  @JsonKey(ignore: true)
+  $InitializedCopyWith<Initialized> get copyWith;
 }
 
 /// @nodoc
@@ -191,6 +375,7 @@ class _$LastWateredChanged implements LastWateredChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -198,7 +383,9 @@ class _$LastWateredChanged implements LastWateredChanged {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -206,12 +393,14 @@ class _$LastWateredChanged implements LastWateredChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return lastWateredChanged(date);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -219,6 +408,7 @@ class _$LastWateredChanged implements LastWateredChanged {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -231,6 +421,7 @@ class _$LastWateredChanged implements LastWateredChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -238,7 +429,9 @@ class _$LastWateredChanged implements LastWateredChanged {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -246,12 +439,14 @@ class _$LastWateredChanged implements LastWateredChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return lastWateredChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -259,6 +454,7 @@ class _$LastWateredChanged implements LastWateredChanged {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -338,6 +534,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -345,7 +542,9 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -353,12 +552,14 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return wateringDaysChanged(days);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -366,6 +567,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -378,6 +580,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -385,7 +588,9 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -393,12 +598,14 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return wateringDaysChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -406,6 +613,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -486,6 +694,7 @@ class _$NoteChanged implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -493,7 +702,9 @@ class _$NoteChanged implements NoteChanged {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -501,12 +712,14 @@ class _$NoteChanged implements NoteChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return noteChanged(noteBody);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -514,6 +727,7 @@ class _$NoteChanged implements NoteChanged {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -526,6 +740,7 @@ class _$NoteChanged implements NoteChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -533,7 +748,9 @@ class _$NoteChanged implements NoteChanged {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -541,12 +758,14 @@ class _$NoteChanged implements NoteChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return noteChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -554,6 +773,7 @@ class _$NoteChanged implements NoteChanged {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -633,6 +853,7 @@ class _$ImageChanged implements ImageChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -640,7 +861,9 @@ class _$ImageChanged implements ImageChanged {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -648,12 +871,14 @@ class _$ImageChanged implements ImageChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return imageChanged(image);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -661,6 +886,7 @@ class _$ImageChanged implements ImageChanged {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -673,6 +899,7 @@ class _$ImageChanged implements ImageChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -680,7 +907,9 @@ class _$ImageChanged implements ImageChanged {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -688,12 +917,14 @@ class _$ImageChanged implements ImageChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return imageChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -701,6 +932,7 @@ class _$ImageChanged implements ImageChanged {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -725,6 +957,8 @@ abstract class $NewPlantSubmittedCopyWith<$Res> {
           NewPlantSubmitted value, $Res Function(NewPlantSubmitted) then) =
       _$NewPlantSubmittedCopyWithImpl<$Res>;
   $Res call({Plant plant});
+
+  $PlantCopyWith<$Res> get plant;
 }
 
 /// @nodoc
@@ -745,6 +979,16 @@ class _$NewPlantSubmittedCopyWithImpl<$Res>
     return _then(NewPlantSubmitted(
       plant == freezed ? _value.plant : plant as Plant,
     ));
+  }
+
+  @override
+  $PlantCopyWith<$Res> get plant {
+    if (_value.plant == null) {
+      return null;
+    }
+    return $PlantCopyWith<$Res>(_value.plant, (value) {
+      return _then(_value.copyWith(plant: value));
+    });
   }
 }
 
@@ -780,6 +1024,7 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -787,7 +1032,9 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -795,12 +1042,14 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return newPlantSubmitted(plant);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -808,6 +1057,7 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -820,6 +1070,7 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -827,7 +1078,9 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -835,12 +1088,14 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return newPlantSubmitted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -848,6 +1103,7 @@ class _$NewPlantSubmitted implements NewPlantSubmitted {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -927,6 +1183,7 @@ class _$LatinNameChanged implements LatinNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -934,7 +1191,9 @@ class _$LatinNameChanged implements LatinNameChanged {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -942,12 +1201,14 @@ class _$LatinNameChanged implements LatinNameChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return latinNameChanged(name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -955,6 +1216,7 @@ class _$LatinNameChanged implements LatinNameChanged {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -967,6 +1229,7 @@ class _$LatinNameChanged implements LatinNameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -974,7 +1237,9 @@ class _$LatinNameChanged implements LatinNameChanged {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -982,12 +1247,14 @@ class _$LatinNameChanged implements LatinNameChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return latinNameChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -995,6 +1262,7 @@ class _$LatinNameChanged implements LatinNameChanged {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1074,6 +1342,7 @@ class _$StandardNameChanged implements StandardNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
     @required TResult lastWateredChanged(String date),
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
@@ -1081,7 +1350,9 @@ class _$StandardNameChanged implements StandardNameChanged {
     @required TResult newPlantSubmitted(Plant plant),
     @required TResult latinNameChanged(String name),
     @required TResult standardNameChanged(String name),
+    @required TResult saved(),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -1089,12 +1360,14 @@ class _$StandardNameChanged implements StandardNameChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return standardNameChanged(name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
     TResult lastWateredChanged(String date),
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
@@ -1102,6 +1375,7 @@ class _$StandardNameChanged implements StandardNameChanged {
     TResult newPlantSubmitted(Plant plant),
     TResult latinNameChanged(String name),
     TResult standardNameChanged(String name),
+    TResult saved(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1114,6 +1388,7 @@ class _$StandardNameChanged implements StandardNameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult lastWateredChanged(LastWateredChanged value),
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
@@ -1121,7 +1396,9 @@ class _$StandardNameChanged implements StandardNameChanged {
     @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult latinNameChanged(LatinNameChanged value),
     @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
   }) {
+    assert(initialized != null);
     assert(lastWateredChanged != null);
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
@@ -1129,12 +1406,14 @@ class _$StandardNameChanged implements StandardNameChanged {
     assert(newPlantSubmitted != null);
     assert(latinNameChanged != null);
     assert(standardNameChanged != null);
+    assert(saved != null);
     return standardNameChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult lastWateredChanged(LastWateredChanged value),
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
@@ -1142,6 +1421,7 @@ class _$StandardNameChanged implements StandardNameChanged {
     TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult latinNameChanged(LatinNameChanged value),
     TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1158,6 +1438,136 @@ abstract class StandardNameChanged implements DetailsPageEvent {
   String get name;
   @JsonKey(ignore: true)
   $StandardNameChangedCopyWith<StandardNameChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class $SavedCopyWith<$Res> {
+  factory $SavedCopyWith(Saved value, $Res Function(Saved) then) =
+      _$SavedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SavedCopyWithImpl<$Res> extends _$DetailsPageEventCopyWithImpl<$Res>
+    implements $SavedCopyWith<$Res> {
+  _$SavedCopyWithImpl(Saved _value, $Res Function(Saved) _then)
+      : super(_value, (v) => _then(v as Saved));
+
+  @override
+  Saved get _value => super._value as Saved;
+}
+
+/// @nodoc
+class _$Saved implements Saved {
+  const _$Saved();
+
+  @override
+  String toString() {
+    return 'DetailsPageEvent.saved()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Saved);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Plant> initialPlantOption),
+    @required TResult lastWateredChanged(String date),
+    @required TResult wateringDaysChanged(String days),
+    @required TResult noteChanged(String noteBody),
+    @required TResult imageChanged(Image image),
+    @required TResult newPlantSubmitted(Plant plant),
+    @required TResult latinNameChanged(String name),
+    @required TResult standardNameChanged(String name),
+    @required TResult saved(),
+  }) {
+    assert(initialized != null);
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    assert(saved != null);
+    return saved();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Plant> initialPlantOption),
+    TResult lastWateredChanged(String date),
+    TResult wateringDaysChanged(String days),
+    TResult noteChanged(String noteBody),
+    TResult imageChanged(Image image),
+    TResult newPlantSubmitted(Plant plant),
+    TResult latinNameChanged(String name),
+    TResult standardNameChanged(String name),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (saved != null) {
+      return saved();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
+    @required TResult lastWateredChanged(LastWateredChanged value),
+    @required TResult wateringDaysChanged(WateringDaysChanged value),
+    @required TResult noteChanged(NoteChanged value),
+    @required TResult imageChanged(ImageChanged value),
+    @required TResult newPlantSubmitted(NewPlantSubmitted value),
+    @required TResult latinNameChanged(LatinNameChanged value),
+    @required TResult standardNameChanged(StandardNameChanged value),
+    @required TResult saved(Saved value),
+  }) {
+    assert(initialized != null);
+    assert(lastWateredChanged != null);
+    assert(wateringDaysChanged != null);
+    assert(noteChanged != null);
+    assert(imageChanged != null);
+    assert(newPlantSubmitted != null);
+    assert(latinNameChanged != null);
+    assert(standardNameChanged != null);
+    assert(saved != null);
+    return saved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
+    TResult lastWateredChanged(LastWateredChanged value),
+    TResult wateringDaysChanged(WateringDaysChanged value),
+    TResult noteChanged(NoteChanged value),
+    TResult imageChanged(ImageChanged value),
+    TResult newPlantSubmitted(NewPlantSubmitted value),
+    TResult latinNameChanged(LatinNameChanged value),
+    TResult standardNameChanged(StandardNameChanged value),
+    TResult saved(Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (saved != null) {
+      return saved(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Saved implements DetailsPageEvent {
+  const factory Saved() = _$Saved;
 }
 
 /// @nodoc

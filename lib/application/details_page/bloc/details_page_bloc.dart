@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -29,6 +30,9 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
     DetailsPageEvent event,
   ) async* {
     yield* event.map(
+      initialized: (Initialized e) async* {
+        yield null;
+      },
       standardNameChanged: (StandardNameChanged e) async* {
         if (e != null) {
           yield state.copyWith(standardName: Name(e.name));
@@ -56,6 +60,9 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       },
       newPlantSubmitted: (NewPlantSubmitted e) async* {
         yield state.copyWith(showErrorMessages: true);
+      },
+      saved: (Saved e) async* {
+        yield null;
       },
     );
   }

@@ -2,6 +2,9 @@ part of 'details_page_bloc.dart';
 
 @freezed
 abstract class DetailsPageEvent with _$DetailsPageEvent {
+  const factory DetailsPageEvent.initialized(Option<Plant> initialPlantOption) =
+      Initialized;
+
   const factory DetailsPageEvent.lastWateredChanged(String date) =
       LastWateredChanged;
   const factory DetailsPageEvent.wateringDaysChanged(String days) =
@@ -16,4 +19,6 @@ abstract class DetailsPageEvent with _$DetailsPageEvent {
 
   const factory DetailsPageEvent.standardNameChanged(String name) =
       StandardNameChanged;
+
+  const factory DetailsPageEvent.saved() = Saved;
 }
