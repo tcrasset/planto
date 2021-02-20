@@ -16,6 +16,9 @@ Future<File> copyImageToApplicationDir(File imagePath) async {
   // Get directory where we can duplicate selected file.
   final String filename = basename(imagePath.path);
   final String directory = (await getApplicationDocumentsDirectory()).path;
+
+  if (directory == null) return null;
+
   final String finalImagePath = '$directory/$filename';
 
   // Copy the file to an application document directory.

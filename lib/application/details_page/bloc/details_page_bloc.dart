@@ -10,6 +10,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import 'package:planto/domain/details_page/image_path.dart';
 import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
 import 'package:planto/domain/details_page/note.dart';
@@ -50,7 +51,10 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         }
       },
       imageChanged: (ImageChanged e) async* {
-        yield null;
+        if (e != null) {
+          yield state.copyWith(
+              plant: state.plant.copyWith(imagePath: ImagePath(e.imagePath)));
+        }
       },
       lastWateredChanged: (LastWateredChanged e) async* {
         if (e != null) {

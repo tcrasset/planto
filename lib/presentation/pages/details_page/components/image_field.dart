@@ -5,9 +5,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 // Project imports:
+import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
 import 'package:planto/domain/core/utils.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
 
@@ -21,43 +23,56 @@ class ImageField extends StatefulWidget {
 
 class _ImageFieldState extends State<ImageField> {
   final ImagePicker picker = ImagePicker();
-  Image newImage;
 
   Future getImage() async {
+    // Get path of image taken
     final PickedFile pickedFile =
         await picker.getImage(source: ImageSource.camera);
 
     if (pickedFile != null) {
-      // Get path of image taken
+      //TODO: Make sure no Exception occurs here
       final File newPath =
           await copyImageToApplicationDir(File(pickedFile.path));
-      setState(() {
-        newImage = Image.file(newPath, fit: BoxFit.fill);
-      });
+
+      context
+          .read<DetailsPageBloc>()
+          .add(DetailsPageEvent.imageChanged(newPath?.path));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          width: widget.size,
-          height: widget.size,
-          child: PlantCard(
-              image: newImage ??
-                  Image.asset(
-                    'images/succulent.jpg',
-                    fit: BoxFit.fill,
-                  )),
-        ),
-        Positioned(
-            bottom: 0,
-            right: 0,
-            child: FloatingActionButton(
-                onPressed: getImage,
-                child: const Icon(Icons.add_a_photo_outlined))),
-      ],
+    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+      builder: (context, state) {
+        final Image newImage = state.plant.imagePath.value.fold(
+          (failure) => null,
+          (imagePath) => Image.file(
+            File(imagePath),
+            fit: BoxFit.fill,
+          ),
+        );
+        return Stack(
+          children: [
+            SizedBox(
+              width: widget.size,
+              height: widget.size,
+              child: PlantCard(
+                  image: newImage ??
+                      Image.asset(
+                        'images/succulent.jpg',
+                        fit: BoxFit.fill,
+                      )),
+            ),
+            Positioned(
+                bottom: 0,
+                right: 0,
+                child: FloatingActionButton(
+                  onPressed: getImage,
+                  child: const Icon(Icons.add_a_photo_outlined),
+                )),
+          ],
+        );
+      },
     );
   }
 }
