@@ -89,12 +89,13 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
           failureOrSuccess = state.isEditing
               ? await plantRepository.update(state.plant)
               : await plantRepository.create(state.plant);
-        }
 
-        failureOrSuccess.fold(
-          (failure) => print(failure),
-          (_) => print("Everything ok"),
-        );
+          failureOrSuccess.fold(
+            (failure) => print(failure),
+            (_) => print("Everything ok"),
+          );
+        }
+        await Future.delayed(Duration(seconds: 1));
         yield state.copyWith(isSaving: false, showErrorMessages: true);
       },
     );
