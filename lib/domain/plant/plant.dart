@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:uuid/uuid.dart';
+import 'package:planto/domain/core/unique_id.dart';
 
 // Project imports:
 import 'package:planto/domain/core/value_failure.dart';
@@ -19,7 +19,7 @@ part 'plant.freezed.dart';
 @freezed
 abstract class Plant implements _$Plant {
   const factory Plant({
-    @required String id,
+    @required UniqueId id,
     @required Name name,
     @required Name latinName,
     @required Image image,
@@ -31,7 +31,7 @@ abstract class Plant implements _$Plant {
   const Plant._();
 
   factory Plant.empty() => Plant(
-        id: Uuid().v1(),
+        id: UniqueId(),
         name: Name(""),
         latinName: Name(""),
         image: DefaultImage(),

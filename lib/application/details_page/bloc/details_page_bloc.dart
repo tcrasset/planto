@@ -76,9 +76,9 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         yield state.copyWith(isSaving: true);
 
         if (state.plant.failureOption.isNone()) {
-          state.isEditing
-              ? await _plantRepository.update(state.plant)
-              : await _plantRepository.create(state.plant);
+          // state.isEditing
+          //     ? await _plantRepository.update(state.plant)
+          //     : await _plantRepository.create(state.plant);
         }
 
         await Future.delayed(const Duration(seconds: 1));

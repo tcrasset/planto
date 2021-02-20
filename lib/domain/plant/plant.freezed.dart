@@ -15,7 +15,7 @@ class _$PlantTearOff {
 
 // ignore: unused_element
   _Plant call(
-      {@required String id,
+      {@required UniqueId id,
       @required Name name,
       @required Name latinName,
       @required Image image,
@@ -40,7 +40,7 @@ const $Plant = _$PlantTearOff();
 
 /// @nodoc
 mixin _$Plant {
-  String get id;
+  UniqueId get id;
   Name get name;
   Name get latinName;
   Image get image;
@@ -57,7 +57,7 @@ abstract class $PlantCopyWith<$Res> {
   factory $PlantCopyWith(Plant value, $Res Function(Plant) then) =
       _$PlantCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {UniqueId id,
       Name name,
       Name latinName,
       Image image,
@@ -85,7 +85,7 @@ class _$PlantCopyWithImpl<$Res> implements $PlantCopyWith<$Res> {
     Object note = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
       image: image == freezed ? _value.image : image as Image,
@@ -106,7 +106,7 @@ abstract class _$PlantCopyWith<$Res> implements $PlantCopyWith<$Res> {
       __$PlantCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {UniqueId id,
       Name name,
       Name latinName,
       Image image,
@@ -135,7 +135,7 @@ class __$PlantCopyWithImpl<$Res> extends _$PlantCopyWithImpl<$Res>
     Object note = freezed,
   }) {
     return _then(_Plant(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
       image: image == freezed ? _value.image : image as Image,
@@ -170,7 +170,7 @@ class _$_Plant extends _Plant {
         super._();
 
   @override
-  final String id;
+  final UniqueId id;
   @override
   final Name name;
   @override
@@ -232,7 +232,7 @@ class _$_Plant extends _Plant {
 abstract class _Plant extends Plant {
   const _Plant._() : super._();
   const factory _Plant(
-      {@required String id,
+      {@required UniqueId id,
       @required Name name,
       @required Name latinName,
       @required Image image,
@@ -241,7 +241,7 @@ abstract class _Plant extends Plant {
       @required Note note}) = _$_Plant;
 
   @override
-  String get id;
+  UniqueId get id;
   @override
   Name get name;
   @override
