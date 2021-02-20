@@ -2,12 +2,10 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:camera/camera.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:planto/application/core/my_camera.dart';
 import 'package:planto/infrastructure/plant/plant_repository.dart';
 import 'application/details_page/bloc/details_page_bloc.dart';
 import 'presentation/pages/plant_page/plant_page.dart';
@@ -16,19 +14,12 @@ import 'presentation/pages/plant_page/plant_page.dart';
 
 Future<void> main() async {
   // Bloc.observer = SimpleBlocObserver();
-  WidgetsFlutterBinding.ensureInitialized();
-  // Get a specific camera from the list of available cameras.
-  final MyCamera camera = MyCamera((await availableCameras()).first);
 
-  runApp(MyApp(
-    camera: camera,
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final MyCamera camera;
-
-  const MyApp({Key key, @required this.camera}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -37,7 +28,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => DetailsPageBloc(PlantRepository()),
         ),
-        Provider.value(value: camera),
       ],
       child: MaterialApp(
         title: 'Plantô',

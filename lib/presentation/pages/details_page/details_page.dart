@@ -5,12 +5,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:camera/camera.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:planto/application/core/my_camera.dart';
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
 import 'package:planto/presentation/pages/details_page/components/plant_name_field.dart';
 import '../core/plant_card.dart';
@@ -24,46 +23,27 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  CameraController _cameraController;
-  Future<void> _initializeControllerFuture;
+  final ImagePicker picker = ImagePicker();
   Image newImage;
+  File _imageFile;
 
   Future<void> handleSubmitForm(BuildContext context) async {
     context.read<DetailsPageBloc>().add(const DetailsPageEvent.saved());
   }
 
-  Future<void> takePicture() async {
-    try {
-      await _initializeControllerFuture; // Ensure that the camera is initialized.
+  Future getImage() async {
+    final PickedFile pickedFile =
+        await picker.getImage(source: ImageSource.camera);
 
-      final XFile image = await _cameraController.takePicture();
-
-      if (image != null) {
-        setState(() {
-          newImage = Image.file(File(image.path), fit: BoxFit.fill);
-        });
+    setState(() {
+      if (pickedFile != null) {
+        _imageFile = File(pickedFile.path);
+        print(pickedFile.path);
+        newImage = Image.file(_imageFile, fit: BoxFit.fill);
+      } else {
+        print('No image selected.');
       }
-    } catch (e) {
-      // ignore: avoid_print
-      print(e);
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _cameraController = CameraController(
-      Provider.of<MyCamera>(context, listen: false).description,
-      ResolutionPreset.medium,
-    );
-    // Next, initialize the controller. This returns a Future.
-    _initializeControllerFuture = _cameraController.initialize();
-  }
-
-  @override
-  void dispose() {
-    _cameraController.dispose();
-    super.dispose();
+    });
   }
 
   @override
@@ -120,7 +100,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               bottom: 0,
                               right: 0,
                               child: FloatingActionButton(
-                                  onPressed: takePicture,
+                                  onPressed: getImage,
                                   child:
                                       const Icon(Icons.add_a_photo_outlined))),
                         ],
