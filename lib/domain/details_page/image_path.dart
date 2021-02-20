@@ -20,6 +20,11 @@ class ImagePath extends ValueObject<String> {
 }
 
 Either<ValueFailure<String>, String> _validatePathExists(String input) {
+  if (input == null) {
+    return left(
+        const ValueFailure<String>.imagePathDoesNotExist(failedValue: "null"));
+  }
+
   if (File(input).existsSync()) {
     return right(input);
   } else {
