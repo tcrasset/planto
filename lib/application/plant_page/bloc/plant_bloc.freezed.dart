@@ -14,8 +14,8 @@ class _$PlantEventTearOff {
   const _$PlantEventTearOff();
 
 // ignore: unused_element
-  _Started started() {
-    return const _Started();
+  LoadPlants loadPlants() {
+    return const LoadPlants();
   }
 
 // ignore: unused_element
@@ -33,8 +33,8 @@ class _$PlantEventTearOff {
   }
 
 // ignore: unused_element
-  PlanDetailsChecked seeDetails({@required Plant plant}) {
-    return PlanDetailsChecked(
+  PlantDetailsChecked checkPlantDetails({@required Plant plant}) {
+    return PlantDetailsChecked(
       plant: plant,
     );
   }
@@ -48,32 +48,32 @@ const $PlantEvent = _$PlantEventTearOff();
 mixin _$PlantEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult started(),
+    @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
-    @required TResult seeDetails(Plant plant),
+    @required TResult checkPlantDetails(Plant plant),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult started(),
+    TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
-    TResult seeDetails(Plant plant),
+    TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
+    @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
-    @required TResult seeDetails(PlanDetailsChecked value),
+    @required TResult checkPlantDetails(PlantDetailsChecked value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
+    TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
-    TResult seeDetails(PlanDetailsChecked value),
+    TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   });
 }
@@ -95,33 +95,34 @@ class _$PlantEventCopyWithImpl<$Res> implements $PlantEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class $LoadPlantsCopyWith<$Res> {
+  factory $LoadPlantsCopyWith(
+          LoadPlants value, $Res Function(LoadPlants) then) =
+      _$LoadPlantsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$PlantEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
+class _$LoadPlantsCopyWithImpl<$Res> extends _$PlantEventCopyWithImpl<$Res>
+    implements $LoadPlantsCopyWith<$Res> {
+  _$LoadPlantsCopyWithImpl(LoadPlants _value, $Res Function(LoadPlants) _then)
+      : super(_value, (v) => _then(v as LoadPlants));
 
   @override
-  _Started get _value => super._value as _Started;
+  LoadPlants get _value => super._value as LoadPlants;
 }
 
 /// @nodoc
-class _$_Started implements _Started {
-  const _$_Started();
+class _$LoadPlants implements LoadPlants {
+  const _$LoadPlants();
 
   @override
   String toString() {
-    return 'PlantEvent.started()';
+    return 'PlantEvent.loadPlants()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Started);
+    return identical(this, other) || (other is LoadPlants);
   }
 
   @override
@@ -130,30 +131,30 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult started(),
+    @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
-    @required TResult seeDetails(Plant plant),
+    @required TResult checkPlantDetails(Plant plant),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
-    return started();
+    assert(checkPlantDetails != null);
+    return loadPlants();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult started(),
+    TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
-    TResult seeDetails(Plant plant),
+    TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (started != null) {
-      return started();
+    if (loadPlants != null) {
+      return loadPlants();
     }
     return orElse();
   }
@@ -161,37 +162,37 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
+    @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
-    @required TResult seeDetails(PlanDetailsChecked value),
+    @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
-    return started(this);
+    assert(checkPlantDetails != null);
+    return loadPlants(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
+    TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
-    TResult seeDetails(PlanDetailsChecked value),
+    TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (started != null) {
-      return started(this);
+    if (loadPlants != null) {
+      return loadPlants(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements PlantEvent {
-  const factory _Started() = _$_Started;
+abstract class LoadPlants implements PlantEvent {
+  const factory LoadPlants() = _$LoadPlants;
 }
 
 /// @nodoc
@@ -266,25 +267,25 @@ class _$PlantWatered implements PlantWatered {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult started(),
+    @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
-    @required TResult seeDetails(Plant plant),
+    @required TResult checkPlantDetails(Plant plant),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
+    assert(checkPlantDetails != null);
     return waterPlant(plant);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult started(),
+    TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
-    TResult seeDetails(Plant plant),
+    TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -297,25 +298,25 @@ class _$PlantWatered implements PlantWatered {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
+    @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
-    @required TResult seeDetails(PlanDetailsChecked value),
+    @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
+    assert(checkPlantDetails != null);
     return waterPlant(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
+    TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
-    TResult seeDetails(PlanDetailsChecked value),
+    TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -406,25 +407,25 @@ class _$PlantEdited implements PlantEdited {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult started(),
+    @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
-    @required TResult seeDetails(Plant plant),
+    @required TResult checkPlantDetails(Plant plant),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
+    assert(checkPlantDetails != null);
     return editPlant(plant);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult started(),
+    TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
-    TResult seeDetails(Plant plant),
+    TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -437,25 +438,25 @@ class _$PlantEdited implements PlantEdited {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
+    @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
-    @required TResult seeDetails(PlanDetailsChecked value),
+    @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
+    assert(checkPlantDetails != null);
     return editPlant(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
+    TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
-    TResult seeDetails(PlanDetailsChecked value),
+    TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -475,31 +476,31 @@ abstract class PlantEdited implements PlantEvent {
 }
 
 /// @nodoc
-abstract class $PlanDetailsCheckedCopyWith<$Res> {
-  factory $PlanDetailsCheckedCopyWith(
-          PlanDetailsChecked value, $Res Function(PlanDetailsChecked) then) =
-      _$PlanDetailsCheckedCopyWithImpl<$Res>;
+abstract class $PlantDetailsCheckedCopyWith<$Res> {
+  factory $PlantDetailsCheckedCopyWith(
+          PlantDetailsChecked value, $Res Function(PlantDetailsChecked) then) =
+      _$PlantDetailsCheckedCopyWithImpl<$Res>;
   $Res call({Plant plant});
 
   $PlantCopyWith<$Res> get plant;
 }
 
 /// @nodoc
-class _$PlanDetailsCheckedCopyWithImpl<$Res>
+class _$PlantDetailsCheckedCopyWithImpl<$Res>
     extends _$PlantEventCopyWithImpl<$Res>
-    implements $PlanDetailsCheckedCopyWith<$Res> {
-  _$PlanDetailsCheckedCopyWithImpl(
-      PlanDetailsChecked _value, $Res Function(PlanDetailsChecked) _then)
-      : super(_value, (v) => _then(v as PlanDetailsChecked));
+    implements $PlantDetailsCheckedCopyWith<$Res> {
+  _$PlantDetailsCheckedCopyWithImpl(
+      PlantDetailsChecked _value, $Res Function(PlantDetailsChecked) _then)
+      : super(_value, (v) => _then(v as PlantDetailsChecked));
 
   @override
-  PlanDetailsChecked get _value => super._value as PlanDetailsChecked;
+  PlantDetailsChecked get _value => super._value as PlantDetailsChecked;
 
   @override
   $Res call({
     Object plant = freezed,
   }) {
-    return _then(PlanDetailsChecked(
+    return _then(PlantDetailsChecked(
       plant: plant == freezed ? _value.plant : plant as Plant,
     ));
   }
@@ -516,21 +517,21 @@ class _$PlanDetailsCheckedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$PlanDetailsChecked implements PlanDetailsChecked {
-  const _$PlanDetailsChecked({@required this.plant}) : assert(plant != null);
+class _$PlantDetailsChecked implements PlantDetailsChecked {
+  const _$PlantDetailsChecked({@required this.plant}) : assert(plant != null);
 
   @override
   final Plant plant;
 
   @override
   String toString() {
-    return 'PlantEvent.seeDetails(plant: $plant)';
+    return 'PlantEvent.checkPlantDetails(plant: $plant)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is PlanDetailsChecked &&
+        (other is PlantDetailsChecked &&
             (identical(other.plant, plant) ||
                 const DeepCollectionEquality().equals(other.plant, plant)));
   }
@@ -541,36 +542,36 @@ class _$PlanDetailsChecked implements PlanDetailsChecked {
 
   @JsonKey(ignore: true)
   @override
-  $PlanDetailsCheckedCopyWith<PlanDetailsChecked> get copyWith =>
-      _$PlanDetailsCheckedCopyWithImpl<PlanDetailsChecked>(this, _$identity);
+  $PlantDetailsCheckedCopyWith<PlantDetailsChecked> get copyWith =>
+      _$PlantDetailsCheckedCopyWithImpl<PlantDetailsChecked>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult started(),
+    @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
-    @required TResult seeDetails(Plant plant),
+    @required TResult checkPlantDetails(Plant plant),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
-    return seeDetails(plant);
+    assert(checkPlantDetails != null);
+    return checkPlantDetails(plant);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult started(),
+    TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
-    TResult seeDetails(Plant plant),
+    TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (seeDetails != null) {
-      return seeDetails(plant);
+    if (checkPlantDetails != null) {
+      return checkPlantDetails(plant);
     }
     return orElse();
   }
@@ -578,42 +579,42 @@ class _$PlanDetailsChecked implements PlanDetailsChecked {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
+    @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
-    @required TResult seeDetails(PlanDetailsChecked value),
+    @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
-    assert(started != null);
+    assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
-    assert(seeDetails != null);
-    return seeDetails(this);
+    assert(checkPlantDetails != null);
+    return checkPlantDetails(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
+    TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
-    TResult seeDetails(PlanDetailsChecked value),
+    TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (seeDetails != null) {
-      return seeDetails(this);
+    if (checkPlantDetails != null) {
+      return checkPlantDetails(this);
     }
     return orElse();
   }
 }
 
-abstract class PlanDetailsChecked implements PlantEvent {
-  const factory PlanDetailsChecked({@required Plant plant}) =
-      _$PlanDetailsChecked;
+abstract class PlantDetailsChecked implements PlantEvent {
+  const factory PlantDetailsChecked({@required Plant plant}) =
+      _$PlantDetailsChecked;
 
   Plant get plant;
   @JsonKey(ignore: true)
-  $PlanDetailsCheckedCopyWith<PlanDetailsChecked> get copyWith;
+  $PlantDetailsCheckedCopyWith<PlantDetailsChecked> get copyWith;
 }
 
 /// @nodoc
@@ -631,9 +632,16 @@ class _$PlantStateTearOff {
   }
 
 // ignore: unused_element
-  Loaded loaded(List<Plant> plants) {
-    return Loaded(
+  LoadSucess loadSucess(List<Plant> plants) {
+    return LoadSucess(
       plants,
+    );
+  }
+
+// ignore: unused_element
+  LoadFailure loadFailure(ValueFailure<dynamic> plantFailure) {
+    return LoadFailure(
+      plantFailure,
     );
   }
 }
@@ -648,26 +656,30 @@ mixin _$PlantState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Plant> plants),
+    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Plant> plants),
+    TResult loadSucess(List<Plant> plants),
+    TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
+    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadFailure(LoadFailure value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loaded(Loaded value),
+    TResult loadSucess(LoadSucess value),
+    TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   });
 }
@@ -726,11 +738,13 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Plant> plants),
+    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
     return initial();
   }
 
@@ -739,7 +753,8 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Plant> plants),
+    TResult loadSucess(List<Plant> plants),
+    TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -754,11 +769,13 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
+    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
     return initial(this);
   }
 
@@ -767,7 +784,8 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loaded(Loaded value),
+    TResult loadSucess(LoadSucess value),
+    TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -820,11 +838,13 @@ class _$Loading implements Loading {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Plant> plants),
+    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
     return loading();
   }
 
@@ -833,7 +853,8 @@ class _$Loading implements Loading {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Plant> plants),
+    TResult loadSucess(List<Plant> plants),
+    TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -848,11 +869,13 @@ class _$Loading implements Loading {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
+    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
     return loading(this);
   }
 
@@ -861,7 +884,8 @@ class _$Loading implements Loading {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loaded(Loaded value),
+    TResult loadSucess(LoadSucess value),
+    TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -877,47 +901,48 @@ abstract class Loading implements PlantState {
 }
 
 /// @nodoc
-abstract class $LoadedCopyWith<$Res> {
-  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
-      _$LoadedCopyWithImpl<$Res>;
+abstract class $LoadSucessCopyWith<$Res> {
+  factory $LoadSucessCopyWith(
+          LoadSucess value, $Res Function(LoadSucess) then) =
+      _$LoadSucessCopyWithImpl<$Res>;
   $Res call({List<Plant> plants});
 }
 
 /// @nodoc
-class _$LoadedCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
-    implements $LoadedCopyWith<$Res> {
-  _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
-      : super(_value, (v) => _then(v as Loaded));
+class _$LoadSucessCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
+    implements $LoadSucessCopyWith<$Res> {
+  _$LoadSucessCopyWithImpl(LoadSucess _value, $Res Function(LoadSucess) _then)
+      : super(_value, (v) => _then(v as LoadSucess));
 
   @override
-  Loaded get _value => super._value as Loaded;
+  LoadSucess get _value => super._value as LoadSucess;
 
   @override
   $Res call({
     Object plants = freezed,
   }) {
-    return _then(Loaded(
+    return _then(LoadSucess(
       plants == freezed ? _value.plants : plants as List<Plant>,
     ));
   }
 }
 
 /// @nodoc
-class _$Loaded implements Loaded {
-  const _$Loaded(this.plants) : assert(plants != null);
+class _$LoadSucess implements LoadSucess {
+  const _$LoadSucess(this.plants) : assert(plants != null);
 
   @override
   final List<Plant> plants;
 
   @override
   String toString() {
-    return 'PlantState.loaded(plants: $plants)';
+    return 'PlantState.loadSucess(plants: $plants)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Loaded &&
+        (other is LoadSucess &&
             (identical(other.plants, plants) ||
                 const DeepCollectionEquality().equals(other.plants, plants)));
   }
@@ -928,20 +953,22 @@ class _$Loaded implements Loaded {
 
   @JsonKey(ignore: true)
   @override
-  $LoadedCopyWith<Loaded> get copyWith =>
-      _$LoadedCopyWithImpl<Loaded>(this, _$identity);
+  $LoadSucessCopyWith<LoadSucess> get copyWith =>
+      _$LoadSucessCopyWithImpl<LoadSucess>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(List<Plant> plants),
+    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
-    return loaded(plants);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
+    return loadSucess(plants);
   }
 
   @override
@@ -949,12 +976,13 @@ class _$Loaded implements Loaded {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(List<Plant> plants),
+    TResult loadSucess(List<Plant> plants),
+    TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (loaded != null) {
-      return loaded(plants);
+    if (loadSucess != null) {
+      return loadSucess(plants);
     }
     return orElse();
   }
@@ -964,12 +992,14 @@ class _$Loaded implements Loaded {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
+    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
-    return loaded(this);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
+    return loadSucess(this);
   }
 
   @override
@@ -977,21 +1007,165 @@ class _$Loaded implements Loaded {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loaded(Loaded value),
+    TResult loadSucess(LoadSucess value),
+    TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (loaded != null) {
-      return loaded(this);
+    if (loadSucess != null) {
+      return loadSucess(this);
     }
     return orElse();
   }
 }
 
-abstract class Loaded implements PlantState {
-  const factory Loaded(List<Plant> plants) = _$Loaded;
+abstract class LoadSucess implements PlantState {
+  const factory LoadSucess(List<Plant> plants) = _$LoadSucess;
 
   List<Plant> get plants;
   @JsonKey(ignore: true)
-  $LoadedCopyWith<Loaded> get copyWith;
+  $LoadSucessCopyWith<LoadSucess> get copyWith;
+}
+
+/// @nodoc
+abstract class $LoadFailureCopyWith<$Res> {
+  factory $LoadFailureCopyWith(
+          LoadFailure value, $Res Function(LoadFailure) then) =
+      _$LoadFailureCopyWithImpl<$Res>;
+  $Res call({ValueFailure<dynamic> plantFailure});
+
+  $ValueFailureCopyWith<dynamic, $Res> get plantFailure;
+}
+
+/// @nodoc
+class _$LoadFailureCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
+    implements $LoadFailureCopyWith<$Res> {
+  _$LoadFailureCopyWithImpl(
+      LoadFailure _value, $Res Function(LoadFailure) _then)
+      : super(_value, (v) => _then(v as LoadFailure));
+
+  @override
+  LoadFailure get _value => super._value as LoadFailure;
+
+  @override
+  $Res call({
+    Object plantFailure = freezed,
+  }) {
+    return _then(LoadFailure(
+      plantFailure == freezed
+          ? _value.plantFailure
+          : plantFailure as ValueFailure<dynamic>,
+    ));
+  }
+
+  @override
+  $ValueFailureCopyWith<dynamic, $Res> get plantFailure {
+    if (_value.plantFailure == null) {
+      return null;
+    }
+    return $ValueFailureCopyWith<dynamic, $Res>(_value.plantFailure, (value) {
+      return _then(_value.copyWith(plantFailure: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$LoadFailure implements LoadFailure {
+  const _$LoadFailure(this.plantFailure) : assert(plantFailure != null);
+
+  @override
+  final ValueFailure<dynamic> plantFailure;
+
+  @override
+  String toString() {
+    return 'PlantState.loadFailure(plantFailure: $plantFailure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is LoadFailure &&
+            (identical(other.plantFailure, plantFailure) ||
+                const DeepCollectionEquality()
+                    .equals(other.plantFailure, plantFailure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(plantFailure);
+
+  @JsonKey(ignore: true)
+  @override
+  $LoadFailureCopyWith<LoadFailure> get copyWith =>
+      _$LoadFailureCopyWithImpl<LoadFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
+    return loadFailure(plantFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult loadSucess(List<Plant> plants),
+    TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadFailure != null) {
+      return loadFailure(plantFailure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadFailure(LoadFailure value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSucess != null);
+    assert(loadFailure != null);
+    return loadFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult loadSucess(LoadSucess value),
+    TResult loadFailure(LoadFailure value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadFailure != null) {
+      return loadFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadFailure implements PlantState {
+  const factory LoadFailure(ValueFailure<dynamic> plantFailure) = _$LoadFailure;
+
+  ValueFailure<dynamic> get plantFailure;
+  @JsonKey(ignore: true)
+  $LoadFailureCopyWith<LoadFailure> get copyWith;
 }
