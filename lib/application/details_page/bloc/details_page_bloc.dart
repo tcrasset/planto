@@ -23,9 +23,10 @@ part 'details_page_state.dart';
 part 'details_page_bloc.freezed.dart';
 
 class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
-  final IPlantRepository _plantRepository;
+  final IPlantRepository plantRepository;
 
-  DetailsPageBloc(this._plantRepository) : super(DetailsPageState.initial());
+  DetailsPageBloc({@required this.plantRepository})
+      : super(DetailsPageState.initial());
 
   DetailsPageState get initialState => DetailsPageState.initial();
   @override

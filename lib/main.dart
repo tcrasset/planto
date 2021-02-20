@@ -1,19 +1,16 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
-
 // Project imports:
-import 'package:planto/infrastructure/plant/plant_repository.dart';
-import 'application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/injection_container.dart' as injections;
 import 'presentation/pages/plant_page/plant_page.dart';
 
 //import 'package:planto/application/core/bloc_observer.dart';
 
 Future<void> main() async {
   // Bloc.observer = SimpleBlocObserver();
+  WidgetsFlutterBinding.ensureInitialized();
+  injections.init();
   runApp(const MyApp());
 }
 

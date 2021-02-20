@@ -41,7 +41,7 @@ class MoreInfoButton extends StatelessWidget {
   void goToDetails(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DetailsPage(editablePlant: null)),
+      MaterialPageRoute(builder: (context) => const DetailsPage(editablePlant: null)),
     );
   }
 
