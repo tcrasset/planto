@@ -23,4 +23,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
 
   const factory ValueFailure.imagePathDoesNotExist(
       {@required String failedValue}) = ImagePathDoesNotExist<T>;
+
+  const factory ValueFailure.unexpected({@required String message}) =
+      Unexpected<T>;
 }

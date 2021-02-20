@@ -15,6 +15,8 @@ part 'plant_dto.g.dart';
 
 @freezed
 abstract class PlantDTO implements _$PlantDTO {
+  static const String STORE_NAME = 'plants';
+
   const PlantDTO._();
 
   const factory PlantDTO({

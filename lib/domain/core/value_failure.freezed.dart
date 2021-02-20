@@ -73,6 +73,13 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+// ignore: unused_element
+  Unexpected<T> unexpected<T>({@required String message}) {
+    return Unexpected<T>(
+      message: message,
+    );
+  }
 }
 
 /// @nodoc
@@ -81,8 +88,6 @@ const $ValueFailure = _$ValueFailureTearOff();
 
 /// @nodoc
 mixin _$ValueFailure<T> {
-  String get failedValue;
-
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult invalidWateringDays(String failedValue),
@@ -93,6 +98,7 @@ mixin _$ValueFailure<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -104,6 +110,7 @@ mixin _$ValueFailure<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -116,6 +123,7 @@ mixin _$ValueFailure<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -127,11 +135,9 @@ mixin _$ValueFailure<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   });
-
-  @JsonKey(ignore: true)
-  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
 }
 
 /// @nodoc
@@ -139,7 +145,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
-  $Res call({String failedValue});
 }
 
 /// @nodoc
@@ -150,25 +155,13 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   final ValueFailure<T> _value;
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
-
-  @override
-  $Res call({
-    Object failedValue = freezed,
-  }) {
-    return _then(_value.copyWith(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $InvalidWateringDaysCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $InvalidWateringDaysCopyWith<T, $Res> {
   factory $InvalidWateringDaysCopyWith(InvalidWateringDays<T> value,
           $Res Function(InvalidWateringDays<T>) then) =
       _$InvalidWateringDaysCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -237,6 +230,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -246,6 +240,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return invalidWateringDays(failedValue);
   }
 
@@ -260,6 +255,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -280,6 +276,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -289,6 +286,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return invalidWateringDays(this);
   }
 
@@ -303,6 +301,7 @@ class _$InvalidWateringDays<T> implements InvalidWateringDays<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -317,20 +316,16 @@ abstract class InvalidWateringDays<T> implements ValueFailure<T> {
   const factory InvalidWateringDays({@required String failedValue}) =
       _$InvalidWateringDays<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $InvalidWateringDaysCopyWith<T, InvalidWateringDays<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $NonPositiveWateringDaysCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $NonPositiveWateringDaysCopyWith<T, $Res> {
   factory $NonPositiveWateringDaysCopyWith(NonPositiveWateringDays<T> value,
           $Res Function(NonPositiveWateringDays<T>) then) =
       _$NonPositiveWateringDaysCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -401,6 +396,7 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -410,6 +406,7 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return nonPositiveWateringDays(failedValue);
   }
 
@@ -424,6 +421,7 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -444,6 +442,7 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -453,6 +452,7 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return nonPositiveWateringDays(this);
   }
 
@@ -467,6 +467,7 @@ class _$NonPositiveWateringDays<T> implements NonPositiveWateringDays<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -481,20 +482,16 @@ abstract class NonPositiveWateringDays<T> implements ValueFailure<T> {
   const factory NonPositiveWateringDays({@required String failedValue}) =
       _$NonPositiveWateringDays<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $NonPositiveWateringDaysCopyWith<T, NonPositiveWateringDays<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $InvalidLastWateredDateCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $InvalidLastWateredDateCopyWith<T, $Res> {
   factory $InvalidLastWateredDateCopyWith(InvalidLastWateredDate<T> value,
           $Res Function(InvalidLastWateredDate<T>) then) =
       _$InvalidLastWateredDateCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -564,6 +561,7 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -573,6 +571,7 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return invalidLastWateredDate(failedValue);
   }
 
@@ -587,6 +586,7 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -607,6 +607,7 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -616,6 +617,7 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return invalidLastWateredDate(this);
   }
 
@@ -630,6 +632,7 @@ class _$InvalidLastWateredDate<T> implements InvalidLastWateredDate<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -644,20 +647,16 @@ abstract class InvalidLastWateredDate<T> implements ValueFailure<T> {
   const factory InvalidLastWateredDate({@required String failedValue}) =
       _$InvalidLastWateredDate<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $InvalidLastWateredDateCopyWith<T, InvalidLastWateredDate<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $FutureLastWateredDateCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $FutureLastWateredDateCopyWith<T, $Res> {
   factory $FutureLastWateredDateCopyWith(FutureLastWateredDate<T> value,
           $Res Function(FutureLastWateredDate<T>) then) =
       _$FutureLastWateredDateCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -727,6 +726,7 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -736,6 +736,7 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return futureLastWateredDate(failedValue);
   }
 
@@ -750,6 +751,7 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -770,6 +772,7 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -779,6 +782,7 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return futureLastWateredDate(this);
   }
 
@@ -793,6 +797,7 @@ class _$FutureLastWateredDate<T> implements FutureLastWateredDate<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -807,20 +812,16 @@ abstract class FutureLastWateredDate<T> implements ValueFailure<T> {
   const factory FutureLastWateredDate({@required String failedValue}) =
       _$FutureLastWateredDate<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $FutureLastWateredDateCopyWith<T, FutureLastWateredDate<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $LongNoteCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $LongNoteCopyWith<T, $Res> {
   factory $LongNoteCopyWith(
           LongNote<T> value, $Res Function(LongNote<T>) then) =
       _$LongNoteCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -886,6 +887,7 @@ class _$LongNote<T> implements LongNote<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -895,6 +897,7 @@ class _$LongNote<T> implements LongNote<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return longNote(failedValue);
   }
 
@@ -909,6 +912,7 @@ class _$LongNote<T> implements LongNote<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -929,6 +933,7 @@ class _$LongNote<T> implements LongNote<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -938,6 +943,7 @@ class _$LongNote<T> implements LongNote<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return longNote(this);
   }
 
@@ -952,6 +958,7 @@ class _$LongNote<T> implements LongNote<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -965,20 +972,16 @@ class _$LongNote<T> implements LongNote<T> {
 abstract class LongNote<T> implements ValueFailure<T> {
   const factory LongNote({@required String failedValue}) = _$LongNote<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $LongNoteCopyWith<T, LongNote<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $LongNameCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $LongNameCopyWith<T, $Res> {
   factory $LongNameCopyWith(
           LongName<T> value, $Res Function(LongName<T>) then) =
       _$LongNameCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -1044,6 +1047,7 @@ class _$LongName<T> implements LongName<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -1053,6 +1057,7 @@ class _$LongName<T> implements LongName<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return longName(failedValue);
   }
 
@@ -1067,6 +1072,7 @@ class _$LongName<T> implements LongName<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1087,6 +1093,7 @@ class _$LongName<T> implements LongName<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -1096,6 +1103,7 @@ class _$LongName<T> implements LongName<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return longName(this);
   }
 
@@ -1110,6 +1118,7 @@ class _$LongName<T> implements LongName<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1123,20 +1132,16 @@ class _$LongName<T> implements LongName<T> {
 abstract class LongName<T> implements ValueFailure<T> {
   const factory LongName({@required String failedValue}) = _$LongName<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $LongNameCopyWith<T, LongName<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $EmptyNameCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $EmptyNameCopyWith<T, $Res> {
   factory $EmptyNameCopyWith(
           EmptyName<T> value, $Res Function(EmptyName<T>) then) =
       _$EmptyNameCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -1203,6 +1208,7 @@ class _$EmptyName<T> implements EmptyName<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -1212,6 +1218,7 @@ class _$EmptyName<T> implements EmptyName<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return emptyName(failedValue);
   }
 
@@ -1226,6 +1233,7 @@ class _$EmptyName<T> implements EmptyName<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1246,6 +1254,7 @@ class _$EmptyName<T> implements EmptyName<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -1255,6 +1264,7 @@ class _$EmptyName<T> implements EmptyName<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return emptyName(this);
   }
 
@@ -1269,6 +1279,7 @@ class _$EmptyName<T> implements EmptyName<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1282,20 +1293,16 @@ class _$EmptyName<T> implements EmptyName<T> {
 abstract class EmptyName<T> implements ValueFailure<T> {
   const factory EmptyName({@required String failedValue}) = _$EmptyName<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $EmptyNameCopyWith<T, EmptyName<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class $ImagePathDoesNotExistCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class $ImagePathDoesNotExistCopyWith<T, $Res> {
   factory $ImagePathDoesNotExistCopyWith(ImagePathDoesNotExist<T> value,
           $Res Function(ImagePathDoesNotExist<T>) then) =
       _$ImagePathDoesNotExistCopyWithImpl<T, $Res>;
-  @override
   $Res call({String failedValue});
 }
 
@@ -1365,6 +1372,7 @@ class _$ImagePathDoesNotExist<T> implements ImagePathDoesNotExist<T> {
     @required TResult longName(String failedValue),
     @required TResult emptyName(String failedValue),
     @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -1374,6 +1382,7 @@ class _$ImagePathDoesNotExist<T> implements ImagePathDoesNotExist<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return imagePathDoesNotExist(failedValue);
   }
 
@@ -1388,6 +1397,7 @@ class _$ImagePathDoesNotExist<T> implements ImagePathDoesNotExist<T> {
     TResult longName(String failedValue),
     TResult emptyName(String failedValue),
     TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1408,6 +1418,7 @@ class _$ImagePathDoesNotExist<T> implements ImagePathDoesNotExist<T> {
     @required TResult longName(LongName<T> value),
     @required TResult emptyName(EmptyName<T> value),
     @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
   }) {
     assert(invalidWateringDays != null);
     assert(nonPositiveWateringDays != null);
@@ -1417,6 +1428,7 @@ class _$ImagePathDoesNotExist<T> implements ImagePathDoesNotExist<T> {
     assert(longName != null);
     assert(emptyName != null);
     assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
     return imagePathDoesNotExist(this);
   }
 
@@ -1431,6 +1443,7 @@ class _$ImagePathDoesNotExist<T> implements ImagePathDoesNotExist<T> {
     TResult longName(LongName<T> value),
     TResult emptyName(EmptyName<T> value),
     TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1445,9 +1458,166 @@ abstract class ImagePathDoesNotExist<T> implements ValueFailure<T> {
   const factory ImagePathDoesNotExist({@required String failedValue}) =
       _$ImagePathDoesNotExist<T>;
 
-  @override
   String get failedValue;
-  @override
   @JsonKey(ignore: true)
   $ImagePathDoesNotExistCopyWith<T, ImagePathDoesNotExist<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class $UnexpectedCopyWith<T, $Res> {
+  factory $UnexpectedCopyWith(
+          Unexpected<T> value, $Res Function(Unexpected<T>) then) =
+      _$UnexpectedCopyWithImpl<T, $Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$UnexpectedCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $UnexpectedCopyWith<T, $Res> {
+  _$UnexpectedCopyWithImpl(
+      Unexpected<T> _value, $Res Function(Unexpected<T>) _then)
+      : super(_value, (v) => _then(v as Unexpected<T>));
+
+  @override
+  Unexpected<T> get _value => super._value as Unexpected<T>;
+
+  @override
+  $Res call({
+    Object message = freezed,
+  }) {
+    return _then(Unexpected<T>(
+      message: message == freezed ? _value.message : message as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$Unexpected<T> implements Unexpected<T> {
+  const _$Unexpected({@required this.message}) : assert(message != null);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.unexpected(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Unexpected<T> &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+
+  @JsonKey(ignore: true)
+  @override
+  $UnexpectedCopyWith<T, Unexpected<T>> get copyWith =>
+      _$UnexpectedCopyWithImpl<T, Unexpected<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult invalidWateringDays(String failedValue),
+    @required TResult nonPositiveWateringDays(String failedValue),
+    @required TResult invalidLastWateredDate(String failedValue),
+    @required TResult futureLastWateredDate(String failedValue),
+    @required TResult longNote(String failedValue),
+    @required TResult longName(String failedValue),
+    @required TResult emptyName(String failedValue),
+    @required TResult imagePathDoesNotExist(String failedValue),
+    @required TResult unexpected(String message),
+  }) {
+    assert(invalidWateringDays != null);
+    assert(nonPositiveWateringDays != null);
+    assert(invalidLastWateredDate != null);
+    assert(futureLastWateredDate != null);
+    assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
+    assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
+    return unexpected(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidWateringDays(String failedValue),
+    TResult nonPositiveWateringDays(String failedValue),
+    TResult invalidLastWateredDate(String failedValue),
+    TResult futureLastWateredDate(String failedValue),
+    TResult longNote(String failedValue),
+    TResult longName(String failedValue),
+    TResult emptyName(String failedValue),
+    TResult imagePathDoesNotExist(String failedValue),
+    TResult unexpected(String message),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unexpected != null) {
+      return unexpected(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult invalidWateringDays(InvalidWateringDays<T> value),
+    @required TResult nonPositiveWateringDays(NonPositiveWateringDays<T> value),
+    @required TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
+    @required TResult futureLastWateredDate(FutureLastWateredDate<T> value),
+    @required TResult longNote(LongNote<T> value),
+    @required TResult longName(LongName<T> value),
+    @required TResult emptyName(EmptyName<T> value),
+    @required TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    @required TResult unexpected(Unexpected<T> value),
+  }) {
+    assert(invalidWateringDays != null);
+    assert(nonPositiveWateringDays != null);
+    assert(invalidLastWateredDate != null);
+    assert(futureLastWateredDate != null);
+    assert(longNote != null);
+    assert(longName != null);
+    assert(emptyName != null);
+    assert(imagePathDoesNotExist != null);
+    assert(unexpected != null);
+    return unexpected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidWateringDays(InvalidWateringDays<T> value),
+    TResult nonPositiveWateringDays(NonPositiveWateringDays<T> value),
+    TResult invalidLastWateredDate(InvalidLastWateredDate<T> value),
+    TResult futureLastWateredDate(FutureLastWateredDate<T> value),
+    TResult longNote(LongNote<T> value),
+    TResult longName(LongName<T> value),
+    TResult emptyName(EmptyName<T> value),
+    TResult imagePathDoesNotExist(ImagePathDoesNotExist<T> value),
+    TResult unexpected(Unexpected<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unexpected != null) {
+      return unexpected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Unexpected<T> implements ValueFailure<T> {
+  const factory Unexpected({@required String message}) = _$Unexpected<T>;
+
+  String get message;
+  @JsonKey(ignore: true)
+  $UnexpectedCopyWith<T, Unexpected<T>> get copyWith;
 }
