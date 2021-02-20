@@ -18,7 +18,7 @@ class _$PlantTearOff {
       {@required UniqueId id,
       @required Name name,
       @required Name latinName,
-      @required String imagePath,
+      @required ImagePath imagePath,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) {
@@ -43,8 +43,7 @@ mixin _$Plant {
   UniqueId get id;
   Name get name;
   Name get latinName;
-  String
-      get imagePath; //TODO: Create ImagePath class checking for existance of Path
+  ImagePath get imagePath;
   LastWatered get lastWatered;
   WateringDays get wateringDays;
   Note get note;
@@ -61,7 +60,7 @@ abstract class $PlantCopyWith<$Res> {
       {UniqueId id,
       Name name,
       Name latinName,
-      String imagePath,
+      ImagePath imagePath,
       LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
@@ -89,7 +88,8 @@ class _$PlantCopyWithImpl<$Res> implements $PlantCopyWith<$Res> {
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
-      imagePath: imagePath == freezed ? _value.imagePath : imagePath as String,
+      imagePath:
+          imagePath == freezed ? _value.imagePath : imagePath as ImagePath,
       lastWatered: lastWatered == freezed
           ? _value.lastWatered
           : lastWatered as LastWatered,
@@ -110,7 +110,7 @@ abstract class _$PlantCopyWith<$Res> implements $PlantCopyWith<$Res> {
       {UniqueId id,
       Name name,
       Name latinName,
-      String imagePath,
+      ImagePath imagePath,
       LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
@@ -139,7 +139,8 @@ class __$PlantCopyWithImpl<$Res> extends _$PlantCopyWithImpl<$Res>
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
-      imagePath: imagePath == freezed ? _value.imagePath : imagePath as String,
+      imagePath:
+          imagePath == freezed ? _value.imagePath : imagePath as ImagePath,
       lastWatered: lastWatered == freezed
           ? _value.lastWatered
           : lastWatered as LastWatered,
@@ -177,8 +178,8 @@ class _$_Plant extends _Plant {
   @override
   final Name latinName;
   @override
-  final String imagePath;
-  @override //TODO: Create ImagePath class checking for existance of Path
+  final ImagePath imagePath;
+  @override
   final LastWatered lastWatered;
   @override
   final WateringDays wateringDays;
@@ -237,7 +238,7 @@ abstract class _Plant extends Plant {
       {@required UniqueId id,
       @required Name name,
       @required Name latinName,
-      @required String imagePath,
+      @required ImagePath imagePath,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) = _$_Plant;
@@ -249,8 +250,8 @@ abstract class _Plant extends Plant {
   @override
   Name get latinName;
   @override
-  String get imagePath;
-  @override //TODO: Create ImagePath class checking for existance of Path
+  ImagePath get imagePath;
+  @override
   LastWatered get lastWatered;
   @override
   WateringDays get wateringDays;

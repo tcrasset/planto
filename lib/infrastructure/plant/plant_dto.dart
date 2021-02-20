@@ -1,11 +1,9 @@
-// Flutter imports:
-import 'package:flutter/services.dart';
-
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:planto/domain/core/unique_id.dart';
+import 'package:planto/domain/details_page/image_path.dart';
 import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
 import 'package:planto/domain/details_page/note.dart';
@@ -34,7 +32,7 @@ abstract class PlantDTO implements _$PlantDTO {
       id: plant.id.getOrCrash(),
       name: plant.name.getOrCrash(),
       latinName: plant.latinName.getOrCrash(),
-      imagePath: plant.imagePath,
+      imagePath: plant.imagePath.getOrCrash(),
       lastWatered: plant.lastWatered.getOrCrash().toString(),
       wateringDays: plant.wateringDays.getOrCrash(),
       note: plant.note.getOrCrash(),
@@ -46,7 +44,7 @@ abstract class PlantDTO implements _$PlantDTO {
       id: UniqueId.fromUniqueString(id),
       name: Name(name),
       latinName: Name(latinName),
-      imagePath: imagePath,
+      imagePath: ImagePath(imagePath),
       lastWatered: LastWatered(lastWatered),
       wateringDays: WateringDays(wateringDays.toString()),
       note: Note(note),

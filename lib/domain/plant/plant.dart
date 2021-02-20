@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:planto/domain/core/unique_id.dart';
 import 'package:planto/domain/core/utils.dart';
 import 'package:planto/domain/core/value_failure.dart';
+import 'package:planto/domain/details_page/image_path.dart';
 import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
 import 'package:planto/domain/details_page/note.dart';
@@ -23,9 +24,7 @@ abstract class Plant implements _$Plant {
     @required UniqueId id,
     @required Name name,
     @required Name latinName,
-    @required
-        String
-            imagePath, //TODO: Create ImagePath class checking for existance of Path
+    @required ImagePath imagePath,
     @required LastWatered lastWatered,
     @required WateringDays wateringDays,
     @required Note note,
@@ -37,7 +36,7 @@ abstract class Plant implements _$Plant {
         id: UniqueId(),
         name: Name(""),
         latinName: Name(""),
-        imagePath: "",
+        imagePath: ImagePath(""),
         lastWatered: LastWatered(DateTime.now().toString()),
         wateringDays: WateringDays("1"),
         note: Note(""),
@@ -46,8 +45,9 @@ abstract class Plant implements _$Plant {
   Option<ValueFailure<dynamic>> get failureOption {
     return name.failureOrUnit
         .andThen(latinName.failureOrUnit)
+        .andThen(imagePath.failureOrUnit)
         .andThen(lastWatered.failureOrUnit)
-        .andThen(lastWatered.failureOrUnit)
+        .andThen(wateringDays.failureOrUnit)
         .andThen(note.failureOrUnit)
         .fold(
           (f) => some(f),
