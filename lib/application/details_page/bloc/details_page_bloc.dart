@@ -10,6 +10,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import 'package:planto/domain/core/value_failure.dart';
 import 'package:planto/domain/details_page/image_path.dart';
 import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
@@ -80,17 +81,20 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         yield state.copyWith(showErrorMessages: true);
       },
       saved: (Saved e) async* {
-        // Either<PlantFailure, Unit> failureOrSuccess;
+        Either<ValueFailure, Unit> failureOrSuccess;
 
         yield state.copyWith(isSaving: true);
 
         if (state.plant.failureOption.isNone()) {
-          // state.isEditing
-          //     ? await _plantRepository.update(state.plant)
-          //     : await _plantRepository.create(state.plant);
+          failureOrSuccess = state.isEditing
+              ? await plantRepository.update(state.plant)
+              : await plantRepository.create(state.plant);
         }
 
-        await Future.delayed(const Duration(seconds: 1));
+        failureOrSuccess.fold(
+          (failure) => print(failure),
+          (_) => print("Everything ok"),
+        );
         yield state.copyWith(isSaving: false, showErrorMessages: true);
       },
     );
