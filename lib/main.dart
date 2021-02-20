@@ -14,7 +14,6 @@ import 'presentation/pages/plant_page/plant_page.dart';
 
 Future<void> main() async {
   // Bloc.observer = SimpleBlocObserver();
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -23,21 +22,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => DetailsPageBloc(PlantRepository()),
-        ),
-      ],
-      child: MaterialApp(
-        title: 'Plantô',
-        theme: ThemeData(
-            brightness: Brightness.light,
-            primaryColor: Colors.green[600],
-            accentColor: Colors.teal[400]),
-        home: const PlantPage(title: 'Plantô'),
-        // home: DetailsPage(),
-      ),
+    return MaterialApp(
+      title: 'Plantô',
+      theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.green[600],
+          accentColor: Colors.teal[400]),
+      home: const PlantPage(title: 'Plantô'),
+      // home: DetailsPage(),
     );
   }
 }

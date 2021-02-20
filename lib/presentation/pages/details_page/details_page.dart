@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/infrastructure/plant/plant_repository.dart';
 import 'package:planto/presentation/pages/details_page/components/plant_name_field.dart';
 import 'components/image_field.dart';
 import 'components/last_watered_field.dart';
@@ -19,13 +20,28 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  @override
+  Widget build(BuildContext context) {
+    const double imageSize = 300;
+    return BlocProvider(
+      create: (_) => DetailsPageBloc(PlantRepository()),
+      child: const DetailsPageScaffold(imageSize: imageSize),
+    );
+  }
+}
+
+class DetailsPageScaffold extends StatelessWidget {
+  final double imageSize;
+
+  const DetailsPageScaffold({Key key, @required this.imageSize})
+      : super(key: key);
+
   Future<void> handleSubmitForm(BuildContext context) async {
     context.read<DetailsPageBloc>().add(const DetailsPageEvent.saved());
   }
 
   @override
   Widget build(BuildContext context) {
-    const double size = 300;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Details"),
@@ -61,7 +77,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         onNameChange: latinNameChange,
                         validateName: validateLatinName,
                       ),
-                      const ImageField(size: size),
+                      ImageField(size: imageSize),
                       LastWateredField(),
                       WateringDaysField(),
                       Expanded(child: NotesField()),
