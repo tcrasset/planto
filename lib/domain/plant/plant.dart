@@ -23,7 +23,9 @@ abstract class Plant implements _$Plant {
     @required UniqueId id,
     @required Name name,
     @required Name latinName,
-    @required String imagePath,
+    @required
+        String
+            imagePath, //TODO: Create ImagePath class checking for existance of Path
     @required LastWatered lastWatered,
     @required WateringDays wateringDays,
     @required Note note,

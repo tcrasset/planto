@@ -18,7 +18,7 @@ class _$PlantTearOff {
       {@required UniqueId id,
       @required Name name,
       @required Name latinName,
-      @required Image image,
+      @required String imagePath,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) {
@@ -26,7 +26,7 @@ class _$PlantTearOff {
       id: id,
       name: name,
       latinName: latinName,
-      image: image,
+      imagePath: imagePath,
       lastWatered: lastWatered,
       wateringDays: wateringDays,
       note: note,
@@ -43,7 +43,8 @@ mixin _$Plant {
   UniqueId get id;
   Name get name;
   Name get latinName;
-  Image get image;
+  String
+      get imagePath; //TODO: Create ImagePath class checking for existance of Path
   LastWatered get lastWatered;
   WateringDays get wateringDays;
   Note get note;
@@ -60,7 +61,7 @@ abstract class $PlantCopyWith<$Res> {
       {UniqueId id,
       Name name,
       Name latinName,
-      Image image,
+      String imagePath,
       LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
@@ -79,7 +80,7 @@ class _$PlantCopyWithImpl<$Res> implements $PlantCopyWith<$Res> {
     Object id = freezed,
     Object name = freezed,
     Object latinName = freezed,
-    Object image = freezed,
+    Object imagePath = freezed,
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
@@ -88,7 +89,7 @@ class _$PlantCopyWithImpl<$Res> implements $PlantCopyWith<$Res> {
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
-      image: image == freezed ? _value.image : image as Image,
+      imagePath: imagePath == freezed ? _value.imagePath : imagePath as String,
       lastWatered: lastWatered == freezed
           ? _value.lastWatered
           : lastWatered as LastWatered,
@@ -109,7 +110,7 @@ abstract class _$PlantCopyWith<$Res> implements $PlantCopyWith<$Res> {
       {UniqueId id,
       Name name,
       Name latinName,
-      Image image,
+      String imagePath,
       LastWatered lastWatered,
       WateringDays wateringDays,
       Note note});
@@ -129,7 +130,7 @@ class __$PlantCopyWithImpl<$Res> extends _$PlantCopyWithImpl<$Res>
     Object id = freezed,
     Object name = freezed,
     Object latinName = freezed,
-    Object image = freezed,
+    Object imagePath = freezed,
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
@@ -138,7 +139,7 @@ class __$PlantCopyWithImpl<$Res> extends _$PlantCopyWithImpl<$Res>
       id: id == freezed ? _value.id : id as UniqueId,
       name: name == freezed ? _value.name : name as Name,
       latinName: latinName == freezed ? _value.latinName : latinName as Name,
-      image: image == freezed ? _value.image : image as Image,
+      imagePath: imagePath == freezed ? _value.imagePath : imagePath as String,
       lastWatered: lastWatered == freezed
           ? _value.lastWatered
           : lastWatered as LastWatered,
@@ -156,14 +157,14 @@ class _$_Plant extends _Plant {
       {@required this.id,
       @required this.name,
       @required this.latinName,
-      @required this.image,
+      @required this.imagePath,
       @required this.lastWatered,
       @required this.wateringDays,
       @required this.note})
       : assert(id != null),
         assert(name != null),
         assert(latinName != null),
-        assert(image != null),
+        assert(imagePath != null),
         assert(lastWatered != null),
         assert(wateringDays != null),
         assert(note != null),
@@ -176,8 +177,8 @@ class _$_Plant extends _Plant {
   @override
   final Name latinName;
   @override
-  final Image image;
-  @override
+  final String imagePath;
+  @override //TODO: Create ImagePath class checking for existance of Path
   final LastWatered lastWatered;
   @override
   final WateringDays wateringDays;
@@ -186,7 +187,7 @@ class _$_Plant extends _Plant {
 
   @override
   String toString() {
-    return 'Plant(id: $id, name: $name, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
+    return 'Plant(id: $id, name: $name, latinName: $latinName, imagePath: $imagePath, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
   }
 
   @override
@@ -200,8 +201,9 @@ class _$_Plant extends _Plant {
             (identical(other.latinName, latinName) ||
                 const DeepCollectionEquality()
                     .equals(other.latinName, latinName)) &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.imagePath, imagePath) ||
+                const DeepCollectionEquality()
+                    .equals(other.imagePath, imagePath)) &&
             (identical(other.lastWatered, lastWatered) ||
                 const DeepCollectionEquality()
                     .equals(other.lastWatered, lastWatered)) &&
@@ -218,7 +220,7 @@ class _$_Plant extends _Plant {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(latinName) ^
-      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(imagePath) ^
       const DeepCollectionEquality().hash(lastWatered) ^
       const DeepCollectionEquality().hash(wateringDays) ^
       const DeepCollectionEquality().hash(note);
@@ -235,7 +237,7 @@ abstract class _Plant extends Plant {
       {@required UniqueId id,
       @required Name name,
       @required Name latinName,
-      @required Image image,
+      @required String imagePath,
       @required LastWatered lastWatered,
       @required WateringDays wateringDays,
       @required Note note}) = _$_Plant;
@@ -247,8 +249,8 @@ abstract class _Plant extends Plant {
   @override
   Name get latinName;
   @override
-  Image get image;
-  @override
+  String get imagePath;
+  @override //TODO: Create ImagePath class checking for existance of Path
   LastWatered get lastWatered;
   @override
   WateringDays get wateringDays;

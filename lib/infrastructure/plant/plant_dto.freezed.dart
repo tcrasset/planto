@@ -21,7 +21,7 @@ class _$PlantDTOTearOff {
       {@JsonKey(ignore: true) String id,
       @required String name,
       @required String latinName,
-      @required ByteData image,
+      @required String imagePath,
       @required String lastWatered,
       @required int wateringDays,
       @required String note}) {
@@ -29,7 +29,7 @@ class _$PlantDTOTearOff {
       id: id,
       name: name,
       latinName: latinName,
-      image: image,
+      imagePath: imagePath,
       lastWatered: lastWatered,
       wateringDays: wateringDays,
       note: note,
@@ -52,7 +52,7 @@ mixin _$PlantDTO {
   String get id;
   String get name;
   String get latinName;
-  ByteData get image;
+  String get imagePath;
   String get lastWatered;
   int get wateringDays;
   String get note;
@@ -70,7 +70,7 @@ abstract class $PlantDTOCopyWith<$Res> {
       {@JsonKey(ignore: true) String id,
       String name,
       String latinName,
-      ByteData image,
+      String imagePath,
       String lastWatered,
       int wateringDays,
       String note});
@@ -89,7 +89,7 @@ class _$PlantDTOCopyWithImpl<$Res> implements $PlantDTOCopyWith<$Res> {
     Object id = freezed,
     Object name = freezed,
     Object latinName = freezed,
-    Object image = freezed,
+    Object imagePath = freezed,
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
@@ -98,7 +98,7 @@ class _$PlantDTOCopyWithImpl<$Res> implements $PlantDTOCopyWith<$Res> {
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       latinName: latinName == freezed ? _value.latinName : latinName as String,
-      image: image == freezed ? _value.image : image as ByteData,
+      imagePath: imagePath == freezed ? _value.imagePath : imagePath as String,
       lastWatered:
           lastWatered == freezed ? _value.lastWatered : lastWatered as String,
       wateringDays:
@@ -117,7 +117,7 @@ abstract class _$PlantDTOCopyWith<$Res> implements $PlantDTOCopyWith<$Res> {
       {@JsonKey(ignore: true) String id,
       String name,
       String latinName,
-      ByteData image,
+      String imagePath,
       String lastWatered,
       int wateringDays,
       String note});
@@ -137,7 +137,7 @@ class __$PlantDTOCopyWithImpl<$Res> extends _$PlantDTOCopyWithImpl<$Res>
     Object id = freezed,
     Object name = freezed,
     Object latinName = freezed,
-    Object image = freezed,
+    Object imagePath = freezed,
     Object lastWatered = freezed,
     Object wateringDays = freezed,
     Object note = freezed,
@@ -146,7 +146,7 @@ class __$PlantDTOCopyWithImpl<$Res> extends _$PlantDTOCopyWithImpl<$Res>
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       latinName: latinName == freezed ? _value.latinName : latinName as String,
-      image: image == freezed ? _value.image : image as ByteData,
+      imagePath: imagePath == freezed ? _value.imagePath : imagePath as String,
       lastWatered:
           lastWatered == freezed ? _value.lastWatered : lastWatered as String,
       wateringDays:
@@ -164,13 +164,13 @@ class _$_PlantDTO extends _PlantDTO {
       {@JsonKey(ignore: true) this.id,
       @required this.name,
       @required this.latinName,
-      @required this.image,
+      @required this.imagePath,
       @required this.lastWatered,
       @required this.wateringDays,
       @required this.note})
       : assert(name != null),
         assert(latinName != null),
-        assert(image != null),
+        assert(imagePath != null),
         assert(lastWatered != null),
         assert(wateringDays != null),
         assert(note != null),
@@ -187,7 +187,7 @@ class _$_PlantDTO extends _PlantDTO {
   @override
   final String latinName;
   @override
-  final ByteData image;
+  final String imagePath;
   @override
   final String lastWatered;
   @override
@@ -197,7 +197,7 @@ class _$_PlantDTO extends _PlantDTO {
 
   @override
   String toString() {
-    return 'PlantDTO(id: $id, name: $name, latinName: $latinName, image: $image, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
+    return 'PlantDTO(id: $id, name: $name, latinName: $latinName, imagePath: $imagePath, lastWatered: $lastWatered, wateringDays: $wateringDays, note: $note)';
   }
 
   @override
@@ -211,8 +211,9 @@ class _$_PlantDTO extends _PlantDTO {
             (identical(other.latinName, latinName) ||
                 const DeepCollectionEquality()
                     .equals(other.latinName, latinName)) &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.imagePath, imagePath) ||
+                const DeepCollectionEquality()
+                    .equals(other.imagePath, imagePath)) &&
             (identical(other.lastWatered, lastWatered) ||
                 const DeepCollectionEquality()
                     .equals(other.lastWatered, lastWatered)) &&
@@ -229,7 +230,7 @@ class _$_PlantDTO extends _PlantDTO {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(latinName) ^
-      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(imagePath) ^
       const DeepCollectionEquality().hash(lastWatered) ^
       const DeepCollectionEquality().hash(wateringDays) ^
       const DeepCollectionEquality().hash(note);
@@ -251,7 +252,7 @@ abstract class _PlantDTO extends PlantDTO {
       {@JsonKey(ignore: true) String id,
       @required String name,
       @required String latinName,
-      @required ByteData image,
+      @required String imagePath,
       @required String lastWatered,
       @required int wateringDays,
       @required String note}) = _$_PlantDTO;
@@ -266,7 +267,7 @@ abstract class _PlantDTO extends PlantDTO {
   @override
   String get latinName;
   @override
-  ByteData get image;
+  String get imagePath;
   @override
   String get lastWatered;
   @override
