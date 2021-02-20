@@ -45,7 +45,10 @@ class _ImageFieldState extends State<ImageField> {
     return BlocBuilder<DetailsPageBloc, DetailsPageState>(
       builder: (context, state) {
         final Image newImage = state.plant.imagePath.value.fold(
-          (failure) => null,
+          (_) => Image.asset(
+            'images/succulent.jpg',
+            fit: BoxFit.fill,
+          ),
           (imagePath) => Image.file(
             File(imagePath),
             fit: BoxFit.fill,
@@ -56,12 +59,7 @@ class _ImageFieldState extends State<ImageField> {
             SizedBox(
               width: widget.size,
               height: widget.size,
-              child: PlantCard(
-                  image: newImage ??
-                      Image.asset(
-                        'images/succulent.jpg',
-                        fit: BoxFit.fill,
-                      )),
+              child: PlantCard(image: newImage),
             ),
             Positioned(
                 bottom: 0,
