@@ -2,11 +2,13 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/infrastructure/plant/plant_repository.dart';
 import 'package:planto/presentation/pages/details_page/components/plant_name_field.dart';
 import 'components/image_field.dart';
@@ -14,17 +16,17 @@ import 'components/last_watered_field.dart';
 import 'components/notes_field.dart';
 import 'components/watering_days_field.dart';
 
-class DetailsPage extends StatefulWidget {
-  @override
-  _DetailsPageState createState() => _DetailsPageState();
-}
+class DetailsPage extends StatelessWidget {
+  final Plant editablePlant;
 
-class _DetailsPageState extends State<DetailsPage> {
+  const DetailsPage({Key key, @required this.editablePlant}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     const double imageSize = 300;
     return BlocProvider(
-      create: (_) => DetailsPageBloc(PlantRepository()),
+      create: (_) => DetailsPageBloc(PlantRepository())
+        ..add(DetailsPageEvent.initialized(optionOf(editablePlant))),
       child: const DetailsPageScaffold(imageSize: imageSize),
     );
   }

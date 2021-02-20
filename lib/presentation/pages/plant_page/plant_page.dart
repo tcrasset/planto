@@ -18,7 +18,8 @@ class _PlantPageState extends State<PlantPage> {
   void navigateToPlantPage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DetailsPage()),
+      MaterialPageRoute(
+          builder: (context) => const DetailsPage(editablePlant: null)),
     );
   }
 
