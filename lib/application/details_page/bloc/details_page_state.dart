@@ -7,6 +7,7 @@ abstract class DetailsPageState with _$DetailsPageState {
     @required bool showErrorMessages,
     @required bool isSaving,
     @required bool isEditing,
+    @required Option<Either<ValueFailure, Unit>> saveFailureOrSuccessOption,
   }) = _DetailsPageState;
 
   factory DetailsPageState.initial() => DetailsPageState(
@@ -14,5 +15,6 @@ abstract class DetailsPageState with _$DetailsPageState {
         showErrorMessages: false,
         isSaving: false,
         isEditing: false,
+        saveFailureOrSuccessOption: none(),
       );
 }

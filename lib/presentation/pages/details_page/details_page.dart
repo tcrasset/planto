@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:dartz/dartz.dart';
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,30 @@ class DetailsPage extends StatelessWidget {
 class DetailsPageStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+      listenWhen: (p, c) =>
+          p.saveFailureOrSuccessOption != c.saveFailureOrSuccessOption,
+      listener: (context, state) {
+        state.saveFailureOrSuccessOption.fold(
+          () /*None*/ {},
+          (either) /* Some*/ {
+            either.fold(
+              (failure) {
+                FlushbarHelper.createError(
+                  message: failure.maybeMap(
+                    unexpected: (_) =>
+                        'Unexpected error occured, please contact support.',
+                    orElse: () => null,
+                  ),
+                ).show(context);
+              },
+              (_) {
+                Navigator.of(context).pop();
+              },
+            );
+          },
+        );
+      },
       buildWhen: (p, c) => p.isSaving != c.isSaving,
       builder: (context, state) {
         return Stack(

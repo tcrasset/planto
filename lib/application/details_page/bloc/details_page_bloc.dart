@@ -46,6 +46,7 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         if (e != null) {
           yield state.copyWith(
             plant: state.plant.copyWith(name: Name(e.name)),
+            saveFailureOrSuccessOption: none(),
           );
         }
       },
@@ -53,32 +54,44 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         if (e != null) {
           yield state.copyWith(
             plant: state.plant.copyWith(latinName: Name(e.name)),
+            saveFailureOrSuccessOption: none(),
           );
         }
       },
       imageChanged: (ImageChanged e) async* {
         if (e != null) {
           yield state.copyWith(
-              plant: state.plant.copyWith(imagePath: ImagePath(e.imagePath)));
+            plant: state.plant.copyWith(imagePath: ImagePath(e.imagePath)),
+            saveFailureOrSuccessOption: none(),
+          );
         }
       },
       lastWateredChanged: (LastWateredChanged e) async* {
         if (e != null) {
           yield state.copyWith(
-              plant: state.plant.copyWith(lastWatered: LastWatered(e.date)));
+            plant: state.plant.copyWith(lastWatered: LastWatered(e.date)),
+            saveFailureOrSuccessOption: none(),
+          );
         }
       },
       noteChanged: (NoteChanged e) async* {
         yield state.copyWith(
-            plant: state.plant.copyWith(note: Note(e.noteBody)));
+          plant: state.plant.copyWith(note: Note(e.noteBody)),
+          saveFailureOrSuccessOption: none(),
+        );
       },
       wateringDaysChanged: (WateringDaysChanged e) async* {
         state.copyWith(
-            plant: state.plant.copyWith(wateringDays: WateringDays(e.days)),
-            showErrorMessages: true);
+          plant: state.plant.copyWith(wateringDays: WateringDays(e.days)),
+          showErrorMessages: true,
+          saveFailureOrSuccessOption: none(),
+        );
       },
       newPlantSubmitted: (NewPlantSubmitted e) async* {
-        yield state.copyWith(showErrorMessages: true);
+        yield state.copyWith(
+          showErrorMessages: true,
+          saveFailureOrSuccessOption: none(),
+        );
       },
       saved: (Saved e) async* {
         Either<ValueFailure, Unit> failureOrSuccess;
@@ -86,6 +99,7 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
         yield state.copyWith(isSaving: true);
 
         if (state.plant.failureOption.isNone()) {
+          //TODO: Show tooltip to change image if image is not changed
           failureOrSuccess = state.isEditing
               ? await plantRepository.update(state.plant)
               : await plantRepository.create(state.plant);
@@ -95,8 +109,12 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
             (_) => print("Everything ok"),
           );
         }
-        await Future.delayed(Duration(seconds: 1));
-        yield state.copyWith(isSaving: false, showErrorMessages: true);
+        await Future.delayed(const Duration(seconds: 1));
+        yield state.copyWith(
+          isSaving: false,
+          showErrorMessages: true,
+          saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+        );
       },
     );
   }
