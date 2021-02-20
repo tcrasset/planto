@@ -43,5 +43,7 @@
 	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>Need camera to take picture of plant.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need access to photo library to get image of plant.</string>
 </dict>
 </plist>
