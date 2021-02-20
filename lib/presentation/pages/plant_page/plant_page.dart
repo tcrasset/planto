@@ -1,20 +1,19 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 // Project imports:
+import 'package:planto/application/plant_page/bloc/plant_bloc.dart';
 import 'package:planto/presentation/pages/details_page/details_page.dart';
 import 'components/plant_list_item.dart';
 
-class PlantPage extends StatefulWidget {
+class PlantPage extends StatelessWidget {
   const PlantPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
-  @override
-  _PlantPageState createState() => _PlantPageState();
-}
-
-class _PlantPageState extends State<PlantPage> {
   void navigateToPlantPage(BuildContext context) {
     Navigator.push(
       context,
@@ -27,7 +26,7 @@ class _PlantPageState extends State<PlantPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
         actions: [
           IconButton(
             icon: const Icon(
@@ -51,11 +50,18 @@ class PlantList extends StatefulWidget {
 class _PlantListState extends State<PlantList> {
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      children: List.generate(10, (index) {
-        return const PlantListItem();
-      }),
+    return BlocConsumer<PlantBloc, PlantState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return GridView.count(
+          crossAxisCount: 2,
+          children: List.generate(10, (index) {
+            return const PlantListItem();
+          }),
+        );
+      },
     );
   }
 }

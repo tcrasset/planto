@@ -109,7 +109,7 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
             (_) => print("Everything ok"),
           );
         }
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(milliseconds: 500));
         yield state.copyWith(
           isSaving: false,
           showErrorMessages: true,
