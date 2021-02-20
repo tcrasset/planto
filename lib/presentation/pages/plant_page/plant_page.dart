@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 // Project imports:
 import 'package:planto/application/plant_page/bloc/plant_bloc.dart';
+import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/presentation/pages/details_page/details_page.dart';
 import 'components/plant_list_item.dart';
 
@@ -24,20 +26,24 @@ class PlantPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-            onPressed: () => navigateToPlantPage(context),
-          )
-        ],
+    return BlocProvider(
+      create: (context) =>
+          PlantBloc(plantRepository: GetIt.instance<IPlantRepository>()),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+          actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              onPressed: () => navigateToPlantPage(context),
+            )
+          ],
+        ),
+        body: PlantList(),
       ),
-      body: PlantList(),
     );
   }
 }
