@@ -6,15 +6,12 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
 import 'package:planto/presentation/pages/details_page/components/plant_name_field.dart';
-import '../core/plant_card.dart';
+import 'components/image_field.dart';
 import 'components/last_watered_field.dart';
 import 'components/notes_field.dart';
 import 'components/watering_days_field.dart';
@@ -25,32 +22,8 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  final ImagePicker picker = ImagePicker();
-  Image newImage;
-
   Future<void> handleSubmitForm(BuildContext context) async {
     context.read<DetailsPageBloc>().add(const DetailsPageEvent.saved());
-  }
-
-  Future getImage() async {
-    final PickedFile pickedFile =
-        await picker.getImage(source: ImageSource.camera);
-
-    if (pickedFile != null) {
-      // Get path of image taken
-      final File tempImagePath = File(pickedFile.path);
-
-      // Get directory where we can duplicate selected file.
-      final String filename = basename(tempImagePath.path);
-      final String directory = (await getApplicationDocumentsDirectory()).path;
-      final String finalImagePath = '$directory/$filename';
-
-      // Copy the file to an application document directory.
-      final File newPath = await tempImagePath.copy(finalImagePath);
-      setState(() {
-        newImage = Image.file(newPath, fit: BoxFit.fill);
-      });
-    }
   }
 
   @override
@@ -91,27 +64,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         onNameChange: latinNameChange,
                         validateName: validateLatinName,
                       ),
-                      Stack(
-                        children: [
-                          SizedBox(
-                            width: size,
-                            height: size,
-                            child: PlantCard(
-                                image: newImage ??
-                                    Image.asset(
-                                      'images/succulent.jpg',
-                                      fit: BoxFit.fill,
-                                    )),
-                          ),
-                          Positioned(
-                              bottom: 0,
-                              right: 0,
-                              child: FloatingActionButton(
-                                  onPressed: getImage,
-                                  child:
-                                      const Icon(Icons.add_a_photo_outlined))),
-                        ],
-                      ),
+                      const ImageField(size: size),
                       LastWateredField(),
                       WateringDaysField(),
                       Expanded(child: NotesField()),

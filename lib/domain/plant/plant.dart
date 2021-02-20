@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:planto/domain/core/unique_id.dart';
 
 // Project imports:
+import 'package:planto/domain/core/unique_id.dart';
+import 'package:planto/domain/core/utils.dart';
 import 'package:planto/domain/core/value_failure.dart';
 import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/details_page/name.dart';
@@ -22,7 +23,7 @@ abstract class Plant implements _$Plant {
     @required UniqueId id,
     @required Name name,
     @required Name latinName,
-    @required Image image,
+    @required String imagePath,
     @required LastWatered lastWatered,
     @required WateringDays wateringDays,
     @required Note note,
@@ -34,7 +35,7 @@ abstract class Plant implements _$Plant {
         id: UniqueId(),
         name: Name(""),
         latinName: Name(""),
-        image: DefaultImage(),
+        imagePath: "",
         lastWatered: LastWatered(DateTime.now().toString()),
         wateringDays: WateringDays("1"),
         note: Note(""),
