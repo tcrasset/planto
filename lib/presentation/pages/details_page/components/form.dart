@@ -13,15 +13,10 @@ import 'package:planto/presentation/pages/details_page/components/plant_name_fie
 import 'package:planto/presentation/pages/details_page/components/watering_days_field.dart';
 
 class DetailsPageForm extends StatelessWidget {
-  const DetailsPageForm({
-    Key key,
-    @required this.imageSize,
-  }) : super(key: key);
-
-  final double imageSize;
-
   @override
   Widget build(BuildContext context) {
+    const double imageSize = 300;
+
     return BlocBuilder<DetailsPageBloc, DetailsPageState>(
       builder: (context, state) {
         return Form(
@@ -42,7 +37,7 @@ class DetailsPageForm extends StatelessWidget {
                 onNameChange: latinNameChange,
                 validateName: validateLatinName,
               ),
-              ImageField(size: imageSize),
+              const ImageField(size: imageSize),
               LastWateredField(),
               WateringDaysField(),
               Expanded(child: NotesField()),

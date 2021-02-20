@@ -21,20 +21,15 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double imageSize = 300;
     return BlocProvider(
         create: (_) =>
             DetailsPageBloc(plantRepository: GetIt.instance<IPlantRepository>())
               ..add(DetailsPageEvent.initialized(optionOf(editablePlant))),
-        child: const DetailsPageStack(imageSize: imageSize));
+        child: DetailsPageStack());
   }
 }
 
 class DetailsPageStack extends StatelessWidget {
-  final double imageSize;
-
-  const DetailsPageStack({Key key, @required this.imageSize}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DetailsPageBloc, DetailsPageState>(
@@ -42,7 +37,7 @@ class DetailsPageStack extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            DetailsPageScaffold(imageSize: imageSize),
+            DetailsPageScaffold(),
             SavingInProgressOverlay(isSaving: state.isSaving),
           ],
         );
@@ -52,11 +47,6 @@ class DetailsPageStack extends StatelessWidget {
 }
 
 class DetailsPageScaffold extends StatelessWidget {
-  final double imageSize;
-
-  const DetailsPageScaffold({Key key, @required this.imageSize})
-      : super(key: key);
-
   Future<void> handleSubmitForm(BuildContext context) async {
     context.read<DetailsPageBloc>().add(const DetailsPageEvent.saved());
   }
@@ -78,7 +68,7 @@ class DetailsPageScaffold extends StatelessWidget {
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
-            child: DetailsPageForm(imageSize: imageSize),
+            child: DetailsPageForm(),
           )
         ],
       ),
