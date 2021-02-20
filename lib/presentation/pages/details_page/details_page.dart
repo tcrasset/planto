@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
@@ -25,7 +27,6 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   final ImagePicker picker = ImagePicker();
   Image newImage;
-  File _imageFile;
 
   Future<void> handleSubmitForm(BuildContext context) async {
     context.read<DetailsPageBloc>().add(const DetailsPageEvent.saved());
@@ -35,15 +36,21 @@ class _DetailsPageState extends State<DetailsPage> {
     final PickedFile pickedFile =
         await picker.getImage(source: ImageSource.camera);
 
-    setState(() {
-      if (pickedFile != null) {
-        _imageFile = File(pickedFile.path);
-        print(pickedFile.path);
-        newImage = Image.file(_imageFile, fit: BoxFit.fill);
-      } else {
-        print('No image selected.');
-      }
-    });
+    if (pickedFile != null) {
+      // Get path of image taken
+      final File tempImagePath = File(pickedFile.path);
+
+      // Get directory where we can duplicate selected file.
+      final String filename = basename(tempImagePath.path);
+      final String directory = (await getApplicationDocumentsDirectory()).path;
+      final String finalImagePath = '$directory/$filename';
+
+      // Copy the file to an application document directory.
+      final File newPath = await tempImagePath.copy(finalImagePath);
+      setState(() {
+        newImage = Image.file(newPath, fit: BoxFit.fill);
+      });
+    }
   }
 
   @override
