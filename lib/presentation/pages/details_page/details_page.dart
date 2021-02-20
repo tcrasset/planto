@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:camera/camera.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
@@ -29,10 +30,27 @@ class _DetailsPageState extends State<DetailsPage> {
   Future<void> _initializeControllerFuture;
   Image newImage;
 
+  final ImagePicker picker = ImagePicker();
+  File _image;
+
   Future<void> handleSubmitForm(BuildContext context) async {
     context
         .read<DetailsPageBloc>()
         .add(DetailsPageEvent.newPlantSubmitted(Plant()));
+  }
+
+  Future getImage() async {
+    final PickedFile pickedFile =
+        await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+        newImage = Image.file(_image, fit: BoxFit.fill);
+      } else {
+        print('No image selected.');
+      }
+    });
   }
 
   Future<void> takePicture() async {
@@ -122,7 +140,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               bottom: 0,
                               right: 0,
                               child: FloatingActionButton(
-                                  onPressed: takePicture,
+                                  onPressed: getImage,
                                   child:
                                       const Icon(Icons.add_a_photo_outlined))),
                         ],
