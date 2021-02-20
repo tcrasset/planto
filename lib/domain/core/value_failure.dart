@@ -20,4 +20,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
       LongName<T>;
   const factory ValueFailure.emptyName({@required String failedValue}) =
       EmptyName<T>;
+
+  const factory ValueFailure.imagePathDoesNotExist(
+      {@required String failedValue}) = ImagePathDoesNotExist<T>;
 }

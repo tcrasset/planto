@@ -14,7 +14,7 @@ import 'presentation/pages/plant_page/plant_page.dart';
 
 Future<void> main() async {
   // Bloc.observer = SimpleBlocObserver();
-
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
