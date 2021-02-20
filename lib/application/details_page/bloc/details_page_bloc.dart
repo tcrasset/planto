@@ -29,6 +29,7 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       : super(DetailsPageState.initial());
 
   DetailsPageState get initialState => DetailsPageState.initial();
+
   @override
   Stream<DetailsPageState> mapEventToState(
     DetailsPageEvent event,
@@ -42,13 +43,16 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       },
       standardNameChanged: (StandardNameChanged e) async* {
         if (e != null) {
-          yield state.copyWith(plant: state.plant.copyWith(name: Name(e.name)));
+          yield state.copyWith(
+            plant: state.plant.copyWith(name: Name(e.name)),
+          );
         }
       },
       latinNameChanged: (LatinNameChanged e) async* {
         if (e != null) {
           yield state.copyWith(
-              plant: state.plant.copyWith(latinName: Name(e.name)));
+            plant: state.plant.copyWith(latinName: Name(e.name)),
+          );
         }
       },
       imageChanged: (ImageChanged e) async* {
