@@ -58,4 +58,28 @@ class SembastPlantRepository implements IPlantRepository {
       return left(ValueFailure.unexpected(message: e.message));
     }
   }
+
+  @override
+  Future<Either<ValueFailure, List<Plant>>> getAllPlants() async {
+    try {
+      final finder = Finder(sortOrders: [
+        SortOrder("lastWatered")
+      ]);
+
+      final recordSnapshots = await _plantStore.find(
+        database,
+        finder: finder,
+      );
+
+      final List<Plant> plants = recordSnapshots.map((snapshot) {
+        final PlantDTO plantDto = PlantDTO.fromJson(snapshot.value);
+        return plantDto.toDomain();
+      }).toList();
+
+      return right(plants);
+
+    } on DatabaseException catch (e) {
+      return left(ValueFailure.unexpected(message: e.message));
+    }
+  }
 }
