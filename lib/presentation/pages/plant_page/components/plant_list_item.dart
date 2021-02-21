@@ -1,6 +1,3 @@
-// Dart imports:
-import 'dart:io';
-
 // Flutter imports:
 import 'package:flutter/material.dart';
 
@@ -16,17 +13,6 @@ class PlantListItem extends StatelessWidget {
     @required this.plant,
   }) : super(key: key);
 
-  Image getPlantImage(Plant plant) {
-    final Image plantImage = plant.imagePath.value.fold(
-      (_) => null,
-      (imagePath) => Image.file(
-        File(imagePath),
-        fit: BoxFit.fill,
-      ),
-    );
-    return plantImage;
-  }
-
   @override
   Widget build(BuildContext context) {
     const double buttonSize = 50;
@@ -35,9 +21,9 @@ class PlantListItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Stack(children: [
-          PlantCardWithName(size: size, image: getPlantImage(plant)),
-          const WaterButton(buttonSize: buttonSize),
-          const MoreInfoButton(buttonSize: buttonSize),
+          PlantCardWithName(size: size, plant: plant),
+          WaterButton(buttonSize: buttonSize, plant: plant),
+          MoreInfoButton(buttonSize: buttonSize, plant: plant),
         ]),
       ),
     );

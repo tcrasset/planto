@@ -1,5 +1,4 @@
 // Dart imports:
-import 'dart:io';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
@@ -11,8 +10,6 @@ import 'package:get_it/get_it.dart';
 // Project imports:
 import 'package:planto/application/plant_page/bloc/plant_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
-import 'package:planto/domain/plant/plant.dart';
-import 'package:planto/presentation/pages/core/plant_card.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:planto/presentation/pages/details_page/details_page.dart';
 import 'components/plant_list_item.dart';
@@ -49,7 +46,6 @@ class PlantScaffold extends StatelessWidget {
     bool isLoading = true;
     return BlocConsumer<PlantBloc, PlantState>(
       listener: (context, state) {
-        // TODO: implement listener
         isLoading = state.map(
           initial: (_) => true,
           loading: (_) => true,

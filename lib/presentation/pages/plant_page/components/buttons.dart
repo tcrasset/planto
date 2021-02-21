@@ -2,15 +2,17 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import 'package:planto/domain/plant/plant.dart';
 import '../../details_page/details_page.dart';
 
 class WaterButton extends StatelessWidget {
+  final double buttonSize;
+  final Plant plant;
   const WaterButton({
     Key key,
     @required this.buttonSize,
+    @required this.plant,
   }) : super(key: key);
-
-  final double buttonSize;
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +33,19 @@ class WaterButton extends StatelessWidget {
 }
 
 class MoreInfoButton extends StatelessWidget {
+  final double buttonSize;
+  final Plant plant;
   const MoreInfoButton({
     Key key,
     @required this.buttonSize,
+    @required this.plant,
   }) : super(key: key);
-
-  final double buttonSize;
 
   void goToDetails(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const DetailsPage(editablePlant: null)),
+      MaterialPageRoute(
+          builder: (context) => DetailsPage(editablePlant: plant)),
     );
   }
 
