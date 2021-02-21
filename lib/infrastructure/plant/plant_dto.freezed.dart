@@ -18,7 +18,7 @@ class _$PlantDTOTearOff {
 
 // ignore: unused_element
   _PlantDTO call(
-      {@JsonKey(ignore: true) String id,
+      {@required String id,
       @required String name,
       @required String latinName,
       @required String imagePath,
@@ -48,7 +48,6 @@ const $PlantDTO = _$PlantDTOTearOff();
 
 /// @nodoc
 mixin _$PlantDTO {
-  @JsonKey(ignore: true)
   String get id;
   String get name;
   String get latinName;
@@ -67,7 +66,7 @@ abstract class $PlantDTOCopyWith<$Res> {
   factory $PlantDTOCopyWith(PlantDTO value, $Res Function(PlantDTO) then) =
       _$PlantDTOCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(ignore: true) String id,
+      {String id,
       String name,
       String latinName,
       String imagePath,
@@ -114,7 +113,7 @@ abstract class _$PlantDTOCopyWith<$Res> implements $PlantDTOCopyWith<$Res> {
       __$PlantDTOCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(ignore: true) String id,
+      {String id,
       String name,
       String latinName,
       String imagePath,
@@ -161,14 +160,15 @@ class __$PlantDTOCopyWithImpl<$Res> extends _$PlantDTOCopyWithImpl<$Res>
 /// @nodoc
 class _$_PlantDTO extends _PlantDTO {
   const _$_PlantDTO(
-      {@JsonKey(ignore: true) this.id,
+      {@required this.id,
       @required this.name,
       @required this.latinName,
       @required this.imagePath,
       @required this.lastWatered,
       @required this.wateringDays,
       @required this.note})
-      : assert(name != null),
+      : assert(id != null),
+        assert(name != null),
         assert(latinName != null),
         assert(imagePath != null),
         assert(lastWatered != null),
@@ -180,7 +180,6 @@ class _$_PlantDTO extends _PlantDTO {
       _$_$_PlantDTOFromJson(json);
 
   @override
-  @JsonKey(ignore: true)
   final String id;
   @override
   final String name;
@@ -249,7 +248,7 @@ class _$_PlantDTO extends _PlantDTO {
 abstract class _PlantDTO extends PlantDTO {
   const _PlantDTO._() : super._();
   const factory _PlantDTO(
-      {@JsonKey(ignore: true) String id,
+      {@required String id,
       @required String name,
       @required String latinName,
       @required String imagePath,
@@ -260,7 +259,6 @@ abstract class _PlantDTO extends PlantDTO {
   factory _PlantDTO.fromJson(Map<String, dynamic> json) = _$_PlantDTO.fromJson;
 
   @override
-  @JsonKey(ignore: true)
   String get id;
   @override
   String get name;

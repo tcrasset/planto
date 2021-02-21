@@ -20,7 +20,16 @@ class SembastPlantRepository implements IPlantRepository {
   @override
   Future<Either<ValueFailure, Unit>> create(Plant plant) async {
     try {
+        print("##############\n"*5 );
+        print(plant);
+        print("##############\n"*5 );
+
       final PlantDTO plantDTO = PlantDTO.fromDomain(plant);
+      
+        print("##############\n"*5 );
+        print(plantDTO);
+        print("##############\n"*5 );
+
       await _plantStore.add(database, plantDTO.toJson());
       return right(unit);
     } on DatabaseException catch (e) {
@@ -72,6 +81,9 @@ class SembastPlantRepository implements IPlantRepository {
       );
 
       final List<Plant> plants = recordSnapshots.map((snapshot) {
+        print("##############\n"*5 );
+        print(snapshot.value);
+        print("##############\n"*5 );
         final PlantDTO plantDto = PlantDTO.fromJson(snapshot.value);
         return plantDto.toDomain();
       }).toList();

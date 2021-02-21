@@ -20,7 +20,7 @@ abstract class PlantDTO implements _$PlantDTO {
   const PlantDTO._();
 
   const factory PlantDTO({
-    @JsonKey(ignore: true) String id,
+    @required String id,
     @required String name,
     @required String latinName,
     @required String imagePath,
@@ -42,6 +42,7 @@ abstract class PlantDTO implements _$PlantDTO {
   }
 
   Plant toDomain() {
+
     return Plant(
       id: UniqueId.fromUniqueString(id),
       name: Name(name),
