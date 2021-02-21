@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:io';
+
 // Flutter imports:
 import 'package:flutter/material.dart';
 
@@ -8,6 +11,8 @@ import 'package:get_it/get_it.dart';
 // Project imports:
 import 'package:planto/application/plant_page/bloc/plant_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
+import 'package:planto/domain/plant/plant.dart';
+import 'package:planto/presentation/pages/core/plant_card.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:planto/presentation/pages/details_page/details_page.dart';
 import 'components/plant_list_item.dart';
@@ -89,18 +94,25 @@ class PlantList extends StatefulWidget {
 class _PlantListState extends State<PlantList> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PlantBloc, PlantState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+    return BlocBuilder<PlantBloc, PlantState>(
       builder: (context, state) {
-        return GridView.count(
-          crossAxisCount: 2,
-          children: List.generate(10, (index) {
-            return const PlantListItem();
-          }),
+        return state.map(
+          initial: (_) => Container(),
+          loading: (_) => Container(),
+          loadFailure: (LoadFailure value) => Center(
+            child: Text(
+              value.plantFailure
+                  .maybeMap(unexpected: (f) => f.message, orElse: () => null),
+            ),
+          ),
+          loadSuccess: (LoadSuccess newState) =>
+              GridView.count(crossAxisCount: 2, children: getPlants(newState)),
         );
       },
     );
   }
+}
+
+List<PlantListItem> getPlants(LoadSuccess newState) {
+  return newState.plants.map((plant) => PlantListItem(plant: plant)).toList();
 }

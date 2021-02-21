@@ -1,10 +1,13 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
+import 'package:planto/domain/plant/plant.dart';
+
 class PlantCard extends StatelessWidget {
   const PlantCard({
     Key key,
-    this.image,
+    @required this.image,
   }) : super(key: key);
   final Image image;
   @override
