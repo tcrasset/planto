@@ -44,7 +44,7 @@ class PlantBloc extends Bloc<PlantEvent, PlantState> {
 
         yield plants.fold(
           (f) => PlantState.loadFailure(f),
-          (items) => PlantState.loadSucess(items),
+          (items) => PlantState.loadSuccess(items),
         );
       },
     );

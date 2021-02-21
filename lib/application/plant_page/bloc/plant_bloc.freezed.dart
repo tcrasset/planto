@@ -632,8 +632,8 @@ class _$PlantStateTearOff {
   }
 
 // ignore: unused_element
-  LoadSucess loadSucess(List<Plant> plants) {
-    return LoadSucess(
+  LoadSuccess loadSuccess(List<Plant> plants) {
+    return LoadSuccess(
       plants,
     );
   }
@@ -656,14 +656,14 @@ mixin _$PlantState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadSucess(List<Plant> plants),
+    TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   });
@@ -671,14 +671,14 @@ mixin _$PlantState {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSucess value),
+    @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loadSucess(LoadSucess value),
+    TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   });
@@ -738,12 +738,12 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     return initial();
   }
@@ -753,7 +753,7 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadSucess(List<Plant> plants),
+    TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
@@ -769,7 +769,7 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSucess value),
+    @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
@@ -784,7 +784,7 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loadSucess(LoadSucess value),
+    TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   }) {
@@ -838,12 +838,12 @@ class _$Loading implements Loading {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     return loading();
   }
@@ -853,7 +853,7 @@ class _$Loading implements Loading {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadSucess(List<Plant> plants),
+    TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
@@ -869,7 +869,7 @@ class _$Loading implements Loading {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSucess value),
+    @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
@@ -884,7 +884,7 @@ class _$Loading implements Loading {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loadSucess(LoadSucess value),
+    TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   }) {
@@ -901,48 +901,49 @@ abstract class Loading implements PlantState {
 }
 
 /// @nodoc
-abstract class $LoadSucessCopyWith<$Res> {
-  factory $LoadSucessCopyWith(
-          LoadSucess value, $Res Function(LoadSucess) then) =
-      _$LoadSucessCopyWithImpl<$Res>;
+abstract class $LoadSuccessCopyWith<$Res> {
+  factory $LoadSuccessCopyWith(
+          LoadSuccess value, $Res Function(LoadSuccess) then) =
+      _$LoadSuccessCopyWithImpl<$Res>;
   $Res call({List<Plant> plants});
 }
 
 /// @nodoc
-class _$LoadSucessCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
-    implements $LoadSucessCopyWith<$Res> {
-  _$LoadSucessCopyWithImpl(LoadSucess _value, $Res Function(LoadSucess) _then)
-      : super(_value, (v) => _then(v as LoadSucess));
+class _$LoadSuccessCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
+    implements $LoadSuccessCopyWith<$Res> {
+  _$LoadSuccessCopyWithImpl(
+      LoadSuccess _value, $Res Function(LoadSuccess) _then)
+      : super(_value, (v) => _then(v as LoadSuccess));
 
   @override
-  LoadSucess get _value => super._value as LoadSucess;
+  LoadSuccess get _value => super._value as LoadSuccess;
 
   @override
   $Res call({
     Object plants = freezed,
   }) {
-    return _then(LoadSucess(
+    return _then(LoadSuccess(
       plants == freezed ? _value.plants : plants as List<Plant>,
     ));
   }
 }
 
 /// @nodoc
-class _$LoadSucess implements LoadSucess {
-  const _$LoadSucess(this.plants) : assert(plants != null);
+class _$LoadSuccess implements LoadSuccess {
+  const _$LoadSuccess(this.plants) : assert(plants != null);
 
   @override
   final List<Plant> plants;
 
   @override
   String toString() {
-    return 'PlantState.loadSucess(plants: $plants)';
+    return 'PlantState.loadSuccess(plants: $plants)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadSucess &&
+        (other is LoadSuccess &&
             (identical(other.plants, plants) ||
                 const DeepCollectionEquality().equals(other.plants, plants)));
   }
@@ -953,22 +954,22 @@ class _$LoadSucess implements LoadSucess {
 
   @JsonKey(ignore: true)
   @override
-  $LoadSucessCopyWith<LoadSucess> get copyWith =>
-      _$LoadSucessCopyWithImpl<LoadSucess>(this, _$identity);
+  $LoadSuccessCopyWith<LoadSuccess> get copyWith =>
+      _$LoadSuccessCopyWithImpl<LoadSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
-    return loadSucess(plants);
+    return loadSuccess(plants);
   }
 
   @override
@@ -976,13 +977,13 @@ class _$LoadSucess implements LoadSucess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadSucess(List<Plant> plants),
+    TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (loadSucess != null) {
-      return loadSucess(plants);
+    if (loadSuccess != null) {
+      return loadSuccess(plants);
     }
     return orElse();
   }
@@ -992,7 +993,7 @@ class _$LoadSucess implements LoadSucess {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSucess value),
+    @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
@@ -1007,24 +1008,24 @@ class _$LoadSucess implements LoadSucess {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loadSucess(LoadSucess value),
+    TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (loadSucess != null) {
-      return loadSucess(this);
+    if (loadSuccess != null) {
+      return loadSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class LoadSucess implements PlantState {
-  const factory LoadSucess(List<Plant> plants) = _$LoadSucess;
+abstract class LoadSuccess implements PlantState {
+  const factory LoadSuccess(List<Plant> plants) = _$LoadSuccess;
 
   List<Plant> get plants;
   @JsonKey(ignore: true)
-  $LoadSucessCopyWith<LoadSucess> get copyWith;
+  $LoadSuccessCopyWith<LoadSuccess> get copyWith;
 }
 
 /// @nodoc
@@ -1104,12 +1105,12 @@ class _$LoadFailure implements LoadFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loadSucess(List<Plant> plants),
+    @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     return loadFailure(plantFailure);
   }
@@ -1119,7 +1120,7 @@ class _$LoadFailure implements LoadFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loadSucess(List<Plant> plants),
+    TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
@@ -1135,7 +1136,7 @@ class _$LoadFailure implements LoadFailure {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSucess value),
+    @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
@@ -1150,7 +1151,7 @@ class _$LoadFailure implements LoadFailure {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
-    TResult loadSucess(LoadSucess value),
+    TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
     @required TResult orElse(),
   }) {
