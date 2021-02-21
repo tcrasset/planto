@@ -19,9 +19,9 @@ class PlantBloc extends Bloc<PlantEvent, PlantState> {
   final IPlantRepository plantRepository;
 
   PlantBloc({@required this.plantRepository})
-      : super(const PlantState.loading());
+      : super(const PlantState.initial());
 
-  PlantState get initialState => const PlantState.loading();
+  PlantState get initialState => const PlantState.initial();
 
   @override
   Stream<PlantState> mapEventToState(
