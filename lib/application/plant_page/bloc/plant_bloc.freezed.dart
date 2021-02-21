@@ -671,7 +671,7 @@ mixin _$PlantState {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadSuccess(LoadSucess value),
     @required TResult loadFailure(LoadFailure value),
   });
   @optionalTypeArgs
@@ -769,12 +769,12 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadSuccess(LoadSucess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     return initial(this);
   }
@@ -869,12 +869,12 @@ class _$Loading implements Loading {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadSuccess(LoadSucess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     return loading(this);
   }
@@ -992,14 +992,14 @@ class _$LoadSucess implements LoadSucess {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadSuccess(LoadSucess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
-    return loadSucess(this);
+    return loadSuccess(this);
   }
 
   @override
@@ -1135,12 +1135,12 @@ class _$LoadFailure implements LoadFailure {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSucess(LoadSucess value),
+    @required TResult loadSuccess(LoadSucess value),
     @required TResult loadFailure(LoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loadSucess != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     return loadFailure(this);
   }

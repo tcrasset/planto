@@ -10,7 +10,7 @@ import 'presentation/pages/plant_page/plant_page.dart';
 Future<void> main() async {
   // Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
-  injections.init();
+  await injections.init();
   runApp(const MyApp());
 }
 

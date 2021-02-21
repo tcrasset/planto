@@ -16,9 +16,9 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   final Database database = await _initSembast();
-  sl.registerLazySingleton<Database>(() => database);
-  sl.registerLazySingleton<IPlantRepository>(
-      () => SembastPlantRepository(database: sl()));
+  sl.registerSingleton<Database>(database);
+  sl.registerSingleton<IPlantRepository>(
+      SembastPlantRepository(database: sl<Database>()));
 }
 
 Future<Database> _initSembast() async {

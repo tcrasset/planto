@@ -41,24 +41,42 @@ class PlantScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-            onPressed: () => navigateToPlantPage(context),
-          )
-        ],
-      ),
-      body: Stack(
-        children: [
-          PlantList(),
-        ],
-      ),
+    bool isLoading = true;
+    return BlocConsumer<PlantBloc, PlantState>(
+      listener: (context, state) {
+        // TODO: implement listener
+        isLoading = state.map(
+          initial: (_) => true,
+          loading: (_) => true,
+          loadFailure: (_) => false,
+          loadSuccess: (_) => false,
+        );
+      },
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(title),
+            actions: [
+              IconButton(
+                icon: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+                onPressed: () => navigateToPlantPage(context),
+              )
+            ],
+          ),
+          body: Stack(
+            children: [
+              PlantList(),
+              InProgressOverlay(
+                showOverlay: isLoading,
+                textDisplayed: "Loading",
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }
