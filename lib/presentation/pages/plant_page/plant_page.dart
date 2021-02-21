@@ -8,14 +8,29 @@ import 'package:get_it/get_it.dart';
 // Project imports:
 import 'package:planto/application/plant_page/bloc/plant_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
+import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:planto/presentation/pages/details_page/details_page.dart';
 import 'components/plant_list_item.dart';
 
 class PlantPage extends StatelessWidget {
-  const PlantPage({Key key, this.title}) : super(key: key);
+  const PlantPage({Key key, @required this.title}) : super(key: key);
 
   final String title;
 
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+        create: (context) =>
+            PlantBloc(plantRepository: GetIt.instance<IPlantRepository>())
+              ..add(const PlantEvent.loadPlants()),
+        child: PlantScaffold(title: title));
+  }
+}
+
+class PlantScaffold extends StatelessWidget {
+  final String title;
+
+  const PlantScaffold({Key key, @required this.title}) : super(key: key);
   void navigateToPlantPage(BuildContext context) {
     Navigator.push(
       context,
@@ -26,23 +41,23 @@ class PlantPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          PlantBloc(plantRepository: GetIt.instance<IPlantRepository>()),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-          actions: [
-            IconButton(
-              icon: const Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-              onPressed: () => navigateToPlantPage(context),
-            )
-          ],
-        ),
-        body: PlantList(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+            onPressed: () => navigateToPlantPage(context),
+          )
+        ],
+      ),
+      body: Stack(
+        children: [
+          PlantList(),
+        ],
       ),
     );
   }
