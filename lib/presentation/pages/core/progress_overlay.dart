@@ -1,32 +1,34 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-class SavingInProgressOverlay extends StatelessWidget {
-  final bool isSaving;
+class InProgressOverlay extends StatelessWidget {
+  final bool showOverlay;
+  final String textDisplayed;
 
-  const SavingInProgressOverlay({
+  const InProgressOverlay({
     Key key,
-    @required this.isSaving,
+    @required this.showOverlay,
+    @required this.textDisplayed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return IgnorePointer(
-      ignoring: !isSaving,
+      ignoring: !showOverlay,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
-        color: isSaving ? Colors.black.withOpacity(0.8) : Colors.transparent,
+        color: showOverlay ? Colors.black.withOpacity(0.8) : Colors.transparent,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Visibility(
-          visible: isSaving,
+          visible: showOverlay,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const CircularProgressIndicator(),
               const SizedBox(height: 8),
               Text(
-                'Saving',
+                textDisplayed,
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: Colors.white,
                       fontSize: 16,

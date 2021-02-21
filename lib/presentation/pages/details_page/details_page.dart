@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
@@ -13,7 +14,6 @@ import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/details_page/components/form.dart';
-import 'package:planto/presentation/pages/details_page/components/save_overlay.dart';
 
 class DetailsPage extends StatelessWidget {
   final Plant editablePlant;
@@ -62,7 +62,10 @@ class DetailsPageStack extends StatelessWidget {
         return Stack(
           children: [
             DetailsPageScaffold(),
-            SavingInProgressOverlay(isSaving: state.isSaving),
+            InProgressOverlay(
+              showOverlay: state.isSaving,
+              textDisplayed: "Saving",
+            ),
           ],
         );
       },
