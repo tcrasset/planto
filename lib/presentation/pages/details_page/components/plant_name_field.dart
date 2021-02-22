@@ -24,7 +24,19 @@ class PlantNameField extends StatefulWidget {
 }
 
 class _PlantNameFieldState extends State<PlantNameField> {
-  final TextEditingController _controller = TextEditingController();
+  TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

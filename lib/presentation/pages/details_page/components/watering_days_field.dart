@@ -13,17 +13,17 @@ class WateringDaysField extends StatefulWidget {
 }
 
 class _WateringDaysFieldState extends State<WateringDaysField> {
-  TextEditingController _lastWateredController;
+  TextEditingController _controller;
 
   @override
   void initState() {
     super.initState();
-    _lastWateredController = TextEditingController();
+    _controller = TextEditingController();
   }
 
   @override
   void dispose() {
-    _lastWateredController.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -31,11 +31,11 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
   Widget build(BuildContext context) {
     return BlocConsumer<DetailsPageBloc, DetailsPageState>(
       listener: (context, state) {
-        _lastWateredController
+        _controller
           ..text = state.plant.wateringDays.value
-              .fold((_) => null, (v) => v.toString())
-          ..selection = TextSelection.collapsed(
-              offset: _lastWateredController.text.length);
+              .fold((_) => '', (v) => v.toString())
+          ..selection =
+              TextSelection.collapsed(offset: _controller.text.length);
       },
       builder: (context, state) {
         return SizedBox(
@@ -44,12 +44,12 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
             validator: (_) => validateWateringDays(context),
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
-              helperText: 'Watering interval (days)',
+              helperText: 'Watering interval (days) ',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
             ),
-            controller: _lastWateredController,
+            controller: _controller,
             textAlign: TextAlign.center,
             onChanged: (value) => handleOnChangedEvent(context, value),
           ),

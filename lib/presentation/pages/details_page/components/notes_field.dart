@@ -14,7 +14,19 @@ class NotesField extends StatefulWidget {
 }
 
 class _NotesFieldState extends State<NotesField> {
-  final TextEditingController _controller = TextEditingController();
+  TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   void handleOnChangedEvent(BuildContext context, String value) {
     context.read<DetailsPageBloc>().add(DetailsPageEvent.noteChanged(
