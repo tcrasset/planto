@@ -22,10 +22,10 @@ class PlantCardWithName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: size,
-      height: size,
+      height: size + 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        // color: Colors.lightGreen[100],
+        color: Colors.lightGreen[100],
       ),
       child: Column(children: [
         Text(

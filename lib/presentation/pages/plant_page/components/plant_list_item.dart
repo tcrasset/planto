@@ -17,15 +17,13 @@ class PlantListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     const double buttonSize = 50;
     const double size = 200;
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Stack(children: [
-          PlantCardWithName(size: size, plant: plant),
-          WaterButton(buttonSize: buttonSize, plant: plant),
-          MoreInfoButton(buttonSize: buttonSize, plant: plant),
-        ]),
-      ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Stack(children: [
+        PlantCardWithName(size: size, plant: plant),
+        WaterButton(buttonSize: buttonSize, plant: plant),
+        MoreInfoButton(buttonSize: buttonSize, plant: plant),
+      ]),
     );
   }
 }

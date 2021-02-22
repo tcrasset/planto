@@ -70,10 +70,10 @@ class PlantScaffold extends StatelessWidget {
           body: Stack(
             children: [
               PlantList(),
-              InProgressOverlay(
-                showOverlay: isLoading,
-                textDisplayed: "Loading",
-              )
+              // InProgressOverlay(
+              //   showOverlay: isLoading,
+              //   textDisplayed: "Loading",
+              // )
             ],
           ),
         );

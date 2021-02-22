@@ -15,8 +15,8 @@ class PlantCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       elevation: 10,
-      margin: const EdgeInsets.all(10),
-      child: image,
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      child: SizedBox.expand(child: image),
     );
   }
 }
