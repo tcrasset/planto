@@ -80,6 +80,9 @@ class LastWateredFieldState extends State<LastWateredField> {
   Widget build(BuildContext context) {
     return BlocConsumer<DetailsPageBloc, DetailsPageState>(
       listener: (context, state) {
+        // If the lastWatered value return a ValueFailure, take the default value
+        // or the value stored in the plant if we are editing an
+        // existing one
         _dateTextEditingController.text = state.plant.lastWatered.value.fold(
           (f) => _selectedDateString,
           (v) => _formatDate(v),

@@ -14,6 +14,8 @@ class NotesField extends StatefulWidget {
 }
 
 class _NotesFieldState extends State<NotesField> {
+  final TextEditingController _controller = TextEditingController();
+
   void handleOnChangedEvent(BuildContext context, String value) {
     context.read<DetailsPageBloc>().add(DetailsPageEvent.noteChanged(
           value,
@@ -32,7 +34,13 @@ class _NotesFieldState extends State<NotesField> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+      listener: (context, state) {
+        _controller
+          ..text = state.plant.note.getOrCrash()
+          ..selection =
+              TextSelection.collapsed(offset: _controller.text.length);
+      },
       builder: (context, state) {
         return SizedBox(
             width: 280,
@@ -48,6 +56,7 @@ class _NotesFieldState extends State<NotesField> {
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                 ),
               ),
+              controller: _controller,
               onChanged: (value) => handleOnChangedEvent(context, value),
             ));
       },

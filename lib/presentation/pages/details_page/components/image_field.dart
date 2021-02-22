@@ -44,22 +44,12 @@ class _ImageFieldState extends State<ImageField> {
   Widget build(BuildContext context) {
     return BlocBuilder<DetailsPageBloc, DetailsPageState>(
       builder: (context, state) {
-        final Image newImage = state.plant.imagePath.value.fold(
-          (_) => Image.asset(
-            'images/succulent.jpg',
-            fit: BoxFit.fill,
-          ),
-          (imagePath) => Image.file(
-            File(imagePath),
-            fit: BoxFit.fill,
-          ),
-        );
         return Stack(
           children: [
             SizedBox(
               width: widget.size,
               height: widget.size,
-              child: PlantCard(image: newImage),
+              child: PlantCard(image: getNewImageFromState(state)),
             ),
             Positioned(
                 bottom: 0,
@@ -73,4 +63,17 @@ class _ImageFieldState extends State<ImageField> {
       },
     );
   }
+}
+
+Image getNewImageFromState(DetailsPageState state) {
+  return state.plant.imagePath.value.fold(
+    (_) => Image.asset(
+      'images/succulent.jpg',
+      fit: BoxFit.fill,
+    ),
+    (imagePath) => Image.file(
+      File(imagePath),
+      fit: BoxFit.fill,
+    ),
+  );
 }

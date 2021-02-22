@@ -29,14 +29,15 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
-      builder: (context, state) {
+    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+      listener: (context, state) {
         _lastWateredController
           ..text = state.plant.wateringDays.value
               .fold((_) => null, (v) => v.toString())
           ..selection = TextSelection.collapsed(
               offset: _lastWateredController.text.length);
-
+      },
+      builder: (context, state) {
         return SizedBox(
           width: 200,
           child: TextFormField(

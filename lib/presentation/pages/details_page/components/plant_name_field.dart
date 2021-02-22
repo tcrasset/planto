@@ -24,9 +24,19 @@ class PlantNameField extends StatefulWidget {
 }
 
 class _PlantNameFieldState extends State<PlantNameField> {
+  final TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+    final bool isLatinName = widget.hintText.toLowerCase().contains("latin");
+
+    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+      listener: (context, state) {
+        _controller
+          ..text = isLatinName ? getLatinName(state) : getName(state)
+          ..selection =
+              TextSelection.collapsed(offset: _controller.text.length);
+      },
       builder: (context, state) {
         return SizedBox(
           width: 300,
@@ -39,10 +49,22 @@ class _PlantNameFieldState extends State<PlantNameField> {
               ),
             ),
             textAlign: TextAlign.center,
+            controller: _controller,
             onChanged: (value) => widget.onNameChange(context, value),
           ),
         );
       },
     );
   }
+
+  String getName(DetailsPageState state) => state.plant.name.value.fold(
+        (f) => "",
+        (v) => v,
+      );
+
+  String getLatinName(DetailsPageState state) =>
+      state.plant.latinName.value.fold(
+        (f) => "",
+        (v) => v,
+      );
 }
