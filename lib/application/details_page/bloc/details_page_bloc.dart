@@ -39,7 +39,8 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
       initialized: (Initialized e) async* {
         yield e.initialPlantOption.fold(
           () => state,
-          (initialPlant) => state.copyWith(plant: initialPlant),
+          (initialPlant) =>
+              state.copyWith(plant: initialPlant, isEditing: true),
         );
       },
       standardNameChanged: (StandardNameChanged e) async* {
@@ -74,22 +75,15 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
           );
         }
       },
+      wateringDaysChanged: (WateringDaysChanged e) async* {
+        yield state.copyWith(
+          plant: state.plant.copyWith(wateringDays: WateringDays(e.days)),
+          saveFailureOrSuccessOption: none(),
+        );
+      },
       noteChanged: (NoteChanged e) async* {
         yield state.copyWith(
           plant: state.plant.copyWith(note: Note(e.noteBody)),
-          saveFailureOrSuccessOption: none(),
-        );
-      },
-      wateringDaysChanged: (WateringDaysChanged e) async* {
-        state.copyWith(
-          plant: state.plant.copyWith(wateringDays: WateringDays(e.days)),
-          showErrorMessages: true,
-          saveFailureOrSuccessOption: none(),
-        );
-      },
-      newPlantSubmitted: (NewPlantSubmitted e) async* {
-        yield state.copyWith(
-          showErrorMessages: true,
           saveFailureOrSuccessOption: none(),
         );
       },
@@ -103,11 +97,6 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
           failureOrSuccess = state.isEditing
               ? await plantRepository.update(state.plant)
               : await plantRepository.create(state.plant);
-
-          failureOrSuccess.fold(
-            (failure) => print(failure),
-            (_) => print("Everything ok"),
-          );
         }
         await Future.delayed(const Duration(milliseconds: 500));
         yield state.copyWith(

@@ -31,3 +31,34 @@ class SimpleBlocObserver extends BlocObserver {
     super.onError(cubit, error, stackTrace);
   }
 }
+
+String getOnlyDifferences(Cubit cubit, Change change) {
+  String n = change.nextState.toString().replaceAll(RegExp(r","), "\n");
+  String c = change.currentState.toString().replaceAll(RegExp(r","), "\n");
+
+  print("""
+
++++++++++++++++++++++++++++++++++
++    ${cubit.runtimeType}       +
++++++++++++++++++++++++++++++++++
+
+#################################
+#                               #
+# ***********CURRENT*********** #
+#                               #
+#################################
+
+$c
+
+#################################
+#                               #
+# ***********NEXT*********** #
+#                               #
+#################################
+
+$n
+
+""");
+
+  return "";
+}

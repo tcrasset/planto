@@ -15,8 +15,5 @@ abstract class DetailsPageEvent with _$DetailsPageEvent {
       WateringDaysChanged;
   const factory DetailsPageEvent.noteChanged(String noteBody) = NoteChanged;
   const factory DetailsPageEvent.imageChanged(String imagePath) = ImageChanged;
-  const factory DetailsPageEvent.newPlantSubmitted(Plant plant) =
-      NewPlantSubmitted;
-
   const factory DetailsPageEvent.saved() = Saved;
 }

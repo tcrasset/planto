@@ -63,13 +63,6 @@ class _$DetailsPageEventTearOff {
   }
 
 // ignore: unused_element
-  NewPlantSubmitted newPlantSubmitted(Plant plant) {
-    return NewPlantSubmitted(
-      plant,
-    );
-  }
-
-// ignore: unused_element
   Saved saved() {
     return const Saved();
   }
@@ -90,7 +83,6 @@ mixin _$DetailsPageEvent {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   });
   @optionalTypeArgs
@@ -102,7 +94,6 @@ mixin _$DetailsPageEvent {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   });
@@ -115,7 +106,6 @@ mixin _$DetailsPageEvent {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   });
   @optionalTypeArgs
@@ -127,7 +117,6 @@ mixin _$DetailsPageEvent {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   });
@@ -223,7 +212,6 @@ class _$Initialized implements Initialized {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -233,7 +221,6 @@ class _$Initialized implements Initialized {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return initialized(initialPlantOption);
   }
@@ -248,7 +235,6 @@ class _$Initialized implements Initialized {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -269,7 +255,6 @@ class _$Initialized implements Initialized {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -279,7 +264,6 @@ class _$Initialized implements Initialized {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return initialized(this);
   }
@@ -294,7 +278,6 @@ class _$Initialized implements Initialized {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
@@ -382,7 +365,6 @@ class _$StandardNameChanged implements StandardNameChanged {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -392,7 +374,6 @@ class _$StandardNameChanged implements StandardNameChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return standardNameChanged(name);
   }
@@ -407,7 +388,6 @@ class _$StandardNameChanged implements StandardNameChanged {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -428,7 +408,6 @@ class _$StandardNameChanged implements StandardNameChanged {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -438,7 +417,6 @@ class _$StandardNameChanged implements StandardNameChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return standardNameChanged(this);
   }
@@ -453,7 +431,6 @@ class _$StandardNameChanged implements StandardNameChanged {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
@@ -541,7 +518,6 @@ class _$LatinNameChanged implements LatinNameChanged {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -551,7 +527,6 @@ class _$LatinNameChanged implements LatinNameChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return latinNameChanged(name);
   }
@@ -566,7 +541,6 @@ class _$LatinNameChanged implements LatinNameChanged {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -587,7 +561,6 @@ class _$LatinNameChanged implements LatinNameChanged {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -597,7 +570,6 @@ class _$LatinNameChanged implements LatinNameChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return latinNameChanged(this);
   }
@@ -612,7 +584,6 @@ class _$LatinNameChanged implements LatinNameChanged {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
@@ -700,7 +671,6 @@ class _$LastWateredChanged implements LastWateredChanged {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -710,7 +680,6 @@ class _$LastWateredChanged implements LastWateredChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return lastWateredChanged(date);
   }
@@ -725,7 +694,6 @@ class _$LastWateredChanged implements LastWateredChanged {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -746,7 +714,6 @@ class _$LastWateredChanged implements LastWateredChanged {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -756,7 +723,6 @@ class _$LastWateredChanged implements LastWateredChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return lastWateredChanged(this);
   }
@@ -771,7 +737,6 @@ class _$LastWateredChanged implements LastWateredChanged {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
@@ -859,7 +824,6 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -869,7 +833,6 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return wateringDaysChanged(days);
   }
@@ -884,7 +847,6 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -905,7 +867,6 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -915,7 +876,6 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return wateringDaysChanged(this);
   }
@@ -930,7 +890,6 @@ class _$WateringDaysChanged implements WateringDaysChanged {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
@@ -1019,7 +978,6 @@ class _$NoteChanged implements NoteChanged {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -1029,7 +987,6 @@ class _$NoteChanged implements NoteChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return noteChanged(noteBody);
   }
@@ -1044,7 +1001,6 @@ class _$NoteChanged implements NoteChanged {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -1065,7 +1021,6 @@ class _$NoteChanged implements NoteChanged {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -1075,7 +1030,6 @@ class _$NoteChanged implements NoteChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return noteChanged(this);
   }
@@ -1090,7 +1044,6 @@ class _$NoteChanged implements NoteChanged {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
@@ -1179,7 +1132,6 @@ class _$ImageChanged implements ImageChanged {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -1189,7 +1141,6 @@ class _$ImageChanged implements ImageChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return imageChanged(imagePath);
   }
@@ -1204,7 +1155,6 @@ class _$ImageChanged implements ImageChanged {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -1225,7 +1175,6 @@ class _$ImageChanged implements ImageChanged {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -1235,7 +1184,6 @@ class _$ImageChanged implements ImageChanged {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return imageChanged(this);
   }
@@ -1250,7 +1198,6 @@ class _$ImageChanged implements ImageChanged {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
@@ -1268,177 +1215,6 @@ abstract class ImageChanged implements DetailsPageEvent {
   String get imagePath;
   @JsonKey(ignore: true)
   $ImageChangedCopyWith<ImageChanged> get copyWith;
-}
-
-/// @nodoc
-abstract class $NewPlantSubmittedCopyWith<$Res> {
-  factory $NewPlantSubmittedCopyWith(
-          NewPlantSubmitted value, $Res Function(NewPlantSubmitted) then) =
-      _$NewPlantSubmittedCopyWithImpl<$Res>;
-  $Res call({Plant plant});
-
-  $PlantCopyWith<$Res> get plant;
-}
-
-/// @nodoc
-class _$NewPlantSubmittedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
-    implements $NewPlantSubmittedCopyWith<$Res> {
-  _$NewPlantSubmittedCopyWithImpl(
-      NewPlantSubmitted _value, $Res Function(NewPlantSubmitted) _then)
-      : super(_value, (v) => _then(v as NewPlantSubmitted));
-
-  @override
-  NewPlantSubmitted get _value => super._value as NewPlantSubmitted;
-
-  @override
-  $Res call({
-    Object plant = freezed,
-  }) {
-    return _then(NewPlantSubmitted(
-      plant == freezed ? _value.plant : plant as Plant,
-    ));
-  }
-
-  @override
-  $PlantCopyWith<$Res> get plant {
-    if (_value.plant == null) {
-      return null;
-    }
-    return $PlantCopyWith<$Res>(_value.plant, (value) {
-      return _then(_value.copyWith(plant: value));
-    });
-  }
-}
-
-/// @nodoc
-class _$NewPlantSubmitted implements NewPlantSubmitted {
-  const _$NewPlantSubmitted(this.plant) : assert(plant != null);
-
-  @override
-  final Plant plant;
-
-  @override
-  String toString() {
-    return 'DetailsPageEvent.newPlantSubmitted(plant: $plant)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is NewPlantSubmitted &&
-            (identical(other.plant, plant) ||
-                const DeepCollectionEquality().equals(other.plant, plant)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(plant);
-
-  @JsonKey(ignore: true)
-  @override
-  $NewPlantSubmittedCopyWith<NewPlantSubmitted> get copyWith =>
-      _$NewPlantSubmittedCopyWithImpl<NewPlantSubmitted>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(Option<Plant> initialPlantOption),
-    @required TResult standardNameChanged(String name),
-    @required TResult latinNameChanged(String name),
-    @required TResult lastWateredChanged(String date),
-    @required TResult wateringDaysChanged(String days),
-    @required TResult noteChanged(String noteBody),
-    @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
-    @required TResult saved(),
-  }) {
-    assert(initialized != null);
-    assert(standardNameChanged != null);
-    assert(latinNameChanged != null);
-    assert(lastWateredChanged != null);
-    assert(wateringDaysChanged != null);
-    assert(noteChanged != null);
-    assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
-    assert(saved != null);
-    return newPlantSubmitted(plant);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(Option<Plant> initialPlantOption),
-    TResult standardNameChanged(String name),
-    TResult latinNameChanged(String name),
-    TResult lastWateredChanged(String date),
-    TResult wateringDaysChanged(String days),
-    TResult noteChanged(String noteBody),
-    TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
-    TResult saved(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (newPlantSubmitted != null) {
-      return newPlantSubmitted(plant);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult standardNameChanged(StandardNameChanged value),
-    @required TResult latinNameChanged(LatinNameChanged value),
-    @required TResult lastWateredChanged(LastWateredChanged value),
-    @required TResult wateringDaysChanged(WateringDaysChanged value),
-    @required TResult noteChanged(NoteChanged value),
-    @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
-    @required TResult saved(Saved value),
-  }) {
-    assert(initialized != null);
-    assert(standardNameChanged != null);
-    assert(latinNameChanged != null);
-    assert(lastWateredChanged != null);
-    assert(wateringDaysChanged != null);
-    assert(noteChanged != null);
-    assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
-    assert(saved != null);
-    return newPlantSubmitted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult standardNameChanged(StandardNameChanged value),
-    TResult latinNameChanged(LatinNameChanged value),
-    TResult lastWateredChanged(LastWateredChanged value),
-    TResult wateringDaysChanged(WateringDaysChanged value),
-    TResult noteChanged(NoteChanged value),
-    TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
-    TResult saved(Saved value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (newPlantSubmitted != null) {
-      return newPlantSubmitted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class NewPlantSubmitted implements DetailsPageEvent {
-  const factory NewPlantSubmitted(Plant plant) = _$NewPlantSubmitted;
-
-  Plant get plant;
-  @JsonKey(ignore: true)
-  $NewPlantSubmittedCopyWith<NewPlantSubmitted> get copyWith;
 }
 
 /// @nodoc
@@ -1484,7 +1260,6 @@ class _$Saved implements Saved {
     @required TResult wateringDaysChanged(String days),
     @required TResult noteChanged(String noteBody),
     @required TResult imageChanged(String imagePath),
-    @required TResult newPlantSubmitted(Plant plant),
     @required TResult saved(),
   }) {
     assert(initialized != null);
@@ -1494,7 +1269,6 @@ class _$Saved implements Saved {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return saved();
   }
@@ -1509,7 +1283,6 @@ class _$Saved implements Saved {
     TResult wateringDaysChanged(String days),
     TResult noteChanged(String noteBody),
     TResult imageChanged(String imagePath),
-    TResult newPlantSubmitted(Plant plant),
     TResult saved(),
     @required TResult orElse(),
   }) {
@@ -1530,7 +1303,6 @@ class _$Saved implements Saved {
     @required TResult wateringDaysChanged(WateringDaysChanged value),
     @required TResult noteChanged(NoteChanged value),
     @required TResult imageChanged(ImageChanged value),
-    @required TResult newPlantSubmitted(NewPlantSubmitted value),
     @required TResult saved(Saved value),
   }) {
     assert(initialized != null);
@@ -1540,7 +1312,6 @@ class _$Saved implements Saved {
     assert(wateringDaysChanged != null);
     assert(noteChanged != null);
     assert(imageChanged != null);
-    assert(newPlantSubmitted != null);
     assert(saved != null);
     return saved(this);
   }
@@ -1555,7 +1326,6 @@ class _$Saved implements Saved {
     TResult wateringDaysChanged(WateringDaysChanged value),
     TResult noteChanged(NoteChanged value),
     TResult imageChanged(ImageChanged value),
-    TResult newPlantSubmitted(NewPlantSubmitted value),
     TResult saved(Saved value),
     @required TResult orElse(),
   }) {
