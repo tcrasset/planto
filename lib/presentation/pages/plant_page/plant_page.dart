@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -33,6 +34,7 @@ class PlantScaffold extends StatelessWidget {
   final String title;
 
   const PlantScaffold({Key key, @required this.title}) : super(key: key);
+
   void navigateToPlantPage(BuildContext context) {
     Navigator.push(
       context,
@@ -43,16 +45,28 @@ class PlantScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isLoading = true;
+    bool isLoading = false;
     return BlocConsumer<PlantBloc, PlantState>(
       listener: (context, state) {
-        isLoading = state.map(
+        isLoading = state.maybeMap(
           initial: (_) => true,
           loading: (_) => true,
-          loadFailure: (_) => false,
-          loadSuccess: (_) => false,
-          deleteFailure: (_) => false,
+          orElse: () => false,
         );
+
+        final String errorMessage = state.map(
+          initial: (_) => null,
+          loadSuccess: (_) => null,
+          loading: (_) => null,
+          deleteFailure: (_) =>
+              "Failure during deletion. Please contact support.",
+          loadFailure: (_) =>
+              "Failed to load the plants. Please contact support.",
+        );
+
+        if (errorMessage != null) {
+          FlushbarHelper.createError(message: errorMessage).show(context);
+        }
       },
       builder: (context, state) {
         return Scaffold(
@@ -83,39 +97,21 @@ class PlantScaffold extends StatelessWidget {
   }
 }
 
-class PlantList extends StatefulWidget {
-  @override
-  _PlantListState createState() => _PlantListState();
-}
+class PlantList extends StatelessWidget {
+  List<PlantListItem> _getPlants(LoadSuccess newState) {
+    return newState.plants.map((plant) => PlantListItem(plant: plant)).toList();
+  }
 
-class _PlantListState extends State<PlantList> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PlantBloc, PlantState>(
       builder: (context, state) {
-        return state.map(
-          initial: (_) => Container(),
-          loading: (_) => Container(),
-          loadFailure: (LoadFailure value) => Center(
-            child: Text(
-              value.plantFailure
-                  .maybeMap(unexpected: (f) => f.message, orElse: () => null),
-            ),
-          ),
-          deleteFailure: (DeleteFailure value) => Center(
-            child: Text(
-              value.plantFailure
-                  .maybeMap(unexpected: (f) => f.message, orElse: () => null),
-            ),
-          ),
+        return state.maybeMap(
           loadSuccess: (LoadSuccess newState) =>
-              GridView.count(crossAxisCount: 2, children: getPlants(newState)),
+              GridView.count(crossAxisCount: 2, children: _getPlants(newState)),
+          orElse: () => Container(),
         );
       },
     );
   }
-}
-
-List<PlantListItem> getPlants(LoadSuccess newState) {
-  return newState.plants.map((plant) => PlantListItem(plant: plant)).toList();
 }
