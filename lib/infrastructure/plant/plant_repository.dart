@@ -86,8 +86,9 @@ class SembastPlantRepository implements IPlantRepository {
     return plantDto.toDomain();
   }
 
-  /// Listen for changes on any note
-  Future<Either<ValueFailure, Stream<List<Plant>>>> watchAllPlants() async {
+  /// Listen for changes on any plant
+  @override
+  Either<ValueFailure, Stream<List<Plant>>> watchAllPlants() {
     try {
       // Get a stream of snapshots from the dataase
       final snapshotStream = _plantStore

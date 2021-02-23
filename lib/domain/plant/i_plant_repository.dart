@@ -10,4 +10,5 @@ abstract class IPlantRepository {
   Future<Either<ValueFailure, Unit>> update(Plant plant);
   Future<Either<ValueFailure, Unit>> delete(Plant plant);
   Future<Either<ValueFailure, List<Plant>>> getAllPlants();
+  Either<ValueFailure, Stream<List<Plant>>> watchAllPlants();
 }
