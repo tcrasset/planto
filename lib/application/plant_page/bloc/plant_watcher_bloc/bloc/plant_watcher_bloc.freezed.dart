@@ -265,15 +265,15 @@ class _$PlantWatcherStateTearOff {
   }
 
 // ignore: unused_element
-  LoadSuccess loadSuccess(List<Plant> plants) {
-    return LoadSuccess(
+  PlantLoadSuccess loadSuccess(List<Plant> plants) {
+    return PlantLoadSuccess(
       plants,
     );
   }
 
 // ignore: unused_element
-  LoadFailure loadFailure(ValueFailure<dynamic> plantFailure) {
-    return LoadFailure(
+  PlantLoadFailure loadFailure(ValueFailure<dynamic> plantFailure) {
+    return PlantLoadFailure(
       plantFailure,
     );
   }
@@ -304,15 +304,15 @@ mixin _$PlantWatcherState {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSuccess value),
-    @required TResult loadFailure(LoadFailure value),
+    @required TResult loadSuccess(PlantLoadSuccess value),
+    @required TResult loadFailure(PlantLoadFailure value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loading(Loading value),
-    TResult loadSuccess(LoadSuccess value),
-    TResult loadFailure(LoadFailure value),
+    TResult loadSuccess(PlantLoadSuccess value),
+    TResult loadFailure(PlantLoadFailure value),
     @required TResult orElse(),
   });
 }
@@ -403,8 +403,8 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSuccess value),
-    @required TResult loadFailure(LoadFailure value),
+    @required TResult loadSuccess(PlantLoadSuccess value),
+    @required TResult loadFailure(PlantLoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -418,8 +418,8 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loading(Loading value),
-    TResult loadSuccess(LoadSuccess value),
-    TResult loadFailure(LoadFailure value),
+    TResult loadSuccess(PlantLoadSuccess value),
+    TResult loadFailure(PlantLoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -503,8 +503,8 @@ class _$Loading implements Loading {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSuccess value),
-    @required TResult loadFailure(LoadFailure value),
+    @required TResult loadSuccess(PlantLoadSuccess value),
+    @required TResult loadFailure(PlantLoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -518,8 +518,8 @@ class _$Loading implements Loading {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loading(Loading value),
-    TResult loadSuccess(LoadSuccess value),
-    TResult loadFailure(LoadFailure value),
+    TResult loadSuccess(PlantLoadSuccess value),
+    TResult loadFailure(PlantLoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -535,37 +535,37 @@ abstract class Loading implements PlantWatcherState {
 }
 
 /// @nodoc
-abstract class $LoadSuccessCopyWith<$Res> {
-  factory $LoadSuccessCopyWith(
-          LoadSuccess value, $Res Function(LoadSuccess) then) =
-      _$LoadSuccessCopyWithImpl<$Res>;
+abstract class $PlantLoadSuccessCopyWith<$Res> {
+  factory $PlantLoadSuccessCopyWith(
+          PlantLoadSuccess value, $Res Function(PlantLoadSuccess) then) =
+      _$PlantLoadSuccessCopyWithImpl<$Res>;
   $Res call({List<Plant> plants});
 }
 
 /// @nodoc
-class _$LoadSuccessCopyWithImpl<$Res>
+class _$PlantLoadSuccessCopyWithImpl<$Res>
     extends _$PlantWatcherStateCopyWithImpl<$Res>
-    implements $LoadSuccessCopyWith<$Res> {
-  _$LoadSuccessCopyWithImpl(
-      LoadSuccess _value, $Res Function(LoadSuccess) _then)
-      : super(_value, (v) => _then(v as LoadSuccess));
+    implements $PlantLoadSuccessCopyWith<$Res> {
+  _$PlantLoadSuccessCopyWithImpl(
+      PlantLoadSuccess _value, $Res Function(PlantLoadSuccess) _then)
+      : super(_value, (v) => _then(v as PlantLoadSuccess));
 
   @override
-  LoadSuccess get _value => super._value as LoadSuccess;
+  PlantLoadSuccess get _value => super._value as PlantLoadSuccess;
 
   @override
   $Res call({
     Object plants = freezed,
   }) {
-    return _then(LoadSuccess(
+    return _then(PlantLoadSuccess(
       plants == freezed ? _value.plants : plants as List<Plant>,
     ));
   }
 }
 
 /// @nodoc
-class _$LoadSuccess implements LoadSuccess {
-  const _$LoadSuccess(this.plants) : assert(plants != null);
+class _$PlantLoadSuccess implements PlantLoadSuccess {
+  const _$PlantLoadSuccess(this.plants) : assert(plants != null);
 
   @override
   final List<Plant> plants;
@@ -578,7 +578,7 @@ class _$LoadSuccess implements LoadSuccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadSuccess &&
+        (other is PlantLoadSuccess &&
             (identical(other.plants, plants) ||
                 const DeepCollectionEquality().equals(other.plants, plants)));
   }
@@ -589,8 +589,8 @@ class _$LoadSuccess implements LoadSuccess {
 
   @JsonKey(ignore: true)
   @override
-  $LoadSuccessCopyWith<LoadSuccess> get copyWith =>
-      _$LoadSuccessCopyWithImpl<LoadSuccess>(this, _$identity);
+  $PlantLoadSuccessCopyWith<PlantLoadSuccess> get copyWith =>
+      _$PlantLoadSuccessCopyWithImpl<PlantLoadSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -628,8 +628,8 @@ class _$LoadSuccess implements LoadSuccess {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSuccess value),
-    @required TResult loadFailure(LoadFailure value),
+    @required TResult loadSuccess(PlantLoadSuccess value),
+    @required TResult loadFailure(PlantLoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -643,8 +643,8 @@ class _$LoadSuccess implements LoadSuccess {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loading(Loading value),
-    TResult loadSuccess(LoadSuccess value),
-    TResult loadFailure(LoadFailure value),
+    TResult loadSuccess(PlantLoadSuccess value),
+    TResult loadFailure(PlantLoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -655,40 +655,40 @@ class _$LoadSuccess implements LoadSuccess {
   }
 }
 
-abstract class LoadSuccess implements PlantWatcherState {
-  const factory LoadSuccess(List<Plant> plants) = _$LoadSuccess;
+abstract class PlantLoadSuccess implements PlantWatcherState {
+  const factory PlantLoadSuccess(List<Plant> plants) = _$PlantLoadSuccess;
 
   List<Plant> get plants;
   @JsonKey(ignore: true)
-  $LoadSuccessCopyWith<LoadSuccess> get copyWith;
+  $PlantLoadSuccessCopyWith<PlantLoadSuccess> get copyWith;
 }
 
 /// @nodoc
-abstract class $LoadFailureCopyWith<$Res> {
-  factory $LoadFailureCopyWith(
-          LoadFailure value, $Res Function(LoadFailure) then) =
-      _$LoadFailureCopyWithImpl<$Res>;
+abstract class $PlantLoadFailureCopyWith<$Res> {
+  factory $PlantLoadFailureCopyWith(
+          PlantLoadFailure value, $Res Function(PlantLoadFailure) then) =
+      _$PlantLoadFailureCopyWithImpl<$Res>;
   $Res call({ValueFailure<dynamic> plantFailure});
 
   $ValueFailureCopyWith<dynamic, $Res> get plantFailure;
 }
 
 /// @nodoc
-class _$LoadFailureCopyWithImpl<$Res>
+class _$PlantLoadFailureCopyWithImpl<$Res>
     extends _$PlantWatcherStateCopyWithImpl<$Res>
-    implements $LoadFailureCopyWith<$Res> {
-  _$LoadFailureCopyWithImpl(
-      LoadFailure _value, $Res Function(LoadFailure) _then)
-      : super(_value, (v) => _then(v as LoadFailure));
+    implements $PlantLoadFailureCopyWith<$Res> {
+  _$PlantLoadFailureCopyWithImpl(
+      PlantLoadFailure _value, $Res Function(PlantLoadFailure) _then)
+      : super(_value, (v) => _then(v as PlantLoadFailure));
 
   @override
-  LoadFailure get _value => super._value as LoadFailure;
+  PlantLoadFailure get _value => super._value as PlantLoadFailure;
 
   @override
   $Res call({
     Object plantFailure = freezed,
   }) {
-    return _then(LoadFailure(
+    return _then(PlantLoadFailure(
       plantFailure == freezed
           ? _value.plantFailure
           : plantFailure as ValueFailure<dynamic>,
@@ -707,8 +707,8 @@ class _$LoadFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$LoadFailure implements LoadFailure {
-  const _$LoadFailure(this.plantFailure) : assert(plantFailure != null);
+class _$PlantLoadFailure implements PlantLoadFailure {
+  const _$PlantLoadFailure(this.plantFailure) : assert(plantFailure != null);
 
   @override
   final ValueFailure<dynamic> plantFailure;
@@ -721,7 +721,7 @@ class _$LoadFailure implements LoadFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadFailure &&
+        (other is PlantLoadFailure &&
             (identical(other.plantFailure, plantFailure) ||
                 const DeepCollectionEquality()
                     .equals(other.plantFailure, plantFailure)));
@@ -733,8 +733,8 @@ class _$LoadFailure implements LoadFailure {
 
   @JsonKey(ignore: true)
   @override
-  $LoadFailureCopyWith<LoadFailure> get copyWith =>
-      _$LoadFailureCopyWithImpl<LoadFailure>(this, _$identity);
+  $PlantLoadFailureCopyWith<PlantLoadFailure> get copyWith =>
+      _$PlantLoadFailureCopyWithImpl<PlantLoadFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -772,8 +772,8 @@ class _$LoadFailure implements LoadFailure {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loading(Loading value),
-    @required TResult loadSuccess(LoadSuccess value),
-    @required TResult loadFailure(LoadFailure value),
+    @required TResult loadSuccess(PlantLoadSuccess value),
+    @required TResult loadFailure(PlantLoadFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -787,8 +787,8 @@ class _$LoadFailure implements LoadFailure {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loading(Loading value),
-    TResult loadSuccess(LoadSuccess value),
-    TResult loadFailure(LoadFailure value),
+    TResult loadSuccess(PlantLoadSuccess value),
+    TResult loadFailure(PlantLoadFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -799,10 +799,11 @@ class _$LoadFailure implements LoadFailure {
   }
 }
 
-abstract class LoadFailure implements PlantWatcherState {
-  const factory LoadFailure(ValueFailure<dynamic> plantFailure) = _$LoadFailure;
+abstract class PlantLoadFailure implements PlantWatcherState {
+  const factory PlantLoadFailure(ValueFailure<dynamic> plantFailure) =
+      _$PlantLoadFailure;
 
   ValueFailure<dynamic> get plantFailure;
   @JsonKey(ignore: true)
-  $LoadFailureCopyWith<LoadFailure> get copyWith;
+  $PlantLoadFailureCopyWith<PlantLoadFailure> get copyWith;
 }
