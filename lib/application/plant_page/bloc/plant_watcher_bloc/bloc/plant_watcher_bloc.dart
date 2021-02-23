@@ -29,16 +29,7 @@ class PlantWatcherBloc extends Bloc<PlantWatcherEvent, PlantWatcherState> {
   Stream<PlantWatcherState> mapEventToState(
     PlantWatcherEvent event,
   ) async* {
-    yield* event.map(loadPlants: (PlantsLoaded e) async* {
-      yield const PlantWatcherState.loading();
-      final Either<ValueFailure<dynamic>, List<Plant>> plants =
-          await plantRepository.getAllPlants();
-
-      yield plants.fold(
-        (f) => PlantWatcherState.loadFailure(f),
-        (items) => PlantWatcherState.loadSuccess(items),
-      );
-    }, watchPlantsStarted: (PlantsWatchStarted e) async* {
+    yield* event.map(watchPlantsStarted: (PlantsWatchStarted e) async* {
       yield const PlantWatcherState.loading();
       await _plantStreamSubscription?.cancel();
 

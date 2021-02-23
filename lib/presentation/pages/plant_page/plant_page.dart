@@ -31,7 +31,7 @@ class PlantPage extends StatelessWidget {
       BlocProvider<PlantWatcherBloc>(
         create: (context) => PlantWatcherBloc(
             plantRepository: GetIt.instance<IPlantRepository>())
-          ..add(const PlantWatcherEvent.loadPlants()),
+          ..add(const PlantWatcherEvent.watchPlantsStarted()),
       ),
     ], child: PlantScaffold(title: title));
   }

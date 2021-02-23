@@ -14,11 +14,6 @@ class _$PlantWatcherEventTearOff {
   const _$PlantWatcherEventTearOff();
 
 // ignore: unused_element
-  PlantsLoaded loadPlants() {
-    return const PlantsLoaded();
-  }
-
-// ignore: unused_element
   PlantsWatchStarted watchPlantsStarted() {
     return const PlantsWatchStarted();
   }
@@ -39,26 +34,22 @@ const $PlantWatcherEvent = _$PlantWatcherEventTearOff();
 mixin _$PlantWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult loadPlants(),
     @required TResult watchPlantsStarted(),
     @required TResult plantsReceived(List<Plant> plants),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult loadPlants(),
     TResult watchPlantsStarted(),
     TResult plantsReceived(List<Plant> plants),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult loadPlants(PlantsLoaded value),
     @required TResult watchPlantsStarted(PlantsWatchStarted value),
     @required TResult plantsReceived(PlantsReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult loadPlants(PlantsLoaded value),
     TResult watchPlantsStarted(PlantsWatchStarted value),
     TResult plantsReceived(PlantsReceived value),
     @required TResult orElse(),
@@ -80,103 +71,6 @@ class _$PlantWatcherEventCopyWithImpl<$Res>
   final PlantWatcherEvent _value;
   // ignore: unused_field
   final $Res Function(PlantWatcherEvent) _then;
-}
-
-/// @nodoc
-abstract class $PlantsLoadedCopyWith<$Res> {
-  factory $PlantsLoadedCopyWith(
-          PlantsLoaded value, $Res Function(PlantsLoaded) then) =
-      _$PlantsLoadedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$PlantsLoadedCopyWithImpl<$Res>
-    extends _$PlantWatcherEventCopyWithImpl<$Res>
-    implements $PlantsLoadedCopyWith<$Res> {
-  _$PlantsLoadedCopyWithImpl(
-      PlantsLoaded _value, $Res Function(PlantsLoaded) _then)
-      : super(_value, (v) => _then(v as PlantsLoaded));
-
-  @override
-  PlantsLoaded get _value => super._value as PlantsLoaded;
-}
-
-/// @nodoc
-class _$PlantsLoaded implements PlantsLoaded {
-  const _$PlantsLoaded();
-
-  @override
-  String toString() {
-    return 'PlantWatcherEvent.loadPlants()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is PlantsLoaded);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loadPlants(),
-    @required TResult watchPlantsStarted(),
-    @required TResult plantsReceived(List<Plant> plants),
-  }) {
-    assert(loadPlants != null);
-    assert(watchPlantsStarted != null);
-    assert(plantsReceived != null);
-    return loadPlants();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loadPlants(),
-    TResult watchPlantsStarted(),
-    TResult plantsReceived(List<Plant> plants),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadPlants != null) {
-      return loadPlants();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loadPlants(PlantsLoaded value),
-    @required TResult watchPlantsStarted(PlantsWatchStarted value),
-    @required TResult plantsReceived(PlantsReceived value),
-  }) {
-    assert(loadPlants != null);
-    assert(watchPlantsStarted != null);
-    assert(plantsReceived != null);
-    return loadPlants(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loadPlants(PlantsLoaded value),
-    TResult watchPlantsStarted(PlantsWatchStarted value),
-    TResult plantsReceived(PlantsReceived value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadPlants != null) {
-      return loadPlants(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class PlantsLoaded implements PlantWatcherEvent {
-  const factory PlantsLoaded() = _$PlantsLoaded;
 }
 
 /// @nodoc
@@ -218,11 +112,9 @@ class _$PlantsWatchStarted implements PlantsWatchStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult loadPlants(),
     @required TResult watchPlantsStarted(),
     @required TResult plantsReceived(List<Plant> plants),
   }) {
-    assert(loadPlants != null);
     assert(watchPlantsStarted != null);
     assert(plantsReceived != null);
     return watchPlantsStarted();
@@ -231,7 +123,6 @@ class _$PlantsWatchStarted implements PlantsWatchStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult loadPlants(),
     TResult watchPlantsStarted(),
     TResult plantsReceived(List<Plant> plants),
     @required TResult orElse(),
@@ -246,11 +137,9 @@ class _$PlantsWatchStarted implements PlantsWatchStarted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult loadPlants(PlantsLoaded value),
     @required TResult watchPlantsStarted(PlantsWatchStarted value),
     @required TResult plantsReceived(PlantsReceived value),
   }) {
-    assert(loadPlants != null);
     assert(watchPlantsStarted != null);
     assert(plantsReceived != null);
     return watchPlantsStarted(this);
@@ -259,7 +148,6 @@ class _$PlantsWatchStarted implements PlantsWatchStarted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult loadPlants(PlantsLoaded value),
     TResult watchPlantsStarted(PlantsWatchStarted value),
     TResult plantsReceived(PlantsReceived value),
     @required TResult orElse(),
@@ -337,11 +225,9 @@ class _$PlantsReceived implements PlantsReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult loadPlants(),
     @required TResult watchPlantsStarted(),
     @required TResult plantsReceived(List<Plant> plants),
   }) {
-    assert(loadPlants != null);
     assert(watchPlantsStarted != null);
     assert(plantsReceived != null);
     return plantsReceived(plants);
@@ -350,7 +236,6 @@ class _$PlantsReceived implements PlantsReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult loadPlants(),
     TResult watchPlantsStarted(),
     TResult plantsReceived(List<Plant> plants),
     @required TResult orElse(),
@@ -365,11 +250,9 @@ class _$PlantsReceived implements PlantsReceived {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult loadPlants(PlantsLoaded value),
     @required TResult watchPlantsStarted(PlantsWatchStarted value),
     @required TResult plantsReceived(PlantsReceived value),
   }) {
-    assert(loadPlants != null);
     assert(watchPlantsStarted != null);
     assert(plantsReceived != null);
     return plantsReceived(this);
@@ -378,7 +261,6 @@ class _$PlantsReceived implements PlantsReceived {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult loadPlants(PlantsLoaded value),
     TResult watchPlantsStarted(PlantsWatchStarted value),
     TResult plantsReceived(PlantsReceived value),
     @required TResult orElse(),
