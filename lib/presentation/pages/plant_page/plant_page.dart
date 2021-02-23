@@ -22,11 +22,13 @@ class PlantPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return MultiBlocProvider(providers: [
+      BlocProvider(
         create: (context) =>
             PlantBloc(plantRepository: GetIt.instance<IPlantRepository>())
               ..add(const PlantEvent.loadPlants()),
-        child: PlantScaffold(title: title));
+      ),
+    ], child: PlantScaffold(title: title));
   }
 }
 
