@@ -54,28 +54,32 @@ class PlantScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isLoading = false;
-    return BlocListener<PlantBloc, PlantState>(
-      listener: (context, state) {
-        isLoading = state.maybeMap(
-          initial: (_) => true,
-          loading: (_) => true,
-          orElse: () => false,
-        );
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<PlantBloc, PlantState>(
+          listener: (context, state) {
+            isLoading = state.maybeMap(
+              initial: (_) => true,
+              loading: (_) => true,
+              orElse: () => false,
+            );
 
-        final String errorMessage = state.map(
-          initial: (_) => null,
-          loadSuccess: (_) => null,
-          loading: (_) => null,
-          deleteFailure: (_) =>
-              "Failure during deletion. Please contact support.",
-          loadFailure: (_) =>
-              "Failed to load the plants. Please contact support.",
-        );
+            final String errorMessage = state.map(
+              initial: (_) => null,
+              loadSuccess: (_) => "Load success",
+              loading: (_) => null,
+              deleteFailure: (_) =>
+                  "Failure during deletion. Please contact support.",
+              loadFailure: (_) =>
+                  "Failed to load the plants. Please contact support.",
+            );
 
-        if (errorMessage != null) {
-          FlushbarHelper.createError(message: errorMessage).show(context);
-        }
-      },
+            if (errorMessage != null) {
+              FlushbarHelper.createError(message: errorMessage).show(context);
+            }
+          },
+        )
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: Text(title),
