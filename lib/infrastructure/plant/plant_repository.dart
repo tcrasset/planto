@@ -21,7 +21,8 @@ class SembastPlantRepository implements IPlantRepository {
   Future<Either<ValueFailure, Unit>> create(Plant plant) async {
     try {
       final PlantDTO plantDTO = PlantDTO.fromDomain(plant);
-      await _plantStore.add(database, plantDTO.toJson());
+      final String key = plantDTO.id;
+      await _plantStore.record(key).put(database, plantDTO.toJson());
       return right(unit);
     } on DatabaseException catch (e) {
       return left(ValueFailure.unexpected(message: e.message));
