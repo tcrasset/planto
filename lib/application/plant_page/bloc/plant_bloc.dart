@@ -47,19 +47,10 @@ class PlantBloc extends Bloc<PlantEvent, PlantState> {
             (f) => PlantState.deleteFailure(f),
             (_) => null,
           );
-        } else {
-          add(const PlantEvent.loadPlants());
         }
-      },
-      loadPlants: (LoadPlants e) async* {
-        yield const PlantState.loading();
-        final Either<ValueFailure<dynamic>, List<Plant>> plants =
-            await plantRepository.getAllPlants();
-
-        yield plants.fold(
-          (f) => PlantState.loadFailure(f),
-          (items) => PlantState.loadSuccess(items),
-        );
+        /*else {
+          add(const PlantEvent.loadPlants());
+        }*/
       },
     );
   }

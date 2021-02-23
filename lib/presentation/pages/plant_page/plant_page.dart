@@ -63,14 +63,10 @@ class PlantScaffold extends StatelessWidget {
               orElse: () => false,
             );
 
-            final String errorMessage = state.map(
-              initial: (_) => null,
-              loadSuccess: (_) => "Load success",
-              loading: (_) => null,
+            final String errorMessage = state.maybeMap(
+              orElse: () => null,
               deleteFailure: (_) =>
                   "Failure during deletion. Please contact support.",
-              loadFailure: (_) =>
-                  "Failed to load the plants. Please contact support.",
             );
 
             if (errorMessage != null) {
@@ -86,10 +82,8 @@ class PlantScaffold extends StatelessWidget {
               orElse: () => false,
             );
 
-            final String errorMessage = state.map(
-              initial: (_) => null,
-              loadSuccess: (_) => "Load success",
-              loading: (_) => null,
+            final String errorMessage = state.maybeMap(
+              orElse: () => null,
               loadFailure: (_) =>
                   "Failed to load the plants. Please contact support.",
             );

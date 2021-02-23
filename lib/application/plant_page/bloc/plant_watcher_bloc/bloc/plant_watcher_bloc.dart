@@ -39,6 +39,5 @@ class PlantWatcherBloc extends Bloc<PlantWatcherEvent, PlantWatcherState> {
         );
       },
     );
-    // TODO: implement mapEventToState
   }
 }
