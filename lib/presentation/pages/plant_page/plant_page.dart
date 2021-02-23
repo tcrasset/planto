@@ -54,7 +54,7 @@ class PlantScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isLoading = false;
-    return BlocConsumer<PlantBloc, PlantState>(
+    return BlocListener<PlantBloc, PlantState>(
       listener: (context, state) {
         isLoading = state.maybeMap(
           initial: (_) => true,
@@ -76,31 +76,29 @@ class PlantScaffold extends StatelessWidget {
           FlushbarHelper.createError(message: errorMessage).show(context);
         }
       },
-      builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(title),
-            actions: [
-              IconButton(
-                icon: const Icon(
-                  Icons.add,
-                  color: Colors.white,
-                ),
-                onPressed: () => navigateToPlantPage(context),
-              )
-            ],
-          ),
-          body: Stack(
-            children: [
-              PlantList(),
-              InProgressOverlay(
-                showOverlay: isLoading,
-                textDisplayed: "Loading",
-              )
-            ],
-          ),
-        );
-      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+          actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              onPressed: () => navigateToPlantPage(context),
+            )
+          ],
+        ),
+        body: Stack(
+          children: [
+            PlantList(),
+            InProgressOverlay(
+              showOverlay: isLoading,
+              textDisplayed: "Loading",
+            )
+          ],
+        ),
+      ),
     );
   }
 }
