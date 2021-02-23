@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:async';
+
 // Flutter imports:
 import 'package:flutter/material.dart';
 
@@ -63,19 +66,40 @@ class SembastPlantRepository implements IPlantRepository {
   @override
   Future<Either<ValueFailure, List<Plant>>> getAllPlants() async {
     try {
-      final finder = Finder(sortOrders: [SortOrder("lastWatered")]);
-
       final recordSnapshots = await _plantStore.find(
         database,
-        finder: finder,
+        finder: Finder(sortOrders: [SortOrder("lastWatered")]),
       );
 
-      final List<Plant> plants = recordSnapshots.map((snapshot) {
-        final PlantDTO plantDto = PlantDTO.fromJson(snapshot.value);
-        return plantDto.toDomain();
-      }).toList();
+      final List<Plant> plants = recordSnapshots.map(_snapshotToPlant).toList();
 
       return right(plants);
+    } on DatabaseException catch (e) {
+      return left(ValueFailure.unexpected(message: e.message));
+    }
+  }
+
+  Plant _snapshotToPlant(
+    RecordSnapshot<String, Map<String, dynamic>> snapshot,
+  ) {
+    final PlantDTO plantDto = PlantDTO.fromJson(snapshot.value);
+    return plantDto.toDomain();
+  }
+
+  /// Listen for changes on any note
+  Future<Either<ValueFailure, Stream<List<Plant>>>> watchAllPlants() async {
+    try {
+      // Get a stream of snapshots from the dataase
+      final snapshotStream = _plantStore
+          .query(finder: Finder(sortOrders: [SortOrder("lastWatered")]))
+          .onSnapshots(database);
+
+      // Transfrom stream from list of snapshots to plants
+      final Stream<List<Plant>> plantListStream = snapshotStream.map(
+        (snapshots) => snapshots.map(_snapshotToPlant).toList(),
+      );
+
+      return right(plantListStream);
     } on DatabaseException catch (e) {
       return left(ValueFailure.unexpected(message: e.message));
     }
