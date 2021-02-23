@@ -26,8 +26,7 @@ class PlantPage extends StatelessWidget {
     return MultiBlocProvider(providers: [
       BlocProvider<PlantBloc>(
         create: (context) =>
-            PlantBloc(plantRepository: GetIt.instance<IPlantRepository>())
-              ..add(const PlantEvent.loadPlants()),
+            PlantBloc(plantRepository: GetIt.instance<IPlantRepository>()),
       ),
       BlocProvider<PlantWatcherBloc>(
         create: (context) => PlantWatcherBloc(
@@ -70,6 +69,27 @@ class PlantScaffold extends StatelessWidget {
               loading: (_) => null,
               deleteFailure: (_) =>
                   "Failure during deletion. Please contact support.",
+              loadFailure: (_) =>
+                  "Failed to load the plants. Please contact support.",
+            );
+
+            if (errorMessage != null) {
+              FlushbarHelper.createError(message: errorMessage).show(context);
+            }
+          },
+        ),
+        BlocListener<PlantWatcherBloc, PlantWatcherState>(
+          listener: (context, state) {
+            isLoading = state.maybeMap(
+              initial: (_) => true,
+              loading: (_) => true,
+              orElse: () => false,
+            );
+
+            final String errorMessage = state.map(
+              initial: (_) => null,
+              loadSuccess: (_) => "Load success",
+              loading: (_) => null,
               loadFailure: (_) =>
                   "Failed to load the plants. Please contact support.",
             );
