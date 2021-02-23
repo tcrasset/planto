@@ -106,16 +106,16 @@ class PlantScaffold extends StatelessWidget {
 }
 
 class PlantList extends StatelessWidget {
-  List<PlantListItem> _getPlants(LoadSuccess newState) {
+  List<PlantListItem> _getPlants(PlantLoadSuccess newState) {
     return newState.plants.map((plant) => PlantListItem(plant: plant)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PlantBloc, PlantState>(
+    return BlocBuilder<PlantWatcherBloc, PlantWatcherState>(
       builder: (context, state) {
         return state.maybeMap(
-          loadSuccess: (LoadSuccess newState) =>
+          loadSuccess: (PlantLoadSuccess newState) =>
               GridView.count(crossAxisCount: 2, children: _getPlants(newState)),
           orElse: () => Container(),
         );

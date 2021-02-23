@@ -28,7 +28,6 @@ class PlantWatcherBloc extends Bloc<PlantWatcherEvent, PlantWatcherState> {
     PlantWatcherEvent event,
   ) async* {
     yield* event.map(
-      started: null,
       loadPlants: (PlantsLoaded e) async* {
         yield const PlantWatcherState.loading();
         final Either<ValueFailure<dynamic>, List<Plant>> plants =
