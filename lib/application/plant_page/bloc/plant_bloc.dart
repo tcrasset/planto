@@ -37,6 +37,20 @@ class PlantBloc extends Bloc<PlantEvent, PlantState> {
       checkPlantDetails: (PlantDetailsChecked e) async* {
         yield null;
       },
+      deletePlant: (PlantDeleted e) async* {
+        yield const PlantState.loading();
+        final Either<ValueFailure<dynamic>, Unit> possibleFailure =
+            await plantRepository.delete(e.plant);
+
+        if (possibleFailure.isLeft()) {
+          yield possibleFailure.fold(
+            (f) => PlantState.deleteFailure(f),
+            (_) => null,
+          );
+        } else {
+          add(const PlantEvent.loadPlants());
+        }
+      },
       loadPlants: (LoadPlants e) async* {
         yield const PlantState.loading();
         final Either<ValueFailure<dynamic>, List<Plant>> plants =

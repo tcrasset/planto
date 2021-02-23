@@ -33,6 +33,13 @@ class _$PlantEventTearOff {
   }
 
 // ignore: unused_element
+  PlantDeleted deletePlant({@required Plant plant}) {
+    return PlantDeleted(
+      plant: plant,
+    );
+  }
+
+// ignore: unused_element
   PlantDetailsChecked checkPlantDetails({@required Plant plant}) {
     return PlantDetailsChecked(
       plant: plant,
@@ -51,6 +58,7 @@ mixin _$PlantEvent {
     @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
+    @required TResult deletePlant(Plant plant),
     @required TResult checkPlantDetails(Plant plant),
   });
   @optionalTypeArgs
@@ -58,6 +66,7 @@ mixin _$PlantEvent {
     TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
+    TResult deletePlant(Plant plant),
     TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   });
@@ -66,6 +75,7 @@ mixin _$PlantEvent {
     @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
+    @required TResult deletePlant(PlantDeleted value),
     @required TResult checkPlantDetails(PlantDetailsChecked value),
   });
   @optionalTypeArgs
@@ -73,6 +83,7 @@ mixin _$PlantEvent {
     TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
+    TResult deletePlant(PlantDeleted value),
     TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   });
@@ -134,11 +145,13 @@ class _$LoadPlants implements LoadPlants {
     @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
+    @required TResult deletePlant(Plant plant),
     @required TResult checkPlantDetails(Plant plant),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return loadPlants();
   }
@@ -149,6 +162,7 @@ class _$LoadPlants implements LoadPlants {
     TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
+    TResult deletePlant(Plant plant),
     TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
@@ -165,11 +179,13 @@ class _$LoadPlants implements LoadPlants {
     @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
+    @required TResult deletePlant(PlantDeleted value),
     @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return loadPlants(this);
   }
@@ -180,6 +196,7 @@ class _$LoadPlants implements LoadPlants {
     TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
+    TResult deletePlant(PlantDeleted value),
     TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
@@ -270,11 +287,13 @@ class _$PlantWatered implements PlantWatered {
     @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
+    @required TResult deletePlant(Plant plant),
     @required TResult checkPlantDetails(Plant plant),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return waterPlant(plant);
   }
@@ -285,6 +304,7 @@ class _$PlantWatered implements PlantWatered {
     TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
+    TResult deletePlant(Plant plant),
     TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
@@ -301,11 +321,13 @@ class _$PlantWatered implements PlantWatered {
     @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
+    @required TResult deletePlant(PlantDeleted value),
     @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return waterPlant(this);
   }
@@ -316,6 +338,7 @@ class _$PlantWatered implements PlantWatered {
     TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
+    TResult deletePlant(PlantDeleted value),
     TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
@@ -410,11 +433,13 @@ class _$PlantEdited implements PlantEdited {
     @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
+    @required TResult deletePlant(Plant plant),
     @required TResult checkPlantDetails(Plant plant),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return editPlant(plant);
   }
@@ -425,6 +450,7 @@ class _$PlantEdited implements PlantEdited {
     TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
+    TResult deletePlant(Plant plant),
     TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
@@ -441,11 +467,13 @@ class _$PlantEdited implements PlantEdited {
     @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
+    @required TResult deletePlant(PlantDeleted value),
     @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return editPlant(this);
   }
@@ -456,6 +484,7 @@ class _$PlantEdited implements PlantEdited {
     TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
+    TResult deletePlant(PlantDeleted value),
     TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
@@ -473,6 +502,152 @@ abstract class PlantEdited implements PlantEvent {
   Plant get plant;
   @JsonKey(ignore: true)
   $PlantEditedCopyWith<PlantEdited> get copyWith;
+}
+
+/// @nodoc
+abstract class $PlantDeletedCopyWith<$Res> {
+  factory $PlantDeletedCopyWith(
+          PlantDeleted value, $Res Function(PlantDeleted) then) =
+      _$PlantDeletedCopyWithImpl<$Res>;
+  $Res call({Plant plant});
+
+  $PlantCopyWith<$Res> get plant;
+}
+
+/// @nodoc
+class _$PlantDeletedCopyWithImpl<$Res> extends _$PlantEventCopyWithImpl<$Res>
+    implements $PlantDeletedCopyWith<$Res> {
+  _$PlantDeletedCopyWithImpl(
+      PlantDeleted _value, $Res Function(PlantDeleted) _then)
+      : super(_value, (v) => _then(v as PlantDeleted));
+
+  @override
+  PlantDeleted get _value => super._value as PlantDeleted;
+
+  @override
+  $Res call({
+    Object plant = freezed,
+  }) {
+    return _then(PlantDeleted(
+      plant: plant == freezed ? _value.plant : plant as Plant,
+    ));
+  }
+
+  @override
+  $PlantCopyWith<$Res> get plant {
+    if (_value.plant == null) {
+      return null;
+    }
+    return $PlantCopyWith<$Res>(_value.plant, (value) {
+      return _then(_value.copyWith(plant: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$PlantDeleted implements PlantDeleted {
+  const _$PlantDeleted({@required this.plant}) : assert(plant != null);
+
+  @override
+  final Plant plant;
+
+  @override
+  String toString() {
+    return 'PlantEvent.deletePlant(plant: $plant)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is PlantDeleted &&
+            (identical(other.plant, plant) ||
+                const DeepCollectionEquality().equals(other.plant, plant)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(plant);
+
+  @JsonKey(ignore: true)
+  @override
+  $PlantDeletedCopyWith<PlantDeleted> get copyWith =>
+      _$PlantDeletedCopyWithImpl<PlantDeleted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult loadPlants(),
+    @required TResult waterPlant(Plant plant),
+    @required TResult editPlant(Plant plant),
+    @required TResult deletePlant(Plant plant),
+    @required TResult checkPlantDetails(Plant plant),
+  }) {
+    assert(loadPlants != null);
+    assert(waterPlant != null);
+    assert(editPlant != null);
+    assert(deletePlant != null);
+    assert(checkPlantDetails != null);
+    return deletePlant(plant);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult loadPlants(),
+    TResult waterPlant(Plant plant),
+    TResult editPlant(Plant plant),
+    TResult deletePlant(Plant plant),
+    TResult checkPlantDetails(Plant plant),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deletePlant != null) {
+      return deletePlant(plant);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult loadPlants(LoadPlants value),
+    @required TResult waterPlant(PlantWatered value),
+    @required TResult editPlant(PlantEdited value),
+    @required TResult deletePlant(PlantDeleted value),
+    @required TResult checkPlantDetails(PlantDetailsChecked value),
+  }) {
+    assert(loadPlants != null);
+    assert(waterPlant != null);
+    assert(editPlant != null);
+    assert(deletePlant != null);
+    assert(checkPlantDetails != null);
+    return deletePlant(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult loadPlants(LoadPlants value),
+    TResult waterPlant(PlantWatered value),
+    TResult editPlant(PlantEdited value),
+    TResult deletePlant(PlantDeleted value),
+    TResult checkPlantDetails(PlantDetailsChecked value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deletePlant != null) {
+      return deletePlant(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlantDeleted implements PlantEvent {
+  const factory PlantDeleted({@required Plant plant}) = _$PlantDeleted;
+
+  Plant get plant;
+  @JsonKey(ignore: true)
+  $PlantDeletedCopyWith<PlantDeleted> get copyWith;
 }
 
 /// @nodoc
@@ -551,11 +726,13 @@ class _$PlantDetailsChecked implements PlantDetailsChecked {
     @required TResult loadPlants(),
     @required TResult waterPlant(Plant plant),
     @required TResult editPlant(Plant plant),
+    @required TResult deletePlant(Plant plant),
     @required TResult checkPlantDetails(Plant plant),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return checkPlantDetails(plant);
   }
@@ -566,6 +743,7 @@ class _$PlantDetailsChecked implements PlantDetailsChecked {
     TResult loadPlants(),
     TResult waterPlant(Plant plant),
     TResult editPlant(Plant plant),
+    TResult deletePlant(Plant plant),
     TResult checkPlantDetails(Plant plant),
     @required TResult orElse(),
   }) {
@@ -582,11 +760,13 @@ class _$PlantDetailsChecked implements PlantDetailsChecked {
     @required TResult loadPlants(LoadPlants value),
     @required TResult waterPlant(PlantWatered value),
     @required TResult editPlant(PlantEdited value),
+    @required TResult deletePlant(PlantDeleted value),
     @required TResult checkPlantDetails(PlantDetailsChecked value),
   }) {
     assert(loadPlants != null);
     assert(waterPlant != null);
     assert(editPlant != null);
+    assert(deletePlant != null);
     assert(checkPlantDetails != null);
     return checkPlantDetails(this);
   }
@@ -597,6 +777,7 @@ class _$PlantDetailsChecked implements PlantDetailsChecked {
     TResult loadPlants(LoadPlants value),
     TResult waterPlant(PlantWatered value),
     TResult editPlant(PlantEdited value),
+    TResult deletePlant(PlantDeleted value),
     TResult checkPlantDetails(PlantDetailsChecked value),
     @required TResult orElse(),
   }) {
@@ -644,6 +825,13 @@ class _$PlantStateTearOff {
       plantFailure,
     );
   }
+
+// ignore: unused_element
+  DeleteFailure deleteFailure(ValueFailure<dynamic> plantFailure) {
+    return DeleteFailure(
+      plantFailure,
+    );
+  }
 }
 
 /// @nodoc
@@ -658,6 +846,7 @@ mixin _$PlantState {
     @required TResult loading(),
     @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -665,6 +854,7 @@ mixin _$PlantState {
     TResult loading(),
     TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -673,6 +863,7 @@ mixin _$PlantState {
     @required TResult loading(Loading value),
     @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
+    @required TResult deleteFailure(DeleteFailure value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -680,6 +871,7 @@ mixin _$PlantState {
     TResult loading(Loading value),
     TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
+    TResult deleteFailure(DeleteFailure value),
     @required TResult orElse(),
   });
 }
@@ -740,11 +932,13 @@ class _$Initial implements Initial {
     @required TResult loading(),
     @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return initial();
   }
 
@@ -755,6 +949,7 @@ class _$Initial implements Initial {
     TResult loading(),
     TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -771,11 +966,13 @@ class _$Initial implements Initial {
     @required TResult loading(Loading value),
     @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
+    @required TResult deleteFailure(DeleteFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return initial(this);
   }
 
@@ -786,6 +983,7 @@ class _$Initial implements Initial {
     TResult loading(Loading value),
     TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
+    TResult deleteFailure(DeleteFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -840,11 +1038,13 @@ class _$Loading implements Loading {
     @required TResult loading(),
     @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return loading();
   }
 
@@ -855,6 +1055,7 @@ class _$Loading implements Loading {
     TResult loading(),
     TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -871,11 +1072,13 @@ class _$Loading implements Loading {
     @required TResult loading(Loading value),
     @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
+    @required TResult deleteFailure(DeleteFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return loading(this);
   }
 
@@ -886,6 +1089,7 @@ class _$Loading implements Loading {
     TResult loading(Loading value),
     TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
+    TResult deleteFailure(DeleteFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -964,11 +1168,13 @@ class _$LoadSuccess implements LoadSuccess {
     @required TResult loading(),
     @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return loadSuccess(plants);
   }
 
@@ -979,6 +1185,7 @@ class _$LoadSuccess implements LoadSuccess {
     TResult loading(),
     TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -995,11 +1202,13 @@ class _$LoadSuccess implements LoadSuccess {
     @required TResult loading(Loading value),
     @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
+    @required TResult deleteFailure(DeleteFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return loadSuccess(this);
   }
 
@@ -1010,6 +1219,7 @@ class _$LoadSuccess implements LoadSuccess {
     TResult loading(Loading value),
     TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
+    TResult deleteFailure(DeleteFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1107,11 +1317,13 @@ class _$LoadFailure implements LoadFailure {
     @required TResult loading(),
     @required TResult loadSuccess(List<Plant> plants),
     @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return loadFailure(plantFailure);
   }
 
@@ -1122,6 +1334,7 @@ class _$LoadFailure implements LoadFailure {
     TResult loading(),
     TResult loadSuccess(List<Plant> plants),
     TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1138,11 +1351,13 @@ class _$LoadFailure implements LoadFailure {
     @required TResult loading(Loading value),
     @required TResult loadSuccess(LoadSuccess value),
     @required TResult loadFailure(LoadFailure value),
+    @required TResult deleteFailure(DeleteFailure value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(deleteFailure != null);
     return loadFailure(this);
   }
 
@@ -1153,6 +1368,7 @@ class _$LoadFailure implements LoadFailure {
     TResult loading(Loading value),
     TResult loadSuccess(LoadSuccess value),
     TResult loadFailure(LoadFailure value),
+    TResult deleteFailure(DeleteFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1169,4 +1385,154 @@ abstract class LoadFailure implements PlantState {
   ValueFailure<dynamic> get plantFailure;
   @JsonKey(ignore: true)
   $LoadFailureCopyWith<LoadFailure> get copyWith;
+}
+
+/// @nodoc
+abstract class $DeleteFailureCopyWith<$Res> {
+  factory $DeleteFailureCopyWith(
+          DeleteFailure value, $Res Function(DeleteFailure) then) =
+      _$DeleteFailureCopyWithImpl<$Res>;
+  $Res call({ValueFailure<dynamic> plantFailure});
+
+  $ValueFailureCopyWith<dynamic, $Res> get plantFailure;
+}
+
+/// @nodoc
+class _$DeleteFailureCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
+    implements $DeleteFailureCopyWith<$Res> {
+  _$DeleteFailureCopyWithImpl(
+      DeleteFailure _value, $Res Function(DeleteFailure) _then)
+      : super(_value, (v) => _then(v as DeleteFailure));
+
+  @override
+  DeleteFailure get _value => super._value as DeleteFailure;
+
+  @override
+  $Res call({
+    Object plantFailure = freezed,
+  }) {
+    return _then(DeleteFailure(
+      plantFailure == freezed
+          ? _value.plantFailure
+          : plantFailure as ValueFailure<dynamic>,
+    ));
+  }
+
+  @override
+  $ValueFailureCopyWith<dynamic, $Res> get plantFailure {
+    if (_value.plantFailure == null) {
+      return null;
+    }
+    return $ValueFailureCopyWith<dynamic, $Res>(_value.plantFailure, (value) {
+      return _then(_value.copyWith(plantFailure: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$DeleteFailure implements DeleteFailure {
+  const _$DeleteFailure(this.plantFailure) : assert(plantFailure != null);
+
+  @override
+  final ValueFailure<dynamic> plantFailure;
+
+  @override
+  String toString() {
+    return 'PlantState.deleteFailure(plantFailure: $plantFailure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is DeleteFailure &&
+            (identical(other.plantFailure, plantFailure) ||
+                const DeepCollectionEquality()
+                    .equals(other.plantFailure, plantFailure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(plantFailure);
+
+  @JsonKey(ignore: true)
+  @override
+  $DeleteFailureCopyWith<DeleteFailure> get copyWith =>
+      _$DeleteFailureCopyWithImpl<DeleteFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult loadSuccess(List<Plant> plants),
+    @required TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(deleteFailure != null);
+    return deleteFailure(plantFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult loadSuccess(List<Plant> plants),
+    TResult loadFailure(ValueFailure<dynamic> plantFailure),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteFailure != null) {
+      return deleteFailure(plantFailure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult loadSuccess(LoadSuccess value),
+    @required TResult loadFailure(LoadFailure value),
+    @required TResult deleteFailure(DeleteFailure value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(deleteFailure != null);
+    return deleteFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult loadSuccess(LoadSuccess value),
+    TResult loadFailure(LoadFailure value),
+    TResult deleteFailure(DeleteFailure value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteFailure != null) {
+      return deleteFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteFailure implements PlantState {
+  const factory DeleteFailure(ValueFailure<dynamic> plantFailure) =
+      _$DeleteFailure;
+
+  ValueFailure<dynamic> get plantFailure;
+  @JsonKey(ignore: true)
+  $DeleteFailureCopyWith<DeleteFailure> get copyWith;
 }

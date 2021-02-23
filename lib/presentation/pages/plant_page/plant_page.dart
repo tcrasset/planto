@@ -51,6 +51,7 @@ class PlantScaffold extends StatelessWidget {
           loading: (_) => true,
           loadFailure: (_) => false,
           loadSuccess: (_) => false,
+          deleteFailure: (_) => false,
         );
       },
       builder: (context, state) {
@@ -96,6 +97,12 @@ class _PlantListState extends State<PlantList> {
           initial: (_) => Container(),
           loading: (_) => Container(),
           loadFailure: (LoadFailure value) => Center(
+            child: Text(
+              value.plantFailure
+                  .maybeMap(unexpected: (f) => f.message, orElse: () => null),
+            ),
+          ),
+          deleteFailure: (DeleteFailure value) => Center(
             child: Text(
               value.plantFailure
                   .maybeMap(unexpected: (f) => f.message, orElse: () => null),

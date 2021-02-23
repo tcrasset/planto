@@ -15,7 +15,8 @@ class SimpleBlocObserver extends BlocObserver {
 
   @override
   void onChange(Cubit cubit, Change change) {
-    debugPrint('${cubit.runtimeType} $change');
+    debugPrint(
+        '${cubit.runtimeType} ${change.nextState.runtimeType} --> ${change.nextState.runtimeType}');
     super.onChange(cubit, change);
   }
 
