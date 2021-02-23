@@ -17,6 +17,18 @@ class _$PlantWatcherEventTearOff {
   PlantsLoaded loadPlants() {
     return const PlantsLoaded();
   }
+
+// ignore: unused_element
+  PlantsWatchStarted watchPlantsStarted() {
+    return const PlantsWatchStarted();
+  }
+
+// ignore: unused_element
+  PlantsReceived plantsReceived(List<Plant> plants) {
+    return PlantsReceived(
+      plants,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +40,27 @@ mixin _$PlantWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loadPlants(),
+    @required TResult watchPlantsStarted(),
+    @required TResult plantsReceived(List<Plant> plants),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loadPlants(),
+    TResult watchPlantsStarted(),
+    TResult plantsReceived(List<Plant> plants),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult loadPlants(PlantsLoaded value),
+    @required TResult watchPlantsStarted(PlantsWatchStarted value),
+    @required TResult plantsReceived(PlantsReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult loadPlants(PlantsLoaded value),
+    TResult watchPlantsStarted(PlantsWatchStarted value),
+    TResult plantsReceived(PlantsReceived value),
     @required TResult orElse(),
   });
 }
@@ -102,8 +122,12 @@ class _$PlantsLoaded implements PlantsLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult loadPlants(),
+    @required TResult watchPlantsStarted(),
+    @required TResult plantsReceived(List<Plant> plants),
   }) {
     assert(loadPlants != null);
+    assert(watchPlantsStarted != null);
+    assert(plantsReceived != null);
     return loadPlants();
   }
 
@@ -111,6 +135,8 @@ class _$PlantsLoaded implements PlantsLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loadPlants(),
+    TResult watchPlantsStarted(),
+    TResult plantsReceived(List<Plant> plants),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -124,8 +150,12 @@ class _$PlantsLoaded implements PlantsLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult loadPlants(PlantsLoaded value),
+    @required TResult watchPlantsStarted(PlantsWatchStarted value),
+    @required TResult plantsReceived(PlantsReceived value),
   }) {
     assert(loadPlants != null);
+    assert(watchPlantsStarted != null);
+    assert(plantsReceived != null);
     return loadPlants(this);
   }
 
@@ -133,6 +163,8 @@ class _$PlantsLoaded implements PlantsLoaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult loadPlants(PlantsLoaded value),
+    TResult watchPlantsStarted(PlantsWatchStarted value),
+    TResult plantsReceived(PlantsReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -145,6 +177,226 @@ class _$PlantsLoaded implements PlantsLoaded {
 
 abstract class PlantsLoaded implements PlantWatcherEvent {
   const factory PlantsLoaded() = _$PlantsLoaded;
+}
+
+/// @nodoc
+abstract class $PlantsWatchStartedCopyWith<$Res> {
+  factory $PlantsWatchStartedCopyWith(
+          PlantsWatchStarted value, $Res Function(PlantsWatchStarted) then) =
+      _$PlantsWatchStartedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$PlantsWatchStartedCopyWithImpl<$Res>
+    extends _$PlantWatcherEventCopyWithImpl<$Res>
+    implements $PlantsWatchStartedCopyWith<$Res> {
+  _$PlantsWatchStartedCopyWithImpl(
+      PlantsWatchStarted _value, $Res Function(PlantsWatchStarted) _then)
+      : super(_value, (v) => _then(v as PlantsWatchStarted));
+
+  @override
+  PlantsWatchStarted get _value => super._value as PlantsWatchStarted;
+}
+
+/// @nodoc
+class _$PlantsWatchStarted implements PlantsWatchStarted {
+  const _$PlantsWatchStarted();
+
+  @override
+  String toString() {
+    return 'PlantWatcherEvent.watchPlantsStarted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is PlantsWatchStarted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult loadPlants(),
+    @required TResult watchPlantsStarted(),
+    @required TResult plantsReceived(List<Plant> plants),
+  }) {
+    assert(loadPlants != null);
+    assert(watchPlantsStarted != null);
+    assert(plantsReceived != null);
+    return watchPlantsStarted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult loadPlants(),
+    TResult watchPlantsStarted(),
+    TResult plantsReceived(List<Plant> plants),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchPlantsStarted != null) {
+      return watchPlantsStarted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult loadPlants(PlantsLoaded value),
+    @required TResult watchPlantsStarted(PlantsWatchStarted value),
+    @required TResult plantsReceived(PlantsReceived value),
+  }) {
+    assert(loadPlants != null);
+    assert(watchPlantsStarted != null);
+    assert(plantsReceived != null);
+    return watchPlantsStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult loadPlants(PlantsLoaded value),
+    TResult watchPlantsStarted(PlantsWatchStarted value),
+    TResult plantsReceived(PlantsReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchPlantsStarted != null) {
+      return watchPlantsStarted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlantsWatchStarted implements PlantWatcherEvent {
+  const factory PlantsWatchStarted() = _$PlantsWatchStarted;
+}
+
+/// @nodoc
+abstract class $PlantsReceivedCopyWith<$Res> {
+  factory $PlantsReceivedCopyWith(
+          PlantsReceived value, $Res Function(PlantsReceived) then) =
+      _$PlantsReceivedCopyWithImpl<$Res>;
+  $Res call({List<Plant> plants});
+}
+
+/// @nodoc
+class _$PlantsReceivedCopyWithImpl<$Res>
+    extends _$PlantWatcherEventCopyWithImpl<$Res>
+    implements $PlantsReceivedCopyWith<$Res> {
+  _$PlantsReceivedCopyWithImpl(
+      PlantsReceived _value, $Res Function(PlantsReceived) _then)
+      : super(_value, (v) => _then(v as PlantsReceived));
+
+  @override
+  PlantsReceived get _value => super._value as PlantsReceived;
+
+  @override
+  $Res call({
+    Object plants = freezed,
+  }) {
+    return _then(PlantsReceived(
+      plants == freezed ? _value.plants : plants as List<Plant>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$PlantsReceived implements PlantsReceived {
+  const _$PlantsReceived(this.plants) : assert(plants != null);
+
+  @override
+  final List<Plant> plants;
+
+  @override
+  String toString() {
+    return 'PlantWatcherEvent.plantsReceived(plants: $plants)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is PlantsReceived &&
+            (identical(other.plants, plants) ||
+                const DeepCollectionEquality().equals(other.plants, plants)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(plants);
+
+  @JsonKey(ignore: true)
+  @override
+  $PlantsReceivedCopyWith<PlantsReceived> get copyWith =>
+      _$PlantsReceivedCopyWithImpl<PlantsReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult loadPlants(),
+    @required TResult watchPlantsStarted(),
+    @required TResult plantsReceived(List<Plant> plants),
+  }) {
+    assert(loadPlants != null);
+    assert(watchPlantsStarted != null);
+    assert(plantsReceived != null);
+    return plantsReceived(plants);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult loadPlants(),
+    TResult watchPlantsStarted(),
+    TResult plantsReceived(List<Plant> plants),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (plantsReceived != null) {
+      return plantsReceived(plants);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult loadPlants(PlantsLoaded value),
+    @required TResult watchPlantsStarted(PlantsWatchStarted value),
+    @required TResult plantsReceived(PlantsReceived value),
+  }) {
+    assert(loadPlants != null);
+    assert(watchPlantsStarted != null);
+    assert(plantsReceived != null);
+    return plantsReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult loadPlants(PlantsLoaded value),
+    TResult watchPlantsStarted(PlantsWatchStarted value),
+    TResult plantsReceived(PlantsReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (plantsReceived != null) {
+      return plantsReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlantsReceived implements PlantWatcherEvent {
+  const factory PlantsReceived(List<Plant> plants) = _$PlantsReceived;
+
+  List<Plant> get plants;
+  @JsonKey(ignore: true)
+  $PlantsReceivedCopyWith<PlantsReceived> get copyWith;
 }
 
 /// @nodoc

@@ -48,9 +48,6 @@ class PlantBloc extends Bloc<PlantEvent, PlantState> {
             (_) => null,
           );
         }
-        /*else {
-          add(const PlantEvent.loadPlants());
-        }*/
       },
     );
   }

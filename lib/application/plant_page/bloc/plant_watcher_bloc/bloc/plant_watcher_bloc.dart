@@ -23,21 +23,39 @@ class PlantWatcherBloc extends Bloc<PlantWatcherEvent, PlantWatcherState> {
 
   PlantWatcherState get initialState => const PlantWatcherState.initial();
 
+  StreamSubscription<List<Plant>> _plantStreamSubscription;
+
   @override
   Stream<PlantWatcherState> mapEventToState(
     PlantWatcherEvent event,
   ) async* {
-    yield* event.map(
-      loadPlants: (PlantsLoaded e) async* {
-        yield const PlantWatcherState.loading();
-        final Either<ValueFailure<dynamic>, List<Plant>> plants =
-            await plantRepository.getAllPlants();
+    yield* event.map(loadPlants: (PlantsLoaded e) async* {
+      yield const PlantWatcherState.loading();
+      final Either<ValueFailure<dynamic>, List<Plant>> plants =
+          await plantRepository.getAllPlants();
 
-        yield plants.fold(
-          (f) => PlantWatcherState.loadFailure(f),
-          (items) => PlantWatcherState.loadSuccess(items),
-        );
-      },
-    );
+      yield plants.fold(
+        (f) => PlantWatcherState.loadFailure(f),
+        (items) => PlantWatcherState.loadSuccess(items),
+      );
+    }, watchPlantsStarted: (PlantsWatchStarted e) async* {
+      yield const PlantWatcherState.loading();
+      await _plantStreamSubscription?.cancel();
+
+      final failureOrPlants = plantRepository.watchAllPlants().fold(
+        (f) => f,
+        (stream) {
+          _plantStreamSubscription = stream.listen((plants) {
+            add(PlantWatcherEvent.plantsReceived(plants));
+          });
+        },
+      );
+
+      if (failureOrPlants is ValueFailure) {
+        yield PlantWatcherState.loadFailure(failureOrPlants);
+      }
+    }, plantsReceived: (PlantsReceived e) async* {
+      yield PlantWatcherState.loadSuccess(e.plants);
+    });
   }
 }
