@@ -25,17 +25,10 @@ void main() {
     //!Arrange
     //!Arrange
     const String tDays = "0";
-    const NonPositiveWateringDays<String> tFailure =
-        ValueFailure<String>.nonPositiveWateringDays(failedValue: tDays)
-            as NonPositiveWateringDays<String>;
+    const ValueFailure<String> tFailure =
+        ValueFailure<String>.nonPositiveWateringDays(failedValue: tDays);
     //!Act
-    final WateringDays result = WateringDays(tDays);
-    //!Assert
-
-    result.value.fold(
-      (failure) => expect(failure, tFailure),
-      (correct) => throw TestFailure("Should have executed `failed`"),
-    );
+    _verifyFailure(tDays, tFailure);
   });
 
   test(
@@ -43,16 +36,29 @@ void main() {
       () {
     //!Arrange
     const String tDays = ".*-";
-    const InvalidWateringDays<String> tFailure =
-        ValueFailure<String>.invalidWateringDays(failedValue: tDays)
-            as InvalidWateringDays<String>;
-    //!Act
-    final WateringDays result = WateringDays(tDays);
-    //!Assert
-
-    result.value.fold(
-      (failure) => expect(failure, tFailure),
-      (correct) => throw TestFailure("Should have executed `failed`"),
-    );
+    const ValueFailure<String> tFailure =
+        ValueFailure<String>.invalidWateringDays(failedValue: tDays);
+    _verifyFailure(tDays, tFailure);
   });
+
+  test(
+      '''verify that a value greater or equal to WateringDays.maxValue''' +
+          '''returns a TooLongWateringDays ValueFailure''', () {
+    //!Arrange
+    final String tDays = WateringDays.maxValue.toString();
+    final ValueFailure<String> tFailure =
+        ValueFailure<String>.tooLongWateringDays(failedValue: tDays);
+    _verifyFailure(tDays, tFailure);
+  });
+}
+
+void _verifyFailure(String tDays, ValueFailure<String> expectedFailure) {
+  //!Act
+  final WateringDays result = WateringDays(tDays);
+  //!Assert
+
+  result.value.fold(
+    (failure) => expect(failure, expectedFailure),
+    (correct) => throw TestFailure("Should have executed `failed`"),
+  );
 }
