@@ -1,9 +1,9 @@
 part of 'plant_bloc.dart';
 
 @freezed
-abstract class PlantState with _$PlantState {
-  const factory PlantState.initial() = Initial;
-  const factory PlantState.loading() = Loading;
-  const factory PlantState.deleteFailure(ValueFailure plantFailure) =
+abstract class PlantActorState with _$PlantActorState {
+  const factory PlantActorState.initial() = Initial;
+  const factory PlantActorState.loading() = Loading;
+  const factory PlantActorState.deleteFailure(ValueFailure plantFailure) =
       DeleteFailure;
 }

@@ -27,7 +27,9 @@ class PlantCardWithName extends StatelessWidget {
         context, "Are you sure you want to delete the plant ?");
 
     if (toDelete) {
-      context.read<PlantBloc>().add(PlantEvent.deletePlant(plant: plant));
+      context
+          .read<PlantActorBloc>()
+          .add(PlantActorEvent.deletePlant(plant: plant));
     }
   }
 

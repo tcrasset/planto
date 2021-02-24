@@ -10,8 +10,8 @@ part of 'plant_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$PlantEventTearOff {
-  const _$PlantEventTearOff();
+class _$PlantActorEventTearOff {
+  const _$PlantActorEventTearOff();
 
 // ignore: unused_element
   PlantWatered waterPlant({@required Plant plant}) {
@@ -44,10 +44,10 @@ class _$PlantEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $PlantEvent = _$PlantEventTearOff();
+const $PlantActorEvent = _$PlantActorEventTearOff();
 
 /// @nodoc
-mixin _$PlantEvent {
+mixin _$PlantActorEvent {
   Plant get plant;
 
   @optionalTypeArgs
@@ -82,26 +82,27 @@ mixin _$PlantEvent {
   });
 
   @JsonKey(ignore: true)
-  $PlantEventCopyWith<PlantEvent> get copyWith;
+  $PlantActorEventCopyWith<PlantActorEvent> get copyWith;
 }
 
 /// @nodoc
-abstract class $PlantEventCopyWith<$Res> {
-  factory $PlantEventCopyWith(
-          PlantEvent value, $Res Function(PlantEvent) then) =
-      _$PlantEventCopyWithImpl<$Res>;
+abstract class $PlantActorEventCopyWith<$Res> {
+  factory $PlantActorEventCopyWith(
+          PlantActorEvent value, $Res Function(PlantActorEvent) then) =
+      _$PlantActorEventCopyWithImpl<$Res>;
   $Res call({Plant plant});
 
   $PlantCopyWith<$Res> get plant;
 }
 
 /// @nodoc
-class _$PlantEventCopyWithImpl<$Res> implements $PlantEventCopyWith<$Res> {
-  _$PlantEventCopyWithImpl(this._value, this._then);
+class _$PlantActorEventCopyWithImpl<$Res>
+    implements $PlantActorEventCopyWith<$Res> {
+  _$PlantActorEventCopyWithImpl(this._value, this._then);
 
-  final PlantEvent _value;
+  final PlantActorEvent _value;
   // ignore: unused_field
-  final $Res Function(PlantEvent) _then;
+  final $Res Function(PlantActorEvent) _then;
 
   @override
   $Res call({
@@ -125,7 +126,7 @@ class _$PlantEventCopyWithImpl<$Res> implements $PlantEventCopyWith<$Res> {
 
 /// @nodoc
 abstract class $PlantWateredCopyWith<$Res>
-    implements $PlantEventCopyWith<$Res> {
+    implements $PlantActorEventCopyWith<$Res> {
   factory $PlantWateredCopyWith(
           PlantWatered value, $Res Function(PlantWatered) then) =
       _$PlantWateredCopyWithImpl<$Res>;
@@ -137,7 +138,8 @@ abstract class $PlantWateredCopyWith<$Res>
 }
 
 /// @nodoc
-class _$PlantWateredCopyWithImpl<$Res> extends _$PlantEventCopyWithImpl<$Res>
+class _$PlantWateredCopyWithImpl<$Res>
+    extends _$PlantActorEventCopyWithImpl<$Res>
     implements $PlantWateredCopyWith<$Res> {
   _$PlantWateredCopyWithImpl(
       PlantWatered _value, $Res Function(PlantWatered) _then)
@@ -165,7 +167,7 @@ class _$PlantWatered implements PlantWatered {
 
   @override
   String toString() {
-    return 'PlantEvent.waterPlant(plant: $plant)';
+    return 'PlantActorEvent.waterPlant(plant: $plant)';
   }
 
   @override
@@ -248,7 +250,7 @@ class _$PlantWatered implements PlantWatered {
   }
 }
 
-abstract class PlantWatered implements PlantEvent {
+abstract class PlantWatered implements PlantActorEvent {
   const factory PlantWatered({@required Plant plant}) = _$PlantWatered;
 
   @override
@@ -259,7 +261,8 @@ abstract class PlantWatered implements PlantEvent {
 }
 
 /// @nodoc
-abstract class $PlantEditedCopyWith<$Res> implements $PlantEventCopyWith<$Res> {
+abstract class $PlantEditedCopyWith<$Res>
+    implements $PlantActorEventCopyWith<$Res> {
   factory $PlantEditedCopyWith(
           PlantEdited value, $Res Function(PlantEdited) then) =
       _$PlantEditedCopyWithImpl<$Res>;
@@ -271,7 +274,8 @@ abstract class $PlantEditedCopyWith<$Res> implements $PlantEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlantEditedCopyWithImpl<$Res> extends _$PlantEventCopyWithImpl<$Res>
+class _$PlantEditedCopyWithImpl<$Res>
+    extends _$PlantActorEventCopyWithImpl<$Res>
     implements $PlantEditedCopyWith<$Res> {
   _$PlantEditedCopyWithImpl(
       PlantEdited _value, $Res Function(PlantEdited) _then)
@@ -299,7 +303,7 @@ class _$PlantEdited implements PlantEdited {
 
   @override
   String toString() {
-    return 'PlantEvent.editPlant(plant: $plant)';
+    return 'PlantActorEvent.editPlant(plant: $plant)';
   }
 
   @override
@@ -382,7 +386,7 @@ class _$PlantEdited implements PlantEdited {
   }
 }
 
-abstract class PlantEdited implements PlantEvent {
+abstract class PlantEdited implements PlantActorEvent {
   const factory PlantEdited({@required Plant plant}) = _$PlantEdited;
 
   @override
@@ -394,7 +398,7 @@ abstract class PlantEdited implements PlantEvent {
 
 /// @nodoc
 abstract class $PlantDeletedCopyWith<$Res>
-    implements $PlantEventCopyWith<$Res> {
+    implements $PlantActorEventCopyWith<$Res> {
   factory $PlantDeletedCopyWith(
           PlantDeleted value, $Res Function(PlantDeleted) then) =
       _$PlantDeletedCopyWithImpl<$Res>;
@@ -406,7 +410,8 @@ abstract class $PlantDeletedCopyWith<$Res>
 }
 
 /// @nodoc
-class _$PlantDeletedCopyWithImpl<$Res> extends _$PlantEventCopyWithImpl<$Res>
+class _$PlantDeletedCopyWithImpl<$Res>
+    extends _$PlantActorEventCopyWithImpl<$Res>
     implements $PlantDeletedCopyWith<$Res> {
   _$PlantDeletedCopyWithImpl(
       PlantDeleted _value, $Res Function(PlantDeleted) _then)
@@ -434,7 +439,7 @@ class _$PlantDeleted implements PlantDeleted {
 
   @override
   String toString() {
-    return 'PlantEvent.deletePlant(plant: $plant)';
+    return 'PlantActorEvent.deletePlant(plant: $plant)';
   }
 
   @override
@@ -517,7 +522,7 @@ class _$PlantDeleted implements PlantDeleted {
   }
 }
 
-abstract class PlantDeleted implements PlantEvent {
+abstract class PlantDeleted implements PlantActorEvent {
   const factory PlantDeleted({@required Plant plant}) = _$PlantDeleted;
 
   @override
@@ -529,7 +534,7 @@ abstract class PlantDeleted implements PlantEvent {
 
 /// @nodoc
 abstract class $PlantDetailsCheckedCopyWith<$Res>
-    implements $PlantEventCopyWith<$Res> {
+    implements $PlantActorEventCopyWith<$Res> {
   factory $PlantDetailsCheckedCopyWith(
           PlantDetailsChecked value, $Res Function(PlantDetailsChecked) then) =
       _$PlantDetailsCheckedCopyWithImpl<$Res>;
@@ -542,7 +547,7 @@ abstract class $PlantDetailsCheckedCopyWith<$Res>
 
 /// @nodoc
 class _$PlantDetailsCheckedCopyWithImpl<$Res>
-    extends _$PlantEventCopyWithImpl<$Res>
+    extends _$PlantActorEventCopyWithImpl<$Res>
     implements $PlantDetailsCheckedCopyWith<$Res> {
   _$PlantDetailsCheckedCopyWithImpl(
       PlantDetailsChecked _value, $Res Function(PlantDetailsChecked) _then)
@@ -570,7 +575,7 @@ class _$PlantDetailsChecked implements PlantDetailsChecked {
 
   @override
   String toString() {
-    return 'PlantEvent.checkPlantDetails(plant: $plant)';
+    return 'PlantActorEvent.checkPlantDetails(plant: $plant)';
   }
 
   @override
@@ -653,7 +658,7 @@ class _$PlantDetailsChecked implements PlantDetailsChecked {
   }
 }
 
-abstract class PlantDetailsChecked implements PlantEvent {
+abstract class PlantDetailsChecked implements PlantActorEvent {
   const factory PlantDetailsChecked({@required Plant plant}) =
       _$PlantDetailsChecked;
 
@@ -665,8 +670,8 @@ abstract class PlantDetailsChecked implements PlantEvent {
 }
 
 /// @nodoc
-class _$PlantStateTearOff {
-  const _$PlantStateTearOff();
+class _$PlantActorStateTearOff {
+  const _$PlantActorStateTearOff();
 
 // ignore: unused_element
   Initial initial() {
@@ -688,10 +693,10 @@ class _$PlantStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $PlantState = _$PlantStateTearOff();
+const $PlantActorState = _$PlantActorStateTearOff();
 
 /// @nodoc
-mixin _$PlantState {
+mixin _$PlantActorState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
@@ -721,19 +726,20 @@ mixin _$PlantState {
 }
 
 /// @nodoc
-abstract class $PlantStateCopyWith<$Res> {
-  factory $PlantStateCopyWith(
-          PlantState value, $Res Function(PlantState) then) =
-      _$PlantStateCopyWithImpl<$Res>;
+abstract class $PlantActorStateCopyWith<$Res> {
+  factory $PlantActorStateCopyWith(
+          PlantActorState value, $Res Function(PlantActorState) then) =
+      _$PlantActorStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PlantStateCopyWithImpl<$Res> implements $PlantStateCopyWith<$Res> {
-  _$PlantStateCopyWithImpl(this._value, this._then);
+class _$PlantActorStateCopyWithImpl<$Res>
+    implements $PlantActorStateCopyWith<$Res> {
+  _$PlantActorStateCopyWithImpl(this._value, this._then);
 
-  final PlantState _value;
+  final PlantActorState _value;
   // ignore: unused_field
-  final $Res Function(PlantState) _then;
+  final $Res Function(PlantActorState) _then;
 }
 
 /// @nodoc
@@ -743,7 +749,7 @@ abstract class $InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$InitialCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
+class _$InitialCopyWithImpl<$Res> extends _$PlantActorStateCopyWithImpl<$Res>
     implements $InitialCopyWith<$Res> {
   _$InitialCopyWithImpl(Initial _value, $Res Function(Initial) _then)
       : super(_value, (v) => _then(v as Initial));
@@ -758,7 +764,7 @@ class _$Initial implements Initial {
 
   @override
   String toString() {
-    return 'PlantState.initial()';
+    return 'PlantActorState.initial()';
   }
 
   @override
@@ -826,7 +832,7 @@ class _$Initial implements Initial {
   }
 }
 
-abstract class Initial implements PlantState {
+abstract class Initial implements PlantActorState {
   const factory Initial() = _$Initial;
 }
 
@@ -837,7 +843,7 @@ abstract class $LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
+class _$LoadingCopyWithImpl<$Res> extends _$PlantActorStateCopyWithImpl<$Res>
     implements $LoadingCopyWith<$Res> {
   _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
       : super(_value, (v) => _then(v as Loading));
@@ -852,7 +858,7 @@ class _$Loading implements Loading {
 
   @override
   String toString() {
-    return 'PlantState.loading()';
+    return 'PlantActorState.loading()';
   }
 
   @override
@@ -920,7 +926,7 @@ class _$Loading implements Loading {
   }
 }
 
-abstract class Loading implements PlantState {
+abstract class Loading implements PlantActorState {
   const factory Loading() = _$Loading;
 }
 
@@ -935,7 +941,8 @@ abstract class $DeleteFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DeleteFailureCopyWithImpl<$Res> extends _$PlantStateCopyWithImpl<$Res>
+class _$DeleteFailureCopyWithImpl<$Res>
+    extends _$PlantActorStateCopyWithImpl<$Res>
     implements $DeleteFailureCopyWith<$Res> {
   _$DeleteFailureCopyWithImpl(
       DeleteFailure _value, $Res Function(DeleteFailure) _then)
@@ -975,7 +982,7 @@ class _$DeleteFailure implements DeleteFailure {
 
   @override
   String toString() {
-    return 'PlantState.deleteFailure(plantFailure: $plantFailure)';
+    return 'PlantActorState.deleteFailure(plantFailure: $plantFailure)';
   }
 
   @override
@@ -1053,7 +1060,7 @@ class _$DeleteFailure implements DeleteFailure {
   }
 }
 
-abstract class DeleteFailure implements PlantState {
+abstract class DeleteFailure implements PlantActorState {
   const factory DeleteFailure(ValueFailure<dynamic> plantFailure) =
       _$DeleteFailure;
 

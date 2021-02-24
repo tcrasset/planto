@@ -24,9 +24,9 @@ class PlantPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider<PlantBloc>(
+      BlocProvider<PlantActorBloc>(
         create: (context) =>
-            PlantBloc(plantRepository: GetIt.instance<IPlantRepository>()),
+            PlantActorBloc(plantRepository: GetIt.instance<IPlantRepository>()),
       ),
       BlocProvider<PlantWatcherBloc>(
         create: (context) => PlantWatcherBloc(
@@ -55,7 +55,7 @@ class PlantScaffold extends StatelessWidget {
     bool isLoading = false;
     return MultiBlocListener(
       listeners: [
-        BlocListener<PlantBloc, PlantState>(
+        BlocListener<PlantActorBloc, PlantActorState>(
           listener: (context, state) {
             isLoading = state.maybeMap(
               initial: (_) => true,

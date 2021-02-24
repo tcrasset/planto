@@ -15,17 +15,17 @@ part 'plant_event.dart';
 part 'plant_state.dart';
 part 'plant_bloc.freezed.dart';
 
-class PlantBloc extends Bloc<PlantEvent, PlantState> {
+class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
   final IPlantRepository plantRepository;
 
-  PlantBloc({@required this.plantRepository})
-      : super(const PlantState.initial());
+  PlantActorBloc({@required this.plantRepository})
+      : super(const PlantActorState.initial());
 
-  PlantState get initialState => const PlantState.initial();
+  PlantActorState get initialState => const PlantActorState.initial();
 
   @override
-  Stream<PlantState> mapEventToState(
-    PlantEvent event,
+  Stream<PlantActorState> mapEventToState(
+    PlantActorEvent event,
   ) async* {
     yield* event.map(
       editPlant: (PlantEdited e) async* {
@@ -38,13 +38,13 @@ class PlantBloc extends Bloc<PlantEvent, PlantState> {
         yield null;
       },
       deletePlant: (PlantDeleted e) async* {
-        yield const PlantState.loading();
+        yield const PlantActorState.loading();
         final Either<ValueFailure<dynamic>, Unit> possibleFailure =
             await plantRepository.delete(e.plant);
 
         if (possibleFailure.isLeft()) {
           yield possibleFailure.fold(
-            (f) => PlantState.deleteFailure(f),
+            (f) => PlantActorState.deleteFailure(f),
             (_) => null,
           );
         }
