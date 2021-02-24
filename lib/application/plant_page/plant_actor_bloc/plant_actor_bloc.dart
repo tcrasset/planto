@@ -10,7 +10,9 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import 'package:planto/domain/core/date_utils.dart';
 import 'package:planto/domain/core/value_failure.dart';
+import 'package:planto/domain/details_page/last_watered.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 
@@ -35,7 +37,13 @@ class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
         yield null;
       },
       waterPlant: (PlantWatered e) async* {
-        debugPrint("Print watered event fired");
+        Either<ValueFailure, Unit> failureOrSuccess;
+
+        final LastWatered newLastWatered =
+            LastWatered(getDateYMD(DateTime.now()).toString());
+        failureOrSuccess = await plantRepository
+            .update(e.plant.copyWith(lastWatered: newLastWatered));
+
         yield state;
       },
       checkPlantDetails: (PlantDetailsChecked e) async* {
