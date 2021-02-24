@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/domain/details_page/name.dart';
 
 class PlantNameField extends StatefulWidget {
   final String hintText;
@@ -53,6 +54,7 @@ class _PlantNameFieldState extends State<PlantNameField> {
         return SizedBox(
           width: 300,
           child: TextFormField(
+            maxLength: Name.maxLength,
             validator: (_) => widget.validateName(context),
             decoration: InputDecoration(
               hintText: widget.hintText,
