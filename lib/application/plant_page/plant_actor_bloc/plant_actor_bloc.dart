@@ -37,6 +37,7 @@ class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
         yield null;
       },
       waterPlant: (PlantWatered e) async* {
+        yield const PlantActorState.loading();
         Either<ValueFailure, Unit> failureOrSuccess;
 
         final LastWatered newLastWatered =
@@ -44,7 +45,10 @@ class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
         failureOrSuccess = await plantRepository
             .update(e.plant.copyWith(lastWatered: newLastWatered));
 
-        yield state;
+        yield failureOrSuccess.fold(
+          (f) => PlantActorState.waterFailure(f),
+          (_) => const PlantActorState.waterSucess(),
+        );
       },
       checkPlantDetails: (PlantDetailsChecked e) async* {
         yield null;

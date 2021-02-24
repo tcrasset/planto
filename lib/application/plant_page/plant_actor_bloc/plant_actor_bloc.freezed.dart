@@ -159,15 +159,23 @@ class _$PlantWateredCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$PlantWatered implements PlantWatered {
+class _$PlantWatered with DiagnosticableTreeMixin implements PlantWatered {
   const _$PlantWatered({@required this.plant}) : assert(plant != null);
 
   @override
   final Plant plant;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PlantActorEvent.waterPlant(plant: $plant)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PlantActorEvent.waterPlant'))
+      ..add(DiagnosticsProperty('plant', plant));
   }
 
   @override
@@ -295,15 +303,23 @@ class _$PlantEditedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$PlantEdited implements PlantEdited {
+class _$PlantEdited with DiagnosticableTreeMixin implements PlantEdited {
   const _$PlantEdited({@required this.plant}) : assert(plant != null);
 
   @override
   final Plant plant;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PlantActorEvent.editPlant(plant: $plant)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PlantActorEvent.editPlant'))
+      ..add(DiagnosticsProperty('plant', plant));
   }
 
   @override
@@ -431,15 +447,23 @@ class _$PlantDeletedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$PlantDeleted implements PlantDeleted {
+class _$PlantDeleted with DiagnosticableTreeMixin implements PlantDeleted {
   const _$PlantDeleted({@required this.plant}) : assert(plant != null);
 
   @override
   final Plant plant;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PlantActorEvent.deletePlant(plant: $plant)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PlantActorEvent.deletePlant'))
+      ..add(DiagnosticsProperty('plant', plant));
   }
 
   @override
@@ -567,15 +591,25 @@ class _$PlantDetailsCheckedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$PlantDetailsChecked implements PlantDetailsChecked {
+class _$PlantDetailsChecked
+    with DiagnosticableTreeMixin
+    implements PlantDetailsChecked {
   const _$PlantDetailsChecked({@required this.plant}) : assert(plant != null);
 
   @override
   final Plant plant;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PlantActorEvent.checkPlantDetails(plant: $plant)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PlantActorEvent.checkPlantDetails'))
+      ..add(DiagnosticsProperty('plant', plant));
   }
 
   @override
@@ -689,6 +723,18 @@ class _$PlantActorStateTearOff {
       plantFailure,
     );
   }
+
+// ignore: unused_element
+  WaterFailure waterFailure(ValueFailure<dynamic> plantFailure) {
+    return WaterFailure(
+      plantFailure,
+    );
+  }
+
+// ignore: unused_element
+  WaterSuccess waterSucess() {
+    return const WaterSuccess();
+  }
 }
 
 /// @nodoc
@@ -702,12 +748,16 @@ mixin _$PlantActorState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterSucess(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterSucess(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -715,12 +765,16 @@ mixin _$PlantActorState {
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
     @required TResult deleteFailure(DeleteFailure value),
+    @required TResult waterFailure(WaterFailure value),
+    @required TResult waterSucess(WaterSuccess value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
     TResult deleteFailure(DeleteFailure value),
+    TResult waterFailure(WaterFailure value),
+    TResult waterSucess(WaterSuccess value),
     @required TResult orElse(),
   });
 }
@@ -759,12 +813,18 @@ class _$InitialCopyWithImpl<$Res> extends _$PlantActorStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$Initial implements Initial {
+class _$Initial with DiagnosticableTreeMixin implements Initial {
   const _$Initial();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PlantActorState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'PlantActorState.initial'));
   }
 
   @override
@@ -781,10 +841,14 @@ class _$Initial implements Initial {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
     return initial();
   }
 
@@ -794,6 +858,8 @@ class _$Initial implements Initial {
     TResult initial(),
     TResult loading(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterSucess(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -809,10 +875,14 @@ class _$Initial implements Initial {
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
     @required TResult deleteFailure(DeleteFailure value),
+    @required TResult waterFailure(WaterFailure value),
+    @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
     return initial(this);
   }
 
@@ -822,6 +892,8 @@ class _$Initial implements Initial {
     TResult initial(Initial value),
     TResult loading(Loading value),
     TResult deleteFailure(DeleteFailure value),
+    TResult waterFailure(WaterFailure value),
+    TResult waterSucess(WaterSuccess value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -853,12 +925,18 @@ class _$LoadingCopyWithImpl<$Res> extends _$PlantActorStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$Loading implements Loading {
+class _$Loading with DiagnosticableTreeMixin implements Loading {
   const _$Loading();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PlantActorState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'PlantActorState.loading'));
   }
 
   @override
@@ -875,10 +953,14 @@ class _$Loading implements Loading {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
     return loading();
   }
 
@@ -888,6 +970,8 @@ class _$Loading implements Loading {
     TResult initial(),
     TResult loading(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterSucess(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -903,10 +987,14 @@ class _$Loading implements Loading {
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
     @required TResult deleteFailure(DeleteFailure value),
+    @required TResult waterFailure(WaterFailure value),
+    @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
     return loading(this);
   }
 
@@ -916,6 +1004,8 @@ class _$Loading implements Loading {
     TResult initial(Initial value),
     TResult loading(Loading value),
     TResult deleteFailure(DeleteFailure value),
+    TResult waterFailure(WaterFailure value),
+    TResult waterSucess(WaterSuccess value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -974,15 +1064,23 @@ class _$DeleteFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$DeleteFailure implements DeleteFailure {
+class _$DeleteFailure with DiagnosticableTreeMixin implements DeleteFailure {
   const _$DeleteFailure(this.plantFailure) : assert(plantFailure != null);
 
   @override
   final ValueFailure<dynamic> plantFailure;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PlantActorState.deleteFailure(plantFailure: $plantFailure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PlantActorState.deleteFailure'))
+      ..add(DiagnosticsProperty('plantFailure', plantFailure));
   }
 
   @override
@@ -1009,10 +1107,14 @@ class _$DeleteFailure implements DeleteFailure {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
     return deleteFailure(plantFailure);
   }
 
@@ -1022,6 +1124,8 @@ class _$DeleteFailure implements DeleteFailure {
     TResult initial(),
     TResult loading(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterSucess(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1037,10 +1141,14 @@ class _$DeleteFailure implements DeleteFailure {
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
     @required TResult deleteFailure(DeleteFailure value),
+    @required TResult waterFailure(WaterFailure value),
+    @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
     return deleteFailure(this);
   }
 
@@ -1050,6 +1158,8 @@ class _$DeleteFailure implements DeleteFailure {
     TResult initial(Initial value),
     TResult loading(Loading value),
     TResult deleteFailure(DeleteFailure value),
+    TResult waterFailure(WaterFailure value),
+    TResult waterSucess(WaterSuccess value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1067,4 +1177,278 @@ abstract class DeleteFailure implements PlantActorState {
   ValueFailure<dynamic> get plantFailure;
   @JsonKey(ignore: true)
   $DeleteFailureCopyWith<DeleteFailure> get copyWith;
+}
+
+/// @nodoc
+abstract class $WaterFailureCopyWith<$Res> {
+  factory $WaterFailureCopyWith(
+          WaterFailure value, $Res Function(WaterFailure) then) =
+      _$WaterFailureCopyWithImpl<$Res>;
+  $Res call({ValueFailure<dynamic> plantFailure});
+
+  $ValueFailureCopyWith<dynamic, $Res> get plantFailure;
+}
+
+/// @nodoc
+class _$WaterFailureCopyWithImpl<$Res>
+    extends _$PlantActorStateCopyWithImpl<$Res>
+    implements $WaterFailureCopyWith<$Res> {
+  _$WaterFailureCopyWithImpl(
+      WaterFailure _value, $Res Function(WaterFailure) _then)
+      : super(_value, (v) => _then(v as WaterFailure));
+
+  @override
+  WaterFailure get _value => super._value as WaterFailure;
+
+  @override
+  $Res call({
+    Object plantFailure = freezed,
+  }) {
+    return _then(WaterFailure(
+      plantFailure == freezed
+          ? _value.plantFailure
+          : plantFailure as ValueFailure<dynamic>,
+    ));
+  }
+
+  @override
+  $ValueFailureCopyWith<dynamic, $Res> get plantFailure {
+    if (_value.plantFailure == null) {
+      return null;
+    }
+    return $ValueFailureCopyWith<dynamic, $Res>(_value.plantFailure, (value) {
+      return _then(_value.copyWith(plantFailure: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$WaterFailure with DiagnosticableTreeMixin implements WaterFailure {
+  const _$WaterFailure(this.plantFailure) : assert(plantFailure != null);
+
+  @override
+  final ValueFailure<dynamic> plantFailure;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PlantActorState.waterFailure(plantFailure: $plantFailure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PlantActorState.waterFailure'))
+      ..add(DiagnosticsProperty('plantFailure', plantFailure));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WaterFailure &&
+            (identical(other.plantFailure, plantFailure) ||
+                const DeepCollectionEquality()
+                    .equals(other.plantFailure, plantFailure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(plantFailure);
+
+  @JsonKey(ignore: true)
+  @override
+  $WaterFailureCopyWith<WaterFailure> get copyWith =>
+      _$WaterFailureCopyWithImpl<WaterFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterSucess(),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
+    return waterFailure(plantFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterSucess(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (waterFailure != null) {
+      return waterFailure(plantFailure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult deleteFailure(DeleteFailure value),
+    @required TResult waterFailure(WaterFailure value),
+    @required TResult waterSucess(WaterSuccess value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
+    return waterFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult deleteFailure(DeleteFailure value),
+    TResult waterFailure(WaterFailure value),
+    TResult waterSucess(WaterSuccess value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (waterFailure != null) {
+      return waterFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WaterFailure implements PlantActorState {
+  const factory WaterFailure(ValueFailure<dynamic> plantFailure) =
+      _$WaterFailure;
+
+  ValueFailure<dynamic> get plantFailure;
+  @JsonKey(ignore: true)
+  $WaterFailureCopyWith<WaterFailure> get copyWith;
+}
+
+/// @nodoc
+abstract class $WaterSuccessCopyWith<$Res> {
+  factory $WaterSuccessCopyWith(
+          WaterSuccess value, $Res Function(WaterSuccess) then) =
+      _$WaterSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$WaterSuccessCopyWithImpl<$Res>
+    extends _$PlantActorStateCopyWithImpl<$Res>
+    implements $WaterSuccessCopyWith<$Res> {
+  _$WaterSuccessCopyWithImpl(
+      WaterSuccess _value, $Res Function(WaterSuccess) _then)
+      : super(_value, (v) => _then(v as WaterSuccess));
+
+  @override
+  WaterSuccess get _value => super._value as WaterSuccess;
+}
+
+/// @nodoc
+class _$WaterSuccess with DiagnosticableTreeMixin implements WaterSuccess {
+  const _$WaterSuccess();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PlantActorState.waterSucess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'PlantActorState.waterSucess'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is WaterSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterSucess(),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
+    return waterSucess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterSucess(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (waterSucess != null) {
+      return waterSucess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult deleteFailure(DeleteFailure value),
+    @required TResult waterFailure(WaterFailure value),
+    @required TResult waterSucess(WaterSuccess value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
+    return waterSucess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult deleteFailure(DeleteFailure value),
+    TResult waterFailure(WaterFailure value),
+    TResult waterSucess(WaterSuccess value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (waterSucess != null) {
+      return waterSucess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WaterSuccess implements PlantActorState {
+  const factory WaterSuccess() = _$WaterSuccess;
 }

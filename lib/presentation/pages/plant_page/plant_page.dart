@@ -67,10 +67,21 @@ class PlantScaffold extends StatelessWidget {
               orElse: () => null,
               deleteFailure: (_) =>
                   "Failure during deletion. Please contact support.",
+              waterFailure: (_) =>
+                  "Failure during watering. Try again or please contact support.",
+            );
+
+            final String positiveMessage = state.maybeMap(
+              orElse: () => null,
+              waterSucess: (_) => "Plant watered.",
             );
 
             if (errorMessage != null) {
               FlushbarHelper.createError(message: errorMessage).show(context);
+            }
+            if (positiveMessage != null) {
+              FlushbarHelper.createSuccess(message: positiveMessage)
+                  .show(context);
             }
           },
         ),
