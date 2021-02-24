@@ -63,6 +63,7 @@ void latinNameChange(BuildContext context, String value) {
       ));
 }
 
+//TODO: WHen name becomes too long, it deletes textfield input
 String failNameClosure(dynamic f) {
   final result = f.maybeMap(
     longName: (value) => "Name is too long",

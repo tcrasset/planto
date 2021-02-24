@@ -70,13 +70,13 @@ class _PlantNameFieldState extends State<PlantNameField> {
   }
 
   String getName(DetailsPageState state) => state.plant.name.value.fold(
-        (f) => "",
+        (_) => null,
         (v) => v,
       );
 
   String getLatinName(DetailsPageState state) =>
       state.plant.latinName.value.fold(
-        (f) => "",
+        (_) => null,
         (v) => v,
       );
 }
