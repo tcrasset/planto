@@ -1,4 +1,4 @@
-part of 'plant_bloc.dart';
+part of 'plant_actor_bloc.dart';
 
 @freezed
 abstract class PlantActorEvent with _$PlantActorEvent {

@@ -11,9 +11,9 @@ import 'package:planto/domain/core/value_failure.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 
-part 'plant_event.dart';
-part 'plant_state.dart';
-part 'plant_bloc.freezed.dart';
+part 'plant_actor_event.dart';
+part 'plant_actor_state.dart';
+part 'plant_actor_bloc.freezed.dart';
 
 class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
   final IPlantRepository plantRepository;
