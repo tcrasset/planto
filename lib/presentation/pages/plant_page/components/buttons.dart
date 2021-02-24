@@ -1,7 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 // Project imports:
+import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.dart';
 import 'package:planto/domain/plant/plant.dart';
 import '../../details_page/details_page.dart';
 
@@ -24,11 +28,17 @@ class WaterButton extends StatelessWidget {
           height: buttonSize,
           child: FloatingActionButton(
             heroTag: null,
-            onPressed: () => null,
+            onPressed: () => waterPlant(context),
             backgroundColor: Colors.lightBlueAccent[400],
             child: const Icon(Icons.waterfall_chart),
           )),
     );
+  }
+
+  void waterPlant(BuildContext context) {
+    context
+        .read<PlantActorBloc>()
+        .add(PlantActorEvent.waterPlant(plant: plant));
   }
 }
 

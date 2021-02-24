@@ -1,6 +1,9 @@
 // Dart imports:
 import 'dart:async';
 
+// Flutter imports:
+import 'package:flutter/foundation.dart';
+
 // Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -32,7 +35,8 @@ class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
         yield null;
       },
       waterPlant: (PlantWatered e) async* {
-        yield null;
+        debugPrint("Print watered event fired");
+        yield state;
       },
       checkPlantDetails: (PlantDetailsChecked e) async* {
         yield null;
