@@ -1,3 +1,6 @@
+// Dart imports:
+import 'dart:developer';
+
 // Flutter imports:
 import 'package:flutter/foundation.dart';
 
@@ -9,26 +12,25 @@ import 'package:bloc/bloc.dart';
 class SimpleBlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc bloc, Object event) {
-    debugPrint('${bloc.runtimeType} $event');
+    log('${bloc.runtimeType} $event');
     super.onEvent(bloc, event);
   }
 
   @override
   void onChange(Cubit cubit, Change change) {
-    debugPrint(
-        '${cubit.runtimeType} ${change.currentState.runtimeType} --> ${change.nextState.runtimeType}');
+    log('${cubit.runtimeType} ${change.currentState.runtimeType} --> ${change.nextState.runtimeType}');
     super.onChange(cubit, change);
   }
 
-  // @override
-  // void onTransition(Bloc bloc, Transition transition) {
-  //   debugPrint('${bloc.runtimeType} $transition');
-  //   super.onTransition(bloc, transition);
-  // }
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    log(' \n\n ${bloc.runtimeType} ${transition.currentState} \n\n --> \n\n ${transition.nextState}');
+    super.onTransition(bloc, transition);
+  }
 
   @override
   void onError(Cubit cubit, Object error, StackTrace stackTrace) {
-    debugPrint('${cubit.runtimeType} $error $stackTrace');
+    log('${cubit.runtimeType} $error $stackTrace');
     super.onError(cubit, error, stackTrace);
   }
 }

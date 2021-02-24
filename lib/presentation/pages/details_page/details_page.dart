@@ -2,17 +2,17 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' show optionOf;
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
+import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:planto/presentation/pages/details_page/components/form.dart';
 
 class DetailsPage extends StatelessWidget {
@@ -80,25 +80,34 @@ class DetailsPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Details"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.done),
-            tooltip: 'Submit plant',
-            onPressed: () => handleSubmitForm(context),
+    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+      buildWhen: (p, c) => p.isScrollable != c.isScrollable,
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("Details"),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.done),
+                tooltip: 'Submit plant',
+                onPressed: () => handleSubmitForm(context),
+              ),
+            ],
           ),
-        ],
-      ),
-      body: CustomScrollView(
-        slivers: [
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: DetailsPageForm(),
-          )
-        ],
-      ),
+          body: CustomScrollView(
+            //So as to not scroll when the TextFields are changed
+            physics: context.read<DetailsPageBloc>().state.isScrollable
+                ? const AlwaysScrollableScrollPhysics()
+                : const NeverScrollableScrollPhysics(),
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: DetailsPageForm(),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

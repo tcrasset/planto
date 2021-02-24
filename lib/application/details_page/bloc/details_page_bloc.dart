@@ -38,10 +38,14 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
     yield* event.map(
       initialized: (Initialized e) async* {
         yield e.initialPlantOption.fold(
-          () => state,
-          (initialPlant) =>
-              state.copyWith(plant: initialPlant, isEditing: true),
+          () => state.copyWith(isScrollable: false),
+          (initialPlant) => state.copyWith(
+              plant: initialPlant, isEditing: true, isScrollable: false),
         );
+
+        // Await for the automatic scrolling to subside
+        await Future.delayed(const Duration(milliseconds: 200));
+        yield state.copyWith(isScrollable: true);
       },
       standardNameChanged: (StandardNameChanged e) async* {
         if (e != null) {

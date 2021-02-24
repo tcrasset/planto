@@ -7,6 +7,7 @@ abstract class DetailsPageState with _$DetailsPageState {
     @required bool showErrorMessages,
     @required bool isSaving,
     @required bool isEditing,
+    @required bool isScrollable,
     @required Option<Either<ValueFailure, Unit>> saveFailureOrSuccessOption,
   }) = _DetailsPageState;
 
@@ -15,6 +16,7 @@ abstract class DetailsPageState with _$DetailsPageState {
         showErrorMessages: false,
         isSaving: false,
         isEditing: false,
+        isScrollable: false,
         saveFailureOrSuccessOption: none(),
       );
 }
