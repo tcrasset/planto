@@ -7,6 +7,8 @@ part 'value_failure.freezed.dart';
 abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidWateringDays(
       {@required String failedValue}) = InvalidWateringDays<T>;
+  const factory ValueFailure.tooLongWateringDays(
+      {@required String failedValue}) = TooLongWateringDays<T>;
   const factory ValueFailure.nonPositiveWateringDays(
       {@required String failedValue}) = NonPositiveWateringDays<T>;
   const factory ValueFailure.invalidLastWateredDate(

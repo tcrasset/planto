@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/domain/details_page/watering_days.dart';
 
 class WateringDaysField extends StatefulWidget {
   @override
@@ -32,8 +33,7 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
     return BlocConsumer<DetailsPageBloc, DetailsPageState>(
       listener: (context, state) {
         _controller
-          ..text = state.plant.wateringDays.value
-              .fold((_) => '', (v) => v.toString())
+          ..text = getWateringDays(state)
           ..selection =
               TextSelection.collapsed(offset: _controller.text.length);
       },
@@ -58,6 +58,12 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
     );
   }
 
+  String getWateringDays(DetailsPageState state) =>
+      state.plant.wateringDays.value.fold(
+        (_) => null,
+        (v) => v.toString(),
+      );
+
   void handleOnChangedEvent(BuildContext context, String value) {
     return context
         .read<DetailsPageBloc>()
@@ -71,6 +77,8 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
           (f) => f.maybeMap(
               invalidWateringDays: (_) => "Invalid number of days",
               nonPositiveWateringDays: (_) => "Must be positive",
+              tooLongWateringDays: (_) =>
+                  "Must be smaller than ${WateringDays.maxValue}",
               orElse: () => null),
           (_) => null,
         );
