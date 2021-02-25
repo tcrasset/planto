@@ -102,7 +102,6 @@ class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
               ? await plantRepository.update(state.plant)
               : await plantRepository.create(state.plant);
         }
-        await Future.delayed(const Duration(milliseconds: 500));
         yield state.copyWith(
           isSaving: false,
           showErrorMessages: true,
