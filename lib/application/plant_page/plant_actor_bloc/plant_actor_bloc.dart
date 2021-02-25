@@ -32,39 +32,43 @@ class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
   Stream<PlantActorState> mapEventToState(
     PlantActorEvent event,
   ) async* {
-    yield* event.map(
-      editPlant: (PlantEdited e) async* {
-        yield null;
-      },
-      waterPlant: (PlantWatered e) async* {
-        yield const PlantActorState.loading();
-        Either<ValueFailure, Unit> failureOrSuccess;
+    yield* event.map(editPlant: (PlantEdited e) async* {
+      yield null;
+    }, waterPlant: (PlantWatered e) async* {
+      yield const PlantActorState.loading();
 
-        final LastWatered newLastWatered =
-            LastWatered(getDateYMD(DateTime.now()).toString());
-        failureOrSuccess = await plantRepository
-            .update(e.plant.copyWith(lastWatered: newLastWatered));
+      final LastWatered newLastWatered =
+          LastWatered(getDateYMD(DateTime.now()).toString());
 
-        yield failureOrSuccess.fold(
-          (f) => PlantActorState.waterFailure(f),
-          (_) => const PlantActorState.waterSucess(),
-        );
-      },
-      checkPlantDetails: (PlantDetailsChecked e) async* {
-        yield null;
-      },
-      deletePlant: (PlantDeleted e) async* {
-        yield const PlantActorState.loading();
-        final Either<ValueFailure<dynamic>, Unit> possibleFailure =
-            await plantRepository.delete(e.plant);
+      if (e.plant.lastWatered != newLastWatered) {
+        yield* _tryWaterPlant(e.plant, newLastWatered);
+      } else {
+        yield const PlantActorState.loaded();
+      }
+    }, checkPlantDetails: (PlantDetailsChecked e) async* {
+      yield null;
+    }, deletePlant: (PlantDeleted e) async* {
+      yield const PlantActorState.loading();
+      final Either<ValueFailure<dynamic>, Unit> possibleFailure =
+          await plantRepository.delete(e.plant);
 
-        if (possibleFailure.isLeft()) {
-          yield possibleFailure.fold(
-            (f) => PlantActorState.deleteFailure(f),
-            (_) => null,
-          );
-        }
-      },
+      yield possibleFailure.fold(
+        (f) => PlantActorState.deleteFailure(f),
+        (_) => const PlantActorState.loaded(),
+      );
+    });
+  }
+
+  Stream<PlantActorState> _tryWaterPlant(
+      Plant plant, LastWatered newLastWatered) async* {
+    Either<ValueFailure, Unit> failureOrSuccess;
+
+    failureOrSuccess = await plantRepository
+        .update(plant.copyWith(lastWatered: newLastWatered));
+
+    yield failureOrSuccess.fold(
+      (f) => PlantActorState.waterFailure(f),
+      (_) => const PlantActorState.waterSucess(),
     );
   }
 }

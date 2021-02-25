@@ -52,7 +52,7 @@ class PlantScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isLoading = false;
+    bool isLoading;
     return MultiBlocListener(
       listeners: [
         BlocListener<PlantActorBloc, PlantActorState>(
@@ -105,28 +105,32 @@ class PlantScaffold extends StatelessWidget {
           },
         )
       ],
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-          actions: [
-            IconButton(
-              icon: const Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-              onPressed: () => navigateToPlantPage(context),
-            )
-          ],
-        ),
-        body: Stack(
-          children: [
-            PlantList(),
-            InProgressOverlay(
-              showOverlay: isLoading,
-              textDisplayed: "Loading",
-            )
-          ],
-        ),
+      child: BlocBuilder<PlantActorBloc, PlantActorState>(
+        builder: (context, state) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(title),
+              actions: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                  onPressed: () => navigateToPlantPage(context),
+                )
+              ],
+            ),
+            body: Stack(
+              children: [
+                PlantList(),
+                InProgressOverlay(
+                  showOverlay: isLoading ?? false,
+                  textDisplayed: "Loading",
+                )
+              ],
+            ),
+          );
+        },
       ),
     );
   }

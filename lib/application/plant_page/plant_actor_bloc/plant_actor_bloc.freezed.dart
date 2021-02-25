@@ -718,6 +718,11 @@ class _$PlantActorStateTearOff {
   }
 
 // ignore: unused_element
+  Loaded loaded() {
+    return const Loaded();
+  }
+
+// ignore: unused_element
   DeleteFailure deleteFailure(ValueFailure<dynamic> plantFailure) {
     return DeleteFailure(
       plantFailure,
@@ -747,6 +752,7 @@ mixin _$PlantActorState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
+    @required TResult loaded(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterSucess(),
@@ -755,6 +761,7 @@ mixin _$PlantActorState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
+    TResult loaded(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     TResult waterFailure(ValueFailure<dynamic> plantFailure),
     TResult waterSucess(),
@@ -764,6 +771,7 @@ mixin _$PlantActorState {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
+    @required TResult loaded(Loaded value),
     @required TResult deleteFailure(DeleteFailure value),
     @required TResult waterFailure(WaterFailure value),
     @required TResult waterSucess(WaterSuccess value),
@@ -772,6 +780,7 @@ mixin _$PlantActorState {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
+    TResult loaded(Loaded value),
     TResult deleteFailure(DeleteFailure value),
     TResult waterFailure(WaterFailure value),
     TResult waterSucess(WaterSuccess value),
@@ -840,12 +849,14 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
+    @required TResult loaded(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -857,6 +868,7 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
+    TResult loaded(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     TResult waterFailure(ValueFailure<dynamic> plantFailure),
     TResult waterSucess(),
@@ -874,12 +886,14 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
+    @required TResult loaded(Loaded value),
     @required TResult deleteFailure(DeleteFailure value),
     @required TResult waterFailure(WaterFailure value),
     @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -891,6 +905,7 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
+    TResult loaded(Loaded value),
     TResult deleteFailure(DeleteFailure value),
     TResult waterFailure(WaterFailure value),
     TResult waterSucess(WaterSuccess value),
@@ -952,12 +967,14 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
+    @required TResult loaded(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -969,6 +986,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
+    TResult loaded(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     TResult waterFailure(ValueFailure<dynamic> plantFailure),
     TResult waterSucess(),
@@ -986,12 +1004,14 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
+    @required TResult loaded(Loaded value),
     @required TResult deleteFailure(DeleteFailure value),
     @required TResult waterFailure(WaterFailure value),
     @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -1003,6 +1023,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
+    TResult loaded(Loaded value),
     TResult deleteFailure(DeleteFailure value),
     TResult waterFailure(WaterFailure value),
     TResult waterSucess(WaterSuccess value),
@@ -1018,6 +1039,124 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
 
 abstract class Loading implements PlantActorState {
   const factory Loading() = _$Loading;
+}
+
+/// @nodoc
+abstract class $LoadedCopyWith<$Res> {
+  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
+      _$LoadedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LoadedCopyWithImpl<$Res> extends _$PlantActorStateCopyWithImpl<$Res>
+    implements $LoadedCopyWith<$Res> {
+  _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
+      : super(_value, (v) => _then(v as Loaded));
+
+  @override
+  Loaded get _value => super._value as Loaded;
+}
+
+/// @nodoc
+class _$Loaded with DiagnosticableTreeMixin implements Loaded {
+  const _$Loaded();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'PlantActorState.loaded()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'PlantActorState.loaded'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Loaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult loaded(),
+    @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    @required TResult waterSucess(),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
+    return loaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult loaded(),
+    TResult deleteFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterFailure(ValueFailure<dynamic> plantFailure),
+    TResult waterSucess(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loaded != null) {
+      return loaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult loaded(Loaded value),
+    @required TResult deleteFailure(DeleteFailure value),
+    @required TResult waterFailure(WaterFailure value),
+    @required TResult waterSucess(WaterSuccess value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(loaded != null);
+    assert(deleteFailure != null);
+    assert(waterFailure != null);
+    assert(waterSucess != null);
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult loaded(Loaded value),
+    TResult deleteFailure(DeleteFailure value),
+    TResult waterFailure(WaterFailure value),
+    TResult waterSucess(WaterSuccess value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loaded implements PlantActorState {
+  const factory Loaded() = _$Loaded;
 }
 
 /// @nodoc
@@ -1106,12 +1245,14 @@ class _$DeleteFailure with DiagnosticableTreeMixin implements DeleteFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
+    @required TResult loaded(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -1123,6 +1264,7 @@ class _$DeleteFailure with DiagnosticableTreeMixin implements DeleteFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
+    TResult loaded(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     TResult waterFailure(ValueFailure<dynamic> plantFailure),
     TResult waterSucess(),
@@ -1140,12 +1282,14 @@ class _$DeleteFailure with DiagnosticableTreeMixin implements DeleteFailure {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
+    @required TResult loaded(Loaded value),
     @required TResult deleteFailure(DeleteFailure value),
     @required TResult waterFailure(WaterFailure value),
     @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -1157,6 +1301,7 @@ class _$DeleteFailure with DiagnosticableTreeMixin implements DeleteFailure {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
+    TResult loaded(Loaded value),
     TResult deleteFailure(DeleteFailure value),
     TResult waterFailure(WaterFailure value),
     TResult waterSucess(WaterSuccess value),
@@ -1265,12 +1410,14 @@ class _$WaterFailure with DiagnosticableTreeMixin implements WaterFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
+    @required TResult loaded(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -1282,6 +1429,7 @@ class _$WaterFailure with DiagnosticableTreeMixin implements WaterFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
+    TResult loaded(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     TResult waterFailure(ValueFailure<dynamic> plantFailure),
     TResult waterSucess(),
@@ -1299,12 +1447,14 @@ class _$WaterFailure with DiagnosticableTreeMixin implements WaterFailure {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
+    @required TResult loaded(Loaded value),
     @required TResult deleteFailure(DeleteFailure value),
     @required TResult waterFailure(WaterFailure value),
     @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -1316,6 +1466,7 @@ class _$WaterFailure with DiagnosticableTreeMixin implements WaterFailure {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
+    TResult loaded(Loaded value),
     TResult deleteFailure(DeleteFailure value),
     TResult waterFailure(WaterFailure value),
     TResult waterSucess(WaterSuccess value),
@@ -1385,12 +1536,14 @@ class _$WaterSuccess with DiagnosticableTreeMixin implements WaterSuccess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
+    @required TResult loaded(),
     @required TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterFailure(ValueFailure<dynamic> plantFailure),
     @required TResult waterSucess(),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -1402,6 +1555,7 @@ class _$WaterSuccess with DiagnosticableTreeMixin implements WaterSuccess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
+    TResult loaded(),
     TResult deleteFailure(ValueFailure<dynamic> plantFailure),
     TResult waterFailure(ValueFailure<dynamic> plantFailure),
     TResult waterSucess(),
@@ -1419,12 +1573,14 @@ class _$WaterSuccess with DiagnosticableTreeMixin implements WaterSuccess {
   TResult map<TResult extends Object>({
     @required TResult initial(Initial value),
     @required TResult loading(Loading value),
+    @required TResult loaded(Loaded value),
     @required TResult deleteFailure(DeleteFailure value),
     @required TResult waterFailure(WaterFailure value),
     @required TResult waterSucess(WaterSuccess value),
   }) {
     assert(initial != null);
     assert(loading != null);
+    assert(loaded != null);
     assert(deleteFailure != null);
     assert(waterFailure != null);
     assert(waterSucess != null);
@@ -1436,6 +1592,7 @@ class _$WaterSuccess with DiagnosticableTreeMixin implements WaterSuccess {
   TResult maybeMap<TResult extends Object>({
     TResult initial(Initial value),
     TResult loading(Loading value),
+    TResult loaded(Loaded value),
     TResult deleteFailure(DeleteFailure value),
     TResult waterFailure(WaterFailure value),
     TResult waterSucess(WaterSuccess value),
