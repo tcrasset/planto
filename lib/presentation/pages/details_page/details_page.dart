@@ -26,6 +26,7 @@ class DetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Details"),
+        actions: [const Icon(Icons.ac_unit_sharp)],
       ),
       body: Center(
         child: SingleChildScrollView(

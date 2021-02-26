@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 // Project imports:
-import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/application/edit_plant_page/edit_plant_page_bloc.dart';
 import 'package:planto/domain/core/utils.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
 

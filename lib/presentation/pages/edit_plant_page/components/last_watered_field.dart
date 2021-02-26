@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/application/edit_plant_page/edit_plant_page_bloc.dart';
 import 'package:planto/domain/core/date_utils.dart';
 
 class LastWateredField extends StatefulWidget {

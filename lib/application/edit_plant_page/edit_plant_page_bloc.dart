@@ -19,9 +19,9 @@ import 'package:planto/domain/edit_plant_page/watering_days.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 
-part 'details_page_event.dart';
-part 'details_page_state.dart';
-part 'details_page_bloc.freezed.dart';
+part 'edit_plant_page_event.dart';
+part 'edit_plant_page_state.dart';
+part 'edit_plant_page_bloc.freezed.dart';
 
 class EditPlantPageBloc extends Bloc<EditPlantPageEvent, EditPlantPageState> {
   final IPlantRepository plantRepository;

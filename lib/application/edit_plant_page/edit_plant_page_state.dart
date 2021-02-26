@@ -1,4 +1,4 @@
-part of 'details_page_bloc.dart';
+part of 'edit_plant_page_bloc.dart';
 
 @freezed
 abstract class EditPlantPageState with _$EditPlantPageState {

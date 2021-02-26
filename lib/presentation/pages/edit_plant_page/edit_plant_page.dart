@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/application/edit_plant_page/edit_plant_page_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
