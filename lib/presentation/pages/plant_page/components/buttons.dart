@@ -22,7 +22,7 @@ class WaterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: buttonSize + 5,
+      bottom: 0,
       right: 0,
       child: SizedBox(
           width: buttonSize,
@@ -43,41 +43,5 @@ class WaterButton extends StatelessWidget {
     context
         .read<PlantActorBloc>()
         .add(PlantActorEvent.waterPlant(plant: plant));
-  }
-}
-
-class MoreInfoButton extends StatelessWidget {
-  final double buttonSize;
-  final Plant plant;
-  const MoreInfoButton({
-    Key key,
-    @required this.buttonSize,
-    @required this.plant,
-  }) : super(key: key);
-
-  void goToDetails(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => EditPlantPage(editablePlant: plant)),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 0,
-      right: 0,
-      child: SizedBox(
-          width: buttonSize,
-          height: buttonSize,
-          child: FloatingActionButton(
-              heroTag: null,
-              onPressed: () => goToDetails(context),
-              backgroundColor: Colors.green,
-              child: const Icon(
-                Icons.more_horiz,
-              ))),
-    );
   }
 }

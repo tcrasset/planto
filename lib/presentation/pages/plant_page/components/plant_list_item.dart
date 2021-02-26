@@ -22,7 +22,6 @@ class PlantListItem extends StatelessWidget {
       child: Stack(children: [
         PlantCardWithName(size: size, plant: plant),
         WaterButton(buttonSize: buttonSize, plant: plant),
-        MoreInfoButton(buttonSize: buttonSize, plant: plant),
       ]),
     );
   }

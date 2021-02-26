@@ -8,11 +8,20 @@ import 'package:flutter/material.dart';
 import 'package:planto/domain/core/date_utils.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
+import 'package:planto/presentation/pages/edit_plant_page/edit_plant_page.dart';
 
 class DetailsPage extends StatelessWidget {
   final Plant plant;
 
   const DetailsPage({Key key, @required this.plant}) : super(key: key);
+
+  void navigateToEditPlantPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => EditPlantPage(editablePlant: plant)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +35,15 @@ class DetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Details"),
-        actions: [const Icon(Icons.ac_unit_sharp)],
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.edit,
+              color: Colors.white,
+            ),
+            onPressed: () => navigateToEditPlantPage(context),
+          )
+        ],
       ),
       body: Center(
         child: SingleChildScrollView(
