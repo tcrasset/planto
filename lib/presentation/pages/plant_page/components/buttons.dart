@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 // Project imports:
 import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.dart';
 import 'package:planto/domain/plant/plant.dart';
+import 'package:planto/presentation/pages/core/planto_icons_icons.dart';
 import '../../details_page/details_page.dart';
 
 class WaterButton extends StatelessWidget {
@@ -30,7 +32,10 @@ class WaterButton extends StatelessWidget {
             heroTag: null,
             onPressed: () => waterPlant(context),
             backgroundColor: Colors.lightBlueAccent[400],
-            child: const Icon(Icons.waterfall_chart),
+            child: const Icon(
+              MaterialCommunityIcons.watering_can_outline,
+              textDirection: TextDirection.rtl,
+            ),
           )),
     );
   }
