@@ -8,7 +8,6 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 // Project imports:
 import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.dart';
 import 'package:planto/domain/plant/plant.dart';
-import 'package:planto/presentation/pages/edit_plant_page/edit_plant_page.dart';
 
 class WaterButton extends StatelessWidget {
   final double buttonSize;

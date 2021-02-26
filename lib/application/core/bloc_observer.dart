@@ -1,9 +1,6 @@
 // Dart imports:
 import 'dart:developer';
 
-// Flutter imports:
-import 'package:flutter/foundation.dart';
-
 // Package imports:
 import 'package:bloc/bloc.dart';
 
@@ -36,8 +33,8 @@ class SimpleBlocObserver extends BlocObserver {
 }
 
 String getOnlyDifferences(Cubit cubit, Change change) {
-  String n = change.nextState.toString().replaceAll(RegExp(r","), "\n");
-  String c = change.currentState.toString().replaceAll(RegExp(r","), "\n");
+  final String n = change.nextState.toString().replaceAll(RegExp(','), "\n");
+  final String c = change.currentState.toString().replaceAll(RegExp(","), "\n");
 
   print("""
 
