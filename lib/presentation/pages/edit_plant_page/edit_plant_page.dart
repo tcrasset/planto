@@ -27,11 +27,15 @@ class EditPlantPage extends StatelessWidget {
         create: (_) => EditPlantPageBloc(
             plantRepository: GetIt.instance<IPlantRepository>())
           ..add(EditPlantPageEvent.initialized(optionOf(editablePlant))),
-        child: EditPlantPageStack());
+        child: EditPlantPageStack(editablePlant: editablePlant));
   }
 }
 
 class EditPlantPageStack extends StatelessWidget {
+  final Plant editablePlant;
+
+  const EditPlantPageStack({@required this.editablePlant});
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<EditPlantPageBloc, EditPlantPageState>(
@@ -62,7 +66,7 @@ class EditPlantPageStack extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            EditPlantPageScaffold(),
+            EditPlantPageScaffold(editablePlant: editablePlant),
             InProgressOverlay(
               showOverlay: state.isSaving,
               textDisplayed: "Saving",
@@ -75,9 +79,13 @@ class EditPlantPageStack extends StatelessWidget {
 }
 
 class EditPlantPageScaffold extends StatelessWidget {
+  final Plant editablePlant;
+
   Future<void> handleSubmitForm(BuildContext context) async {
     context.read<EditPlantPageBloc>().add(const EditPlantPageEvent.saved());
   }
+
+  const EditPlantPageScaffold({@required this.editablePlant});
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +94,9 @@ class EditPlantPageScaffold extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("EditPlant"),
+            title: Text(
+              editablePlant == null ? "Add plant" : "Edit plant",
+            ),
             actions: [
               IconButton(
                 icon: const Icon(Icons.done),
