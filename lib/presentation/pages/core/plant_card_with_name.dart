@@ -11,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
+import 'package:planto/presentation/pages/details_page/details_page.dart';
 
 class PlantCardWithName extends StatelessWidget {
   final Plant plant;
@@ -33,10 +34,18 @@ class PlantCardWithName extends StatelessWidget {
     }
   }
 
+  void navigateToDetailsPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => DetailsPage(plant: plant)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onLongPress: () => handleDeletion(context),
+      onTap: () => navigateToDetailsPage(context),
       child: Container(
         width: size,
         height: size + 100,

@@ -1,3 +1,6 @@
+// Package imports:
+import 'package:intl/intl.dart';
+
 /// Creates a datetime object using only the year, month, and date from [datetime].
 DateTime getDateYMD(DateTime datetime) {
   return DateTime(datetime.year, datetime.month, datetime.day);
@@ -12,4 +15,12 @@ bool customIsBefore(DateTime dateBefore, DateTime dateAfter) {
     return false;
   }
   return dateOnlyBefore.isBefore(dateOnlyAfter);
+}
+
+String formatDate(DateTime date) {
+  return DateFormat("d MMMM y").format(date);
+}
+
+String formatDateString(String dateString) {
+  return DateFormat("d MMMM y").format(DateTime.parse(dateString));
 }

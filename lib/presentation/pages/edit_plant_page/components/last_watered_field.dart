@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 // Project imports:
 import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/domain/core/date_utils.dart';
 
 class LastWateredField extends StatefulWidget {
   @override
@@ -22,7 +22,7 @@ class LastWateredFieldState extends State<LastWateredField> {
   void initState() {
     _selectedDateString = DateTime.now().toString();
     _dateTextEditingController = TextEditingController();
-    _dateTextEditingController.text = _formatDateString(_selectedDateString);
+    _dateTextEditingController.text = formatDateString(_selectedDateString);
     super.initState();
   }
 
@@ -46,18 +46,10 @@ class LastWateredFieldState extends State<LastWateredField> {
         });
   }
 
-  String _formatDate(DateTime date) {
-    return DateFormat("d MMMM y").format(date);
-  }
-
-  String _formatDateString(String dateString) {
-    return DateFormat("d MMMM y").format(DateTime.parse(dateString));
-  }
-
   Future<void> handleSelectDate(BuildContext context) async {
     _selectedDate = await _selectDate(context) ?? _selectedDate;
     if (_selectedDate != null) {
-      _selectedDateString = _formatDate(_selectedDate);
+      _selectedDateString = formatDate(_selectedDate);
       return context.read<EditPlantPageBloc>().add(
             EditPlantPageEvent.lastWateredChanged(
               _selectedDate.toString(),
@@ -85,7 +77,7 @@ class LastWateredFieldState extends State<LastWateredField> {
         // existing one
         _dateTextEditingController.text = state.plant.lastWatered.value.fold(
           (f) => _selectedDateString,
-          (v) => _formatDate(v),
+          (v) => formatDate(v),
         );
       },
       builder: (context, _) {
