@@ -12,7 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import 'package:planto/domain/core/date_utils.dart';
 import 'package:planto/domain/core/value_failure.dart';
-import 'package:planto/domain/details_page/last_watered.dart';
+import 'package:planto/domain/edit_plant_page/last_watered.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 

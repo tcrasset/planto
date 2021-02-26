@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
-import 'package:planto/domain/details_page/watering_days.dart';
+import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/domain/edit_plant_page/watering_days.dart';
 
 class WateringDaysField extends StatefulWidget {
   @override
@@ -30,7 +30,7 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+    return BlocConsumer<EditPlantPageBloc, EditPlantPageState>(
       listener: (context, state) {
         _controller
           ..text = getWateringDays(state)
@@ -58,7 +58,7 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
     );
   }
 
-  String getWateringDays(DetailsPageState state) =>
+  String getWateringDays(EditPlantPageState state) =>
       state.plant.wateringDays.value.fold(
         (_) => null,
         (v) => v.toString(),
@@ -66,14 +66,20 @@ class _WateringDaysFieldState extends State<WateringDaysField> {
 
   void handleOnChangedEvent(BuildContext context, String value) {
     return context
-        .read<DetailsPageBloc>()
-        .add(DetailsPageEvent.wateringDaysChanged(
+        .read<EditPlantPageBloc>()
+        .add(EditPlantPageEvent.wateringDaysChanged(
           value,
         ));
   }
 
   String validateWateringDays(BuildContext context) {
-    return context.read<DetailsPageBloc>().state.plant.wateringDays.value.fold(
+    return context
+        .read<EditPlantPageBloc>()
+        .state
+        .plant
+        .wateringDays
+        .value
+        .fold(
           (f) => f.maybeMap(
               invalidWateringDays: (_) => "Invalid number of days",
               nonPositiveWateringDays: (_) => "Must be positive",

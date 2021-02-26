@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 
 // Project imports:
 import 'package:planto/domain/core/value_failure.dart';
-import 'package:planto/domain/details_page/image_path.dart';
+import 'package:planto/domain/edit_plant_page/image_path.dart';
 
 void main() {
   test(

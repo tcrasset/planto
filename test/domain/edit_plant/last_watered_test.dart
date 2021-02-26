@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:planto/domain/core/value_failure.dart';
-import 'package:planto/domain/details_page/last_watered.dart';
+import 'package:planto/domain/edit_plant_page/last_watered.dart';
 
 void main() {
   test('verify that the constructor adds the value', () {

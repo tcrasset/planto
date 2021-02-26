@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:planto/domain/core/value_failure.dart';
-import 'package:planto/domain/details_page/name.dart';
+import 'package:planto/domain/edit_plant_page/name.dart';
 
 void main() {
   test('verify that Name constructor assigns correct value', () {

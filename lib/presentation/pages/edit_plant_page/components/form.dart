@@ -5,20 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
-import 'package:planto/domain/details_page/name.dart';
-import 'package:planto/presentation/pages/details_page/components/image_field.dart';
-import 'package:planto/presentation/pages/details_page/components/last_watered_field.dart';
-import 'package:planto/presentation/pages/details_page/components/notes_field.dart';
-import 'package:planto/presentation/pages/details_page/components/plant_name_field.dart';
-import 'package:planto/presentation/pages/details_page/components/watering_days_field.dart';
+import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/domain/edit_plant_page/name.dart';
+import 'package:planto/presentation/pages/edit_plant_page/components/image_field.dart';
+import 'package:planto/presentation/pages/edit_plant_page/components/last_watered_field.dart';
+import 'package:planto/presentation/pages/edit_plant_page/components/notes_field.dart';
+import 'package:planto/presentation/pages/edit_plant_page/components/plant_name_field.dart';
+import 'package:planto/presentation/pages/edit_plant_page/components/watering_days_field.dart';
 
-class DetailsPageForm extends StatelessWidget {
+class EditPlantPageForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double imageSize = 300;
 
-    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+    return BlocBuilder<EditPlantPageBloc, EditPlantPageState>(
       builder: (context, state) {
         return Form(
           autovalidateMode: state.showErrorMessages
@@ -53,13 +53,13 @@ class DetailsPageForm extends StatelessWidget {
 }
 
 void standardNameChange(BuildContext context, String value) {
-  context.read<DetailsPageBloc>().add(DetailsPageEvent.standardNameChanged(
+  context.read<EditPlantPageBloc>().add(EditPlantPageEvent.standardNameChanged(
         value,
       ));
 }
 
 void latinNameChange(BuildContext context, String value) {
-  context.read<DetailsPageBloc>().add(DetailsPageEvent.latinNameChanged(
+  context.read<EditPlantPageBloc>().add(EditPlantPageEvent.latinNameChanged(
         value,
       ));
 }
@@ -75,14 +75,14 @@ String _failNameClosure(dynamic f) {
 }
 
 String validateStandardName(BuildContext context) {
-  return context.read<DetailsPageBloc>().state.plant.name.value.fold(
+  return context.read<EditPlantPageBloc>().state.plant.name.value.fold(
         (f) => _failNameClosure(f),
         (_) => null,
       );
 }
 
 String validateLatinName(BuildContext context) {
-  return context.read<DetailsPageBloc>().state.plant.latinName.value.fold(
+  return context.read<EditPlantPageBloc>().state.plant.latinName.value.fold(
         (f) => _failNameClosure(f),
         (_) => null,
       );

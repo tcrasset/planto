@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
-import 'package:planto/domain/details_page/name.dart';
+import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/domain/edit_plant_page/name.dart';
 
 class PlantNameField extends StatefulWidget {
   final String hintText;
@@ -43,7 +43,7 @@ class _PlantNameFieldState extends State<PlantNameField> {
   Widget build(BuildContext context) {
     final bool isLatinName = widget.hintText.toLowerCase().contains("latin");
 
-    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+    return BlocConsumer<EditPlantPageBloc, EditPlantPageState>(
       listener: (context, state) {
         _controller
           ..text = isLatinName ? getLatinName(state) : getName(state)
@@ -71,12 +71,12 @@ class _PlantNameFieldState extends State<PlantNameField> {
     );
   }
 
-  String getName(DetailsPageState state) => state.plant.name.value.fold(
+  String getName(EditPlantPageState state) => state.plant.name.value.fold(
         (_) => null,
         (v) => v,
       );
 
-  String getLatinName(DetailsPageState state) =>
+  String getLatinName(EditPlantPageState state) =>
       state.plant.latinName.value.fold(
         (_) => null,
         (v) => v,

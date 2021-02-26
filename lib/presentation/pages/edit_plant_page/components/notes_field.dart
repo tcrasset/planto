@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
-import 'package:planto/domain/details_page/note.dart';
+import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
+import 'package:planto/domain/edit_plant_page/note.dart';
 
 class NotesField extends StatefulWidget {
   @override
@@ -29,13 +29,13 @@ class _NotesFieldState extends State<NotesField> {
   }
 
   void handleOnChangedEvent(BuildContext context, String value) {
-    context.read<DetailsPageBloc>().add(DetailsPageEvent.noteChanged(
+    context.read<EditPlantPageBloc>().add(EditPlantPageEvent.noteChanged(
           value,
         ));
   }
 
   String validateNote(BuildContext context) {
-    return context.read<DetailsPageBloc>().state.plant.note.value.fold(
+    return context.read<EditPlantPageBloc>().state.plant.note.value.fold(
           (f) => f.maybeMap(
             longNote: (_) => "Note is too long",
             orElse: () => null,
@@ -46,7 +46,7 @@ class _NotesFieldState extends State<NotesField> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+    return BlocConsumer<EditPlantPageBloc, EditPlantPageState>(
       listener: (context, state) {
         _controller
           ..text = state.plant.note.getOrCrash()

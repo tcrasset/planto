@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 // Project imports:
-import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
 
 class LastWateredField extends StatefulWidget {
   @override
@@ -58,8 +58,8 @@ class LastWateredFieldState extends State<LastWateredField> {
     _selectedDate = await _selectDate(context) ?? _selectedDate;
     if (_selectedDate != null) {
       _selectedDateString = _formatDate(_selectedDate);
-      return context.read<DetailsPageBloc>().add(
-            DetailsPageEvent.lastWateredChanged(
+      return context.read<EditPlantPageBloc>().add(
+            EditPlantPageEvent.lastWateredChanged(
               _selectedDate.toString(),
             ),
           );
@@ -67,7 +67,7 @@ class LastWateredFieldState extends State<LastWateredField> {
   }
 
   String validateLastWateredDate(BuildContext context) {
-    return context.read<DetailsPageBloc>().state.plant.lastWatered.value.fold(
+    return context.read<EditPlantPageBloc>().state.plant.lastWatered.value.fold(
           (f) => f.maybeMap(
               invalidLastWateredDate: (_) => "Must be a date",
               futureLastWateredDate: (_) => "Must not be in the future",
@@ -78,7 +78,7 @@ class LastWateredFieldState extends State<LastWateredField> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+    return BlocConsumer<EditPlantPageBloc, EditPlantPageState>(
       listener: (context, state) {
         // If the lastWatered value return a ValueFailure, take the default value
         // or the value stored in the plant if we are editing an

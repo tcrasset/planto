@@ -11,11 +11,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:planto/domain/core/value_failure.dart';
-import 'package:planto/domain/details_page/image_path.dart';
-import 'package:planto/domain/details_page/last_watered.dart';
-import 'package:planto/domain/details_page/name.dart';
-import 'package:planto/domain/details_page/note.dart';
-import 'package:planto/domain/details_page/watering_days.dart';
+import 'package:planto/domain/edit_plant_page/image_path.dart';
+import 'package:planto/domain/edit_plant_page/last_watered.dart';
+import 'package:planto/domain/edit_plant_page/name.dart';
+import 'package:planto/domain/edit_plant_page/note.dart';
+import 'package:planto/domain/edit_plant_page/watering_days.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 
@@ -23,17 +23,17 @@ part 'details_page_event.dart';
 part 'details_page_state.dart';
 part 'details_page_bloc.freezed.dart';
 
-class DetailsPageBloc extends Bloc<DetailsPageEvent, DetailsPageState> {
+class EditPlantPageBloc extends Bloc<EditPlantPageEvent, EditPlantPageState> {
   final IPlantRepository plantRepository;
 
-  DetailsPageBloc({@required this.plantRepository})
-      : super(DetailsPageState.initial());
+  EditPlantPageBloc({@required this.plantRepository})
+      : super(EditPlantPageState.initial());
 
-  DetailsPageState get initialState => DetailsPageState.initial();
+  EditPlantPageState get initialState => EditPlantPageState.initial();
 
   @override
-  Stream<DetailsPageState> mapEventToState(
-    DetailsPageEvent event,
+  Stream<EditPlantPageState> mapEventToState(
+    EditPlantPageEvent event,
   ) async* {
     yield* event.map(
       initialized: (Initialized e) async* {

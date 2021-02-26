@@ -3,11 +3,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:planto/domain/core/unique_id.dart';
-import 'package:planto/domain/details_page/image_path.dart';
-import 'package:planto/domain/details_page/last_watered.dart';
-import 'package:planto/domain/details_page/name.dart';
-import 'package:planto/domain/details_page/note.dart';
-import 'package:planto/domain/details_page/watering_days.dart';
+import 'package:planto/domain/edit_plant_page/image_path.dart';
+import 'package:planto/domain/edit_plant_page/last_watered.dart';
+import 'package:planto/domain/edit_plant_page/name.dart';
+import 'package:planto/domain/edit_plant_page/note.dart';
+import 'package:planto/domain/edit_plant_page/watering_days.dart';
 import 'package:planto/domain/plant/plant.dart';
 
 part 'plant_dto.freezed.dart';
@@ -42,7 +42,6 @@ abstract class PlantDTO implements _$PlantDTO {
   }
 
   Plant toDomain() {
-
     return Plant(
       id: UniqueId.fromUniqueString(id),
       name: Name(name),

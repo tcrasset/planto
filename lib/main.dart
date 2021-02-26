@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.green[600],
           accentColor: Colors.teal[400]),
       home: const PlantPage(title: 'Plantô'),
-      // home: DetailsPage(),
     );
   }
 }

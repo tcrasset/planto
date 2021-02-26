@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 // Project imports:
-import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
 import 'package:planto/domain/core/utils.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
 
@@ -35,14 +35,14 @@ class _ImageFieldState extends State<ImageField> {
           await copyImageToApplicationDir(File(pickedFile.path));
 
       context
-          .read<DetailsPageBloc>()
-          .add(DetailsPageEvent.imageChanged(newPath?.path));
+          .read<EditPlantPageBloc>()
+          .add(EditPlantPageEvent.imageChanged(newPath?.path));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+    return BlocBuilder<EditPlantPageBloc, EditPlantPageState>(
       builder: (context, state) {
         return Stack(
           children: [
@@ -65,7 +65,7 @@ class _ImageFieldState extends State<ImageField> {
   }
 }
 
-Image getNewImageFromState(DetailsPageState state) {
+Image getNewImageFromState(EditPlantPageState state) {
   return state.plant.imagePath.value.fold(
     (_) => Image.asset(
       'images/succulent.jpg',

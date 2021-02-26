@@ -13,7 +13,7 @@ import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.
 import 'package:planto/application/plant_page/plant_watcher_bloc/plant_watcher_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
-import 'package:planto/presentation/pages/details_page/details_page.dart';
+import 'package:planto/presentation/pages/edit_plant_page/edit_plant_page.dart';
 import 'components/plant_list_item.dart';
 
 class PlantPage extends StatelessWidget {
@@ -46,7 +46,7 @@ class PlantScaffold extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => const DetailsPage(editablePlant: null)),
+          builder: (context) => const EditPlantPage(editablePlant: null)),
     );
   }
 

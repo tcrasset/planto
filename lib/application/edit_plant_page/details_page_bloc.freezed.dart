@@ -10,8 +10,8 @@ part of 'details_page_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$DetailsPageEventTearOff {
-  const _$DetailsPageEventTearOff();
+class _$EditPlantPageEventTearOff {
+  const _$EditPlantPageEventTearOff();
 
 // ignore: unused_element
   Initialized initialized(Option<Plant> initialPlantOption) {
@@ -70,10 +70,10 @@ class _$DetailsPageEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $DetailsPageEvent = _$DetailsPageEventTearOff();
+const $EditPlantPageEvent = _$EditPlantPageEventTearOff();
 
 /// @nodoc
-mixin _$DetailsPageEvent {
+mixin _$EditPlantPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialized(Option<Plant> initialPlantOption),
@@ -123,20 +123,20 @@ mixin _$DetailsPageEvent {
 }
 
 /// @nodoc
-abstract class $DetailsPageEventCopyWith<$Res> {
-  factory $DetailsPageEventCopyWith(
-          DetailsPageEvent value, $Res Function(DetailsPageEvent) then) =
-      _$DetailsPageEventCopyWithImpl<$Res>;
+abstract class $EditPlantPageEventCopyWith<$Res> {
+  factory $EditPlantPageEventCopyWith(
+          EditPlantPageEvent value, $Res Function(EditPlantPageEvent) then) =
+      _$EditPlantPageEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$DetailsPageEventCopyWithImpl<$Res>
-    implements $DetailsPageEventCopyWith<$Res> {
-  _$DetailsPageEventCopyWithImpl(this._value, this._then);
+class _$EditPlantPageEventCopyWithImpl<$Res>
+    implements $EditPlantPageEventCopyWith<$Res> {
+  _$EditPlantPageEventCopyWithImpl(this._value, this._then);
 
-  final DetailsPageEvent _value;
+  final EditPlantPageEvent _value;
   // ignore: unused_field
-  final $Res Function(DetailsPageEvent) _then;
+  final $Res Function(EditPlantPageEvent) _then;
 }
 
 /// @nodoc
@@ -149,7 +149,7 @@ abstract class $InitializedCopyWith<$Res> {
 
 /// @nodoc
 class _$InitializedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
+    extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $InitializedCopyWith<$Res> {
   _$InitializedCopyWithImpl(
       Initialized _value, $Res Function(Initialized) _then)
@@ -180,7 +180,7 @@ class _$Initialized implements Initialized {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.initialized(initialPlantOption: $initialPlantOption)';
+    return 'EditPlantPageEvent.initialized(initialPlantOption: $initialPlantOption)';
   }
 
   @override
@@ -289,7 +289,7 @@ class _$Initialized implements Initialized {
   }
 }
 
-abstract class Initialized implements DetailsPageEvent {
+abstract class Initialized implements EditPlantPageEvent {
   const factory Initialized(Option<Plant> initialPlantOption) = _$Initialized;
 
   Option<Plant> get initialPlantOption;
@@ -307,7 +307,7 @@ abstract class $StandardNameChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$StandardNameChangedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
+    extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $StandardNameChangedCopyWith<$Res> {
   _$StandardNameChangedCopyWithImpl(
       StandardNameChanged _value, $Res Function(StandardNameChanged) _then)
@@ -335,7 +335,7 @@ class _$StandardNameChanged implements StandardNameChanged {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.standardNameChanged(name: $name)';
+    return 'EditPlantPageEvent.standardNameChanged(name: $name)';
   }
 
   @override
@@ -442,7 +442,7 @@ class _$StandardNameChanged implements StandardNameChanged {
   }
 }
 
-abstract class StandardNameChanged implements DetailsPageEvent {
+abstract class StandardNameChanged implements EditPlantPageEvent {
   const factory StandardNameChanged(String name) = _$StandardNameChanged;
 
   String get name;
@@ -460,7 +460,7 @@ abstract class $LatinNameChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$LatinNameChangedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
+    extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $LatinNameChangedCopyWith<$Res> {
   _$LatinNameChangedCopyWithImpl(
       LatinNameChanged _value, $Res Function(LatinNameChanged) _then)
@@ -488,7 +488,7 @@ class _$LatinNameChanged implements LatinNameChanged {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.latinNameChanged(name: $name)';
+    return 'EditPlantPageEvent.latinNameChanged(name: $name)';
   }
 
   @override
@@ -595,7 +595,7 @@ class _$LatinNameChanged implements LatinNameChanged {
   }
 }
 
-abstract class LatinNameChanged implements DetailsPageEvent {
+abstract class LatinNameChanged implements EditPlantPageEvent {
   const factory LatinNameChanged(String name) = _$LatinNameChanged;
 
   String get name;
@@ -613,7 +613,7 @@ abstract class $LastWateredChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$LastWateredChangedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
+    extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $LastWateredChangedCopyWith<$Res> {
   _$LastWateredChangedCopyWithImpl(
       LastWateredChanged _value, $Res Function(LastWateredChanged) _then)
@@ -641,7 +641,7 @@ class _$LastWateredChanged implements LastWateredChanged {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.lastWateredChanged(date: $date)';
+    return 'EditPlantPageEvent.lastWateredChanged(date: $date)';
   }
 
   @override
@@ -748,7 +748,7 @@ class _$LastWateredChanged implements LastWateredChanged {
   }
 }
 
-abstract class LastWateredChanged implements DetailsPageEvent {
+abstract class LastWateredChanged implements EditPlantPageEvent {
   const factory LastWateredChanged(String date) = _$LastWateredChanged;
 
   String get date;
@@ -766,7 +766,7 @@ abstract class $WateringDaysChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$WateringDaysChangedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
+    extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $WateringDaysChangedCopyWith<$Res> {
   _$WateringDaysChangedCopyWithImpl(
       WateringDaysChanged _value, $Res Function(WateringDaysChanged) _then)
@@ -794,7 +794,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.wateringDaysChanged(days: $days)';
+    return 'EditPlantPageEvent.wateringDaysChanged(days: $days)';
   }
 
   @override
@@ -901,7 +901,7 @@ class _$WateringDaysChanged implements WateringDaysChanged {
   }
 }
 
-abstract class WateringDaysChanged implements DetailsPageEvent {
+abstract class WateringDaysChanged implements EditPlantPageEvent {
   const factory WateringDaysChanged(String days) = _$WateringDaysChanged;
 
   String get days;
@@ -919,7 +919,7 @@ abstract class $NoteChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$NoteChangedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
+    extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $NoteChangedCopyWith<$Res> {
   _$NoteChangedCopyWithImpl(
       NoteChanged _value, $Res Function(NoteChanged) _then)
@@ -947,7 +947,7 @@ class _$NoteChanged implements NoteChanged {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.noteChanged(noteBody: $noteBody)';
+    return 'EditPlantPageEvent.noteChanged(noteBody: $noteBody)';
   }
 
   @override
@@ -1055,7 +1055,7 @@ class _$NoteChanged implements NoteChanged {
   }
 }
 
-abstract class NoteChanged implements DetailsPageEvent {
+abstract class NoteChanged implements EditPlantPageEvent {
   const factory NoteChanged(String noteBody) = _$NoteChanged;
 
   String get noteBody;
@@ -1073,7 +1073,7 @@ abstract class $ImageChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$ImageChangedCopyWithImpl<$Res>
-    extends _$DetailsPageEventCopyWithImpl<$Res>
+    extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $ImageChangedCopyWith<$Res> {
   _$ImageChangedCopyWithImpl(
       ImageChanged _value, $Res Function(ImageChanged) _then)
@@ -1101,7 +1101,7 @@ class _$ImageChanged implements ImageChanged {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.imageChanged(imagePath: $imagePath)';
+    return 'EditPlantPageEvent.imageChanged(imagePath: $imagePath)';
   }
 
   @override
@@ -1209,7 +1209,7 @@ class _$ImageChanged implements ImageChanged {
   }
 }
 
-abstract class ImageChanged implements DetailsPageEvent {
+abstract class ImageChanged implements EditPlantPageEvent {
   const factory ImageChanged(String imagePath) = _$ImageChanged;
 
   String get imagePath;
@@ -1224,7 +1224,7 @@ abstract class $SavedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SavedCopyWithImpl<$Res> extends _$DetailsPageEventCopyWithImpl<$Res>
+class _$SavedCopyWithImpl<$Res> extends _$EditPlantPageEventCopyWithImpl<$Res>
     implements $SavedCopyWith<$Res> {
   _$SavedCopyWithImpl(Saved _value, $Res Function(Saved) _then)
       : super(_value, (v) => _then(v as Saved));
@@ -1239,7 +1239,7 @@ class _$Saved implements Saved {
 
   @override
   String toString() {
-    return 'DetailsPageEvent.saved()';
+    return 'EditPlantPageEvent.saved()';
   }
 
   @override
@@ -1337,13 +1337,13 @@ class _$Saved implements Saved {
   }
 }
 
-abstract class Saved implements DetailsPageEvent {
+abstract class Saved implements EditPlantPageEvent {
   const factory Saved() = _$Saved;
 }
 
 /// @nodoc
-class _$DetailsPageStateTearOff {
-  const _$DetailsPageStateTearOff();
+class _$EditPlantPageStateTearOff {
+  const _$EditPlantPageStateTearOff();
 
 // ignore: unused_element
   _DetailsPageState call(
@@ -1372,10 +1372,10 @@ class _$DetailsPageStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $DetailsPageState = _$DetailsPageStateTearOff();
+const $EditPlantPageState = _$EditPlantPageStateTearOff();
 
 /// @nodoc
-mixin _$DetailsPageState {
+mixin _$EditPlantPageState {
   Plant get plant;
   bool get showErrorMessages;
   bool get isSaving;
@@ -1384,14 +1384,14 @@ mixin _$DetailsPageState {
   Option<Either<ValueFailure, Unit>> get saveFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
-  $DetailsPageStateCopyWith<DetailsPageState> get copyWith;
+  $EditPlantPageStateCopyWith<EditPlantPageState> get copyWith;
 }
 
 /// @nodoc
-abstract class $DetailsPageStateCopyWith<$Res> {
-  factory $DetailsPageStateCopyWith(
-          DetailsPageState value, $Res Function(DetailsPageState) then) =
-      _$DetailsPageStateCopyWithImpl<$Res>;
+abstract class $EditPlantPageStateCopyWith<$Res> {
+  factory $EditPlantPageStateCopyWith(
+          EditPlantPageState value, $Res Function(EditPlantPageState) then) =
+      _$EditPlantPageStateCopyWithImpl<$Res>;
   $Res call(
       {Plant plant,
       bool showErrorMessages,
@@ -1404,13 +1404,13 @@ abstract class $DetailsPageStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DetailsPageStateCopyWithImpl<$Res>
-    implements $DetailsPageStateCopyWith<$Res> {
-  _$DetailsPageStateCopyWithImpl(this._value, this._then);
+class _$EditPlantPageStateCopyWithImpl<$Res>
+    implements $EditPlantPageStateCopyWith<$Res> {
+  _$EditPlantPageStateCopyWithImpl(this._value, this._then);
 
-  final DetailsPageState _value;
+  final EditPlantPageState _value;
   // ignore: unused_field
-  final $Res Function(DetailsPageState) _then;
+  final $Res Function(EditPlantPageState) _then;
 
   @override
   $Res call({
@@ -1449,7 +1449,7 @@ class _$DetailsPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 abstract class _$DetailsPageStateCopyWith<$Res>
-    implements $DetailsPageStateCopyWith<$Res> {
+    implements $EditPlantPageStateCopyWith<$Res> {
   factory _$DetailsPageStateCopyWith(
           _DetailsPageState value, $Res Function(_DetailsPageState) then) =
       __$DetailsPageStateCopyWithImpl<$Res>;
@@ -1468,7 +1468,7 @@ abstract class _$DetailsPageStateCopyWith<$Res>
 
 /// @nodoc
 class __$DetailsPageStateCopyWithImpl<$Res>
-    extends _$DetailsPageStateCopyWithImpl<$Res>
+    extends _$EditPlantPageStateCopyWithImpl<$Res>
     implements _$DetailsPageStateCopyWith<$Res> {
   __$DetailsPageStateCopyWithImpl(
       _DetailsPageState _value, $Res Function(_DetailsPageState) _then)
@@ -1533,7 +1533,7 @@ class _$_DetailsPageState implements _DetailsPageState {
 
   @override
   String toString() {
-    return 'DetailsPageState(plant: $plant, showErrorMessages: $showErrorMessages, isSaving: $isSaving, isEditing: $isEditing, isScrollable: $isScrollable, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'EditPlantPageState(plant: $plant, showErrorMessages: $showErrorMessages, isSaving: $isSaving, isEditing: $isEditing, isScrollable: $isScrollable, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -1577,7 +1577,7 @@ class _$_DetailsPageState implements _DetailsPageState {
       __$DetailsPageStateCopyWithImpl<_DetailsPageState>(this, _$identity);
 }
 
-abstract class _DetailsPageState implements DetailsPageState {
+abstract class _DetailsPageState implements EditPlantPageState {
   const factory _DetailsPageState(
           {@required
               Plant plant,

@@ -9,31 +9,32 @@ import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:planto/application/details_page/bloc/details_page_bloc.dart';
+import 'package:planto/application/edit_plant_page/details_page_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
-import 'package:planto/presentation/pages/details_page/components/form.dart';
+import 'package:planto/presentation/pages/edit_plant_page/components/form.dart';
 
-class DetailsPage extends StatelessWidget {
+class EditPlantPage extends StatelessWidget {
   final Plant editablePlant;
 
-  const DetailsPage({Key key, @required this.editablePlant}) : super(key: key);
+  const EditPlantPage({Key key, @required this.editablePlant})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) =>
-            DetailsPageBloc(plantRepository: GetIt.instance<IPlantRepository>())
-              ..add(DetailsPageEvent.initialized(optionOf(editablePlant))),
-        child: DetailsPageStack());
+        create: (_) => EditPlantPageBloc(
+            plantRepository: GetIt.instance<IPlantRepository>())
+          ..add(EditPlantPageEvent.initialized(optionOf(editablePlant))),
+        child: EditPlantPageStack());
   }
 }
 
-class DetailsPageStack extends StatelessWidget {
+class EditPlantPageStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DetailsPageBloc, DetailsPageState>(
+    return BlocConsumer<EditPlantPageBloc, EditPlantPageState>(
       listenWhen: (p, c) =>
           p.saveFailureOrSuccessOption != c.saveFailureOrSuccessOption,
       listener: (context, state) {
@@ -61,7 +62,7 @@ class DetailsPageStack extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            DetailsPageScaffold(),
+            EditPlantPageScaffold(),
             InProgressOverlay(
               showOverlay: state.isSaving,
               textDisplayed: "Saving",
@@ -73,19 +74,19 @@ class DetailsPageStack extends StatelessWidget {
   }
 }
 
-class DetailsPageScaffold extends StatelessWidget {
+class EditPlantPageScaffold extends StatelessWidget {
   Future<void> handleSubmitForm(BuildContext context) async {
-    context.read<DetailsPageBloc>().add(const DetailsPageEvent.saved());
+    context.read<EditPlantPageBloc>().add(const EditPlantPageEvent.saved());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DetailsPageBloc, DetailsPageState>(
+    return BlocBuilder<EditPlantPageBloc, EditPlantPageState>(
       buildWhen: (p, c) => p.isScrollable != c.isScrollable,
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Details"),
+            title: const Text("EditPlant"),
             actions: [
               IconButton(
                 icon: const Icon(Icons.done),
@@ -96,13 +97,13 @@ class DetailsPageScaffold extends StatelessWidget {
           ),
           body: CustomScrollView(
             //So as to not scroll when the TextFields are changed
-            physics: context.read<DetailsPageBloc>().state.isScrollable
+            physics: context.read<EditPlantPageBloc>().state.isScrollable
                 ? const AlwaysScrollableScrollPhysics()
                 : const NeverScrollableScrollPhysics(),
             slivers: [
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: DetailsPageForm(),
+                child: EditPlantPageForm(),
               )
             ],
           ),
