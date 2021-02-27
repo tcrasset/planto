@@ -11,6 +11,7 @@ import 'package:image_picker/image_picker.dart';
 // Project imports:
 import 'package:planto/application/edit_plant_page/edit_plant_page_bloc.dart';
 import 'package:planto/domain/core/utils.dart';
+import 'package:planto/presentation/pages/core/image_utils.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
 
 class ImageField extends StatefulWidget {
@@ -48,7 +49,7 @@ class _ImageFieldState extends State<ImageField> {
           children: [
             SizedBox(
               width: widget.size,
-              height: widget.size,
+              height: widget.size * 1.2,
               child: PlantCard(image: getNewImageFromState(state)),
             ),
             Positioned(
@@ -67,13 +68,7 @@ class _ImageFieldState extends State<ImageField> {
 
 Image getNewImageFromState(EditPlantPageState state) {
   return state.plant.imagePath.value.fold(
-    (_) => Image.asset(
-      'images/succulent.jpg',
-      fit: BoxFit.fill,
-    ),
-    (imagePath) => Image.file(
-      File(imagePath),
-      fit: BoxFit.fill,
-    ),
+    (_) => getImageFromAsset(),
+    getImageFromPath,
   );
 }
