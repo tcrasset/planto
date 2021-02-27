@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart' show optionOf;
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,10 +11,12 @@ import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:planto/application/edit_plant_page/edit_plant_page_bloc.dart';
+import 'package:planto/domain/core/value_failure.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:planto/presentation/pages/edit_plant_page/components/form.dart';
+import 'package:planto/presentation/routes/router.gr.dart';
 
 class EditPlantPage extends StatelessWidget {
   final Plant editablePlant;
@@ -44,22 +47,13 @@ class EditPlantPageStack extends StatelessWidget {
       listener: (context, state) {
         state.saveFailureOrSuccessOption.fold(
           () /*None*/ {},
-          (either) /* Some*/ {
-            either.fold(
-              (failure) {
-                FlushbarHelper.createError(
-                  message: failure.maybeMap(
-                    unexpected: (_) =>
-                        'Unexpected error occured, please contact support.',
-                    orElse: () => null,
-                  ),
-                ).show(context);
-              },
-              (_) {
-                Navigator.of(context).pop();
-              },
-            );
-          },
+          (failureOrSuccess) /* Some*/ => failureOrSuccess.fold(
+            (failure) => showErrorFlushbar(failure, context),
+            (_) /*Success*/ => ExtendedNavigator.root.popAndPush(
+              Routes.detailsPage,
+              arguments: DetailsPageArguments(plant: state.plant),
+            ),
+          ),
         );
       },
       buildWhen: (p, c) => p.isSaving != c.isSaving,
@@ -75,6 +69,15 @@ class EditPlantPageStack extends StatelessWidget {
         );
       },
     );
+  }
+
+  Future showErrorFlushbar(ValueFailure failure, BuildContext context) {
+    return FlushbarHelper.createError(
+      message: failure.maybeMap(
+        unexpected: (_) => 'Unexpected error occured, please contact support.',
+        orElse: () => null,
+      ),
+    ).show(context);
   }
 }
 
