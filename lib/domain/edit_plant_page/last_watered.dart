@@ -27,6 +27,6 @@ Either<ValueFailure<String>, DateTime> _validateLastWatered(String input) {
   } else if (customIsBefore(DateTime.now(), date)) {
     return left(ValueFailure<String>.futureLastWateredDate(failedValue: input));
   } else {
-    return right(date);
+    return right(getDateYMD(date));
   }
 }

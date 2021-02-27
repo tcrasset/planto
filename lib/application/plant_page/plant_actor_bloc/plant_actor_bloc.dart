@@ -37,8 +37,7 @@ class PlantActorBloc extends Bloc<PlantActorEvent, PlantActorState> {
     }, waterPlant: (PlantWatered e) async* {
       yield const PlantActorState.loading();
 
-      final LastWatered newLastWatered =
-          LastWatered(getDateYMD(DateTime.now()).toString());
+      final LastWatered newLastWatered = LastWatered(DateTime.now().toString());
 
       if (e.plant.lastWatered != newLastWatered) {
         yield* _tryWaterPlant(e.plant, newLastWatered);
