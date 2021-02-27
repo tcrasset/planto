@@ -4,24 +4,20 @@ import 'dart:io';
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:auto_route/auto_route.dart';
+
 // Project imports:
 import 'package:planto/domain/core/date_utils.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
 import 'package:planto/presentation/pages/edit_plant_page/edit_plant_page.dart';
+import 'package:planto/presentation/routes/router.gr.dart' as app_router;
 
 class DetailsPage extends StatelessWidget {
   final Plant plant;
 
   const DetailsPage({Key key, @required this.plant}) : super(key: key);
-
-  void navigateToEditPlantPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => EditPlantPage(editablePlant: plant)),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +37,8 @@ class DetailsPage extends StatelessWidget {
               Icons.edit,
               color: Colors.white,
             ),
-            onPressed: () => navigateToEditPlantPage(context),
+            onPressed: () =>
+                ExtendedNavigator.root.pushEditPlantPage(editablePlant: plant),
           )
         ],
       ),
@@ -58,7 +55,7 @@ class DetailsPage extends StatelessWidget {
                 plant.name.getOrCrash(),
                 style: infoTextStyle,
               ),
-              const SizedBox(height: sizedBoxHeight / 2),
+              const SizedBox(height: sizedBoxHeight),
               const Text(
                 "Latin Name",
                 style: titleTextStyle,

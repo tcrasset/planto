@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -13,11 +14,11 @@ import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.
 import 'package:planto/application/plant_page/plant_watcher_bloc/plant_watcher_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
-import 'package:planto/presentation/pages/edit_plant_page/edit_plant_page.dart';
+import 'package:planto/presentation/routes/router.gr.dart';
 import 'components/plant_list_item.dart';
 
 class PlantPage extends StatelessWidget {
-  const PlantPage({Key key, @required this.title}) : super(key: key);
+  const PlantPage({Key key, this.title = "Plantô"}) : super(key: key);
 
   final String title;
 
@@ -41,14 +42,6 @@ class PlantScaffold extends StatelessWidget {
   final String title;
 
   const PlantScaffold({Key key, @required this.title}) : super(key: key);
-
-  void navigateToPlantPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => const EditPlantPage(editablePlant: null)),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +109,8 @@ class PlantScaffold extends StatelessWidget {
                     Icons.add,
                     color: Colors.white,
                   ),
-                  onPressed: () => navigateToPlantPage(context),
+                  onPressed: () => ExtendedNavigator.of(context)
+                      .pushEditPlantPage(editablePlant: null),
                 )
               ],
             ),

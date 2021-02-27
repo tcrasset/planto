@@ -41,7 +41,9 @@ class Router extends RouterBase {
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
     PlantPage: (data) {
-      final args = data.getArgs<PlantPageArguments>(nullOk: false);
+      final args = data.getArgs<PlantPageArguments>(
+        orElse: () => PlantPageArguments(),
+      );
       return MaterialPageRoute<dynamic>(
         builder: (context) => PlantPage(
           key: args.key,
@@ -81,7 +83,7 @@ class Router extends RouterBase {
 extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushPlantPage({
     Key key,
-    @required String title,
+    String title = "Plantô",
   }) =>
       push<dynamic>(
         Routes.plantPage,
@@ -116,7 +118,7 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 class PlantPageArguments {
   final Key key;
   final String title;
-  PlantPageArguments({this.key, @required this.title});
+  PlantPageArguments({this.key, this.title = "Plantô"});
 }
 
 /// EditPlantPage arguments holder class
