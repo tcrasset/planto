@@ -11,8 +11,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:planto/domain/core/date_utils.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
-import 'package:planto/presentation/pages/edit_plant_page/edit_plant_page.dart';
-import 'package:planto/presentation/routes/router.gr.dart' as app_router;
+import 'package:planto/presentation/routes/router.gr.dart';
 
 class DetailsPage extends StatelessWidget {
   final Plant plant;
