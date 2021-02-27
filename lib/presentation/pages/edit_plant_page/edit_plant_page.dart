@@ -49,14 +49,7 @@ class EditPlantPageStack extends StatelessWidget {
           () /*None*/ {},
           (failureOrSuccess) /* Some*/ => failureOrSuccess.fold(
             (failure) => showErrorFlushbar(failure, context),
-            (_) /*Success*/ =>
-                // When we save, we pop the "dirty" DetailsPage where we come
-                // from and replace it with the new plant information
-                ExtendedNavigator.root.pushAndRemoveUntilPath(
-              Routes.detailsPage,
-              Routes.plantPage,
-              arguments: DetailsPageArguments(plant: state.plant),
-            ),
+            (_) /*Success*/ => navigateToPage(state),
           ),
         );
       },
@@ -73,6 +66,20 @@ class EditPlantPageStack extends StatelessWidget {
         );
       },
     );
+  }
+
+  void navigateToPage(EditPlantPageState state) {
+    // When we save, we pop the "dirty" DetailsPage where we come
+    // from and replace it with the new plant information.
+    // If we were creating a new plant, we don't show the DetailsPage
+
+    editablePlant == null
+        ? ExtendedNavigator.root.popUntilPath(Routes.plantPage)
+        : ExtendedNavigator.root.pushAndRemoveUntilPath(
+            Routes.detailsPage,
+            Routes.plantPage,
+            arguments: DetailsPageArguments(plant: state.plant),
+          );
   }
 
   Future showErrorFlushbar(ValueFailure failure, BuildContext context) {
