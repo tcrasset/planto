@@ -1,4 +1,4 @@
-name: Your Budget Android Release
+name: Planto Android Release
 
 on:
   push:
