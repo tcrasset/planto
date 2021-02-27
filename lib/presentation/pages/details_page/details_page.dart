@@ -10,6 +10,7 @@ import 'package:auto_route/auto_route.dart';
 // Project imports:
 import 'package:planto/domain/core/date_utils.dart';
 import 'package:planto/domain/plant/plant.dart';
+import 'package:planto/presentation/pages/core/image_utils.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
 import 'package:planto/presentation/routes/router.gr.dart';
 
@@ -25,7 +26,7 @@ class DetailsPage extends StatelessWidget {
     const TextStyle infoTextStyle =
         TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
 
-    const double imageSize = 300;
+    const double imageHeight = 300;
     const double sizedBoxHeight = 8;
     return Scaffold(
       appBar: AppBar(
@@ -66,13 +67,10 @@ class DetailsPage extends StatelessWidget {
               ),
               const SizedBox(height: sizedBoxHeight),
               SizedBox(
-                width: imageSize,
-                height: imageSize,
+                width: imageHeight,
+                height: imageHeight * HEIGHT_TO_WIDTH_RATIO,
                 child: PlantCard(
-                  image: Image.file(
-                    File(plant.imagePath.getOrCrash()),
-                    fit: BoxFit.fill,
-                  ),
+                  image: getImageFromPath(plant.imagePath.getOrCrash()),
                 ),
               ),
               const SizedBox(height: sizedBoxHeight),

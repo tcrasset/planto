@@ -49,7 +49,7 @@ class _ImageFieldState extends State<ImageField> {
           children: [
             SizedBox(
               width: widget.size,
-              height: widget.size * 1.2,
+              height: widget.size * HEIGHT_TO_WIDTH_RATIO,
               child: PlantCard(image: getNewImageFromState(state)),
             ),
             Positioned(

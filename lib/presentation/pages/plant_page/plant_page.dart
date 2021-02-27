@@ -13,6 +13,7 @@ import 'package:get_it/get_it.dart';
 import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.dart';
 import 'package:planto/application/plant_page/plant_watcher_bloc/plant_watcher_bloc.dart';
 import 'package:planto/domain/plant/i_plant_repository.dart';
+import 'package:planto/presentation/pages/core/image_utils.dart';
 import 'package:planto/presentation/pages/core/progress_overlay.dart';
 import 'package:planto/presentation/routes/router.gr.dart';
 import 'components/plant_list_item.dart';
@@ -140,8 +141,11 @@ class PlantList extends StatelessWidget {
     return BlocBuilder<PlantWatcherBloc, PlantWatcherState>(
       builder: (context, state) {
         return state.maybeMap(
-          loadSuccess: (PlantLoadSuccess newState) =>
-              GridView.count(crossAxisCount: 2, children: _getPlants(newState)),
+          loadSuccess: (PlantLoadSuccess newState) => GridView.count(
+            crossAxisCount: 2,
+            childAspectRatio: 1 / HEIGHT_TO_WIDTH_RATIO,
+            children: _getPlants(newState),
+          ),
           orElse: () => Container(),
         );
       },

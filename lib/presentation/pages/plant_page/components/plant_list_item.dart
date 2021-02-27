@@ -16,11 +16,10 @@ class PlantListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double buttonSize = 50;
-    const double size = 200;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: Stack(children: [
-        PlantCardWithName(size: size, plant: plant),
+        PlantCardWithName(plant: plant),
         WaterButton(buttonSize: buttonSize, plant: plant),
       ]),
     );
