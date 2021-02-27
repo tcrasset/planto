@@ -8,7 +8,7 @@ const double HEIGHT_TO_WIDTH_RATIO = 1.2;
 
 Image getImageFromAsset() {
   return Image.asset(
-    'images/succulent.jpg',
+    'images/no-camera.png',
     fit: BoxFit.fitWidth,
   );
 }
