@@ -1,16 +1,9 @@
 // Dart imports:
 import 'dart:io';
 
-// Flutter imports:
-import 'package:flutter/services.dart';
-
 // Package imports:
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-
-Future<String> loadDefaultPlantPath() async {
-  return rootBundle.loadString('images/succulent.jpg');
-}
 
 Future<File> copyImageToApplicationDir(File imagePath) async {
   // Get directory where we can duplicate selected file.

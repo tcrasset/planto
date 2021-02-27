@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:planto/application/plant_page/plant_actor_bloc/plant_actor_bloc.dart';
+import 'package:planto/domain/core/date_utils.dart';
 import 'package:planto/domain/plant/plant.dart';
 import 'package:planto/presentation/pages/core/image_utils.dart';
 import 'package:planto/presentation/pages/core/plant_card.dart';
@@ -42,7 +43,9 @@ class PlantCardWithName extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.lightGreen[100],
+          color: shouldWaterNow(plant)
+              ? Colors.brown[300]
+              : Colors.lightGreen[100],
         ),
         child: Column(
           children: [
@@ -61,6 +64,15 @@ class PlantCardWithName extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool shouldWaterNow(Plant myPlant) {
+    final DateTime lastWatered = myPlant.lastWatered.getOrCrash();
+    final int wateringDays = myPlant.wateringDays.getOrCrash();
+    final DateTime today = getDateYMD(DateTime.now());
+    return lastWatered
+        .add(Duration(days: wateringDays))
+        .isAtSameMomentAs(today);
   }
 }
 
