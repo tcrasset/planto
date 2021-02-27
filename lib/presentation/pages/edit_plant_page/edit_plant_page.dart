@@ -49,8 +49,12 @@ class EditPlantPageStack extends StatelessWidget {
           () /*None*/ {},
           (failureOrSuccess) /* Some*/ => failureOrSuccess.fold(
             (failure) => showErrorFlushbar(failure, context),
-            (_) /*Success*/ => ExtendedNavigator.root.popAndPush(
+            (_) /*Success*/ =>
+                // When we save, we pop the "dirty" DetailsPage where we come
+                // from and replace it with the new plant information
+                ExtendedNavigator.root.pushAndRemoveUntilPath(
               Routes.detailsPage,
+              Routes.plantPage,
               arguments: DetailsPageArguments(plant: state.plant),
             ),
           ),

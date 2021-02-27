@@ -11,7 +11,7 @@ import 'package:planto/presentation/pages/plant_page/plant_page.dart';
   routes: <AutoRoute>[
     MaterialRoute(page: PlantPage, initial: true),
     MaterialRoute(page: EditPlantPage),
-    MaterialRoute(page: DetailsPage, fullscreenDialog: true),
+    MaterialRoute(page: DetailsPage),
   ],
 )
 class $Router {}

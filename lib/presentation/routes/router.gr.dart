@@ -70,7 +70,6 @@ class Router extends RouterBase {
           plant: args.plant,
         ),
         settings: data,
-        fullscreenDialog: true,
       );
     },
   };
